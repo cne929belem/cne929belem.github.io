@@ -1,0 +1,452 @@
+/* =========================================
+   1. VARIÁVEIS DE CORES E BASE (Identidade 929)
+   ========================================= */
+:root {
+    --azul-marinho: #003366; 
+    --azul-claro: #0056b3;
+    --azul-footer: #002244;
+    --branco: #ffffff;
+    --cinza-fundo: #f0f4f8;
+    --texto: #1a1a1a;
+}
+
+.email-link {
+    color: var(--azul-claro); /* Chama a cor que definiste lá em cima */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Permite que o conteúdo empurre o rodapé para baixo */
+html, body { height: 100%; }
+
+body { 
+    font-family: 'Nunito', sans-serif; 
+    background-color: var(--cinza-fundo);
+    color: var(--texto);
+    display: flex;
+    flex-direction: column;
+    padding-top: 65px; /* Altura da navbar */
+}
+
+h1, h2, h3, .brand-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--azul-marinho);
+}
+
+/* =========================================
+   2. NAVBAR E LOGÓTIPO
+   ========================================= */
+.navbar {
+    background: var(--branco);
+    height: 65px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-top: 3px solid var(--azul-marinho);
+    z-index: 1000;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px;
+    transition: opacity 0.3s;
+}
+
+/* Pequeno efeito ao passar o rato no logo */
+.brand:hover { opacity: 0.8; }
+
+.logo-img { height: 45px; width: auto; }
+.brand-name { font-size: 1.1rem; line-height: 1; }
+.brand-sub { color: var(--azul-claro); font-size: 0.7rem; font-weight: 700; }
+
+/* =========================================
+   3. MENUS E SUBMENUS (DROPDOWNS)
+   ========================================= */
+.nav-menu { 
+    display: flex; 
+    list-style: none; 
+    gap: 20px; 
+    align-items: center;
+}
+
+/* Estilo dos links principais */
+.nav-link {
+    text-decoration: none;
+    color: var(--azul-marinho);
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    padding: 10px 5px; /* Área de clique maior */
+    transition: color 0.3s;
+}
+
+.nav-link:hover { color: var(--azul-claro); }
+
+/* Configuração do botão que tem submenu */
+.dropdown {
+    position: relative; /* Serve de âncora para o submenu */
+}
+
+/* A caixa do submenu invisível por padrão */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Fica exatamente debaixo do botão pai */
+    left: 50%;
+    transform: translateX(-50%); /* Centra o submenu com o botão */
+    background-color: var(--branco);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    list-style: none;
+    min-width: 180px;
+    border-radius: 0 0 8px 8px;
+    border-top: 3px solid var(--azul-claro); /* Linha de destaque */
+    overflow: hidden;
+}
+
+/* Faz o submenu aparecer quando passamos o rato no .dropdown */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Links dentro do submenu */
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--texto);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-align: center;
+    transition: background 0.2s, color 0.2s;
+}
+
+/* Efeito ao passar o rato nas opções do submenu */
+.dropdown-menu a:hover {
+    background-color: var(--cinza-fundo);
+    color: var(--azul-claro);
+}
+
+/* =========================================
+   4. CONTEÚDO PRINCIPAL E BARRA LATERAL
+   ========================================= */
+.main-content {
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* O wrapper cria as colunas lado a lado no PC */
+.content-wrapper {
+    display: flex;
+    gap: 30px;
+    max-width: 1100px;
+    width: 100%;
+    align-items: stretch; /* A MAGIA ACONTECE AQUI: Obriga as caixas a terem a mesma altura */
+}
+
+/* --- CARTÃO CENTRAL --- */
+.card.main-card {
+    flex: 1; /* Ocupa o espaço restante à direita */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Se a caixa esticar, o texto fica centrado no meio */
+}
+
+.card {
+    background: var(--branco);
+    padding: 30px; 
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,51,102,0.08);
+    text-align: center;
+    border-bottom: 4px solid var(--azul-claro);
+}
+
+.card h1 { font-size: 1.8rem; margin-bottom: 10px; }
+.card p { font-size: 0.95rem; line-height: 1.4; margin-bottom: 15px; }
+
+.btn {
+    display: inline-block;
+    background: var(--azul-marinho);
+    color: white !important;
+    padding: 12px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 900;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.btn:hover { background: var(--azul-claro); }
+
+/* --- BARRA LATERAL (SIDEBAR) --- */
+.sidebar-desktop {
+    width: 320px; /* Largura fixa */
+    background: var(--branco);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,51,102,0.08);
+    border-top: 4px solid #E1306C; /* Cor do Instagram */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between; /* Empurra o botão "Seguir" para o fundo da caixa */
+}
+
+.sidebar-title {
+    color: var(--texto);
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.sidebar-text {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Grelha de fotos do Instagram */
+.insta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.insta-post {
+    display: block;
+    aspect-ratio: 1 / 1; /* Quadrados perfeitos */
+    border-radius: 8px;
+    overflow: hidden;
+    background: #f0f0f0;
+    transition: transform 0.2s;
+}
+
+.insta-post:hover {
+    transform: scale(1.05);
+}
+
+.insta-post img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.btn-insta {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: var(--branco);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    transition: opacity 0.3s;
+}
+
+.btn-insta:hover {
+    opacity: 0.85;
+}
+
+/* =========================================
+   5. RODAPÉ
+   ========================================= */
+footer {
+    background: var(--azul-footer);
+    color: var(--branco);
+    padding: 30px 20px 15px 20px; 
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    padding-bottom: 20px;
+    gap: 20px;
+}
+
+.footer-contactos, .footer-redes, .footer-logo {
+    flex: 1; 
+}
+
+/* Alinhamento da Coluna da Esquerda (Contactos) */
+.footer-contactos { text-align: left; }
+
+.footer-contactos h3 {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: rgba(255,255,255,0.8);
+}
+
+.footer-contactos p { 
+    font-size: 0.85rem; 
+    margin-bottom: 5px; 
+}
+
+/* Novos estilos para a morada e email */
+.map-link {
+    color: var(--branco);
+    text-decoration: none;
+    line-height: 1.6;
+    transition: opacity 0.3s;
+}
+
+.map-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+.email-link {
+    color: var(--azul-claro); /* Destaca com o azul claro do site */
+    font-size: 1.15rem;       /* Aumenta o tamanho */
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;         /* Espaço para afastar da morada */
+    transition: opacity 0.3s;
+}
+
+.email-link:hover {
+    opacity: 0.8;
+}
+
+/* Alinhamento da Coluna Central (Redes Sociais) */
+.footer-redes { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.social-row {
+    display: flex;
+    gap: 15px; /* Um pouco mais de espaço entre os ícones */
+    justify-content: center;
+}
+
+/* Estilo para transformar os botões em grandes ícones equiparados às imagens */
+.social-btn {
+    background: rgba(255, 255, 255, 0.1); 
+    color: var(--branco);
+    text-decoration: none;
+    width: 55px;  /* Mesma altura da imagem da direita */
+    height: 55px; /* Quadrado perfeito */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+}
+
+.social-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05); /* Animação idêntica às imagens da direita */
+}
+
+/* Tamanho do ícone SVG muito maior */
+.social-svg { 
+    height: 28px; 
+    width: auto; 
+}
+
+/* Alinhamento da Coluna da Direita (Logótipos) */
+.footer-logo {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;       
+    gap: 15px;                 
+}
+
+.footer-cne-img {
+    max-height: 55px; /* Mantém a altura equilibrada com os ícones das redes */
+    width: auto;
+    border-radius: 4px; 
+    transition: transform 0.2s; 
+}
+
+.footer-cne-img:hover {
+    transform: scale(1.05); 
+}
+
+/* Bloco final de Direitos de Autor */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+.copyright { opacity: 0.5; margin-top: 5px; font-size: 0.65rem; }
+
+/* =========================================
+   6. RESPONSIVIDADE (TELEMÓVEIS E TABLETS)
+   ========================================= */
+@media (max-width: 768px) {
+    body { padding-top: 130px; } 
+    
+    .navbar { height: auto; padding: 10px 0; }
+    .nav-container { flex-direction: column; gap: 15px; }
+    .brand-text { display: none; }
+    
+    .nav-menu { 
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .dropdown-menu {
+        position: static; 
+        transform: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        padding: 5px 0;
+    }
+    
+    .dropdown-menu a {
+        padding: 8px;
+        font-size: 0.75rem;
+        color: var(--azul-marinho); 
+    }
+
+    .main-content { align-items: flex-start; }
+    
+    .sidebar-desktop { display: none; }
+    .content-wrapper { flex-direction: column; }
+    
+    .footer-content { 
+        flex-direction: column; 
+        text-align: center; 
+        align-items: center; 
+        gap: 30px; 
+    }
+    
+    .footer-contactos { text-align: center; }
+
+    .footer-logo {
+        text-align: center;
+        justify-content: center;
+        width: 100%; 
+    }
+
+    .footer-redes { width: 100%; align-items: center; }
+}
