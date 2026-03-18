@@ -1,1 +1,106 @@
+:root {
+    /* Cores Marítimas do 929 */
+    --azul-marinho: #003366; 
+    --azul-claro: #0056b3;
+    --branco: #ffffff;
+    --fundo: #f0f4f8;
+}
 
+body { 
+    font-family: 'Nunito', sans-serif; 
+    margin: 0; 
+    background-color: var(--fundo);
+    color: #1a1a1a;
+}
+
+h1, h2, .logo-tipo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+header { 
+    background: var(--azul-marinho); 
+    padding: 50px 20px; 
+    text-align: center; 
+    color: var(--branco);
+    border-bottom: 5px solid var(--azul-claro);
+}
+
+.logo-tipo {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.subtitulo {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+nav { 
+    background: white; 
+    padding: 15px; 
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav a { 
+    color: var(--azul-marinho); 
+    margin: 0 15px; 
+    text-decoration: none; 
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+nav a:hover { color: var(--azul-claro); }
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.card-principal {
+    background: white;
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,51,102,0.1);
+    border-left: 8px solid var(--azul-claro);
+}
+
+.btn-maritimo {
+    display: inline-block;
+    background: var(--azul-marinho);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 4px; 
+    text-decoration: none;
+    margin-top: 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    transition: background 0.3s;
+}
+
+.btn-maritimo:hover {
+    background: var(--azul-claro);
+}
+
+footer { 
+    text-align: center; 
+    padding: 50px; 
+    font-size: 0.85rem; 
+    background: #d1d9e0;
+    color: var(--azul-marinho);
+}
+
+.logo-cne {
+    max-width: 120px;
+    margin-bottom: 20px;
+}
