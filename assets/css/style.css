@@ -296,15 +296,23 @@ footer {
     flex-direction: column; 
 }
 
+/* Coloca os botões lado a lado */
+.social-row {
+    display: flex;
+    gap: 10px;
+}
+
 .social-btn {
+    flex: 1; /* Faz com que os botões estiquem de forma igual, dividindo o espaço */
     background: rgba(255, 255, 255, 0.1); 
     color: var(--branco);
     text-decoration: none;
-    padding: 8px 15px;
+    padding: 10px 15px; /* Reduzi um bocadinho o padding vertical para poupar espaço */
     border-radius: 4px;
     font-size: 0.8rem;
     display: flex;
     align-items: center;
+    justify-content: center; /* Centra o ícone e o texto dentro do botão */
     gap: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: background 0.3s;
@@ -322,6 +330,7 @@ footer {
     text-align: center;
     font-size: 0.75rem;
 }
+
 .copyright { opacity: 0.5; margin-top: 5px; font-size: 0.65rem; }
 
 /* =========================================
@@ -333,6 +342,9 @@ footer {
     .navbar { height: auto; padding: 10px 0; }
     .nav-container { flex-direction: column; gap: 15px; }
     .brand-text { display: none; }
+   .social-row {
+        justify-content: center;
+    }
     
     .nav-menu { 
         flex-wrap: wrap; /* Permite que o menu desça de linha se não couber */
