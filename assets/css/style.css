@@ -1,19 +1,21 @@
 :root {
-    /* Cores Marítimas do 929 */
     --azul-marinho: #003366; 
     --azul-claro: #0056b3;
     --branco: #ffffff;
-    --fundo: #f0f4f8;
+    --fundo: #f4f7f9;
+    --texto: #1a1a1a;
 }
 
 body { 
     font-family: 'Nunito', sans-serif; 
     margin: 0; 
     background-color: var(--fundo);
-    color: #1a1a1a;
+    color: var(--texto);
+    line-height: 1.6;
 }
 
-h1, h2, .logo-tipo {
+/* Estilo para simular a Brandon Grotesque Black */
+h1, h2, .logo-tipo, .btn-maritimo {
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
     text-transform: uppercase;
@@ -22,14 +24,14 @@ h1, h2, .logo-tipo {
 
 header { 
     background: var(--azul-marinho); 
-    padding: 50px 20px; 
+    padding: 60px 20px; 
     text-align: center; 
     color: var(--branco);
-    border-bottom: 5px solid var(--azul-claro);
+    border-bottom: 6px solid var(--azul-claro);
 }
 
 .logo-tipo {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     margin-bottom: 5px;
 }
 
@@ -37,16 +39,18 @@ header {
     font-size: 1.1rem;
     opacity: 0.9;
     font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 nav { 
     background: white; 
-    padding: 15px; 
+    padding: 15px 0; 
     text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
 nav a { 
@@ -54,53 +58,61 @@ nav a {
     margin: 0 15px; 
     text-decoration: none; 
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
+    transition: color 0.3s;
 }
 
 nav a:hover { color: var(--azul-claro); }
 
 .container {
-    max-width: 1000px;
+    max-width: 800px;
     margin: auto;
-    padding: 40px 20px;
+    padding: 50px 20px;
 }
 
 .card-principal {
     background: white;
-    border-radius: 8px;
-    padding: 40px;
+    border-radius: 12px;
+    padding: 50px 40px;
     text-align: center;
-    box-shadow: 0 4px 20px rgba(0,51,102,0.1);
-    border-left: 8px solid var(--azul-claro);
+    box-shadow: 0 10px 30px rgba(0,51,102,0.05);
+    border-top: 8px solid var(--azul-claro);
 }
+
+h1 { color: var(--azul-marinho); margin-bottom: 20px; }
+h2 { color: var(--azul-marinho); margin-top: 0; }
 
 .btn-maritimo {
     display: inline-block;
     background: var(--azul-marinho);
-    color: white;
-    padding: 15px 30px;
+    color: white !important;
+    padding: 18px 35px;
     border-radius: 4px; 
     text-decoration: none;
-    margin-top: 25px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 900;
-    transition: background 0.3s;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
 .btn-maritimo:hover {
     background: var(--azul-claro);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,86,179,0.3);
 }
 
 footer { 
     text-align: center; 
-    padding: 50px; 
-    font-size: 0.85rem; 
-    background: #d1d9e0;
+    padding: 60px 20px; 
+    background: #e9eff5;
     color: var(--azul-marinho);
+    border-top: 1px solid #d1dbe5;
 }
 
-.logo-cne {
-    max-width: 120px;
-    margin-bottom: 20px;
+/* Ajuste para imagens não "explodirem" no telemóvel */
+img {
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
