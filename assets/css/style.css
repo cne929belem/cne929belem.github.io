@@ -156,12 +156,15 @@ h1, h2, h3, .brand-name {
     gap: 30px;
     max-width: 1100px;
     width: 100%;
-    align-items: flex-start; /* Evita que a barra lateral estique a sua altura */
+    align-items: stretch; /* A MAGIA ACONTECE AQUI: Obriga as caixas a terem a mesma altura */
 }
 
-/* O cartão principal ocupa o espaço restante */
+/* --- CARTÃO CENTRAL --- */
 .card.main-card {
-    flex: 1; 
+    flex: 1; /* Ocupa o espaço restante à direita */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Se a caixa esticar, o texto fica centrado no meio */
 }
 
 .card {
@@ -192,7 +195,7 @@ h1, h2, h3, .brand-name {
 
 /* --- BARRA LATERAL (SIDEBAR) --- */
 .sidebar-desktop {
-    width: 320px; /* Largura fixa para a barra lateral */
+    width: 320px; /* Largura fixa */
     background: var(--branco);
     padding: 25px;
     border-radius: 12px;
@@ -201,6 +204,7 @@ h1, h2, h3, .brand-name {
     display: flex;
     flex-direction: column;
     text-align: center;
+    justify-content: space-between; /* Empurra o botão "Seguir" para o fundo da caixa */
 }
 
 .sidebar-title {
@@ -225,7 +229,7 @@ h1, h2, h3, .brand-name {
 
 .insta-post {
     display: block;
-    aspect-ratio: 1 / 1; /* Força as fotos a serem quadrados perfeitos */
+    aspect-ratio: 1 / 1; /* Quadrados perfeitos */
     border-radius: 8px;
     overflow: hidden;
     background: #f0f0f0;
@@ -233,13 +237,13 @@ h1, h2, h3, .brand-name {
 }
 
 .insta-post:hover {
-    transform: scale(1.05); /* Pequeno zoom ao passar o rato */
+    transform: scale(1.05);
 }
 
 .insta-post img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Garante que a foto preenche o quadrado sem distorcer */
+    object-fit: cover; 
 }
 
 .btn-insta {
