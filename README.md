@@ -17,7 +17,7 @@ Este portal digital foi desenhado para partilhar a vida da nossa alcateia, frota
 
 # ⚓ CNE 929 Belém - Escuteiros Marítimos
 
-Bem-vindo ao repositório oficial do website do **Corpo Nacional de Escutas - Agrupamento 929 (Santa Maria de Belém)**. 
+Bem-vindo ao repositório oficial do website do **Corpo Nacional de Escutas - Agrupamento 929 (Belém)**. 
 Este portal digital foi desenhado para partilhar a vida da nossa alcateia, frota, flotilha e equipagem, e manter todos informados sobre as nossas atividades, como o Jamboree 2027.
 
 🌐 **Website em Direto:** [cne929belem.github.io](https://cne929belem.github.io/)
