@@ -2,30 +2,31 @@
    1. VARIÁVEIS DE CORES (Identidade do 929)
    ========================================= */
 :root {
-    --azul-marinho: #003366; /* Cor principal (textos escuros e botões) */
-    --azul-claro: #0056b3;   /* Cor de destaque ao passar o rato */
-    --azul-footer: #002244;  /* Azul ainda mais profundo para o fundo do rodapé */
-    --branco: #ffffff;       /* Cor branca pura */
-    --cinza-fundo: #f0f4f8;  /* Cor de fundo cinza muito clarinho do site */
-    --texto: #1a1a1a;        /* Cor do texto principal (quase preto) */
+    --azul-marinho: #003366; 
+    --azul-claro: #0056b3;
+    --azul-footer: #002244;
+    --branco: #ffffff;
+    --cinza-fundo: #f0f4f8;
+    --texto: #1a1a1a;
 }
 
-/* =========================================
-   2. CONFIGURAÇÕES GERAIS DE ESTRUTURA
-   ========================================= */
-/* Garante que o tamanho das caixas inclui o preenchimento interior (padding) */
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* Corpo da página */
+/* Configuração para evitar scroll: 
+   Usamos flex-column e min-height 100vh para o rodapé ficar sempre no fundo */
+html, body {
+    height: 100%;
+}
+
 body { 
-    font-family: 'Nunito', sans-serif; /* Tipo de letra moderno para textos longos */
-    margin: 0; 
+    font-family: 'Nunito', sans-serif; 
     background-color: var(--cinza-fundo);
     color: var(--texto);
-    padding-top: 70px; /* Empurra o conteúdo para baixo para não ficar tapado pelo menu fixo */
+    display: flex;
+    flex-direction: column;
+    padding-top: 75px; /* Altura da navbar */
 }
 
-/* Substitui a fonte Brandon Grotesque Black por Montserrat de peso 900 (Black) */
 h1, h2, h3, .brand-name {
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
@@ -34,229 +35,153 @@ h1, h2, h3, .brand-name {
 }
 
 /* =========================================
-   3. BARRA DE NAVEGAÇÃO SUPERIOR (NAVBAR)
+   2. NAVBAR (ESTREITA)
    ========================================= */
 .navbar {
     background: var(--branco);
-    height: 75px;        /* Altura estreita */
+    height: 65px; /* Reduzido de 75px para 65px */
     width: 100%;
-    position: fixed;     /* Fica presa no topo do ecrã */
+    position: fixed;
     top: 0;
     left: 0;
     display: flex;
-    align-items: center; /* Centra tudo verticalmente */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);    /* Sombra ligeira por baixo */
-    border-top: 4px solid var(--azul-marinho); /* Faixa azul no topo (detalhe marítimo) */
-    z-index: 1000;       /* Garante que fica por cima de todo o site */
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-top: 3px solid var(--azul-marinho);
+    z-index: 1000;
 }
 
 .nav-container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    justify-content: space-between; /* Afasta o logo para a esquerda e o menu para a direita */
+    justify-content: space-between;
     align-items: center;
 }
 
-/* Área do Logótipo clicável */
 .brand {
     display: flex;
     align-items: center;
     text-decoration: none;
-    gap: 12px; /* Afasta a imagem do texto */
+    gap: 10px;
 }
 
 .logo-img {
-    height: 55px; /* Tamanho proporcional à barra de 75px */
+    height: 45px; /* Logo ligeiramente menor */
     width: auto;
 }
 
-.brand-text {
-    display: flex;
-    flex-direction: column; /* Coloca o Título e Subtítulo um em cima do outro */
-}
+.brand-name { font-size: 1.1rem; line-height: 1; }
+.brand-sub { color: var(--azul-claro); font-size: 0.7rem; font-weight: 700; }
 
-.brand-name {
-    font-size: 1.3rem;
-    line-height: 1;
-}
-
-.brand-sub {
-    color: var(--azul-claro);
-    font-size: 0.8rem;
-    font-weight: 700;
-}
-
-/* Lista do Menu */
-.nav-menu {
-    display: flex;     /* Coloca os links lado a lado */
-    list-style: none;  /* Remove as bolinhas da lista HTML */
-    margin: 0;
-    padding: 0;
-    gap: 30px;         /* Espaço entre cada link do menu */
-}
-
+.nav-menu { display: flex; list-style: none; gap: 20px; }
 .nav-link {
     text-decoration: none;
     color: var(--azul-marinho);
     font-weight: 800;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    transition: all 0.3s; /* Faz com que a mudança de cor não seja brusca */
-}
-
-.nav-link:hover {
-    color: var(--azul-claro); /* Fica azul claro ao passar o rato */
 }
 
 /* =========================================
-   4. CONTEÚDO CENTRAL (CARTÕES)
+   3. CONTEÚDO (Ocupa o espaço restante)
    ========================================= */
-.container {
-    max-width: 900px;
-    margin: 60px auto;
+.main-content {
+    flex: 1; /* Esta linha faz o conteúdo "esticar" e empurrar o footer */
+    display: flex;
+    align-items: center; /* Centra o cartão verticalmente no espaço que sobra */
+    justify-content: center;
     padding: 20px;
 }
 
 .card {
     background: var(--branco);
-    padding: 50px 40px;
-    border-radius: 15px; /* Deixa os cantos arredondados */
-    box-shadow: 0 10px 25px rgba(0,51,102,0.1); /* Sombra elegante azulada */
+    padding: 30px; /* Reduzido de 50px para 30px para poupar espaço */
+    max-width: 800px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,51,102,0.08);
     text-align: center;
-    border-bottom: 5px solid var(--azul-claro); /* Destaque azul na base do cartão */
+    border-bottom: 4px solid var(--azul-claro);
 }
 
-/* Estilo para Botões Grandes (ex: Mapa de Bordo) */
+.card h1 { font-size: 1.8rem; margin-bottom: 10px; }
+.card p { font-size: 0.95rem; line-height: 1.4; margin-bottom: 15px; }
+
 .btn {
     display: inline-block;
     background: var(--azul-marinho);
     color: white !important;
-    padding: 15px 35px;
-    border-radius: 8px;
+    padding: 12px 30px;
+    border-radius: 6px;
     text-decoration: none;
     font-weight: 900;
-    font-family: 'Montserrat', sans-serif;
-    margin-top: 30px;
-    transition: background 0.3s;
-}
-
-.btn:hover {
-    background: var(--azul-claro);
+    margin-top: 15px;
+    transition: 0.3s;
 }
 
 /* =========================================
-   5. RODAPÉ (FOOTER)
+   4. RODAPÉ (COMPACTO)
    ========================================= */
 footer {
-    background: var(--azul-footer); /* Azul super escuro */
-    color: var(--branco);           /* Texto branco */
-    margin-top: 100px;              /* Espaço entre o cartão e o rodapé */
-    padding: 60px 20px 20px 20px;
-    font-size: 0.9rem;
-}
-
-/* Títulos "Contactos" e "Redes Sociais" dentro do Rodapé */
-footer h3 {
+    background: var(--azul-footer);
     color: var(--branco);
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
+    padding: 30px 20px 15px 20px; /* Reduzido para ser mais "low profile" */
 }
 
-/* Contentor que coloca as duas partes do rodapé lado a lado */
 .footer-content {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
-    display: flex;             /* Liga o lado a lado */
-    justify-content: space-between; /* Atira os contactos para a esq e as redes para a dir */
-    text-align: left;
-    padding-bottom: 40px;
-    gap: 30px;
-}
-
-/* Parágrafos da morada e do email */
-.footer-contactos p {
-    margin: 10px 0;
-    line-height: 1.6;
-}
-
-/* Lado Direito: Apenas alinhamento vertical dos botões */
-.footer-redes {
     display: flex;
-    flex-direction: column; /* Coloca os botões um debaixo do outro */
-    gap: 15px;
-    min-width: 250px;       /* Garante que os botões não ficam esmagados */
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 20px;
 }
 
-/* Design dos botões das redes sociais */
+.footer-contactos h3, .footer-redes h3 {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    color: rgba(255,255,255,0.8);
+}
+
+.footer-contactos p { font-size: 0.85rem; margin-bottom: 5px; }
+
+.footer-redes { gap: 8px; display: flex; flex-direction: column; }
+
 .social-btn {
     background: rgba(255, 255, 255, 0.1); 
     color: var(--branco);
     text-decoration: none;
-    padding: 12px 20px;
-    border-radius: 6px;
-    font-weight: bold;
-    transition: background 0.3s;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    
-    /* Novas regras para alinhar perfeitamente o ícone SVG e o texto */
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 0.8rem;
     display: flex;
-    align-items: center;      /* Centra verticalmente */
-    justify-content: center;  /* Centra horizontalmente */
-    gap: 10px;                /* Cria um espaço exato entre o ícone e a palavra */
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.social-btn:hover {
-    background: rgba(255, 255, 255, 0.25); 
-}
+.social-svg { height: 14px; width: auto; }
 
-/* Tamanho do Ícone SVG */
-.social-svg {
-    height: 18px; /* Ajusta a altura do ícone para bater certo com as letras */
-    width: auto;
-}
-
-/* Bloco Final: Assinaturas e Copyright */
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória fina e suave */
-    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 15px;
     text-align: center;
-}
-
-.footer-bottom p {
-    margin: 5px 0;
-    opacity: 0.9;
-}
-
-.footer-bottom strong {
-    color: var(--branco);
-    font-size: 1.1rem;
-}
-
-.copyright {
-    margin-top: 20px !important;
     font-size: 0.75rem;
-    opacity: 0.6 !important; /* Deixa o copyright um pouco mais sumido */
 }
 
 /* =========================================
-   6. ADAPTAÇÃO PARA TELEMÓVEIS (SMARTPHONES)
+   5. RESPONSIVIDADE (TABLET E TELEMÓVEL)
    ========================================= */
-/* Tudo o que está aqui só acontece se o ecrã for mais pequeno que 768px */
 @media (max-width: 768px) {
-    /* Esconde o texto do logo para ganhar espaço para o menu */
-    .brand-text { display: none; } 
+    body { padding-top: 110px; } /* Mais espaço para a navbar que pode quebrar */
+    .navbar { height: auto; padding: 10px 0; }
+    .nav-container { flex-direction: column; gap: 10px; }
+    .brand-text { display: none; }
     
-    /* Aperta um pouco o menu de navegação */
-    .nav-menu { gap: 15px; } 
-    
-    /* Quebra o rodapé para deixar de estar lado a lado e passar a estar em coluna (um em cima do outro) */
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-    }
+    .main-content { align-items: flex-start; } /* No telemóvel o scroll é natural */
+    .footer-content { flex-direction: column; text-align: center; align-items: center; }
+    .footer-redes { width: 100%; margin-top: 20px; }
 }
