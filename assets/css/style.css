@@ -10,6 +10,10 @@
     --texto: #1a1a1a;
 }
 
+.email-link {
+    color: var(--azul-claro); /* Chama a cor que definiste lá em cima */
+}
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 /* Permite que o conteúdo empurre o rodapé para baixo */
