@@ -275,49 +275,19 @@ footer {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Alinha os 3 blocos verticalmente ao centro */
+    align-items: center; 
     padding-bottom: 20px;
     gap: 20px;
 }
 
-/* Dá o mesmo espaço às 3 colunas para o meio ficar perfeitamente centrado */
 .footer-contactos, .footer-redes, .footer-logo {
     flex: 1; 
 }
 
 /* Alinhamento da Coluna da Esquerda (Contactos) */
-.footer-contactos {
-    text-align: left;
-}
+.footer-contactos { text-align: left; }
 
-/* Alinhamento da Coluna Central (Redes Sociais) */
-.footer-redes { 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; /* Centra os títulos e os botões */
-}
-
-/* Alinhamento da Coluna da Direita (Logótipos) */
-.footer-logo {
-    display: flex;
-    justify-content: flex-end; /* Encosta as imagens totalmente à direita no PC */
-    align-items: center;       /* Alinha as imagens verticalmente */
-    gap: 15px;                 /* Cria um espaço de 15px entre os dois logos */
-}
-
-.footer-cne-img {
-    max-height: 55px; /* Altura ideal para caberem bem os dois logos */
-    width: auto;
-    border-radius: 4px; /* Arredonda ligeiramente os cantos */
-    transition: transform 0.2s; /* Animação suave */
-}
-
-.footer-cne-img:hover {
-    transform: scale(1.05); /* Pequeno zoom ao passar o rato */
-}
-
-/* Estilos de texto do Rodapé */
-.footer-contactos h3, .footer-redes h3 {
+.footer-contactos h3 {
     font-size: 0.9rem;
     margin-bottom: 10px;
     color: rgba(255,255,255,0.8);
@@ -328,33 +298,90 @@ footer {
     margin-bottom: 5px; 
 }
 
-/* Coloca os botões das redes sociais lado a lado */
+/* Novos estilos para a morada e email */
+.map-link {
+    color: var(--branco);
+    text-decoration: none;
+    line-height: 1.6;
+    transition: opacity 0.3s;
+}
+
+.map-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+.email-link {
+    color: var(--azul-claro); /* Destaca com o azul claro do site */
+    font-size: 1.15rem;       /* Aumenta o tamanho */
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;         /* Espaço para afastar da morada */
+    transition: opacity 0.3s;
+}
+
+.email-link:hover {
+    opacity: 0.8;
+}
+
+/* Alinhamento da Coluna Central (Redes Sociais) */
+.footer-redes { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
 .social-row {
     display: flex;
-    gap: 10px;
+    gap: 15px; /* Um pouco mais de espaço entre os ícones */
     justify-content: center;
 }
 
+/* Estilo para transformar os botões em grandes ícones equiparados às imagens */
 .social-btn {
     background: rgba(255, 255, 255, 0.1); 
     color: var(--branco);
     text-decoration: none;
-    padding: 10px 15px; 
-    border-radius: 4px;
-    font-size: 0.8rem;
+    width: 55px;  /* Mesma altura da imagem da direita */
+    height: 55px; /* Quadrado perfeito */
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center; 
-    gap: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: background 0.3s;
+    transition: all 0.3s;
 }
 
 .social-btn:hover {
     background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.05); /* Animação idêntica às imagens da direita */
 }
 
-.social-svg { height: 14px; width: auto; }
+/* Tamanho do ícone SVG muito maior */
+.social-svg { 
+    height: 28px; 
+    width: auto; 
+}
+
+/* Alinhamento da Coluna da Direita (Logótipos) */
+.footer-logo {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;       
+    gap: 15px;                 
+}
+
+.footer-cne-img {
+    max-height: 55px; /* Mantém a altura equilibrada com os ícones das redes */
+    width: auto;
+    border-radius: 4px; 
+    transition: transform 0.2s; 
+}
+
+.footer-cne-img:hover {
+    transform: scale(1.05); 
+}
 
 /* Bloco final de Direitos de Autor */
 .footer-bottom {
@@ -399,11 +426,9 @@ footer {
 
     .main-content { align-items: flex-start; }
     
-    /* Esconde a barra lateral no telemóvel */
     .sidebar-desktop { display: none; }
     .content-wrapper { flex-direction: column; }
     
-    /* Empilha o rodapé no telemóvel */
     .footer-content { 
         flex-direction: column; 
         text-align: center; 
@@ -411,16 +436,12 @@ footer {
         gap: 30px; 
     }
     
-    /* Força o alinhamento ao centro para telemóveis */
-    .footer-contactos {
-        text-align: center;
-    }
+    .footer-contactos { text-align: center; }
 
-    /* Centra as duas imagens dos logos no telemóvel */
     .footer-logo {
         text-align: center;
         justify-content: center;
-        width: 100%; /* Garante que ocupa a largura toda para centrar bem */
+        width: 100%; 
     }
 
     .footer-redes { width: 100%; align-items: center; }
