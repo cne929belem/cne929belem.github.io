@@ -194,20 +194,30 @@ footer h3 {
 
 /* Design dos botões das redes sociais */
 .social-btn {
-    background: rgba(255, 255, 255, 0.1); /* Um branco transparente para não chocar */
+    background: rgba(255, 255, 255, 0.1); 
     color: var(--branco);
     text-decoration: none;
     padding: 12px 20px;
     border-radius: 6px;
     font-weight: bold;
     transition: background 0.3s;
-    display: block;
-    text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    
+    /* Novas regras para alinhar perfeitamente o ícone SVG e o texto */
+    display: flex;
+    align-items: center;      /* Centra verticalmente */
+    justify-content: center;  /* Centra horizontalmente */
+    gap: 10px;                /* Cria um espaço exato entre o ícone e a palavra */
 }
 
 .social-btn:hover {
-    background: rgba(255, 255, 255, 0.25); /* Fica mais claro/leitoso ao passar o rato */
+    background: rgba(255, 255, 255, 0.25); 
+}
+
+/* Tamanho do Ícone SVG */
+.social-svg {
+    height: 18px; /* Ajusta a altura do ícone para bater certo com as letras */
+    width: auto;
 }
 
 /* Bloco Final: Assinaturas e Copyright */
