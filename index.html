@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNE 929 Belém - Escuteiros Marítimos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Cores Marítimas do 929 */
+            --azul-marinho: #003366; /* Azul Escuro Marítimo */
+            --azul-claro: #0056b3;
+            --branco: #ffffff;
+            --fundo: #f0f4f8;
+        }
+
+        body { 
+            font-family: 'Nunito', sans-serif; 
+            margin: 0; 
+            background-color: var(--fundo);
+            color: #1a1a1a;
+        }
+
+        /* Estilo para simular a Brandon Grotesque Black */
+        h1, h2, .logo-tipo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        header { 
+            background: var(--azul-marinho); 
+            padding: 50px 20px; 
+            text-align: center; 
+            color: var(--branco);
+            border-bottom: 5px solid var(--azul-claro);
+        }
+
+        .logo-tipo {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        .subtitulo {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        nav { 
+            background: white; 
+            padding: 15px; 
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav a { 
+            color: var(--azul-marinho); 
+            margin: 0 15px; 
+            text-decoration: none; 
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        nav a:hover { color: var(--azul-claro); }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .card-principal {
+            background: white;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,51,102,0.1);
+            border-left: 8px solid var(--azul-claro);
+        }
+
+        .btn-maritimo {
+            display: inline-block;
+            background: var(--azul-marinho);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 4px; /* Mais quadrado como a identidade da Brandon */
+            text-decoration: none;
+            margin-top: 25px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            transition: background 0.3s;
+        }
+
+        .btn-maritimo:hover {
+            background: var(--azul-claro);
+        }
+
+        footer { 
+            text-align: center; 
+            padding: 50px; 
+            font-size: 0.85rem; 
+            background: #d1d9e0;
+            color: var(--azul-marinho);
+        }
+
+        .logo-cne {
+            max-width: 120px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-tipo">929 BELÉM</div>
+    <div class="subtitulo">Agrupamento de Escuteiros Marítimos de Belém</div>
+</header>
+
+<nav>
+    <a href="#inicio">Início</a>
+    <a href="#atividade">Jamboree 2027</a>
+    <a href="#contactos">Contactos</a>
+</nav>
+
+<div class="container">
+    <section id="inicio" class="card-principal">
+        <h1>Âncoras Pesadas!</h1>
+        <p>Bem-vindos ao portal do 929. Estamos a preparar a nossa rota para os desafios que se aproximam.</p>
+        
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 40px 0;">
+
+        <div id="atividade">
+            <h2>Próximo Porto: Jamboree 2027</h2>
+            <p>A maior aventura marítima do próximo ano já tem as velas içadas. Fica atento às informações oficiais que serão publicadas aqui.</p>
+            <a href="#" class="btn-maritimo">MAPA DE BORDO</a>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>CNE - Agrupamento 929 Belém</p>
+    <p>Corpo Nacional de Escutas &bull; Escutismo Marítimo</p>
+</footer>
+
+</body>
+</html>
