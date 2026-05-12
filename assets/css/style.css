@@ -275,8 +275,37 @@ footer {
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center; /* Alinha os 3 blocos verticalmente ao centro */
     padding-bottom: 20px;
+    gap: 20px;
+}
+
+/* Dá o mesmo espaço às 3 colunas para o meio ficar perfeitamente centrado */
+.footer-contactos, .footer-redes, .footer-logo {
+    flex: 1; 
+}
+
+/* Alinhamento da Coluna da Esquerda */
+.footer-contactos {
+    text-align: left;
+}
+
+/* Alinhamento da Coluna Central */
+.footer-redes { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; /* Centra os títulos e os botões */
+}
+
+/* Alinhamento da Coluna da Direita */
+.footer-logo {
+    text-align: right;
+}
+
+.footer-cne-img {
+    max-height: 60px; /* Ajusta a altura da imagem. Aumenta ou diminui se quiseres */
+    width: auto;
+    border-radius: 4px; /* Arredonda ligeiramente os cantos da imagem */
 }
 
 .footer-contactos h3, .footer-redes h3 {
@@ -290,29 +319,23 @@ footer {
     margin-bottom: 5px; 
 }
 
-.footer-redes { 
-    gap: 8px; 
-    display: flex; 
-    flex-direction: column; 
-}
-
 /* Coloca os botões lado a lado */
 .social-row {
     display: flex;
     gap: 10px;
+    justify-content: center;
 }
 
 .social-btn {
-    flex: 1; /* Faz com que os botões estiquem de forma igual, dividindo o espaço */
     background: rgba(255, 255, 255, 0.1); 
     color: var(--branco);
     text-decoration: none;
-    padding: 10px 15px; /* Reduzi um bocadinho o padding vertical para poupar espaço */
+    padding: 10px 15px; 
     border-radius: 4px;
     font-size: 0.8rem;
     display: flex;
     align-items: center;
-    justify-content: center; /* Centra o ícone e o texto dentro do botão */
+    justify-content: center; 
     gap: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: background 0.3s;
@@ -337,24 +360,20 @@ footer {
    6. RESPONSIVIDADE (TELEMÓVEIS)
    ========================================= */
 @media (max-width: 768px) {
-    body { padding-top: 130px; } /* Dá mais espaço pois o menu vai quebrar linhas */
+    body { padding-top: 130px; } 
     
     .navbar { height: auto; padding: 10px 0; }
     .nav-container { flex-direction: column; gap: 15px; }
     .brand-text { display: none; }
-   .social-row {
-        justify-content: center;
-    }
     
     .nav-menu { 
-        flex-wrap: wrap; /* Permite que o menu desça de linha se não couber */
+        flex-wrap: wrap; 
         justify-content: center;
         gap: 10px;
     }
     
-    /* Ajustes para o submenu no telemóvel */
     .dropdown-menu {
-        position: static; /* No telemóvel, abre empurrando os outros itens para baixo */
+        position: static; 
         transform: none;
         box-shadow: none;
         border: none;
@@ -365,20 +384,26 @@ footer {
     .dropdown-menu a {
         padding: 8px;
         font-size: 0.75rem;
-        color: var(--azul-marinho); /* Mantém o azul no telemóvel para se ler bem */
+        color: var(--azul-marinho); 
     }
 
     .main-content { align-items: flex-start; }
-    .footer-content { flex-direction: column; text-align: center; align-items: center; gap: 30px; }
-    .footer-redes { width: 100%; align-items: center; }
-
-   /* Esconde a barra lateral em telemóveis e tablets pequenos */
-    .sidebar-desktop { 
-        display: none; 
+    
+    /* Esconde a barra lateral no telemóvel */
+    .sidebar-desktop { display: none; }
+    .content-wrapper { flex-direction: column; }
+    
+    /* Empilha o rodapé no telemóvel */
+    .footer-content { 
+        flex-direction: column; 
+        text-align: center; 
+        align-items: center; 
+        gap: 30px; 
     }
     
-    /* Garante que o wrapper deixa de tentar pôr as coisas lado a lado */
-    .content-wrapper { 
-        flex-direction: column; 
+    /* Força o alinhamento ao centro para telemóveis */
+    .footer-contactos, .footer-logo {
+        text-align: center;
     }
+    .footer-redes { width: 100%; align-items: center; }
 }
