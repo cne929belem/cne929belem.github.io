@@ -1,5 +1,5 @@
 /* =========================================
-   1. VARIÁVEIS DE CORES (Identidade do 929)
+   1. VARIÁVEIS DE CORES E BASE (Identidade 929)
    ========================================= */
 :root {
     --azul-marinho: #003366; 
@@ -12,11 +12,8 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* Configuração para evitar scroll: 
-   Usamos flex-column e min-height 100vh para o rodapé ficar sempre no fundo */
-html, body {
-    height: 100%;
-}
+/* Permite que o conteúdo empurre o rodapé para baixo */
+html, body { height: 100%; }
 
 body { 
     font-family: 'Nunito', sans-serif; 
@@ -24,7 +21,7 @@ body {
     color: var(--texto);
     display: flex;
     flex-direction: column;
-    padding-top: 75px; /* Altura da navbar */
+    padding-top: 65px; /* Altura da navbar */
 }
 
 h1, h2, h3, .brand-name {
@@ -35,11 +32,11 @@ h1, h2, h3, .brand-name {
 }
 
 /* =========================================
-   2. NAVBAR (ESTREITA)
+   2. NAVBAR E LOGÓTIPO
    ========================================= */
 .navbar {
     background: var(--branco);
-    height: 65px; /* Reduzido de 75px para 65px */
+    height: 65px;
     width: 100%;
     position: fixed;
     top: 0;
@@ -66,39 +63,97 @@ h1, h2, h3, .brand-name {
     align-items: center;
     text-decoration: none;
     gap: 10px;
+    transition: opacity 0.3s;
 }
 
-.logo-img {
-    height: 45px; /* Logo ligeiramente menor */
-    width: auto;
-}
+/* Pequeno efeito ao passar o rato no logo */
+.brand:hover { opacity: 0.8; }
 
+.logo-img { height: 45px; width: auto; }
 .brand-name { font-size: 1.1rem; line-height: 1; }
 .brand-sub { color: var(--azul-claro); font-size: 0.7rem; font-weight: 700; }
 
-.nav-menu { display: flex; list-style: none; gap: 20px; }
+/* =========================================
+   3. MENUS E SUBMENUS (DROPDOWNS)
+   ========================================= */
+.nav-menu { 
+    display: flex; 
+    list-style: none; 
+    gap: 20px; 
+    align-items: center;
+}
+
+/* Estilo dos links principais */
 .nav-link {
     text-decoration: none;
     color: var(--azul-marinho);
     font-weight: 800;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
+    padding: 10px 5px; /* Área de clique maior */
+    transition: color 0.3s;
+}
+
+.nav-link:hover { color: var(--azul-claro); }
+
+/* Configuração do botão que tem submenu */
+.dropdown {
+    position: relative; /* Serve de âncora para o submenu */
+}
+
+/* A caixa do submenu invisível por padrão */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Fica exatamente debaixo do botão pai */
+    left: 50%;
+    transform: translateX(-50%); /* Centra o submenu com o botão */
+    background-color: var(--branco);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    list-style: none;
+    min-width: 180px;
+    border-radius: 0 0 8px 8px;
+    border-top: 3px solid var(--azul-claro); /* Linha de destaque */
+    overflow: hidden;
+}
+
+/* Faz o submenu aparecer quando passamos o rato no .dropdown */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Links dentro do submenu */
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: var(--texto);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-align: center;
+    transition: background 0.2s, color 0.2s;
+}
+
+/* Efeito ao passar o rato nas opções do submenu */
+.dropdown-menu a:hover {
+    background-color: var(--cinza-fundo);
+    color: var(--azul-claro);
 }
 
 /* =========================================
-   3. CONTEÚDO (Ocupa o espaço restante)
+   4. CONTEÚDO PRINCIPAL
    ========================================= */
 .main-content {
-    flex: 1; /* Esta linha faz o conteúdo "esticar" e empurrar o footer */
+    flex: 1; 
     display: flex;
-    align-items: center; /* Centra o cartão verticalmente no espaço que sobra */
+    align-items: center; 
     justify-content: center;
     padding: 20px;
 }
 
 .card {
     background: var(--branco);
-    padding: 30px; /* Reduzido de 50px para 30px para poupar espaço */
+    padding: 30px; 
     max-width: 800px;
     width: 100%;
     border-radius: 12px;
@@ -122,13 +177,15 @@ h1, h2, h3, .brand-name {
     transition: 0.3s;
 }
 
+.btn:hover { background: var(--azul-claro); }
+
 /* =========================================
-   4. RODAPÉ (COMPACTO)
+   5. RODAPÉ
    ========================================= */
 footer {
     background: var(--azul-footer);
     color: var(--branco);
-    padding: 30px 20px 15px 20px; /* Reduzido para ser mais "low profile" */
+    padding: 30px 20px 15px 20px; 
 }
 
 .footer-content {
@@ -146,9 +203,16 @@ footer {
     color: rgba(255,255,255,0.8);
 }
 
-.footer-contactos p { font-size: 0.85rem; margin-bottom: 5px; }
+.footer-contactos p { 
+    font-size: 0.85rem; 
+    margin-bottom: 5px; 
+}
 
-.footer-redes { gap: 8px; display: flex; flex-direction: column; }
+.footer-redes { 
+    gap: 8px; 
+    display: flex; 
+    flex-direction: column; 
+}
 
 .social-btn {
     background: rgba(255, 255, 255, 0.1); 
@@ -161,6 +225,11 @@ footer {
     align-items: center;
     gap: 8px;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.3s;
+}
+
+.social-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .social-svg { height: 14px; width: auto; }
@@ -171,17 +240,41 @@ footer {
     text-align: center;
     font-size: 0.75rem;
 }
+.copyright { opacity: 0.5; margin-top: 5px; font-size: 0.65rem; }
 
 /* =========================================
-   5. RESPONSIVIDADE (TABLET E TELEMÓVEL)
+   6. RESPONSIVIDADE (TELEMÓVEIS)
    ========================================= */
 @media (max-width: 768px) {
-    body { padding-top: 110px; } /* Mais espaço para a navbar que pode quebrar */
+    body { padding-top: 130px; } /* Dá mais espaço pois o menu vai quebrar linhas */
+    
     .navbar { height: auto; padding: 10px 0; }
-    .nav-container { flex-direction: column; gap: 10px; }
+    .nav-container { flex-direction: column; gap: 15px; }
     .brand-text { display: none; }
     
-    .main-content { align-items: flex-start; } /* No telemóvel o scroll é natural */
-    .footer-content { flex-direction: column; text-align: center; align-items: center; }
-    .footer-redes { width: 100%; margin-top: 20px; }
+    .nav-menu { 
+        flex-wrap: wrap; /* Permite que o menu desça de linha se não couber */
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    /* Ajustes para o submenu no telemóvel */
+    .dropdown-menu {
+        position: static; /* No telemóvel, abre empurrando os outros itens para baixo */
+        transform: none;
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        padding: 5px 0;
+    }
+    
+    .dropdown-menu a {
+        padding: 8px;
+        font-size: 0.75rem;
+        color: var(--azul-marinho); /* Mantém o azul no telemóvel para se ler bem */
+    }
+
+    .main-content { align-items: flex-start; }
+    .footer-content { flex-direction: column; text-align: center; align-items: center; gap: 30px; }
+    .footer-redes { width: 100%; align-items: center; }
 }
