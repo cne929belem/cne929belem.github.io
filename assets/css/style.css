@@ -285,29 +285,38 @@ footer {
     flex: 1; 
 }
 
-/* Alinhamento da Coluna da Esquerda */
+/* Alinhamento da Coluna da Esquerda (Contactos) */
 .footer-contactos {
     text-align: left;
 }
 
-/* Alinhamento da Coluna Central */
+/* Alinhamento da Coluna Central (Redes Sociais) */
 .footer-redes { 
     display: flex; 
     flex-direction: column; 
     align-items: center; /* Centra os títulos e os botões */
 }
 
-/* Alinhamento da Coluna da Direita */
+/* Alinhamento da Coluna da Direita (Logótipos) */
 .footer-logo {
-    text-align: right;
+    display: flex;
+    justify-content: flex-end; /* Encosta as imagens totalmente à direita no PC */
+    align-items: center;       /* Alinha as imagens verticalmente */
+    gap: 15px;                 /* Cria um espaço de 15px entre os dois logos */
 }
 
 .footer-cne-img {
-    max-height: 60px; /* Ajusta a altura da imagem. Aumenta ou diminui se quiseres */
+    max-height: 55px; /* Altura ideal para caberem bem os dois logos */
     width: auto;
-    border-radius: 4px; /* Arredonda ligeiramente os cantos da imagem */
+    border-radius: 4px; /* Arredonda ligeiramente os cantos */
+    transition: transform 0.2s; /* Animação suave */
 }
 
+.footer-cne-img:hover {
+    transform: scale(1.05); /* Pequeno zoom ao passar o rato */
+}
+
+/* Estilos de texto do Rodapé */
 .footer-contactos h3, .footer-redes h3 {
     font-size: 0.9rem;
     margin-bottom: 10px;
@@ -319,7 +328,7 @@ footer {
     margin-bottom: 5px; 
 }
 
-/* Coloca os botões lado a lado */
+/* Coloca os botões das redes sociais lado a lado */
 .social-row {
     display: flex;
     gap: 10px;
@@ -347,6 +356,7 @@ footer {
 
 .social-svg { height: 14px; width: auto; }
 
+/* Bloco final de Direitos de Autor */
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 15px;
@@ -357,7 +367,7 @@ footer {
 .copyright { opacity: 0.5; margin-top: 5px; font-size: 0.65rem; }
 
 /* =========================================
-   6. RESPONSIVIDADE (TELEMÓVEIS)
+   6. RESPONSIVIDADE (TELEMÓVEIS E TABLETS)
    ========================================= */
 @media (max-width: 768px) {
     body { padding-top: 130px; } 
@@ -402,8 +412,16 @@ footer {
     }
     
     /* Força o alinhamento ao centro para telemóveis */
-    .footer-contactos, .footer-logo {
+    .footer-contactos {
         text-align: center;
     }
+
+    /* Centra as duas imagens dos logos no telemóvel */
+    .footer-logo {
+        text-align: center;
+        justify-content: center;
+        width: 100%; /* Garante que ocupa a largura toda para centrar bem */
+    }
+
     .footer-redes { width: 100%; align-items: center; }
 }
