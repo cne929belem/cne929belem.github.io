@@ -3,30 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>CNE 929 Belém - Escuteiros Marítimos</title>
     
     <link rel="icon" type="image/x-icon" href="https://cne929belem.github.io/assets/img/Logo929.ico">
     <link rel="shortcut icon" type="image/x-icon" href="./assets/img/Logo929.ico">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
 
 <header class="navbar">
     <div class="nav-container">
-        <a href="/" class="brand">
+        <a href="/" class="brand" title="Ir para a página inicial">
             <img src="./assets/img/Logo929.jpg" alt="Logo 929" class="logo-img">
             <div class="brand-text">
                 <span class="brand-name">Belém</span>
                 <span class="brand-sub">Agrupamento 929</span>
             </div>
         </a>
+        
         <nav>
             <ul class="nav-menu">
-                <li><a href="#inicio" class="nav-link">Início</a></li>
+                
+                <li class="dropdown">
+                    <a href="#" class="nav-link">Agrupamento &#9662;</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#equipa">Equipa</a></li>
+                        <li><a href="#documentos">Documentos</a></li>
+                        <li><a href="#noticias">Notícias</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="nav-link">Secções &#9662;</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#lobitos">I - Lobitos</a></li>
+                        <li><a href="#mocos">II - Moços</a></li>
+                        <li><a href="#marinheiros">III - Marinheiros</a></li>
+                        <li><a href="#companheiros">IV - Companheiros</a></li>
+                    </ul>
+                </li>
+
                 <li><a href="#atividade" class="nav-link">Jamboree 2027</a></li>
-                <li><a href="#contactos" class="nav-link">Contactos</a></li>
+                
             </ul>
         </nav>
     </div>
@@ -52,8 +74,8 @@
     <div class="footer-content">
         <div class="footer-contactos">
             <h3>Contactos</h3>
-            <p><strong>Morada:</strong> R. de Belém 2, 1400-038 Lisboa</p>
-            <p><strong>Email:</strong> <a href="mailto:geral.929@escutismo.pt" style="color: white;">geral.929@escutismo.pt</a></p>
+            <p>R. de Belém 2, 1400-038 Lisboa, Portugal</p>
+            <p><a href="mailto:geral.929@escutismo.pt" style="color: white; text-decoration: none;">geral.929@escutismo.pt</a></p>
         </div>
 
         <div class="footer-redes">
@@ -70,7 +92,9 @@
     </div>
 
     <div class="footer-bottom">
-        <p>© 2026 &bull; <strong>CNE 929 Belém</strong> &bull; Escuteiros Marítimos</p>
+        <p>Corpo Nacional de Escutas - Agrupamento 929 Belém</p>
+        <p>Escutismo Marítimo &bull; Sempre Alerta para Servir</p>
+        <p class="copyright">© 2026 - Criado por Ricardo Isaías Serafim em colaboraçao com Companheiros 2025-2026.</p>
     </div>
 </footer>
 
