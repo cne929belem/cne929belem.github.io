@@ -75,22 +75,6 @@
             <p>Tudo o que os jovens (e os pais!) precisam de saber sobre a nossa expedição à Polónia.</p>
             
             <button id="btnTropa" class="btn" style="margin-top: 15px; margin-bottom: 20px;">🏕️⚜️ TROPA</button>
-
-            <div id="relogio" style="display: flex; gap: 10px; justify-content: center; margin: 20px 0 30px 0; flex-wrap: wrap;">
-                <div style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; min-width: 80px; text-align: center;">
-                    <span id="dias" style="font-size: 2rem; font-weight: 900;">00</span><br><small>DIAS</small>
-                </div>
-                <div style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; min-width: 80px; text-align: center;">
-                    <span id="horas" style="font-size: 2rem; font-weight: 900;">00</span><br><small>HORAS</small>
-                </div>
-                <div style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; min-width: 80px; text-align: center;">
-                    <span id="minutos" style="font-size: 2rem; font-weight: 900;">00</span><br><small>MIN</small>
-                </div>
-                <div style="background: #CE1126; color: white; padding: 15px; border-radius: 8px; min-width: 80px; text-align: center;">
-                    <span id="segundos" style="font-size: 2rem; font-weight: 900;">00</span><br><small>SEG</small>
-                </div>
-            </div>
-
             <div style="text-align: left; margin-top: 40px; display: flex; flex-direction: column; gap: 20px;">
                 
                 <div style="background: var(--cinza-fundo); padding: 25px; border-radius: 8px; border-left: 5px solid #CE1126;">
@@ -266,31 +250,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        
-        // --- 1. LÓGICA DO RELÓGIO ---
-        const dataJamboree = new Date("Jul 30, 2027 00:00:00").getTime();
-        const atualizaRelogio = setInterval(function() {
-            const agora = new Date().getTime();
-            const distancia = dataJamboree - agora;
-            
-            if (distancia < 0) {
-                clearInterval(atualizaRelogio);
-                document.getElementById("relogio").innerHTML = "<h2 style='color: #CE1126;'>O Jamboree já começou!</h2>";
-                return;
-            }
-
-            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
-            
-            document.getElementById("dias").innerText = dias < 10 ? "0" + dias : dias;
-            document.getElementById("horas").innerText = horas < 10 ? "0" + horas : horas;
-            document.getElementById("minutos").innerText = minutos < 10 ? "0" + minutos : minutos;
-            document.getElementById("segundos").innerText = segundos < 10 ? "0" + segundos : segundos;
-        }, 1000);
-
-        // --- 2. LÓGICA DO POP-UP DA TROPA ---
+       // --- 1. LÓGICA DO POP-UP DA TROPA ---
         const modalTropa = document.getElementById("modalTropa");
         const btnTropa = document.getElementById("btnTropa");
         const btnFecharTropa = document.getElementById("btnFecharTropa");
