@@ -63,16 +63,25 @@
             <h1>Informações da Tropa</h1>
             <p>A contagem decrescente para a maior aventura das nossas vidas já começou!</p>
             
-            <div id="relogio" style="display: flex; gap: 15px; justify-content: center; margin: 30px 0;">
-                <div style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; min-width: 90px;">
+            <div id="relogio" style="display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap;">
+                <div style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; min-width: 80px; text-align: center;">
                     <span id="dias" style="font-size: 2rem; font-weight: 900;">00</span><br>
                     <small>DIAS</small>
                 </div>
-                <div style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; min-width: 90px;">
+                <div style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; min-width: 80px; text-align: center;">
                     <span id="horas" style="font-size: 2rem; font-weight: 900;">00</span><br>
                     <small>HORAS</small>
                 </div>
+                <div style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; min-width: 80px; text-align: center;">
+                    <span id="minutos" style="font-size: 2rem; font-weight: 900;">00</span><br>
+                    <small>MIN</small>
+                </div>
+                <div style="background: #CE1126; color: white; padding: 15px; border-radius: 8px; min-width: 80px; text-align: center;">
+                    <span id="segundos" style="font-size: 2rem; font-weight: 900;">00</span><br>
+                    <small>SEG</small>
+                </div>
             </div>
+            
 
             <div style="text-align: left; margin-top: 30px;">
                 <h3 style="color: var(--azul-marinho); border-bottom: 2px solid #eee; padding-bottom: 5px;">⚠️ Informações Técnicas</h3>
@@ -125,6 +134,35 @@
         <p><class="copyright">© 2026 &bull; Corpo Nacional de Escutas - Agrupamento 929 Belém</p>
     </div>
 </footer>
+<script>
+    // Espera que a página carregue para não dar erro
+    document.addEventListener('DOMContentLoaded', function() {
+        const dataJamboree = new Date("Jul 30, 2027 00:00:00").getTime();
+        
+        const atualizaRelogio = setInterval(function() {
+            const agora = new Date().getTime();
+            const distancia = dataJamboree - agora;
+            
+            // Se o dia já chegou!
+            if (distancia < 0) {
+                clearInterval(atualizaRelogio);
+                document.getElementById("relogio").innerHTML = "<h2 style='color: #CE1126;'>O Jamboree já começou!</h2>";
+                return;
+            }
 
+            // Cálculos matemáticos
+            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+            
+            // Colocar um zero à esquerda se for menor que 10 (ex: 09 em vez de 9)
+            document.getElementById("dias").innerText = dias < 10 ? "0" + dias : dias;
+            document.getElementById("horas").innerText = horas < 10 ? "0" + horas : horas;
+            document.getElementById("minutos").innerText = minutos < 10 ? "0" + minutos : minutos;
+            document.getElementById("segundos").innerText = segundos < 10 ? "0" + segundos : segundos;
+        }, 1000); // Atualiza a cada 1 segundo (1000 milissegundos)
+    });
+</script>
 </body>
 </html>
