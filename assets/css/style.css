@@ -74,6 +74,7 @@ h1, h2, h3, .brand-name {
 .brand:hover { opacity: 0.8; }
 
 .logo-img { height: 45px; width: auto; }
+.brand-text { display: flex; flex-direction: column; justify-content: center; }
 .brand-name { font-size: 1.1rem; line-height: 1; }
 .brand-sub { color: var(--azul-claro); font-size: 0.7rem; font-weight: 700; }
 
@@ -193,6 +194,8 @@ h1, h2, h3, .brand-name {
     font-weight: 900;
     margin-top: 15px;
     transition: 0.3s;
+    border: none;
+    cursor: pointer;
 }
 
 .btn:hover { background: var(--azul-claro); }
@@ -405,8 +408,23 @@ footer {
     
     .navbar { height: auto; padding: 10px 0; }
     .nav-container { flex-direction: column; gap: 15px; }
-    .brand-text { display: none; }
     
+    /* CORREÇÃO DO LOGO NO MOBILE */
+    .brand-name {
+        font-size: 1.1rem !important; /* Ligeiramente mais pequeno no telemóvel */
+        line-height: 1.2;
+    }
+    
+    .brand-sub {
+        font-size: 0.75rem !important; /* Ligeiramente mais pequeno no telemóvel */
+    }
+    
+    .logo-img {
+        width: 40px !important; /* Garante que o logo não ocupa espaço a mais */
+        height: auto;
+    }
+    /* FIM DA CORREÇÃO */
+
     .nav-menu { 
         flex-wrap: wrap; 
         justify-content: center;
@@ -477,17 +495,24 @@ footer {
 .jamboree-band {
     width: 250px;
     background-color: #CE1126; /* Vermelho Oficial da Polónia */
-    border-radius: 12px 0 0 0; /* Arredonda apenas o canto superior esquerdo */
+    border-radius: 12px 0 0 12px; /* Correção: Arredonda ambos os cantos esquerdos para ficar perfeito até baixo */
     padding: 40px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between; /* A MAGIA: Atira a primeira foto para o topo e a segunda para a base */
 }
 
+/* Regra geral para as imagens dentro da banda */
 .jamboree-band img {
     width: 100%;
     max-width: 160px;
     height: auto;
+}
+
+.img-bravely {
+    max-width: 140px !important; /* Ligeiramente mais pequeno para não pesar muito visualmente */
+    opacity: 0.9; /* Uma transparência muito suave para dar elegância */
 }
 
 /* O Cartão de Conteúdo (Texto) */
@@ -511,30 +536,5 @@ footer {
     }
     .card-jamboree {
         padding: 30px 20px;
-    }
-}
-
-/* =========================================
-   CORREÇÃO: MOSTRAR NOME NO MOBILE
-   ========================================= */
-@media (max-width: 768px) {
-    .brand-text {
-        display: flex !important; /* Força o texto a aparecer */
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .brand-name {
-        font-size: 1.1rem !important; /* Ligeiramente mais pequeno no telemóvel */
-        line-height: 1.2;
-    }
-    
-    .brand-sub {
-        font-size: 0.75rem !important; /* Ligeiramente mais pequeno no telemóvel */
-    }
-    
-    .logo-img {
-        width: 40px !important; /* Garante que o logo não ocupa espaço a mais */
-        height: auto;
     }
 }
