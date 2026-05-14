@@ -1,0 +1,45 @@
+<main class="main-content">
+    <section class="card" style="max-width: 900px;">
+        <h1>Informações da Tropa</h1>
+        <p>A preparação para a maior aventura das nossas vidas já começou. Prepara a tua mochila!</p>
+        
+        <div id="relogio" class="countdown-container" style="display: flex; gap: 15px; justify-content: center; margin: 30px 0;">
+            <div style="background: var(--azul-marinho); color: white; padding: 15px 20px; border-radius: 8px; min-width: 80px;">
+                <span id="dias" style="font-size: 2rem; font-weight: 900;">00</span>
+                <p style="margin: 0; font-size: 0.8rem; text-transform: uppercase;">Dias</p>
+            </div>
+            <div style="background: var(--azul-marinho); color: white; padding: 15px 20px; border-radius: 8px; min-width: 80px;">
+                <span id="horas" style="font-size: 2rem; font-weight: 900;">00</span>
+                <p style="margin: 0; font-size: 0.8rem; text-transform: uppercase;">Horas</p>
+            </div>
+            <div style="background: var(--azul-marinho); color: white; padding: 15px 20px; border-radius: 8px; min-width: 80px;">
+                <span id="minutos" style="font-size: 2rem; font-weight: 900;">00</span>
+                <p style="margin: 0; font-size: 0.8rem; text-transform: uppercase;">Min</p>
+            </div>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+        <div style="text-align: left;">
+            <h2>A nossa participação</h2>
+            <p><strong>[AQUI VAMOS COLOCAR OS DADOS DO AGRUPAMENTO 929]</strong></p>
+        </div>
+    </section>
+</main>
+
+<script>
+    const dataJamboree = new Date("Jul 30, 2027 00:00:00").getTime();
+    const relogio = setInterval(function() {
+        const agora = new Date().getTime();
+        const distancia = dataJamboree - agora;
+        
+        document.getElementById("dias").innerText = Math.floor(distancia / (1000 * 60 * 60 * 24));
+        document.getElementById("horas").innerText = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById("minutos").innerText = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+        
+        if (distancia < 0) {
+            clearInterval(relogio);
+            document.getElementById("relogio").innerHTML = "<h2 style='color: #E1306C;'>O JAMBOREE JÁ COMEÇOU!</h2>";
+        }
+    }, 1000);
+</script>
