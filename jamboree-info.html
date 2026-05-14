@@ -7,6 +7,17 @@
     <link rel="icon" type="image/x-icon" href="https://cne929belem.github.io/assets/img/Logo929.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+        /* Escurece o fundo quando o pop-up abre */
+        dialog::backdrop {
+            background: rgba(0, 34, 68, 0.7); 
+        }
+        /* Estilo das linhas da tabela do pop-up para ficar igual à imagem */
+        .tabela-tropa td {
+            border: 1px solid #333;
+            padding: 8px 12px;
+        }
+    </style>
 </head>
 <body>
 
@@ -60,10 +71,12 @@
         </aside>
 
         <section class="card-jamboree">
-            <h1>Informações da Tropa</h1>
+            <h1>Informações</h1>
             <p>Tudo o que os jovens (e os pais!) precisam de saber sobre a nossa expedição à Polónia.</p>
             
-            <div id="relogio" style="display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap;">
+            <button id="btnTropa" class="btn" style="margin-top: 15px; margin-bottom: 20px;">🏕️⚜️ TROPA</button>
+
+            <div id="relogio" style="display: flex; gap: 10px; justify-content: center; margin: 20px 0 30px 0; flex-wrap: wrap;">
                 <div style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; min-width: 80px; text-align: center;">
                     <span id="dias" style="font-size: 2rem; font-weight: 900;">00</span><br><small>DIAS</small>
                 </div>
@@ -127,7 +140,7 @@
                         <span>🛡️</span> Saúde e Bem-Estar
                     </h3>
                     <ul style="margin-left: 20px; line-height: 1.6; font-size: 0.95rem;">
-                        <li><strong>Segurança:</strong> Todos os adultos têm formação obrigatória em proteção contra danos para garantir um ambiente seguro.</li>
+                        <li><strong>Segurança (SfH):</strong> Todos os adultos têm formação obrigatória em proteção contra danos para garantir um ambiente seguro.</li>
                         <li><strong>Saúde:</strong> Instalações sanitárias modernas com privacidade e pontos de carregamento para powerbanks ou refrigeração de medicamentos.</li>
                         <li><strong>Alimentação:</strong> Funciona por mercado alimentar; as patrulhas levantam ingredientes frescos para cozinhar as suas refeições diárias.</li>
                     </ul>
@@ -149,7 +162,7 @@
                         <div>
                             <strong>Material Individual Obrigatório:</strong>
                             <ul style="margin-left: 20px; line-height: 1.6;">
-                                <li>Tenda individual ou de dupla - aguarda confirmação</li>
+                                <li>Tenda individual ou de dupla</li>
                                 <li>Saco-cama (apto para temperaturas de 5ºC)</li>
                                 <li>Marmita completa, cantil e uniforme</li>
                             </ul>
@@ -158,6 +171,55 @@
                 </div>
 
             </div>
+
+            <dialog id="modalTropa" style="border: none; border-radius: 12px; padding: 0; max-width: 400px; width: 100%; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+                <div style="background-color: #0b1a4a; color: white; padding: 15px; font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.4rem; letter-spacing: 1px;">
+                    TROPA 10
+                </div>
+                <div style="padding: 20px; background-color: white;">
+                    <table class="tabela-tropa" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; color: #1a1a1a;">
+                        <tr>
+                            <td>CNE 0100 - Tavira</td>
+                            <td style="text-align: center; width: 60px;">10</td>
+                        </tr>
+                        <tr>
+                            <td>CNE 1324 - Sé - Faro</td>
+                            <td style="text-align: center;">13</td>
+                        </tr>
+                        <tr>
+                            <td>CNE 1339 - S. Bartolomeu Messines</td>
+                            <td style="text-align: center;">3</td>
+                        </tr>
+                        <tr>
+                            <td>CNE 0929 - Belém</td>
+                            <td style="text-align: center;">10</td>
+                        </tr>
+                        <tr style="background-color: #b3cdef; font-weight: bold;">
+                            <td>TOTAL PAX</td>
+                            <td style="text-align: center;">36</td>
+                        </tr>
+                        <tr>
+                            <td>CNE 0100 - Tavira</td>
+                            <td style="text-align: center;">1</td>
+                        </tr>
+                        <tr>
+                            <td>CNE 1324 - Sé - Faro</td>
+                            <td style="text-align: center;">2</td>
+                        </tr>
+                        <tr>
+                            <td>CNE 0929 - Belém</td>
+                            <td style="text-align: center;">1</td>
+                        </tr>
+                        <tr style="background-color: #c9e4c5; font-weight: bold;">
+                            <td>TOTAL APL</td>
+                            <td style="text-align: center;">4</td>
+                        </tr>
+                    </table>
+
+                    <button id="btnFecharTropa" class="btn" style="margin-top: 20px; background-color: #CE1126; color: white; width: 100%;">Fechar</button>
+                </div>
+            </dialog>
+
         </section>
     </div>
 </main>
@@ -204,8 +266,9 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const dataJamboree = new Date("Jul 30, 2027 00:00:00").getTime();
         
+        // --- 1. LÓGICA DO RELÓGIO ---
+        const dataJamboree = new Date("Jul 30, 2027 00:00:00").getTime();
         const atualizaRelogio = setInterval(function() {
             const agora = new Date().getTime();
             const distancia = dataJamboree - agora;
@@ -226,6 +289,28 @@
             document.getElementById("minutos").innerText = minutos < 10 ? "0" + minutos : minutos;
             document.getElementById("segundos").innerText = segundos < 10 ? "0" + segundos : segundos;
         }, 1000);
+
+        // --- 2. LÓGICA DO POP-UP DA TROPA ---
+        const modalTropa = document.getElementById("modalTropa");
+        const btnTropa = document.getElementById("btnTropa");
+        const btnFecharTropa = document.getElementById("btnFecharTropa");
+
+        // Abre o pop-up
+        btnTropa.addEventListener("click", () => {
+            modalTropa.showModal();
+        });
+
+        // Fecha o pop-up ao clicar no botão Fechar
+        btnFecharTropa.addEventListener("click", () => {
+            modalTropa.close();
+        });
+
+        // Fecha o pop-up se clicar no fundo escuro fora da caixa
+        modalTropa.addEventListener("click", (event) => {
+            if (event.target === modalTropa) {
+                modalTropa.close();
+            }
+        });
     });
 </script>
 </body>
