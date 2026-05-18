@@ -452,59 +452,64 @@ footer {
 }
 
 /* =========================================
-   7. JAMBOREE - NOVOS ESTILOS COM BANDA VERMELHA
+   7. PÁGINAS JAMBOREE (Banda Vermelha)
    ========================================= */
-
-/* Contentor para colocar a banda e o cartão lado a lado */
-.content-wrapper {
+.main-content-jamboree {
     display: flex;
-    max-width: 1100px;
-    width: 100%;
-    margin: 0 auto;
-    align-items: stretch; /* A MAGIA: Força a mesma altura */
-    gap: 0; /* Cola os elementos um ao outro */
+    justify-content: center;
+    padding: 20px;
+    flex: 1;
 }
 
-/* BANDA VERMELHA VERTICAL */
-.vertical-band-jamboree {
-    width: 220px; /* Largura estreita para ser uma "banda" */
-    background-color: #E1306C; /* Vermelho oficial do Jamboree */
-    padding: 30px 20px;
-    border-radius: 12px 0 0 12px; /* Arredonda apenas os cantos esquerdos */
+/* A caixa principal que une a banda vermelha e o texto */
+.jamboree-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1000px; /* Largura total das duas caixas juntas */
+    background: var(--branco);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,51,102,0.1); /* Sombra à volta de tudo */
+    align-items: stretch; /* Força a banda e o texto a terem a mesma altura */
+    border-bottom: 4px solid var(--azul-claro);
+}
+
+/* A Banda Vertical Vermelha */
+.jamboree-band {
+    width: 250px;
+    background-color: #CE1126; /* Vermelho Oficial da Polónia */
+    border-radius: 12px 0 0 0; /* Arredonda apenas o canto superior esquerdo */
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Estilo do logótipo a branco na banda */
-.band-logo {
+.jamboree-band img {
     width: 100%;
-    max-width: 180px;
+    max-width: 160px;
     height: auto;
 }
 
-/* CARTÃO DE CONTEÚDO (Modificado para se colar à banda) */
+/* O Cartão de Conteúdo (Texto) */
 .card-jamboree {
-    flex: 1; /* Ocupa o resto da largura */
-    border-radius: 0 12px 12px 0 !important; /* Arredonda apenas os cantos direitos */
+    flex: 1; /* Ocupa o resto do espaço */
+    padding: 40px;
     text-align: center;
-    border-bottom: 0 !important; /* Removemos a borda inferior para este design */
+    background: transparent;
 }
 
-/* --- RESPONSIVIDADE JAMBOREE --- */
+.card-jamboree h1 { font-size: 1.8rem; margin-bottom: 5px; }
+
+/* Para Telemóveis (Esconde a banda vermelha) */
 @media (max-width: 768px) {
-    /* Esconde a banda vermelha no telemóvel */
-    .vertical-band-jamboree {
-        display: none;
+    .jamboree-band {
+        display: none; /* Desaparece no telemóvel para poupar espaço */
     }
-    
-    /* Quebra o flexbox para o cartão ocupar a largura toda */
-    .content-wrapper {
+    .jamboree-wrapper {
+        border-radius: 12px;
         flex-direction: column;
     }
-    
-    /* Repõe os cantos arredondados no cartão */
     .card-jamboree {
-        border-radius: 12px !important;
+        padding: 30px 20px;
     }
 }
