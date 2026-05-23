@@ -513,3 +513,28 @@ footer {
         padding: 30px 20px;
     }
 }
+
+/* =========================================
+   CORREÇÃO: MOSTRAR NOME NO MOBILE
+   ========================================= */
+@media (max-width: 768px) {
+    .brand-text {
+        display: flex !important; /* Força o texto a aparecer */
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .brand-name {
+        font-size: 1.1rem !important; /* Ligeiramente mais pequeno no telemóvel */
+        line-height: 1.2;
+    }
+    
+    .brand-sub {
+        font-size: 0.75rem !important; /* Ligeiramente mais pequeno no telemóvel */
+    }
+    
+    .logo-img {
+        width: 40px !important; /* Garante que o logo não ocupa espaço a mais */
+        height: auto;
+    }
+}
