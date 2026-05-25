@@ -55,12 +55,11 @@
 </header>
 
 <main class="main-content-jamboree">
-    
     <div class="jamboree-wrapper">
         
         <aside class="jamboree-band">
             <img src="./assets/img/RGB_logo_white_WSJ2027.png" alt="Logo Jamboree 2027">
-            <img src="./assets/img/RGB_bravely_short_white_WSJ2027.png" alt="Bravely Jamboree 2027" class="img-bravely">
+            <img src="./assets/img/RGB_bravely_short_white_WSJ2027.png" alt="Bravely" class="img-bravely">
         </aside>
 
         <section class="card-jamboree">
@@ -68,42 +67,74 @@
             <h1>26º World Scout Jamboree</h1>
             <h2 style="color: var(--azul-claro); font-size: 1.2rem;">Polónia 2027 • Tema: "Bravely"</h2>
             
-            <p style="margin-top: 20px;">O Jamboree Mundial Escotista é o maior evento jovem de escutismo do mundo! A cada quatro anos, dezenas de milhares de escuteiros reúnem-se para uma experiência inesquecível de aventura e intercâmbio cultural.</p>
-            
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+            <div id="relogio" style="display: flex; gap: 10px; justify-content: center; margin: 30px 0; flex-wrap: wrap;">
+                <div style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; min-width: 90px; text-align: center;">
+                    <span id="dias" style="font-size: 2.2rem; font-weight: 900;">00</span><br>
+                    <small style="font-weight: 700; letter-spacing: 1px;">DIAS</small>
+                </div>
+                <div style="background: #CE1126; color: white; padding: 15px; border-radius: 8px; min-width: 90px; text-align: center;">
+                    <span id="horas" style="font-size: 2.2rem; font-weight: 900;">00</span><br>
+                    <small style="font-weight: 700; letter-spacing: 1px;">HORAS</small>
+                </div>
+                <div style="background: #CE1126; color: white; padding: 15px; border-radius: 8px; min-width: 90px; text-align: center;">
+                    <span id="minutos" style="font-size: 2.2rem; font-weight: 900;">00</span><br>
+                    <small style="font-weight: 700; letter-spacing: 1px;">MINUTOS</small>
+                </div>
+            </div>
 
-            <div style="display: flex; gap: 20px; text-align: left; flex-wrap: wrap; justify-content: center;">
+            <div style="display: flex; gap: 20px; text-align: left; flex-wrap: wrap; justify-content: center; margin-top: 20px;">
                 <div style="flex: 1; min-width: 200px; background: var(--cinza-fundo); padding: 20px; border-radius: 8px;">
                     <h3 style="font-size: 1.1rem; margin-bottom: 10px;">📅 Datas</h3>
                     <p>De <strong>30 de julho a 8 de agosto de 2027</strong>. Celebraremos juntos os 120 anos do escutismo a nível mundial!</p>
                 </div>
-                
                 <div style="flex: 1; min-width: 200px; background: var(--cinza-fundo); padding: 20px; border-radius: 8px;">
                     <h3 style="font-size: 1.1rem; margin-bottom: 10px;">📍 Local</h3>
                     <p>O evento terá lugar na cidade costeira de <strong>Gdańsk</strong>, na fantástica Ilha de Sobieszewo, junto ao Mar Báltico.</p>
                 </div>
-            </div> <div style="display: flex; gap: 20px; text-align: center; flex-wrap: wrap; justify-content: center; margin-top: 40px; margin-bottom: 30px;">
-                
-                <a href="jamboree-info.html" style="flex: 1; min-width: 200px; background: var(--azul-claro); color: white; padding: 20px; border-radius: 8px; text-decoration: none; font-weight: 800; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 10px rgba(0, 86, 179, 0.3);">
+            </div>
+
+            <div style="display: flex; gap: 20px; text-align: center; flex-wrap: wrap; justify-content: center; margin-top: 40px; margin-bottom: 30px;">
+                <a href="jamboree-info.html" style="flex: 1; min-width: 200px; background: var(--azul-claro); color: white; padding: 20px; border-radius: 8px; text-decoration: none; font-weight: 800; transition: transform 0.2s; box-shadow: 0 4px 10px rgba(0, 86, 179, 0.3);">
                     <span style="font-size: 2rem; display: block; margin-bottom: 10px;">ℹ️</span>
                     Ver Informações da Tropa
                 </a>
-                
-                <a href="jamboree-news.html" style="flex: 1; min-width: 200px; background: var(--cinza-fundo); color: var(--azul-marinho); padding: 20px; border-radius: 8px; text-decoration: none; font-weight: 800; border: 2px solid var(--azul-claro); transition: transform 0.2s;">
+                <a href="jamboree-news.html" style="flex: 1; min-width: 200px; background: var(--cinza-fundo); color: var(--azul-marinho); padding: 20px; border-radius: 8px; text-decoration: none; font-weight: 800; border: 2px solid var(--azul-claro);">
                     <span style="font-size: 2rem; display: block; margin-bottom: 10px;">📰</span>
                     Descarregar Newsletters
                 </a>
-
             </div>
 
             <a href="https://www.jamboree2027.org/" target="_blank" class="btn" style="margin-top: 10px;">VISITAR SITE OFICIAL</a>
-
-            <a href="https://www.jamboree2027.org/" target="_blank" class="btn" style="margin-top: 30px;">VISITAR SITE OFICIAL</a>
         </section>
-
     </div>
-
 </main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dataJamboree = new Date("Jul 30, 2027 00:00:00").getTime();
+        
+        function atualizaRelogio() {
+            const agora = new Date().getTime();
+            const distancia = dataJamboree - agora;
+            
+            if (distancia < 0) {
+                document.getElementById("relogio").innerHTML = "<h2 style='color: #CE1126;'>O Jamboree já começou!</h2>";
+                return;
+            }
+
+            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+            
+            document.getElementById("dias").innerText = dias < 10 ? "0" + dias : dias;
+            document.getElementById("horas").innerText = horas < 10 ? "0" + horas : horas;
+            document.getElementById("minutos").innerText = minutos < 10 ? "0" + minutos : minutos;
+        }
+
+        atualizaRelogio(); // Executa logo ao abrir
+        setInterval(atualizaRelogio, 60000); // Atualiza apenas a cada minuto para poupar recursos
+    });
+</script>
 
 <footer>
     <div class="footer-content">
