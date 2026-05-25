@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Geral - Jamboree 2027 | CNE 929</title>
-    <meta name="description" content="Informações gerais sobre o 26º World Scout Jamboree na Polónia.">
+    <title>Newsletter - Jamboree 2027 | CNE 929</title>
     <link rel="icon" type="image/x-icon" href="https://cne929belem.github.io/assets/img/Logo929.ico">
-    <link rel="shortcut icon" type="image/x-icon" href="./assets/img/Logo929.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
@@ -24,7 +22,7 @@
         <nav>
             <ul class="nav-menu">
                 <li class="dropdown">
-                    <a href="#" class="nav-link">Agrupamento &#9662;</a>
+                    <a href="#" class="nav-link">Agrupamento ▾</a>
                     <ul class="dropdown-menu">
                         <li><a href="equipa.html">Equipa</a></li>
                         <li><a href="documentos.html">Documentos</a></li>
@@ -32,7 +30,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="nav-link">Secções &#9662;</a>
+                    <a href="#" class="nav-link">Secções ▾</a>
                     <ul class="dropdown-menu">
                         <li><a href="lobitos.html">I - Lobitos</a></li>
                         <li><a href="mocos.html">II - Moços</a></li>
@@ -41,7 +39,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="nav-link">Jamboree 2027 &#9662;</a>
+                    <a href="#" class="nav-link">Jamboree 2027 ▾</a>
                     <ul class="dropdown-menu">
                         <li><a href="jamboree-geral.html">Geral</a></li>
                         <li><a href="jamboree-info.html">Informações</a></li>
@@ -53,18 +51,33 @@
     </div>
 </header>
 
-<main class="main-content">
-    <section class="card" style="max-width: 900px;">
-        <h1>Newsletter Jamboree</h1>
-        <p>Descarrega aqui as circulares informativas enviadas por email.</p>
+<main class="main-content-jamboree">
+    <div class="jamboree-wrapper">
         
-        <div style="margin-top: 30px; display: flex; flex-direction: column; gap: 10px;">
-            <a href="./assets/docs/newsletter_01.pdf" target="_blank" style="display: flex; justify-content: space-between; padding: 15px; background: #f9f9f9; border-radius: 8px; text-decoration: none; color: #333; border-left: 5px solid var(--azul-claro);">
-                <span>Newsletter #1 - Lançamento</span>
-                <span>📥 PDF</span>
-            </a>
+        <aside class="jamboree-band">
+            <img src="./assets/img/RGB_logo_white_WSJ2027.png" alt="Logo Jamboree 2027">
+            <img src="./assets/img/RGB_bravely_short_white_WSJ2027.png" alt="Bravely" class="img-bravely">
+        </aside>
+
+        <section class="card-jamboree">
+            <h1>Newsletter Jamboree</h1>
+            <p>Acompanha todas as novidades e circulares oficiais sobre a nossa participação.</p>
+            
+            <div style="margin-top: 30px; display: flex; flex-direction: column; gap: 12px; text-align: left;">
+                
+                <a href="./assets/docs/newsletter_01.pdf" target="_blank" style="display: flex; justify-content: space-between; align-items: center; padding: 18px; background: var(--cinza-fundo); border-radius: 8px; text-decoration: none; color: var(--texto); border-left: 5px solid #CE1126; transition: 0.3s;">
+                    <div>
+                        <h3 style="margin: 0; font-size: 1.1rem; color: var(--azul-marinho);">Newsletter #01 - Lançamento</h3>
+                        <small style="color: #666;">Publicado em: Maio 2026</small>
+                    </div>
+                    <span style="font-size: 1.4rem;">📥</span>
+                </a>
+
+                <p style="text-align: center; color: #888; font-style: italic; margin-top: 20px;">Novos documentos serão publicados aqui regularmente.</p>
+
             </div>
-    </section>
+        </section>
+    </div>
 </main>
 
 <footer>
@@ -72,7 +85,7 @@
         <div class="footer-contactos">
             <h3>Contactos</h3>
             <p><a href="https://maps.app.goo.gl/jFjWvkipWY5HRQEE9" target="_blank" class="map-link">Doca de Recreio Belém, Av. Brasília, 1400-434 Lisboa</a></p>
-            <p><a href="mailto:geral.929@escutismo.pt" class="email-link" style="color: #0056b3; font-weight: 800;">geral.929@escutismo.pt</a></p>
+            <p><a href="mailto:geral.929@escutismo.pt" class="email-link">geral.929@escutismo.pt</a></p>
         </div>
         <div class="footer-redes">
             <div class="social-row">
@@ -86,8 +99,9 @@
         </div>
     </div>
     <div class="footer-bottom">
-        <p>CNE 929 Belém &bull; Escutismo Marítimo &bull; © 2026</p>
+        <p>CNE 929 Belém • Escutismo Marítimo • © 2026</p>
     </div>
 </footer>
+
 </body>
 </html>
