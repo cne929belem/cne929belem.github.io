@@ -1,131 +1,138 @@
 # ⚓ CNE 929 Belém - Escuteiros Marítimos
 
 Bem-vindo ao repositório oficial do website do **Corpo Nacional de Escutas - Agrupamento 929 (Belém)**.
-Este portal digital foi desenhado para partilhar a vida da nossa alcateia, frota, flotilha e equipagem, e manter todos informados sobre as nossas atividades, como o Jamboree 2027.
 
 🌐 **Website em Direto:** [cne929belem.github.io](https://cne929belem.github.io/)
 
 ---
 
-## 🛠️ Funcionalidades do Site
+## 🛠️ Como o site é feito
 
-* **Design 100% Responsivo:** o site adapta-se automaticamente a computadores, tablets e telemóveis.
-* **Quase tudo em HTML + CSS puro, sem JavaScript:** menus dropdown, campos condicionais do formulário, e os pop-ups (Tropa e Insígnia) funcionam só com CSS (`:checked`, `:target`, `:not(:placeholder-shown)`). Isto torna o site mais rápido e, sobretudo, muito mais fácil de editar — não é preciso saber programar para mudar texto, cores ou imagens.
-* **As duas únicas exceções, por serem tecnicamente inevitáveis:**
-  - O **contador** na página "Geral" (dias/horas/minutos até ao Jamboree) — uma contagem que se atualiza sozinha exige sempre um pequeno script.
-  - O **feed de Instagram** na página inicial — widget externo da Elfsight, copiado e colado, não é código nosso para manter.
-* **Rodapé Institucional:** links diretos para mapas, contactos, redes sociais e portais oficiais do CNE.
-* **Otimização SEO:** meta-tags para facilitar a descoberta do agrupamento no Google/Bing.
-* **Micro-secção Jamboree 2027:** três páginas informativas (Geral, Informações, Newsletter) e um Portal de Respostas com inscrição nominal da Tropa 10.
-* **Página "Em Construção":** todos os separadores ainda sem conteúdo próprio apontam para uma página de aviso consistente, em vez de ficarem por preencher.
+* **Jekyll**, compilado automaticamente pelo GitHub Pages a partir do código-fonte.
+* **Layout partilhado** (`_layouts/default.html`): cabeçalho, navegação e rodapé vivem num único ficheiro.
+* **Páginas organizadas por pasta**, seguindo exatamente a estrutura do menu do site — ver secção "Estrutura de Pastas" abaixo.
+* **Coleções** (`_noticias/`, `_documentos/`) para conteúdo que se repete, e **dados** (`_data/registos.yml`) para o registo de Noites/Horas.
+* **Painel de administração visual** em `/admin/` (Decap CMS + DecapBridge) — a maior parte do conteúdo do dia a dia edita-se por lá, sem tocar em código.
+* **HTML + CSS puro onde é possível, sem JavaScript.** Menus, pop-ups e campos condicionais do Portal de Respostas funcionam só com CSS. As exceções conhecidas (tecnicamente inevitáveis): o contador da página Jamboree — Geral, o widget do Instagram, o preenchimento automático do NIN no Portal de Respostas, o acordeão de secções da Vivência, e o motor de pesquisa de Noites/Horas.
+* **Design 100% Responsivo**, com um único `assets/css/style.css` a cobrir desktop, tablet e telemóvel.
 
 ---
 
-## 📄 Páginas do Site
+## 📂 Estrutura de Pastas
 
-| Página | Ficheiro | Descrição |
-|---|---|---|
-| Início | `index.html` | Página principal, feed de Instagram e destaque para o Jamboree 2027 |
-| Jamboree — Geral | `jamboree-geral.html` | Contador, datas, local e botão de entrada no Portal de Respostas |
-| Jamboree — Informações | `jamboree-info.html` | Imaginário, insígnia do Contingente (com pop-up de ampliar), logística, saúde/SfH, Operação de Solidariedade, o que levar, pop-up da Tropa |
-| Jamboree — Newsletter | `jamboree-news.html` | Boletins nacionais e internacionais para download |
-| Jamboree — Portal de Respostas | `jamboree-inscricao.html` | Formulário de inscrição nominal (89 campos, consentimento RGPD + 8 secções), **100% HTML/CSS, sem JavaScript** |
-| Em Construção | `em-construcao.html` | Página de aviso para onde apontam os separadores ainda vazios |
+As páginas estão organizadas em pastas que seguem **exatamente** a estrutura do menu do site — se procuras uma página, o menu diz-te a pasta:
 
-**Navegação (igual em todas as páginas):** Agrupamento ▾ · Secções ▾ · **ACAGRUP ▾** (com "2026 - Ilha dos Cavalos", atualmente a apontar para "Em Construção") · Jamboree 2027 ▾
-
----
-
-## 📝 Portal de Respostas — como funciona (sem JavaScript)
-
-O `jamboree-inscricao.html` é um `<form method="POST">` HTML nativo — ao clicar em "Enviar", o browser envia os dados diretamente para um **Google Apps Script** implementado como Aplicação Web, sem passar por nenhum código nosso no meio. O Apps Script grava a resposta numa Google Sheet e devolve uma página de confirmação (ou de erro) já estilizada.
-
-**Como isto substitui o que normalmente seria feito com JavaScript:**
-- **Validação de campos obrigatórios, datas, emails:** atributos nativos do HTML5 (`required`, `type="email"`, `type="date"`...). O browser trata disto sozinho.
-- **Campos condicionais** (ex.: "Se Outro, especifica"): seletores CSS `:checked ~` e `:not(:placeholder-shown)` — o campo seguinte só aparece quando a opção certa é escolhida.
-- **"Portão" de consentimento RGPD:** o resto do formulário fica visualmente esbatido e bloqueado (`opacity` + `pointer-events: none`) até a checkbox de consentimento ser marcada — outra vez, só CSS.
-- **Navegação por secções:** links de âncora simples (`#secao-1`, `#secao-2`...).
-
-**Antes de publicares uma alteração ao formulário:**
-1. Confirma que o `action="..."` do `<form>` em `jamboree-inscricao.html` aponta para o URL do teu Apps Script (há um aviso amarelo visível na própria página a lembrar isto).
-2. O código do Apps Script está em `AppsScript_Code.gs` (não corre no GitHub Pages — vive à parte, no projeto Apps Script ligado à Sheet).
-3. Os dados recolhidos incluem categorias especiais (saúde, mobilidade, convicções religiosas) de menores — mantém o acesso à Sheet restrito à Direção do Agrupamento e confirma o texto de consentimento RGPD com alguém responsável por proteção de dados no CNE antes de publicares alterações a este fluxo.
-
----
-
-## 🧭 Como Atualizar o Site (Guia Rápido)
-
-### 1. Alterar as Cores Oficiais
-Tudo concentrado no topo de `assets/css/style.css`, na zona `:root`:
-```css
-:root {
-    --azul-marinho: #003366;
-    --azul-claro: #0056b3;
-    /* ... */
-}
+```text
+/
+├── index.html                   # Página inicial
+├── em-construcao.html           # Aviso para secções ainda vazias
+│
+├── agrupamento/                 # Menu "Agrupamento ▾"
+│   ├── informacoes.md            # Sobre o Agrupamento, contactos, quotas
+│   ├── equipa.md                 # Organigrama e Equipas de Animação (CMS)
+│   ├── documentos.md             # Lista os documentos, agrupados por ano (lê de _documentos/)
+│   └── noticias.html             # Lista TODAS as notícias (lê de _noticias/)
+│
+├── comunidade/                   # Menu "Secções ▾ → IV - Comunidade"
+│   ├── geral.md                   # Equipa de Animação, ligação ao CNE, Uniforme, Registo de Noites/Horas
+│   ├── vivencia.md                # Imaginário, O que é ser Companheiro, Dimensões, Simbologia, Progresso/PPV
+│   ├── programa.md                # (em construção)
+│   ├── atividades.md              # (em construção)
+│   └── diario.md                  # Diário de Bordo — galeria e documentos via Google Drive (CMS)
+│
+├── atividades/                   # Menu "Atividades ▾"
+│   ├── acagrup-2026.md            # ACAGRUP 2026 (CMS)
+│   ├── promessas26.md             # Galeria de Promessas (CMS)
+│   └── inscricoes.md              # Molde reutilizável de inscrição numa atividade (Google Forms)
+│
+├── jamboree/                     # Menu "Jamboree 2027 ▾"
+│   ├── geral.html                 # Contador e resumo
+│   ├── informacoes.html           # Informações, insígnia, SfH, Solidariedade
+│   ├── newsletter.html            # Boletins nacionais e internacionais
+│   └── inscricao.html             # Portal de Respostas (8 secções, HTML/CSS puro) — fora do menu, só via botão
+│
+├── _config.yml                   # Configuração do Jekyll + definição das coleções
+├── Gemfile / Gemfile.lock        # Dependências Ruby (Jekyll 4.4 + webrick)
+├── .gitignore
+├── README.md
+│
+├── _layouts/
+│   ├── default.html               # Layout partilhado — cabeçalho, navegação, rodapé
+│   └── noticia.html               # Layout de uma notícia individual
+├── _includes/
+│   ├── doc-link.html              # Uma linha de documento (usado por agrupamento/documentos.md)
+│   └── noticia-card.html          # Um cartão de notícia (usado por index.html e agrupamento/noticias.html)
+├── _noticias/                     # Coleção — uma notícia por ficheiro
+├── _documentos/                   # Coleção — um documento por ficheiro
+├── _data/
+│   └── registos.yml               # Registo de Noites/Horas (editável pelo CMS) — ver aviso de privacidade abaixo
+│
+├── admin/
+│   ├── config.yml                 # Configuração do Decap CMS + DecapBridge
+│   └── index.html
+│
+└── assets/
+    ├── css/
+    │   └── style.css               # Design, cores, responsividade, componentes reutilizáveis
+    ├── docs/                       # PDFs (documentos, boletins, cerimoniais)
+    └── img/
+        ├── marca/                   # Logótipos do Agrupamento e do CNE
+        ├── jamboree/                 # Logos e insígnia do WSJ 2027
+        ├── seccoes/                  # Ícones das 4 secções + dimensões da Comunidade
+        ├── equipa/                   # Fotos dos dirigentes
+        └── eventos/                  # Fotos de atividades (ACAGRUP, etc.)
 ```
 
-### 2. Atualizar o Feed do Instagram
-1. Acede a elfsight.com e faz login.
-2. Atualiza o widget no painel deles.
-3. Se o código mudar, vai ao `index.html`, procura `<aside class="sidebar-desktop">` e substitui o `<script>` e a `<div>` pelo novo código gerado.
+**Nota:** o código do Apps Script (`AppsScript_Code.gs`) não está neste repositório — vive à parte, no projeto Apps Script ligado à Google Sheet de respostas. Se algum dia mudares o caminho de `jamboree/geral.html` ou `jamboree/inscricao.html`, também tens de atualizar os links para lá dentro do Apps Script (nas páginas de confirmação/erro que ele devolve).
 
-### 3. Substituir Imagens
-Upload do novo ficheiro para `assets/img/`, com nome sem espaços/acentos (evita problemas de link no GitHub Pages), e confirma que o nome/extensão batem certo no HTML.
+---
 
-### 4. Ligar uma nova secção (tirar da página "Em Construção")
-1. Cria a nova página HTML (podes copiar a estrutura de `jamboree-geral.html`).
-2. Em **todas** as páginas, troca o `href="em-construcao.html"` correspondente a essa secção pelo novo ficheiro. Isto inclui os itens de "Agrupamento", "Secções" e "ACAGRUP".
+## 🎨 Guia de Emojis
 
-### 5. Atualizar as perguntas do Portal de Respostas
-As perguntas estão escritas diretamente em HTML dentro de `<fieldset class="form-section">`, uma secção por bloco. Para:
-- **Mudar o texto de uma pergunta:** edita o `<label>` correspondente.
-- **Adicionar/remover uma opção (Sim/Não, etc.):** copia ou apaga o par `<input>` + `<label>` dentro do grupo.
-- **Adicionar um campo novo simples:** copia um bloco `<div class="field">...</div>` existente do mesmo tipo (texto, data, etc.) e muda o `id`/`name`/rótulo.
-- **Importante:** sempre que mudares ou acrescentares um `name` de um campo, atualiza também o `FIELD_MAP` em `AppsScript_Code.gs` (mesma chave, mesma ordem), para a coluna aparecer corretamente na Sheet.
-- **Campos condicionais:** o "gatilho" (`class="trigger-yes"` ou `class="trigger-outro"`) tem de estar num `<input>` que seja **irmão direto** do `<div class="conditional-field">` que deve aparecer — ambos dentro do mesmo `<div class="field options-field">`, sem outra `<div>` a separá-los no meio. Se not aparecer, confirma esta estrutura primeiro.
+Para o site não acumular dezenas de variantes do mesmo símbolo, usa sempre estes por omissão:
+
+| Conceito | Emoji |
+|---|---|
+| Documento / PDF | 📄 |
+| Download | 📥 |
+| Pessoa | 🧑 |
+| Grupo / equipa | 👥 |
+| Ligação interna ("saber mais") | → |
+| Ligação externa (sai do site) | ↗️ |
+| Campismo / tenda | 🏕️ |
+| Confirmação / feito | ✓ |
+
+Símbolos com significado próprio (⚓ 🧭 ⚜️ 🏅, as cores 🔴🟡🟢🔵 das Caravelas/dimensões) mantêm-se — representam conceitos genuinamente diferentes, não precisam de uniformizar.
+
+---
+
+## ✍️ Tom de Voz
+
+- **Páginas de narrativa/imaginário** (Destaque, ACAGRUP, Vivência): tom animado, metáforas marítimas à vontade — "as velas içadas", "assumir o leme".
+- **Páginas utilitárias** (Documentos, listas, formulários): diretas e claras, sem precisar de metáfora.
+- **Evitar linguagem de regulamento** ("órgãos", "unidades", "no âmbito de") fora dos blocos que citam mesmo o Regulamento — prefere linguagem próxima, como falarias com um jovem do Agrupamento.
+
+---
+
+## 📰 Como acrescentar uma Notícia
+
+Pelo painel `/admin/` → "Notícias" → "Novo Notícias". Se preencheres **"Link direto para outra página"**, o cartão liga logo para lá (ex.: para o ACAGRUP); se deixares vazio e escreveres o "Texto completo", a notícia ganha página própria. Aparece sozinha nas 3 mais recentes da página inicial e em `agrupamento/noticias.html` — não precisas de mexer em mais nada.
+
+## 📁 Como acrescentar um Documento
+
+Pelo painel `/admin/` → "Documentos" → "Novo Documentos". O campo **Ano** ("Geral" ou um ano concreto) decide onde aparece em `agrupamento/documentos.md` — a página organiza-se sozinha.
+
+## 🔐 Registo de Noites e Horas — aviso de privacidade
+
+`_data/registos.yml` já está editável pelo painel `/admin/` (mais arrumado do que estar escrito direto no código), mas **isto não resolve o problema de fundo**: o GitHub Pages só serve ficheiros estáticos, por isso este ficheiro fica sempre 100% público — qualquer pessoa que veja o código da página vê a lista toda, o número de telemóvel não é uma password, só um filtro visual. Não uses aqui dados reais de menores até isto ser substituído por uma solução com autenticação a sério (ver conversas anteriores sobre as opções A/B/C/D consideradas).
 
 ---
 
 ## ⚜️ Créditos
 
-Construído em HTML5 e CSS3, sem dependência de JavaScript no essencial do site (as exceções — contador e widget do Instagram — estão assinaladas acima).
+Construído em HTML5 e CSS3, com JavaScript reduzido ao mínimo indispensável.
 Criado por: Ricardo Isaías Serafim em colaboração com os Companheiros (2025-2026).
 Insígnia do Contingente Português ao WSJ 2027: João Oliveira.
+Imaginário "O Segredo da Ilha Perdida" (ACAGRUP 2026): Agrupamento 929 - Belém.
 
 Escutismo Marítimo • Sempre Alerta para Servir
-
----
-
-## 📂 Estrutura de Ficheiros
-
-```text
-/
-├── index.html                       # Página principal e estrutura do site
-├── jamboree-geral.html              # Jamboree 2027 — contador e resumo
-├── jamboree-info.html               # Jamboree 2027 — informações, insígnia, SfH, Solidariedade
-├── jamboree-news.html               # Jamboree 2027 — boletins nacionais e internacionais
-├── jamboree-inscricao.html          # Jamboree 2027 — Portal de Respostas (HTML/CSS puro)
-├── em-construcao.html               # Página de aviso para secções ainda vazias
-├── AppsScript_Code.gs               # Backend do Portal de Respostas (implementar no Google Apps Script)
-├── README.md                        # Este documento
-└── assets/
-    ├── css/
-    │   └── style.css                 # Todo o design, cores, fontes, responsividade e lógica CSS dos formulários/pop-ups
-    ├── docs/
-    │   ├── Proposta Educativa_Geral.pdf
-    │   ├── pt_WSJBoletim 1.pdf
-    │   ├── pt_Boletim2_WSJ 2027.pdf
-    │   ├── Bulletin 1 EN WSJ2027.pdf
-    │   ├── WSJ2027EN Bulletin2.pdf
-    │   └── EN Bulletin_3.pdf
-    └── img/
-        ├── Logo929.jpg                         # Logótipo principal
-        ├── Logo929.ico                         # Ícone do separador do browser
-        ├── CNE_escuteiros_Maritimos.jpg        # Logo da secção Marítima (Rodapé)
-        ├── CNE_escuteiros.jpg                  # Logo oficial do CNE (Rodapé)
-        ├── Bravely_Jamboree_27.png             # Destaque do Jamboree na página inicial
-        ├── RGB_logo_white_WSJ2027.png          # Logo oficial WSJ 2027 (branco)
-        ├── RGB_bravely_short_white_WSJ2027.png # Logótipo "Bravely" (branco)
-        └── Insignia_Contingente_WSJ2027.png    # Insígnia do Contingente Português (João Oliveira)
-```
