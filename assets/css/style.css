@@ -1,3 +1,28 @@
+/* =========================================================================
+   FOLHA DE ESTILOS DO SITE — CNE 929 Belém
+   =========================================================================
+   Ficheiro único, partilhado por todas as páginas (ligado a partir de
+   _layouts/default.html). Está organizado em secções numeradas:
+
+     1.  Variáveis de cores e base
+     2.  Navbar e logótipo
+     3.  Menus e submenus (dropdowns)
+     4.  Conteúdo principal e barra lateral
+     5.  Rodapé
+     6.  Responsividade (telemóveis e tablets)
+     7.  Páginas Jamboree (banda vermelha)
+     8.  Pop-ups em CSS puro (sem JavaScript)
+     9.  Formulários (Portal de Respostas)
+     10. Componentes de conteúdo reutilizáveis (blocos coloridos, cartões
+         de notícia, links de documentos, grelhas de acesso rápido)
+
+   FILOSOFIA: este site evita JavaScript sempre que possível. Interações
+   como menus, pop-ups e campos condicionais de formulário são feitas só
+   com CSS. As únicas exceções (tecnicamente inevitáveis) são o contador
+   da página Jamboree — Geral, o widget do Instagram, e o preenchimento
+   automático do NIN no Portal de Respostas.
+   ========================================================================= */
+
 /* =========================================
    1. VARIÁVEIS DE CORES E BASE (Identidade 929)
    ========================================= */
@@ -540,7 +565,7 @@ footer {
 }
 
 /* =========================================
-   7. POP-UPS EM CSS PURO (sem JavaScript)
+   8. POP-UPS EM CSS PURO (sem JavaScript)
    Técnica ":target" — um link com href="#id" "abre" o
    elemento com esse id; o link de fecho aponta para "#".
    ========================================= */
@@ -608,7 +633,7 @@ footer {
 }
 
 /* =========================================
-   8. FORMULÁRIOS (Portal de Respostas)
+   9. FORMULÁRIOS (Portal de Respostas)
    Todas as validações e campos condicionais usam
    HTML5 nativo + seletores CSS ":checked" / ":not(:placeholder-shown)" —
    sem nenhum JavaScript.
@@ -754,5 +779,147 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
 @media (max-width: 768px) {
     .form-intro { padding: 20px; }
     .form-section { padding: 16px; }
+}
+
+/* =========================================
+   10. COMPONENTES DE CONTEÚDO REUTILIZÁVEIS
+   Classes partilhadas por várias páginas (Documentos, Notícias, ACAGRUP,
+   Jamboree — Informações e Newsletter, Início). Antes de escreveres
+   style="..." novo, verifica se já existe algo aqui.
+   ========================================= */
+
+/* Título de secção com sublinhado — ex.: "Documentos Gerais" */
+.section-title {
+    color: var(--azul-marinho);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Bloco de destaque com borda colorida à esquerda. Usa .info-block
+   sozinho para azul-marinho, ou junta um modificador de cor:
+   .info-block.laranja / .verde / .amarelo / .roxo / .vermelho */
+.info-block {
+    background: var(--cinza-fundo);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid var(--azul-marinho);
+    text-align: left;
+    margin: 15px 0;
+}
+.info-block h3 { color: var(--azul-marinho); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.info-block p { font-size: 0.95rem; line-height: 1.6; }
+.info-block.laranja  { border-left-color: #fd7e14; }
+.info-block.verde    { border-left-color: #28a745; }
+.info-block.amarelo  { border-left-color: #ffc107; }
+.info-block.roxo     { border-left-color: #6f42c1; }
+.info-block.vermelho { border-left-color: #CE1126; }
+.info-block.azul-claro { border-left-color: var(--azul-claro); }
+
+/* Link de documento — usado em documentos.md e jamboree-news.html.
+   Modificadores de cor: .doc-link.verde / .vermelho.
+   .pendente = ainda sem ficheiro real (fica cinzento, com ⏳ em vez de 📥). */
+.doc-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 18px;
+    background: var(--cinza-fundo);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--texto);
+    border-left: 5px solid var(--azul-claro);
+    transition: background 0.2s;
+    margin-bottom: 10px;
+}
+.doc-link:hover { background: #e9edf2; }
+.doc-link h3 { margin: 0; font-size: 1.05rem; color: var(--azul-marinho); }
+.doc-link small { color: #666; }
+.doc-link .doc-icon { font-size: 1.3rem; flex-shrink: 0; }
+.doc-link.verde { border-left-color: #28a745; }
+.doc-link.vermelho { border-left-color: #CE1126; }
+.doc-link.pendente { border-left-color: #adb5bd; cursor: default; }
+.doc-link.pendente:hover { background: var(--cinza-fundo); }
+.doc-link.pendente h3 { color: #6c757d; }
+
+/* Barra de âncoras para saltar entre secções de uma página longa. */
+.jump-nav {
+    background: var(--branco);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,51,102,0.06);
+    font-size: 0.85rem;
+    text-align: center;
+}
+.jump-nav strong { color: var(--azul-marinho); display: block; margin-bottom: 8px; }
+.jump-nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 16px; }
+.jump-nav a { color: var(--azul-claro); text-decoration: none; }
+.jump-nav a:hover { text-decoration: underline; }
+
+/* Cartão de notícia — usado no resumo da página inicial e na lista completa. */
+.noticia-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--cinza-fundo);
+    border-radius: 8px;
+    padding: 18px;
+    margin-bottom: 12px;
+    border-left: 5px solid var(--azul-claro);
+    transition: background 0.2s;
+}
+.noticia-card:hover { background: #e9edf2; }
+.noticia-card .noticia-data { font-size: 0.78rem; color: #888; margin-bottom: 4px; }
+.noticia-card h3 { margin: 0 0 6px; color: var(--azul-marinho); font-size: 1.1rem; }
+.noticia-card p { margin: 0; font-size: 0.9rem; color: #555; line-height: 1.5; }
+
+/* Grelha de "acesso rápido" / cartões lado a lado — usada na página
+   inicial (Inscrição, ACAGRUP, Promessas, Documentos) e no ACAGRUP (as
+   4 Caravelas). Fica SEMPRE numa única linha, sem scroll horizontal:
+   os cartões encolhem (flex-shrink) em vez de quebrar linha ou
+   ultrapassar a largura do ecrã. Combina até 4 itens confortavelmente;
+   com mais do que isso, cada um fica muito estreito em telemóveis — se
+   precisares de mais itens, considera duas grelhas em vez de uma maior. */
+.quick-links-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin: 15px 0;
+}
+.quick-links-grid > * {
+    flex: 1 1 0;
+    min-width: 0; /* permite encolher abaixo da largura "natural" do conteúdo */
+}
+.quick-link-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--cinza-fundo);
+    border-radius: 8px;
+    padding: 18px 10px;
+    text-align: center;
+    transition: transform 0.15s, background 0.2s;
+}
+.quick-link-card:hover { background: #e9edf2; transform: translateY(-2px); }
+.quick-link-card .quick-link-icon { font-size: 1.8rem; display: block; margin-bottom: 8px; }
+.quick-link-card h3 { color: var(--azul-marinho); font-size: 0.95rem; margin: 0; overflow-wrap: break-word; }
+
+@media (max-width: 600px) {
+    /* Em ecrãs muito estreitos, aperta ainda mais para 4 itens continuarem a caber numa linha */
+    .quick-links-grid { gap: 6px; }
+    .quick-link-card { padding: 12px 4px; }
+    .quick-link-card .quick-link-icon { font-size: 1.4rem; margin-bottom: 4px; }
+    .quick-link-card h3 { font-size: 0.75rem; }
+    .info-block.laranja, .info-block.verde, .info-block.amarelo,
+    .info-block.roxo, .info-block.vermelho, .info-block.azul-claro {
+        padding: 10px 6px;
+    }
+    .quick-links-grid .info-block strong { font-size: 0.85rem; }
+    .quick-links-grid .info-block span { font-size: 0.7rem !important; }
 }
 

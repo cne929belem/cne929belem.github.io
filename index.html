@@ -3,12 +3,20 @@ layout: default
 title: CNE 929 - Belém - Escuteiros Marítimos
 main_class: main-content
 ---
+{% comment %}
+  Página inicial. As "Últimas Notícias" abaixo mostram sempre as 3
+  notícias mais recentes de site.noticias — não precisas de atualizar
+  esta página à mão quando publicares uma notícia nova (ver noticias.html
+  para a lista completa, e _noticias/ para como acrescentar uma).
+{% endcomment %}
+{% assign noticias_recentes = site.noticias | sort: "date" | reverse | slice: 0, 3 %}
+
 <div class="content-wrapper">
     <aside class="sidebar-desktop">
         <div class="sidebar-content">
             <h3 class="sidebar-title">📸 No Instagram</h3>
             <p class="sidebar-text">Acompanha as nossas aventuras!</p>
-            
+
             <script src="https://elfsightcdn.com/platform.js" async></script>
             <div class="elfsight-app-ae2194ce-94a3-4123-85c2-8ba49a8e34b5" data-elfsight-app-lazy></div>
         </div>
@@ -18,45 +26,64 @@ main_class: main-content
 
 <section id="inicio" class="card main-card">
         <div class="card-inner">
-            <a href="{{ '/assets/docs/Proposta_de_Admissao_929.pdf' | relative_url }}" target="_blank" style="text-decoration: none; color: inherit; display: block;">
-                <div id="inscricao">
-                    <h2 style="color: var(--azul-marinho);">📝 INSCREVE-TE!</h2>
-                    <p>Estás pronto para embarcar nesta grande viagem? Descarrega a nossa proposta de admissão, preenche-a e vem fazer parte da nossa tripulação. Estamos à tua espera!</p>
-                </div>
-            </a>
+            <h1>Âncoras Pesadas!</h1>
+            <p>Bem-vindos ao portal digital do Agrupamento 929 - Belém. Aqui traçamos a rota para as nossas próximas aventuras e partilhamos a vida da nossa alcateia, frota, flotilha e equipagem.</p>
 
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
 
-            <a href="acagrup-2026.html" style="text-decoration: none; color: inherit; display: block;">
-                <div id="acagrup">
-                    <h2 style="color: var(--azul-marinho);">🏕️🐎 ACAGRUP 2026 - Ilha dos Cavalos</h2>
-                    <p>Uma ilha isolada no Tejo, um Diário de Bordo perdido há séculos, e um aviso que ninguém se atreveu a seguir. É este o imaginário — <strong>"O Segredo da Ilha Perdida"</strong> — que vai unir todo o Agrupamento no próximo Acampamento de Agrupamento: quatro Caravelas, dos Lobitos aos Companheiros, partem à descoberta lado a lado — <strong>Adamastor</strong>, <strong>Nereu</strong>, <strong>Tétis</strong> e <strong>Ulisses</strong>.</p>
-                </div>
-            </a>
-
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-
-            <a href="promessas26.html" style="text-decoration: none; color: inherit; display: block;">
-                <div id="promessas">
-                    <h2 style="color: var(--azul-marinho);">⚜️📸 Promessas</h2>
-                    <p>Recordar é viver! Revive os momentos mais marcantes e de maior emoção em que os nossos elementos deram o seu "Sim" ao Escutismo. Entra a bordo da nossa galeria e partilha estas memórias inesquecíveis.</p>
-                </div>
-            </a>
-
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-
+            <!-- DESTAQUE — a atividade em maior evidência do momento -->
             <a href="jamboree-info.html" style="text-decoration: none; color: inherit; display: block;">
                 <div id="atividade">
-                    <h2 style="color: var(--azul-marinho);">Jamboree 2027</h2>
+                    <h2 style="color: var(--azul-marinho);">⭐ Destaque — Jamboree 2027</h2>
                     <p>A nossa maior aventura já tem as velas içadas. Fica atento!</p>
                     <span style="display: inline-block; margin-bottom: 15px; transition: transform 0.2s ease-in-out;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-                        <img src="./assets/img/Bravely_Jamboree_27.png" alt="Logo Jamboree 2027" style="max-height: 100px; max-width: 100%; width: auto; height: auto; display: block; margin: 0 auto;">
+                        <img src="{{ '/assets/img/Bravely_Jamboree_27.png' | relative_url }}" alt="Logo Jamboree 2027" style="max-height: 100px; max-width: 100%; width: auto; height: auto; display: block; margin: 0 auto;">
                     </span>
                 </div>
             </a>
+
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+            <!-- ÚLTIMAS NOTÍCIAS — as 3 mais recentes; ver noticias.html para todas -->
+            <div id="noticias">
+                <h2 style="color: var(--azul-marinho); margin-bottom: 10px;">📰 Últimas Notícias</h2>
+                {% for noticia in noticias_recentes %}
+                    {% include noticia-card.html noticia=noticia %}
+                {% else %}
+                    <p>Ainda não há notícias publicadas.</p>
+                {% endfor %}
+                <p style="text-align: right; margin-top: 5px;"><a href="{{ '/noticias.html' | relative_url }}" style="color: var(--azul-claro); text-decoration: none; font-weight: 700;">Ver todas as notícias →</a></p>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+            <!-- ACESSO RÁPIDO — ligações permanentes; o conteúdo detalhado vive nas páginas próprias.
+                 Máximo 4 itens numa linha (ver .quick-links-grid, secção 10 do CSS): os cartões
+                 encolhem em vez de quebrar linha ou dar scroll horizontal. -->
+            <div id="acesso-rapido">
+                <h2 style="color: var(--azul-marinho); margin-bottom: 5px;">🔗 Acesso Rápido</h2>
+                <div class="quick-links-grid">
+                    <a href="{{ '/assets/docs/Proposta_de_Admissao_929.pdf' | relative_url }}" target="_blank" class="quick-link-card">
+                        <span class="quick-link-icon">📝</span>
+                        <h3>Inscreve-te!</h3>
+                    </a>
+                    <a href="{{ '/acagrup-2026.html' | relative_url }}" class="quick-link-card">
+                        <span class="quick-link-icon">🏕️🐎</span>
+                        <h3>ACAGRUP 2026</h3>
+                    </a>
+                    <a href="{{ '/promessas26.html' | relative_url }}" class="quick-link-card">
+                        <span class="quick-link-icon">⚜️📸</span>
+                        <h3>Promessas 2026</h3>
+                    </a>
+                    <a href="{{ '/documentos.html' | relative_url }}" class="quick-link-card">
+                        <span class="quick-link-icon">📄</span>
+                        <h3>Documentos</h3>
+                    </a>
+                </div>
+            </div>
         </div>
         <p style="text-align: right; font-size: 0.7rem; color: #888; margin-top: 30px; font-style: italic;">
-            Última atualização em 12/08/2026
+            Última atualização em 13/08/2026
         </p>
     </section>
 </div>

@@ -3,6 +3,38 @@ layout: default
 title: Portal de Respostas - Jamboree 2027 | CNE 929 - Belém
 main_class: main-content
 ---
+<!--
+  PORTAL DE RESPOSTAS — Inscrição nominal da Tropa 10 para o WSJ 2027.
+
+  ARQUITETURA (leitura obrigatória antes de mexer neste ficheiro):
+  Este formulário é propositadamente 100% HTML + CSS, com UMA única
+  exceção de JavaScript (o preenchimento automático do NIN, mais abaixo).
+  Tudo o resto — validação, campos condicionais, o "portão" de
+  consentimento RGPD — funciona só com HTML5 e seletores CSS. As regras
+  correspondentes vivem em assets/css/style.css, secção 9 (Formulários).
+
+  ESTRUTURA GERAL:
+    1. Navegação por âncoras (#secao-1 a #secao-8)
+    2. <form> único, que envia por POST direto para o Apps Script (o
+       "action" abaixo) — sem fetch(), sem JS de envio
+    3. Bloco de consentimento RGPD + checkbox (gate: o resto do
+       formulário só fica visível/interativo depois de marcada)
+    4. 8 secções de perguntas (form-section), a última (secao-8) é o
+       SIIE Update — dados de saúde para o sistema interno do CNE
+    5. Botão de envio
+
+  CAMPOS CONDICIONAIS (ex.: "Se Outro, especifica"): usam classes
+  trigger-yes / trigger-outro num <input>, e uma .conditional-field (ou
+  .conditional-field-outro-only, quando há dois condicionais na mesma
+  pergunta com gatilhos diferentes) como IRMÃ DIRETA desse input, dentro
+  do mesmo .field.options-field. Se um campo condicional não aparecer,
+  confirma primeiro essa relação de irmãos — é a causa mais comum.
+
+  APPS SCRIPT: o backend (AppsScript_Code.gs) NÃO está neste repositório
+  — vive à parte, colado no editor do projeto Apps Script ligado à
+  Google Sheet. Se mudares o "name" de algum campo aqui, atualiza também
+  o FIELD_MAP lá, ou essa coluna deixa de ser preenchida.
+-->
 <div class="content-wrapper" style="flex-direction: column; max-width: 760px;">
 
     <div class="form-intro">
@@ -78,6 +110,17 @@ main_class: main-content
                 <p class="step-sub">Secção 1 de 8 · Campos com * são obrigatórios</p>
                 <div class="field">
                     <label class="field-label" for="s1_nome">Nome completo *</label>
+                    <!--
+                      ÚNICO JAVASCRIPT DESTE FORMULÁRIO (onchange inline).
+                      Ao escolher um nome, preenche o campo NIN (readonly,
+                      logo abaixo) com o data-nin da opção escolhida. Não há
+                      forma de ler um atributo de uma opção selecionada e
+                      escrever noutro campo só com CSS — daqui a necessidade
+                      desta exceção pontual.
+                      Para atualizar a lista de participantes: acrescenta/
+                      edita as linhas <option> abaixo (value = nome
+                      completo, data-nin = número do NIN).
+                    -->
                     <select id="s1_nome" name="s1_nome" required onchange="document.getElementById('s1_nin').value = this.selectedOptions[0] ? (this.selectedOptions[0].dataset.nin || '') : '';">
                         <option value="">Seleciona o teu nome...</option>
                         <option value="Dinis Vicente Pena Carpinteiro" data-nin="1812040929005">Dinis Vicente Pena Carpinteiro</option>
@@ -442,6 +485,14 @@ main_class: main-content
                 </div>
             </fieldset>
 
+            <!--
+              SIIE UPDATE — pedido à parte da inscrição em si: são dados
+              para atualizar o registo do participante no sistema interno
+              do CNE (SIIE), não para o Contingente/organização do WSJ.
+              Continuam a ir para a MESMA Google Sheet (mesmo <form>,
+              mesmo POST) — o Apps Script é que os grava nas colunas
+              certas, via FIELD_MAP.
+            -->
             <fieldset class="form-section" id="secao-8">
                 <legend>🏥 SIIE Update</legend>
                 <p class="step-sub">Secção 8 de 8 · Atualização de dados de saúde para o Sistema de Informação da CNE</p>
