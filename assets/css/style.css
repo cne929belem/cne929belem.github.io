@@ -798,6 +798,9 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     align-items: center;
     gap: 10px;
 }
+/* Usa .section-title.vermelho em páginas com tema de cor próprio
+   (ex.: Comunidade / IV Secção, cuja cor oficial é o vermelho). */
+.section-title.vermelho { color: #CE1126; }
 
 /* Bloco de destaque com borda colorida à esquerda. Usa .info-block
    sozinho para azul-marinho, ou junta um modificador de cor:
