@@ -54,3 +54,31 @@ collections:
           - {label: "Classe CSS (Não mexer)", name: "main_class", widget: "hidden", default: "main-content"}
           - {label: "Layout (Não mexer)", name: "layout", widget: "hidden", default: "default"}
           - {label: "Conteúdo da Página", name: "body", widget: "markdown"}
+
+          - name: "dados"
+    label: "Bases de Dados"
+    files:
+      - label: "Registo de Noites e Horas"
+        name: "registos_escuteiros"
+        file: "_data/registos.yml"
+        fields:
+          - label: "Elementos do Agrupamento"
+            name: "elementos"
+            widget: "list"
+            fields:
+              - {label: "Telemóvel (Usado para pesquisa)", name: "telefone", widget: "string"}
+              - {label: "Secção / Cargo", name: "seccao", widget: "select", options: ["Lobito", "Moço", "Marinheiro", "Companheiro", "Adulto"]}
+              - {label: "Tótem", name: "toten", widget: "string"}
+              - {label: "Noites de Campo", name: "noites", widget: "number", value_type: "int", default: 0}
+              - {label: "Horas de Mar", name: "horas", widget: "number", value_type: "int", default: 0}
+
+              - label: "Diário de Bordo (Comunidade)"
+        name: "comunidade_diario"
+        file: "comunidade-diario.md"
+        fields:
+          - {label: "ID da Pasta de Documentos", name: "pasta_documentos", widget: "string", hint: "Apenas o ID da pasta do Google Drive"}
+          - {label: "ID da Pasta de Imagens", name: "pasta_imagens", widget: "string", hint: "Apenas o ID da pasta do Google Drive"}
+          - {label: "Título da Página", name: "title", widget: "hidden", default: "Diário de Bordo | IV - Comunidade"}
+          - {label: "Classe CSS (Não mexer)", name: "main_class", widget: "hidden", default: "main-content"}
+          - {label: "Layout (Não mexer)", name: "layout", widget: "hidden", default: "default"}
+          - {label: "Conteúdo da Página", name: "body", widget: "markdown", required: false}
