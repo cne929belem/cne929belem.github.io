@@ -4,14 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gestão de Conteúdos | 929 - Belém</title>
-    <!-- Inclui o widget de login -->
+    <!-- 1. Carrega o motor do widget de login -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <!-- Inclui o motor do Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    
-    <!-- Diz ao CMS onde validar o login -->
+    <!-- 2. Configura o URL do Netlify ANTES do CMS arrancar -->
     <script>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.init({
@@ -19,5 +16,8 @@
         });
       }
     </script>
+    
+    <!-- 3. Agora sim, arranca o CMS (ele já vai saber para onde olhar) -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </body>
 </html>
