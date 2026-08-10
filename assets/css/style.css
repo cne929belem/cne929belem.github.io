@@ -87,6 +87,11 @@ h1, h2, h3, .brand-name {
     align-items: center;
 }
 
+.hamburger-icon,
+.menu-toggle-checkbox {
+    display: none;
+}
+
 .brand {
     display: flex;
     align-items: center;
@@ -450,12 +455,41 @@ footer {
     }
     /* FIM DA CORREÇÃO */
 
-    .nav-menu { 
-        flex-wrap: wrap; 
-        justify-content: center;
-        gap: 10px;
+    .nav-menu {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
     }
-    
+    .nav-menu > li > .nav-link {
+        display: block; /* sem isto, o padding vertical do link não "empurra" o <li> pai, e os itens empilhados sobrepõem-se */
+    }
+
+    /* Ícone de hambúrguer — visível só em mobile */
+    .hamburger-icon {
+        display: block;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: var(--azul-marinho);
+        line-height: 1;
+        padding: 6px 10px;
+        order: 2;
+    }
+    .menu-toggle-checkbox { display: none; }
+
+    /* Menu escondido por omissão; a checkbox (invisível) controla se aparece */
+    nav { width: 100%; order: 3; }
+    nav .nav-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.25s ease;
+    }
+    .menu-toggle-checkbox:checked ~ nav .nav-menu {
+        max-height: 600px;
+    }
+
+    .nav-container { flex-wrap: wrap; justify-content: space-between; align-items: center; }
+
     .dropdown-menu {
         position: static; 
         transform: none;

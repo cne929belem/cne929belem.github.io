@@ -70,14 +70,15 @@ main_class: main-content
             </div>
         </div>
 
-<!-- TEMA 4: REGISTO DE NOITES E HORAS DE MAR -->
+<!-- TEMA 4: REGISTO DE NOITES DE CAMPO E HORAS DE MAR -->
         <div style="margin-top: 40px;">
-            <h3 class="section-title vermelho">🏕️⛵ Registo de Noites e Horas de Mar</h3>
+            <h3 class="section-title vermelho">🏕️⛵ Registo de Noites de Campo e Horas de Mar</h3>
             <div style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 25px;">
-                <p style="font-size: 0.9rem; color: #666;">Insere o teu número de telemóvel para consultares as tuas noites de campo e horas de mar validadas pela Chefia.</p>
+                <p style="font-size: 0.9rem; color: #666;">Insere o teu número de telemóvel e o teu email para consultares as tuas noites de campo e horas de mar validadas pela Chefia.</p>
 
                 <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
-                    <input type="text" id="phoneInput" placeholder="Ex: 912345678" style="padding: 10px 15px; border: 1px solid #ccc; border-radius: 6px; flex: 1; min-width: 200px; font-size: 1rem;">
+                    <input type="text" id="phoneInput" placeholder="Telemóvel — ex: 912345678" onkeypress="if(event.key==='Enter') procurarNoites();" style="padding: 10px 15px; border: 1px solid #ccc; border-radius: 6px; flex: 1 1 200px; min-width: 0; font-size: 1rem;">
+                    <input type="email" id="emailInput" placeholder="Email" onkeypress="if(event.key==='Enter') procurarNoites();" style="padding: 10px 15px; border: 1px solid #ccc; border-radius: 6px; flex: 1 1 200px; min-width: 0; font-size: 1rem;">
                     <button onclick="procurarNoites()" style="background-color: #CE1126; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 1rem;">Pesquisar</button>
                 </div>
 
@@ -85,7 +86,7 @@ main_class: main-content
                 <div id="resultadoNoites"></div>
 
                 <p style="text-align: right; font-size: 0.7rem; color: #999; margin-top: 15px; font-style: italic;">
-                    Última atualização em 13/08/2026
+                    Última atualização em 14/08/2026
                 </p>
             </div>
         </div>
@@ -97,20 +98,23 @@ main_class: main-content
 <script>
     // O Jekyll injeta a base de dados gerida pelo Decap CMS automaticamente aqui:
     const listaElementos = {{ site.data.registos.elementos | jsonify }} || [];
-    
-    // Transformar a lista num dicionário para facilitar a pesquisa pelo número
-    const baseDeDados = {};
-    listaElementos.forEach(el => {
-        baseDeDados[el.telefone] = el;
-    });
 
     function procurarNoites() {
-        const input = document.getElementById("phoneInput").value.trim();
+        const telefone = document.getElementById("phoneInput").value.trim();
+        const email = document.getElementById("emailInput").value.trim().toLowerCase();
         const resultadoDiv = document.getElementById("resultadoNoites");
 
-        if (baseDeDados[input]) {
-            const dados = baseDeDados[input];
-            
+        if (telefone === "" || email === "") {
+            resultadoDiv.innerHTML = `<div style="color: #856404; background: #fff3cd; padding: 10px; border-radius: 6px; margin-top: 15px;">Por favor, preenche o telemóvel e o email.</div>`;
+            return;
+        }
+
+        // Só encontra se telefone E email coincidirem, os dois, com o mesmo elemento
+        const dados = listaElementos.find(el =>
+            el.telefone === telefone && el.email && el.email.trim().toLowerCase() === email
+        );
+
+        if (dados) {
             // Lógica das Insígnias de Campo
             let msgNoites = "";
             if (dados.noites >= 100) msgNoites = "<br><small style='color: #28a745; font-weight: bold;'>🏅 Atingiste as 100 noites! Pede já a tua insígnia ao teu Chefe de Unidade.</small>";
@@ -138,10 +142,8 @@ main_class: main-content
                     </div>
                 </div>
             `;
-        } else if (input === "") {
-            resultadoDiv.innerHTML = `<div style="color: #856404; background: #fff3cd; padding: 10px; border-radius: 6px; margin-top: 15px;">Por favor, escreve o teu número de telemóvel.</div>`;
         } else {
-            resultadoDiv.innerHTML = `<div style="color: #721c24; background: #f8d7da; padding: 10px; border-radius: 6px; margin-top: 15px;">Número não encontrado na nossa base de dados. Fala com a tua Equipa de Animação.</div>`;
+            resultadoDiv.innerHTML = `<div style="color: #721c24; background: #f8d7da; padding: 10px; border-radius: 6px; margin-top: 15px;">Telemóvel e email não coincidem com nenhum registo. Fala com a tua Equipa de Animação.</div>`;
         }
     }
 </script>
