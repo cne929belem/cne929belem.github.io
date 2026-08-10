@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Newsletter - Jamboree 2027 | CNE 929 - Belém
-main_class: main-content-jamboree
+main_class: pagina-com-hero
+ultima_atualizacao: 22/08/2026
 ---
 <!--
   JAMBOREE — NEWSLETTER. Lista os boletins oficiais para download, em
@@ -15,17 +16,22 @@ main_class: main-content-jamboree
   (usa a classe .doc-link, definida em assets/css/style.css) e ajusta o
   título, a descrição e o caminho do PDF em assets/docs/.
 -->
-<div class="jamboree-wrapper">
-    <aside class="jamboree-band">
-        <img src="/assets/img/jamboree/RGB_logo_white_WSJ2027.png" alt="Logo Jamboree 2027">
-        <img src="/assets/img/jamboree/RGB_bravely_short_white_WSJ2027.png" alt="Bravely" class="img-bravely">
-    </aside>
-
-    <section class="card-jamboree">
+<section class="hero-generico hero-jamboree" id="hero">
+    <div class="pagina-cabecalho">
+        <img class="hero-jamboree-oficial" src="/assets/img/jamboree/RGB_logo_white_WSJ2027.png" alt="Logótipo oficial do World Scout Jamboree 2027">
+        <img class="hero-jamboree-logo" src="/assets/img/jamboree/RGB_bravely_short_white_WSJ2027.png" alt="Bravely">
         <h1>Newsletters do Jamboree</h1>
-        <p>Acompanha as informações oficiais e as informações do nosso contingente para o 26º World Scout Jamboree.</p>
+        {% include jamboree-contador.html %}
+    </div>
+</section>
+<div class="espaco-hero-generico" aria-hidden="true"></div>
 
-        <div style="margin-top: 40px; text-align: left;">
+<div class="pagina-conteudo jamboree-pagina">
+    {% include jamboree-nav.html %}
+    <section class="jamboree-largura">
+        <div class="jamboree-boletins">
+        <div>
+        <div style="text-align: left;">
             <h2 class="section-title"><span>🇵🇹</span> Boletins do Contingente (Nacionais)</h2>
             <a href="/assets/docs/Proposta%20Educativa_Geral.pdf" target="_blank" class="doc-link verde">
                 <div>
@@ -48,12 +54,14 @@ main_class: main-content-jamboree
                 </div>
                 <span class="doc-icon" title="Descarregar PDF">📥</span>
             </a>
-            <div style="margin-top: 15px; padding: 12px 18px; background: #fff3cd; border-left: 5px solid #ffc107; border-radius: 6px; font-size: 0.9rem; color: #664d03;">
+            <div style="margin-top: 15px; padding: 12px 18px; background: #fff3cd; border-left: 5px solid var(--amarelo); border-radius: 6px; font-size: 0.9rem; color: #664d03;">
                 🔄 O <strong>Boletim Nacional #3</strong>, com a tradução e adaptação do Bulletin Internacional #3, será publicado aqui assim que disponibilizado pela Coordenação do Contingente.
             </div>
         </div>
 
-        <div style="margin-top: 40px; text-align: left;">
+        </div>
+        <div>
+        <div style="text-align: left;">
             <h2 class="section-title"><span>🌍</span> Boletins Oficiais (Internacionais)</h2>
             <a href="/assets/docs/EN%20Bulletin_3.pdf" target="_blank" class="doc-link vermelho">
                 <div>
@@ -77,12 +85,10 @@ main_class: main-content-jamboree
                 <span class="doc-icon" title="Descarregar PDF">📥</span>
             </a>
         </div>
+        </div>
 
-        <p style="text-align: center; color: #888; font-size: 0.85rem; font-style: italic; margin-top: 30px;">
+        <p style="text-align: left; color: #888; font-size: 0.85rem; font-style: italic; margin-top: 30px;">
             Novos documentos serão publicados aqui assim que forem disponibilizados.
-        </p>
-        <p style="text-align: right; font-size: 0.7rem; color: #888; margin-top: 30px; font-style: italic;">
-            Última atualização em 13/08/2026
         </p>
     </section>
 </div>

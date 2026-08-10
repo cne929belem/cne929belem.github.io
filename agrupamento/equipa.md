@@ -1,334 +1,300 @@
 ---
 layout: default
 title: Equipa | Agrupamento 929 - Belém
-main_class: main-content
+main_class: pagina-com-hero
 ---
+<style>
+  .pagina-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+  .pagina-cabecalho h1 { color: #fff; font-size: 30px; margin: 0 0 10px; }
+  .pagina-cabecalho > p { color: #fff; font-size: 15px; line-height: 1.6; margin: 0; }
 
-<div class="content-wrapper" style="justify-content: center; align-items: center; flex-direction: column;">
-    <section class="card" style="max-width: 800px; width: 100%;">
-        <span style="font-size: 3rem; display: block; margin-bottom: 10px;">⚜️👥</span>
-        <h1>A Nossa Equipa</h1>
-        <p>Conhece quem dá vida ao 929 — a tripulação de adultos que torna cada aventura possível.</p>
+  .grelha-equipa { position: relative; z-index: 5; max-width: 1200px; margin: 0 auto; background: #fff; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
+  @media (max-width: 860px) { .grelha-equipa { grid-template-columns: 1fr; } }
+  .secao-equipa { max-width: 900px; margin: 0 auto; padding: 34px 28px 0; }
+  .grelha-equipa > .secao-equipa { max-width: none; min-width: 0; margin: 0; }
+  .grelha-equipa + .secao-equipa { max-width: 1200px; }
+  .secao-equipa h2 {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 21px; margin: 0 0 14px; color: var(--cne-verde-escuro);
+  }
+  .texto-intro p { font-size: 14.5px; line-height: 1.65; color: #333; margin: 0 0 10px; }
+  .texto-intro .referencia { font-size: 12.5px; color: #888; font-style: italic; }
 
-        <!-- SECÇÃO 1: DIREÇÃO DO AQUÁRIO -->
-        <div style="text-align: left; margin-top: 40px;">
-            <h2 class="section-title">
-                <span>🧭</span> Direção do Aquário
-            </h2>
-            <div class="info-block">
-                <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 10px;">O órgão executivo do Agrupamento é a Direção do Agrupamento (Direção do Aquário).</p>
-                <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 10px;">A Direção de Agrupamento é composta pelo Chefe de Agrupamento, Chefe de Agrupamento adjunto, Assistente de Agrupamento, Secretário de Agrupamento, Tesoureiro de Agrupamento, pelo Chefe de cada Unidade e convidados pelo Chefe de Agrupamento.</p>
-                <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">A Direção de Agrupamento reúne, em princípio, no mínimo, uma vez por mês e sempre que convocada pelo Chefe de Agrupamento.</p>
-                <p style="font-size: 0.8rem; color: #666; font-style: italic; margin: 0;">Artigo 60.º do Regulamento Geral do CNE</p>
-                
-                <!-- Organigrama em HTML/CSS -->
-                <div style="background: #f4f7f6; padding: 25px; border-radius: 8px; margin-top: 15px; border: 1px solid #e0e6ed;">
-                    
-                    <!-- Topo: Assistente e Chefe -->
-					<div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 15px;">
-						<div style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px; flex: 1; min-width: 250px; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
-							<div style="width: 50px; height: 50px; background-color: rgba(255,255,255,0.15); border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                            <img src="{{ '/assets/img/equipa/jose_ferreira.jpg' | relative_url }}" alt="Cón. José Manuel Ferreira" style="width: 100%; height: 100%; object-fit: cover;">
-							</div>
-                            <div style="text-align: left;">
-                                <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #cfe0f5; margin-bottom: 3px;">Assistente</div>
-                                <div style="font-size: 1rem; font-weight: bold;">Cón. José Manuel Ferreira</div>
-                            </div>
-                        </div>
-                        <div class="orgchart-card-grande" style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px; flex: 1; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
-                            <div style="width: 50px; height: 50px; background-color: rgba(255,255,255,0.15); border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <img src="{{ '/assets/img/equipa/eunice-goncalves.jpg' | relative_url }}" alt="Eunice Gonçalves" style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <div style="text-align: left;">
-                                <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #cfe0f5; margin-bottom: 3px;">Chefe de Agrupamento</div>
-                                <div style="font-size: 1rem; font-weight: bold;">Eunice Gonçalves</div>
-                            </div>
-                        </div>
-                    </div>
+  /* Insígnia da função ao lado esquerdo da foto (não sobreposta) */
+  .insignia-lado { object-fit: contain; flex-shrink: 0; }
+  .foto-pessoa, .placeholder-foto {
+    border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .foto-pessoa { object-fit: cover; }
 
-                    <!-- Linha do Meio: Secretário e Tesoureiro -->
-                    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 15px;">
-                        <div class="orgchart-card-grande" style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px; flex: 1; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
-                            <div style="width: 50px; height: 50px; background-color: rgba(255,255,255,0.15); border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <img src="{{ '/assets/img/equipa/carolina-mascarenhas.jpg' | relative_url }}" alt="Carolina Mascarenhas" style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <div style="text-align: left;">
-                                <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #cfe0f5; margin-bottom: 3px;">Secretário</div>
-                                <div style="font-size: 1rem; font-weight: bold;">Carolina Mascarenhas</div>
-                            </div>
-                        </div>
-                        <div class="orgchart-card-grande" style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px; flex: 1; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
-                            <div style="width: 50px; height: 50px; background-color: rgba(255,255,255,0.15); border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <img src="{{ '/assets/img/equipa/ricardo-isaias.jpg' | relative_url }}" alt="Ricardo Isaías" style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <div style="text-align: left;">
-                                <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #cfe0f5; margin-bottom: 3px;">Tesoureiro</div>
-                                <div style="font-size: 1rem; font-weight: bold;">Ricardo Isaías</div>
-                            </div>
-                        </div>
-                    </div>
+  .grelha-direcao { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0; }
+  @media (max-width: 560px) { .grelha-direcao { grid-template-columns: 1fr; } }
+  .pessoa-cartao-grande {
+    display: flex; align-items: center; gap: 10px; min-width: 0; text-align: left;
+    background: linear-gradient(160deg, var(--cne-verde-escuro) 0%, var(--mar-noturno) 100%);
+    color: #fff; border-radius: 16px; padding: 12px 10px;
+  }
+  .pessoa-cartao-grande .insignia-lado { width: 46px; height: 46px; }
+  .pessoa-cartao-grande .foto-pessoa { width: 84px; height: 84px; border: 3px solid rgba(255,255,255,0.25); }
+  .pessoa-cartao-grande > div { min-width: 0; }
+  .pessoa-cartao-grande .cargo { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; opacity: .75; margin: 0 0 4px; }
+  .pessoa-cartao-grande .nome { font-size: 13px; line-height: 1.25; font-weight: 700; margin: 0; overflow-wrap: break-word; }
 
-                    <!-- Base: Chefias de Unidade Lado a Lado -->
-                    <div class="orgchart-secoes-grid">
-                        <div style="background: rgba(255, 193, 7, 0.15); padding: 12px 5px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 5px solid #FFC107; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
-                            <img src="{{ '/assets/img/seccoes/1_lobitos.png' | relative_url }}" alt="Ícone Lobitos" style="height: 25px; margin-bottom: 8px; object-fit: contain;">
-                            <div style="width: 40px; height: 40px; background-color: white; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; flex-shrink: 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                                <img src="{{ '/assets/img/equipa/paulo-duarte.jpg' | relative_url }}" alt="Paulo Duarte" style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <div>
-                                <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; color: #666; margin-bottom: 4px; line-height: 1.2;">Alcateia<br>(Lobitos)</div>
-                                <div style="font-size: 0.85rem; font-weight: bold; color: var(--azul-marinho); line-height: 1.2;">Paulo<br>Duarte</div>
-                            </div>
-                        </div>
-                        <div style="background: rgba(40, 167, 69, 0.15); padding: 12px 5px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 5px solid #28a745; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
-                            <img src="{{ '/assets/img/seccoes/2_mocos.png' | relative_url }}" alt="Ícone Moços" style="height: 25px; margin-bottom: 8px; object-fit: contain;">
-                            <div style="width: 40px; height: 40px; background-color: white; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; flex-shrink: 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                                <img src="{{ '/assets/img/equipa/carolina-mascarenhas.jpg' | relative_url }}" alt="Carolina Mascarenhas" style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <div>
-                                <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; color: #666; margin-bottom: 4px; line-height: 1.2;">Flotilha<br>(Moços)</div>
-                                <div style="font-size: 0.85rem; font-weight: bold; color: var(--azul-marinho); line-height: 1.2;">Carolina<br>Mascarenhas</div>
-                            </div>
-                        </div>
-                        <div style="background: rgba(0, 86, 179, 0.1); padding: 12px 5px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 5px solid var(--azul-claro); box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
-                            <img src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt="Ícone Marinheiros" style="height: 25px; margin-bottom: 8px; object-fit: contain;">
-                            <div style="width: 40px; height: 40px; background-color: white; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; flex-shrink: 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                                <img src="{{ '/assets/img/equipa/paulo-duarte.jpg' | relative_url }}" alt="Paulo Duarte" style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <div>
-                                <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; color: #666; margin-bottom: 4px; line-height: 1.2;">Frota<br>(Marinheiros)</div>
-                                <div style="font-size: 0.85rem; font-weight: bold; color: var(--azul-marinho); line-height: 1.2;">Paulo<br>Duarte</div>
-                            </div>
-                        </div>
-                        <div style="background: rgba(206, 17, 38, 0.1); padding: 12px 5px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
-                            <img src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="Ícone Companheiros" style="height: 25px; margin-bottom: 8px; object-fit: contain;">
-                            <div style="width: 40px; height: 40px; background-color: white; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; flex-shrink: 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                                <img src="{{ '/assets/img/equipa/ricardo-isaias.jpg' | relative_url }}" alt="Ricardo Isaías" style="width: 100%; height: 100%; object-fit: cover;">
-                            </div>
-                            <div>
-                                <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; color: #666; margin-bottom: 4px; line-height: 1.2;">Comunidade<br>(Companheiros)</div>
-                                <div style="font-size: 0.85rem; font-weight: bold; color: var(--azul-marinho); line-height: 1.2;">Ricardo<br>Isaías</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Fim do Organigrama -->
-                
-                <!-- Informação de Mandato e Eleições -->
-                <div style="background-color: #fff3cd; border: 1px solid #ffe69c; border-radius: 6px; padding: 15px; margin-top: 15px; font-size: 0.9rem; color: #664d03; display: flex; align-items: flex-start; gap: 12px;">
-                    <span style="font-size: 1.4rem; line-height: 1;">🗳️</span>
-                    <div>
-                        <div style="font-weight: bold; margin-bottom: 5px;">Mandato em Exercício: 2023 — 2026</div>
-                        <div>Aviso Eleitoral: Ocorrerão eleições para a nova Chefia de Agrupamento em 2026. <a href="#" style="color: #664d03; text-decoration: underline;">Consultar Informação sobre eleições para Chefe de Agrupamento</a>.</div>
-                    </div>
-                </div>
+  /* Chefias de Unidade — sub-grelha dentro da Direção do Aquário, uma
+     por secção, com o ícone da secção antes do nome */
+  .grelha-chefias {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px; margin-top: 4px;
+  }
+  .chefia-cartao {
+    background: color-mix(in srgb, var(--cor-seccao, var(--cne-verde)) 10%, white); border-radius: 12px; padding: 12px;
+    text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    border-top: 4px solid var(--cor-seccao, var(--cne-verde));
+  }
+  .chefia-cartao .icone-seccao-chefia { display: block; height: 20px; margin: 0 auto 8px; object-fit: contain; }
+  .chefia-foto-linha { display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 8px; }
+  .chefia-foto-linha .insignia-lado { width: 42px; height: 42px; }
+  .chefia-foto-linha .foto-pessoa { width: 48px; height: 48px; }
+  .chefia-cartao .nome-seccao { font-size: 10.5px; text-transform: uppercase; letter-spacing: .04em; color: #888; margin: 0 0 3px; }
+  .chefia-cartao .nome { font-size: 13px; font-weight: 700; color: #222; line-height: 1.25; }
+  @media (max-width: 560px) { .grelha-chefias { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
-                <p style="text-align: right; font-size: 0.7rem; color: #888; margin-top: 15px; font-style: italic;">
-                    Última atualização em 13/08/2026
-                </p>
-            </div>
-        </div>
+  .aviso-mandato {
+    background: #fff8e1; border: 1px solid #ffe28a; border-radius: 10px;
+    padding: 14px 16px; margin-top: 18px; font-size: 13.5px; color: #6b5300;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
 
-        <!-- SECÇÃO 2: EQUIPAS DE ANIMAÇÃO -->
-        <div style="text-align: left; margin-top: 40px;">
-            <h2 class="section-title">
-                <span>🏕️</span> Equipas de Animação
-            </h2>
-            <div class="info-block azul-claro">
-                <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 10px;">A ação educativa direta junto das secções é assegurada pelas Equipas de Animação.</p>
-                <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 10px;">Os <strong>Dirigentes</strong> (Chefes de Unidade e Chefes de Unidade Adjuntos) são adultos que concluíram com sucesso o respetivo percurso formativo, realizaram a sua Promessa de Dirigente e receberam a Insígnia de Madeira. São os principais responsáveis por guiar as crianças e os jovens na aplicação do método escutista.</p>
-                <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Os <strong>Candidatos a Dirigente</strong> são adultos voluntários que se encontram a realizar o seu percurso de formação inicial. Auxiliam ativamente as Equipas de Animação na preparação e execução das atividades, garantindo o acompanhamento adequado e o cumprimento dos rácios de segurança exigidos.</p>
-                <p style="font-size: 0.8rem; color: #666; font-style: italic; margin: 0;">Nos termos do Regulamento Geral e do Sistema de Formação de Adultos do CNE</p>
-                
-                <!-- INÍCIO DAS EQUIPAS DE ANIMAÇÃO -->
-                <div style="margin-top: 30px; display: flex; flex-direction: column; gap: 15px;">
-                    
-                    <!-- Linha 1: Alcateia (Amarelo) -->
-                    <div style="background: rgba(255, 193, 7, 0.15); border-left: 5px solid #FFC107; border-radius: 6px; padding: 15px; display: flex; align-items: center; flex-wrap: wrap; gap: 20px;">
-                        <div style="flex: 0 0 220px; font-weight: bold; color: var(--azul-marinho); display: flex; align-items: center; gap: 10px;">
-                            <img src="{{ '/assets/img/seccoes/1_lobitos.png' | relative_url }}" alt="Lobitos" style="height: 30px; object-fit: contain;">
-                            Alcateia (Lobitos)
-                        </div>
-                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                            <!-- Chefe de Unidade -->
-                            <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
-                                <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/equipa/paulo-duarte.jpg' | relative_url }}" alt="Paulo Duarte" style="width: 100%; height: 100%; object-fit: cover;">
-                                </div>
-                                <div>
-                                    <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Chefe de Unidade</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Paulo Duarte</div>
-                                </div>
-                            </div>
-                            <!-- Candidato a Dirigente -->
-                            <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
-                                <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/equipa/madalena-catita.jpg' | relative_url }}" alt="Madalena Catita" style="width: 100%; height: 100%; object-fit: cover;">
-                                </div>
-                                <div>
-                                    <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Candidato a Dirigente</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Madalena Catita</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  .grupo-seccao {
+    border-radius: 14px; padding: 18px 20px; margin-bottom: 14px;
+    border-left: 5px solid var(--cor-seccao, var(--cne-verde));
+    background: #f7f7f5;
+    background: color-mix(in srgb, var(--cor-seccao, var(--cne-verde)) 10%, white);
+  }
+  .grupo-seccao summary { position: relative; list-style: none; cursor: pointer; padding-right: 28px; }
+  .grupo-seccao summary::-webkit-details-marker { display: none; }
+  .grupo-seccao summary::after { content: '+'; position: absolute; top: 50%; right: 0; transform: translateY(-50%); font-size: 20px; line-height: 1; color: var(--cor-seccao, var(--cne-verde)); }
+  .grupo-seccao[open] summary::after { content: '-'; }
+  .grupo-titulo { display: flex; align-items: center; gap: 8px; margin: 0 28px 6px 0; font-size: 15px; font-weight: 900; color: #2a2a2a; }
+  .descricao-unidade { display: block; margin: 0 28px 0 30px; font-size: 13px; line-height: 1.45; color: #555; }
+  .grupo-seccao[open] .descricao-unidade { display: none; }
+  .grupo-seccao[open] .lista-pessoas { margin-top: 12px; }
+  .icone-seccao { width: 22px; height: 22px; object-fit: contain; flex-shrink: 0; }
+  .lista-pessoas { display: flex; flex-direction: column; gap: 10px; }
+  .pessoa-cartao {
+    display: flex; align-items: center; gap: 12px;
+    background: #fff; border-radius: 12px; padding: 10px 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+  .pessoa-cartao .insignia-lado { width: 60px; height: 60px; }
+  .pessoa-cartao .foto-pessoa { width: 64px; height: 64px; }
+  .placeholder-foto {
+    background: linear-gradient(160deg, var(--cne-verde) 0%, var(--cne-verde-escuro) 100%);
+    color: #fff; font-weight: 700; font-size: 18px;
+  }
+  .pessoa-cartao .funcao { font-size: 11px; text-transform: uppercase; color: #888; margin: 0 0 2px; }
+  .pessoa-cartao .nome { font-size: 14px; font-weight: 700; color: #222; margin: 0; }
 
-                    <!-- Linha 2: Flotilha (Verde) -->
-                    <div style="background: rgba(40, 167, 69, 0.15); border-left: 5px solid #28a745; border-radius: 6px; padding: 15px; display: flex; align-items: center; flex-wrap: wrap; gap: 20px;">
-                        <div style="flex: 0 0 220px; font-weight: bold; color: var(--azul-marinho); display: flex; align-items: center; gap: 10px;">
-                            <img src="{{ '/assets/img/seccoes/2_mocos.png' | relative_url }}" alt="Moços" style="height: 30px; object-fit: contain;">
-                            Flotilha (Moços)
-                        </div>
-                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                            <!-- Chefe de Unidade -->
-                            <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
-                                <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/equipa/carolina-mascarenhas.jpg' | relative_url }}" alt="Carolina Mascarenhas" style="width: 100%; height: 100%; object-fit: cover;">
-                                </div>
-                                <div>
-                                    <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Chefe de Unidade</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Carolina Mascarenhas</div>
-                                </div>
-                            </div>
-                            <!-- Candidatos a Dirigente -->
-                            <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
-                                <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/equipa/maria-rodrigues.jpg' | relative_url }}" alt="Maria Rodrigues" style="width: 100%; height: 100%; object-fit: cover;">
-                                </div>
-                                <div>
-                                    <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Candidato a Dirigente</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Maria Rodrigues</div>
-                                </div>
-                            </div>
-                            <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
-                                <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/equipa/jose-batalha.jpg' | relative_url }}" alt="José Batalha" style="width: 100%; height: 100%; object-fit: cover;">
-                                </div>
-                                <div>
-                                    <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Candidato a Dirigente</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">José Batalha</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+  .ultima-atualizacao { text-align: right; font-size: 12px; color: #999; font-style: italic; margin-top: 14px; }
+  .conselho-texto { position: relative; z-index: 5; background: #fff; padding-bottom: 50px; }
+</style>
 
-                    <!-- Linha 3: Frota (Azul) -->
-                    <div style="background: rgba(0, 86, 179, 0.1); border-left: 5px solid var(--azul-claro); border-radius: 6px; padding: 15px; display: flex; align-items: center; flex-wrap: wrap; gap: 20px;">
-                        <div style="flex: 0 0 220px; font-weight: bold; color: var(--azul-marinho); display: flex; align-items: center; gap: 10px;">
-                            <img src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt="Marinheiros" style="height: 30px; object-fit: contain;">
-                            Frota (Marinheiros)
-                        </div>
-                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                            <!-- Chefe de Unidade -->
-                            <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
-                                <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/equipa/paulo-duarte.jpg' | relative_url }}" alt="Paulo Duarte" style="width: 100%; height: 100%; object-fit: cover;">
-                                </div>
-                                <div>
-                                    <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Chefe de Unidade</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Paulo Duarte</div>
-                                </div>
-                            </div>
-                            <!-- Candidatos a Dirigente -->
-                            <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
-                                <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <span style="font-size: 1.1rem;">🧑</span>
-                                </div>
-                                <div>
-                                    <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Candidato a Dirigente</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">João Dragovic</div>
-                                </div>
-                            </div>
-                            <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
-                                <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/equipa/simao.jpg' | relative_url }}" alt="Simão Pereira" style="width: 100%; height: 100%; object-fit: cover;">
-                                </div>
-                                <div>
-                                    <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Candidato a Dirigente</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Simão Pereira</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<section class="hero-generico" id="hero">
+  <div class="pagina-cabecalho">
+    <h1>A Nossa Equipa</h1>
+    <p>Conhece quem dá vida ao 929 — a tripulação de adultos que torna cada aventura possível.</p>
+  </div>
+</section>
+<div class="espaco-hero-generico" aria-hidden="true"></div>
 
-                    <!-- Linha 4: Comunidade (Vermelho) -->
-                    <div style="background: rgba(206, 17, 38, 0.1); border-left: 5px solid #CE1126; border-radius: 6px; padding: 15px; display: flex; align-items: center; flex-wrap: wrap; gap: 20px;">
-                        <div style="flex: 0 0 220px; font-weight: bold; color: var(--azul-marinho); display: flex; align-items: center; gap: 10px;">
-                            <img src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="Companheiros" style="height: 30px; object-fit: contain;">
-                            Comunidade (Companheiros)
-                        </div>
-                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                            <!-- Chefe de Unidade -->
-                            <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
-                                <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/equipa/ricardo-isaias.jpg' | relative_url }}" alt="Ricardo Isaías" style="width: 100%; height: 100%; object-fit: cover;">
-                                </div>
-                                <div>
-                                    <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Chefe de Unidade</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Ricardo Isaías</div>
-                                </div>
-                            </div>
-                            <!-- Dirigente -->
-                            <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
-                                <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/equipa/ruben-rodrigues.jpg' | relative_url }}" alt="Ruben Rodrigues" style="width: 100%; height: 100%; object-fit: cover;">
-                                </div>
-                                <div>
-                                    <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Dirigente</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Ruben Rodrigues</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<div class="grelha-equipa">
+<section class="secao-equipa">
+  <h2>🧭 Direção do Aquário</h2>
+  <div class="texto-intro">
+    <p>O órgão executivo do Agrupamento é a Direção do Agrupamento (Direção do Aquário).</p>
+    <p>A Direção de Agrupamento é composta pelo Chefe de Agrupamento, Chefe de Agrupamento adjunto, Assistente de Agrupamento, Secretário de Agrupamento, Tesoureiro de Agrupamento, pelo Chefe de cada Unidade e convidados pelo Chefe de Agrupamento.</p>
+    <p>A Direção de Agrupamento reúne, em princípio, no mínimo, uma vez por mês e sempre que convocada pelo Chefe de Agrupamento.</p>
+    <p class="referencia">Artigo 60.º do Regulamento Geral do CNE</p>
+  </div>
 
-                    <!-- Linha 5: Agrupamento (Cinzento) -->
-                    <div style="background: rgba(108, 117, 125, 0.15); border-left: 5px solid #6c757d; border-radius: 6px; padding: 15px; display: flex; align-items: center; flex-wrap: wrap; gap: 20px;">
-                        <div style="flex: 0 0 220px; font-weight: bold; color: var(--azul-marinho); display: flex; align-items: center; gap: 10px;">
-                            Agrupamento
-                        </div>
-                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                            <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
-                                <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/equipa/eunice-goncalves.jpg' | relative_url }}" alt="Eunice Gonçalves" style="width: 100%; height: 100%; object-fit: cover;">
-                                </div>
-                                <div>
-                                    <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Dirigente</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Eunice Gonçalves</div>
-                                </div>
-                            </div>
-                            <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
-                                <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <span style="font-size: 1.1rem;">🧑</span>
-                                </div>
-                                <div>
-                                    <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Dirigente</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Pedro Fernando</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                <!-- FIM DAS EQUIPAS DE ANIMAÇÃO -->
+  <div class="grelha-direcao">
+    <div class="pessoa-cartao-grande">
+      <img class="insignia-lado" src="{{ '/assets/img/equipa/assistente.png' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/jose-ferreira_equipa.jpg' | relative_url }}" alt="Cón. José Manuel Ferreira">
+      <div>
+        <p class="cargo">Assistente</p>
+        <p class="nome">Cón. José Manuel Ferreira</p>
+      </div>
+    </div>
+    <div class="pessoa-cartao-grande">
+      <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_agrupamento.png' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/eunice-goncalves_equipa.jpg' | relative_url }}" alt="Eunice Gonçalves">
+      <div>
+        <p class="cargo">Chefe de Agrupamento</p>
+        <p class="nome">Eunice Gonçalves (Salamandra)</p>
+      </div>
+    </div>
+    <div class="pessoa-cartao-grande">
+      <img class="insignia-lado" src="{{ '/assets/img/equipa/secretario_tesoureiro.png' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/carolina-mascarenhas_equipa.jpg' | relative_url }}" alt="Carolina Mascarenhas">
+      <div>
+        <p class="cargo">Secretário</p>
+        <p class="nome">Carolina Mascarenhas (Koala Pensadora)</p>
+      </div>
+    </div>
+    <div class="pessoa-cartao-grande">
+      <img class="insignia-lado" src="{{ '/assets/img/equipa/secretario_tesoureiro.png' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías">
+      <div>
+        <p class="cargo">Tesoureiro</p>
+        <p class="nome">Ricardo Isaías (Axolote)</p>
+      </div>
+    </div>
+  </div>
 
-                <p style="text-align: right; font-size: 0.7rem; color: #888; margin-top: 15px; font-style: italic;">
-                    Última atualização em 13/08/2026
-                </p>
-            </div>
-        </div>
+  <div class="grelha-chefias">
+    <div class="chefia-cartao" style="--cor-seccao:#ffc107">
+      <img class="icone-seccao-chefia" src="{{ '/assets/img/seccoes/1_lobitos.png' | relative_url }}" alt="">
+      <div class="chefia-foto-linha">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte">
+      </div>
+      <p class="nome-seccao">Alcateia</p>
+      <p class="nome">Paulo Duarte<br>(Roaz Criativo)</p>
+    </div>
+    <div class="chefia-cartao" style="--cor-seccao:#28a745">
+      <img class="icone-seccao-chefia" src="{{ '/assets/img/seccoes/2_mocos.png' | relative_url }}" alt="">
+      <div class="chefia-foto-linha">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/carolina-mascarenhas_equipa.jpg' | relative_url }}" alt="Carolina Mascarenhas">
+      </div>
+      <p class="nome-seccao">Flotilha</p>
+      <p class="nome">Carolina Mascarenhas<br>(Koala Pensadora)</p>
+    </div>
+    <div class="chefia-cartao" style="--cor-seccao:#0056b3">
+      <img class="icone-seccao-chefia" src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt="">
+      <div class="chefia-foto-linha">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte">
+      </div>
+      <p class="nome-seccao">Frota</p>
+      <p class="nome">Paulo Duarte<br>(Roaz Criativo)</p>
+    </div>
+    <div class="chefia-cartao" style="--cor-seccao:#BD242C">
+      <img class="icone-seccao-chefia" src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="">
+      <div class="chefia-foto-linha">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías">
+      </div>
+      <p class="nome-seccao">Comunidade</p>
+      <p class="nome">Ricardo Isaías<br>(Axolote)</p>
+    </div>
+  </div>
 
-        <!-- SECÇÃO 3: CONSELHO DE AGRUPAMENTO -->
-        <div style="text-align: left; margin-top: 40px;">
-            <h2 class="section-title">
-                <span>📜</span> Conselho de Agrupamento
-            </h2>
-            <div class="info-block verde">
-                <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 10px;">O órgão deliberativo do Agrupamento é o Conselho de Agrupamento.</p>
-                <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 10px;">O Conselho de Agrupamento é composto por todos os Dirigentes nele investidos e pelos Candidatos a Dirigente com funções no Agrupamento, bem como pelos representantes dos Companheiros (dois por cada Equipagem).</p>
-                <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Este órgão reúne ordinariamente para aprovar os Planos e Relatórios de Atividades e de Contas, e extraordinariamente sempre que convocado para debater e deliberar sobre as grandes linhas de orientação educativa, pedagógica e organizativa da nossa estrutura local.</p>
-                <p style="font-size: 0.8rem; color: #666; font-style: italic; margin: 0;">Artigo 59.º do Regulamento Geral do CNE</p>
-            </div>
-        </div>
+  <div class="aviso-mandato">
+    <span aria-hidden="true">🗳️</span>
+    <div>
+      <strong>Mandato em Exercício: 2023 — 2026</strong><br>
+      Aviso Eleitoral: Ocorrerão eleições para a nova Chefia de Agrupamento em 2026. <a href="{{ '/agrupamento/documentos.html' | relative_url }}">Consultar Informação sobre eleições para Chefe de Agrupamento</a>.
+    </div>
+  </div>
+  <p class="ultima-atualizacao">Última atualização em 22/08/2026</p>
+</section>
 
-    </section>
+<section class="secao-equipa">
+  <h2>🏕️ Equipas de Animação</h2>
+  <div class="texto-intro">
+    <p>A ação educativa direta junto das secções é assegurada pelas Equipas de Animação.</p>
+    <p>Os <strong>Dirigentes</strong> (Chefes de Unidade e Chefes de Unidade Adjuntos) são adultos que concluíram com sucesso o respetivo percurso formativo, realizaram a sua Promessa de Dirigente e receberam a Insígnia de Madeira. São os principais responsáveis por guiar as crianças e os jovens na aplicação do método escutista.</p>
+    <p>Os <strong>Candidatos a Dirigente</strong> são adultos voluntários que se encontram a realizar o seu percurso de formação inicial. Auxiliam ativamente as Equipas de Animação na preparação e execução das atividades, garantindo o acompanhamento adequado e o cumprimento dos rácios de segurança exigidos.</p>
+    <p class="referencia">Nos termos do Regulamento Geral e do Sistema de Formação de Adultos do CNE</p>
+  </div>
+
+  <details class="grupo-seccao" style="--cor-seccao:#ffc107">
+    <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/1_lobitos.png' | relative_url }}" alt="">Alcateia (Lobitos)</span><span class="descricao-unidade">A primeira secção, dedicada aos Lobitos.</span></summary>
+    <div class="lista-pessoas">
+      <div class="pessoa-cartao">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte">
+        <div><p class="funcao">Chefe de Unidade</p><p class="nome">Paulo Duarte (Roaz Criativo)</p></div>
+      </div>
+      <div class="pessoa-cartao">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/madalena-catita_equipa.jpg' | relative_url }}" alt="Madalena Catita">
+        <div><p class="funcao">Candidato a Dirigente</p><p class="nome">Madalena Catita (Raposa Exigente)</p></div>
+      </div>
+    </div>
+  </details>
+
+  <details class="grupo-seccao" style="--cor-seccao:#28a745">
+    <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/2_mocos.png' | relative_url }}" alt="">Flotilha (Moços)</span><span class="descricao-unidade">A segunda secção, dedicada aos Moços.</span></summary>
+    <div class="lista-pessoas">
+      <div class="pessoa-cartao">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/carolina-mascarenhas_equipa.jpg' | relative_url }}" alt="Carolina Mascarenhas">
+        <div><p class="funcao">Chefe de Unidade</p><p class="nome">Carolina Mascarenhas (Koala Pensadora)</p></div>
+      </div>
+      <div class="pessoa-cartao">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/maria-rodrigues_equipa.jpg' | relative_url }}" alt="Maria Rodrigues">
+        <div><p class="funcao">Candidato a Dirigente</p><p class="nome">Maria Rodrigues</p></div>
+      </div>
+      <div class="pessoa-cartao">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/jose-batalha_equipa.jpg' | relative_url }}" alt="José Batalha">
+        <div><p class="funcao">Candidato a Dirigente</p><p class="nome">José Batalha</p></div>
+      </div>
+    </div>
+  </details>
+
+  <details class="grupo-seccao" style="--cor-seccao:#0056b3">
+    <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt="">Frota (Marinheiros)</span><span class="descricao-unidade">A terceira secção, dedicada aos Marinheiros.</span></summary>
+    <div class="lista-pessoas">
+      <div class="pessoa-cartao">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte">
+        <div><p class="funcao">Chefe de Unidade</p><p class="nome">Paulo Duarte (Roaz Criativo)</p></div>
+      </div>
+      <div class="pessoa-cartao">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="">
+        <span class="placeholder-foto foto-pessoa" aria-hidden="true">JD</span>
+        <div><p class="funcao">Candidato a Dirigente</p><p class="nome">João Dragovic (Espadarte)</p></div>
+      </div>
+      <div class="pessoa-cartao">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/simao-pereira_equipa.jpg' | relative_url }}" alt="Simão Pereira">
+        <div><p class="funcao">Candidato a Dirigente</p><p class="nome">Simão Pereira (Sapo)</p></div>
+      </div>
+    </div>
+  </details>
+
+  <details class="grupo-seccao" style="--cor-seccao:#BD242C">
+    <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="">Comunidade (Companheiros)</span><span class="descricao-unidade">A quarta secção, dedicada aos Companheiros.</span></summary>
+    <div class="lista-pessoas">
+      <div class="pessoa-cartao">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías">
+        <div><p class="funcao">Chefe de Unidade</p><p class="nome">Ricardo Isaías (Axolote)</p></div>
+      </div>
+      <div class="pessoa-cartao">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/instrutor.png' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/ruben-rodrigues_equipa.jpg' | relative_url }}" alt="Ruben Rodrigues">
+        <div><p class="funcao">Dirigente</p><p class="nome">Ruben Rodrigues (Tubarão Empenhado)</p></div>
+      </div>
+    </div>
+  </details>
+
+  <p class="ultima-atualizacao">Última atualização em 22/08/2026</p>
+</section>
 </div>
+
+<section class="secao-equipa conselho-texto">
+  <h2>📜 Conselho de Agrupamento</h2>
+  <div class="texto-intro">
+    <p>O órgão deliberativo do Agrupamento é o Conselho de Agrupamento.</p>
+    <p>O Conselho de Agrupamento é composto por todos os Dirigentes nele investidos e pelos Candidatos a Dirigente com funções no Agrupamento, bem como pelos representantes dos Companheiros (dois por cada Equipagem).</p>
+    <p>Este órgão reúne ordinariamente para aprovar os Planos e Relatórios de Atividades e de Contas, e extraordinariamente sempre que convocado para debater e deliberar sobre as grandes linhas de orientação educativa, pedagógica e organizativa da nossa estrutura local.</p>
+    <p class="referencia">Artigo 59.º do Regulamento Geral do CNE</p>
+  </div>
+</section>

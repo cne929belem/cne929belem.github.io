@@ -1,95 +1,147 @@
-# ⚓ CNE 929 Belém - Escuteiros Marítimos
+# ⚓ CNE 929 Belém — Escuteiros Marítimos
 
-Bem-vindo ao repositório oficial do website do **Corpo Nacional de Escutas - Agrupamento 929 (Belém)**.
+Website oficial do **Agrupamento 929 (Belém)**, do Corpo Nacional de Escutas — Escutismo Católico Português.
 
-🌐 **Website em Direto:** [cne929belem.github.io](https://cne929belem.github.io/)
-
----
-
-## 🛠️ Como o site é feito
-
-* **Jekyll**, compilado automaticamente pelo GitHub Pages a partir do código-fonte.
-* **Layout partilhado** (`_layouts/default.html`): cabeçalho, navegação e rodapé vivem num único ficheiro.
-* **Páginas organizadas por pasta**, seguindo exatamente a estrutura do menu do site — ver secção "Estrutura de Pastas" abaixo.
-* **Coleções** (`_noticias/`, `_documentos/`) para conteúdo que se repete, e **dados** (`_data/registos.yml`) para o registo de Noites/Horas.
-* **Painel de administração visual** em `/admin/` (Decap CMS + DecapBridge) — a maior parte do conteúdo do dia a dia edita-se por lá, sem tocar em código.
-* **HTML + CSS puro onde é possível, sem JavaScript.** Menus, pop-ups e campos condicionais do Portal de Respostas funcionam só com CSS. As exceções conhecidas (tecnicamente inevitáveis): o contador da página Jamboree — Geral, o widget do Instagram, o preenchimento automático do NIN no Portal de Respostas, o acordeão de secções da Vivência, e o motor de pesquisa de Noites/Horas.
-* **Design 100% Responsivo**, com um único `assets/css/style.css` a cobrir desktop, tablet e telemóvel.
+🌐 **Site em direto:** [cne929belem.github.io](https://cne929belem.github.io/)
 
 ---
 
-## 📂 Estrutura de Pastas
+## Sobre
 
-As páginas estão organizadas em pastas que seguem **exatamente** a estrutura do menu do site — se procuras uma página, o menu diz-te a pasta:
+O Agrupamento 929 é um agrupamento de Escutismo Marítimo, sediado em Belém, Lisboa, com atividade nas quatro secções etárias do CNE — Alcateia, Flotilha, Frota e Comunidade. Este repositório contém o código-fonte completo do website do Agrupamento: páginas informativas, formulários de inscrição, o portal de preparação para o 26.º World Scout Jamboree (Polónia, 2027), e as ferramentas de gestão de conteúdo usadas pela Direção.
+
+---
+
+## Tecnologia
+
+- **[Jekyll](https://jekyllrb.com/)**, compilado automaticamente pelo [GitHub Pages](https://pages.github.com/) a partir deste repositório — sem necessidade de servidor próprio.
+- **Layout partilhado** (`_layouts/default.html`): cabeçalho, navegação, rodapé e data de atualização definidos uma única vez.
+- **Componentes reutilizáveis** (`_includes/`): navegações de Atividades e Jamboree, contador do Jamboree e cartões de conteúdo.
+- **Coleções Jekyll** (`_noticias/`, `_documentos/`, `_inscricoes/`) para conteúdo repetível, geridas através do painel de administração.
+- **[Decap CMS](https://decapcms.org/)**, com autenticação via [DecapBridge](https://decapbridge.com/), disponível em `/admin/` — permite à Direção editar a maior parte do conteúdo sem tocar em código.
+- **HTML e CSS puro sempre que possível.** O site evita JavaScript deliberadamente; as exceções (contador do Jamboree, widget do Instagram, preenchimento automático de campos, motor de pesquisa de registos) estão documentadas nos próprios ficheiros onde ocorrem.
+- **Design responsivo**, com uma única folha de estilos (`assets/css/style.css`) a cobrir desktop, tablet e telemóvel, incluindo um menu de navegação recolhível em ecrãs pequenos.
+
+---
+
+## Estrutura do Repositório
+
+As páginas estão organizadas em pastas que espelham a estrutura do menu do site:
 
 ```text
 /
-├── index.html                   # Página inicial
-├── em-construcao.html           # Aviso para secções ainda vazias
+├── index.md                      # Página inicial (gera index.html)
+├── em-construcao.md              # Aviso genérico para secções ainda por desenvolver
 │
-├── agrupamento/                 # Menu "Agrupamento ▾"
-│   ├── informacoes.md            # Sobre o Agrupamento, contactos, quotas
-│   ├── equipa.md                 # Organigrama e Equipas de Animação (CMS)
-│   ├── documentos.md             # Lista os documentos, agrupados por ano (lê de _documentos/)
-│   └── noticias.html             # Lista TODAS as notícias (lê de _noticias/)
+├── agrupamento/                  # Menu "Agrupamento"
+│   ├── informacoes.md              # Sobre o Agrupamento, contactos, quotas
+│   ├── equipa.md                   # Organigrama e Equipas de Animação
+│   └── documentos.md               # Documentos oficiais, agrupados por ano
 │
-├── comunidade/                   # Menu "Secções ▾ → IV - Comunidade"
-│   ├── geral.md                   # Equipa de Animação, ligação ao CNE, Uniforme, Registo de Noites/Horas
-│   ├── vivencia.md                # Imaginário, O que é ser Companheiro, Dimensões, Simbologia, Progresso/PPV
-│   ├── programa.md                # (em construção)
-│   ├── atividades.md              # (em construção)
-│   └── diario.md                  # Diário de Bordo — galeria e documentos via Google Drive (CMS)
+├── escuteiro/                    # Menu "Escuteiro"
+│   └── registos.md                 # Espaço pessoal — Registo de Noites/Horas (mais registos a virem)
 │
-├── atividades/                   # Menu "Atividades ▾"
-│   ├── acagrup-2026.md            # ACAGRUP 2026 (CMS)
-│   ├── promessas26.md             # Galeria de Promessas (CMS)
-│   └── inscricoes.md              # Molde reutilizável de inscrição numa atividade (Google Forms)
+├── comunidade/                   # Secção IV — Comunidade
+│   ├── geral.md                    # Equipa de Animação, uniforme, ligação ao CNE
+│   ├── vivencia.md                 # Imaginário, mística, simbologia, progresso e PPV
+│   ├── programa.md                 # Programa de atividades da secção
+│   └── diario.md                   # Diário de Bordo da Comunidade — arquivo e galeria
 │
-├── jamboree/                     # Menu "Jamboree 2027 ▾"
-│   ├── geral.html                 # Contador e resumo
-│   ├── informacoes.html           # Informações, insígnia, SfH, Solidariedade
-│   ├── newsletter.html            # Boletins nacionais e internacionais
-│   └── inscricao.html             # Portal de Respostas (8 secções, HTML/CSS puro) — fora do menu, só via botão
+├── alcateia/                     # Secção I — Lobitos
+│   ├── geral.md
+│   ├── vivencia.md
+│   ├── programa.md
+│   └── diario.md
+├── flotilha/                     # Secção II — Moços
+│   ├── geral.md
+│   ├── vivencia.md
+│   ├── programa.md
+│   └── diario.md
+├── frota/                        # Secção III — Marinheiros
+│   ├── geral.md
+│   ├── vivencia.md
+│   ├── programa.md
+│   └── diario.md
 │
-├── _config.yml                   # Configuração do Jekyll + definição das coleções
-├── Gemfile / Gemfile.lock        # Dependências Ruby (Jekyll 4.4 + webrick)
-├── .gitignore
-├── README.md
+├── atividades/                   # Menu "Atividades"
+│   ├── geral.md                    # Índice de atividades e navegação
+│   ├── acagrup-2026.md             # Acampamento de Agrupamento 2026
+│   ├── promessas26.md              # Galeria de Promessas 2026
+│   └── inscricoes.md               # Inscrições atuais e histórico em timeline
 │
-├── _layouts/
-│   ├── default.html               # Layout partilhado — cabeçalho, navegação, rodapé
-│   └── noticia.html               # Layout de uma notícia individual
-├── _includes/
-│   ├── doc-link.html              # Uma linha de documento (usado por agrupamento/documentos.md)
-│   └── noticia-card.html          # Um cartão de notícia (usado por index.html e agrupamento/noticias.html)
-├── _noticias/                     # Coleção — uma notícia por ficheiro
-├── _documentos/                   # Coleção — um documento por ficheiro
+├── jamboree/                     # Menu "Jamboree 2027"
+│   ├── geral.html                  # Datas, local, mapa, contador e acesso ao portal
+│   ├── informacoes.html            # Informações da Tropa e do Contingente
+│   ├── newsletter.html             # Boletins nacionais e internacionais
+│   └── inscricao.html              # Portal de Respostas — inscrição nominal
+│
+├── _config.yml                   # Configuração do Jekyll e das coleções
+├── Gemfile / Gemfile.lock        # Dependências Ruby
+│
+├── _layouts/                     # Layouts partilhados
+├── _includes/                    # Componentes reutilizáveis (navegação de Atividades, Jamboree e Secções, contador, cartões)
+├── _noticias/                    # Coleção de notícias (alimenta o feed da página inicial)
+├── _documentos/                  # Coleção de documentos
+├── _inscricoes/                  # Coleção de inscrições ativas (vazia até à primeira inscrição criada no /admin/)
 ├── _data/
-│   └── registos.yml               # Registo de Noites/Horas (editável pelo CMS) — ver aviso de privacidade abaixo
+│   ├── registos.yml                # Base de dados de Noites/Horas, gerida pelo CMS
+│   └── links_uteis.yml             # Links externos (CNE nacional, etc.), editado à mão
 │
-├── admin/
-│   ├── config.yml                 # Configuração do Decap CMS + DecapBridge
-│   └── index.html
+├── admin/                        # Painel de administração (Decap CMS)
 │
 └── assets/
-    ├── css/
-    │   └── style.css               # Design, cores, responsividade, componentes reutilizáveis
+    ├── css/style.css               # Estilos e componentes visuais
     ├── docs/                       # PDFs (documentos, boletins, cerimoniais)
     └── img/
         ├── marca/                   # Logótipos do Agrupamento e do CNE
-        ├── jamboree/                 # Logos e insígnia do WSJ 2027
-        ├── seccoes/                  # Ícones das 4 secções + dimensões da Comunidade
-        ├── equipa/                   # Fotos dos dirigentes
-        └── eventos/                  # Fotos de atividades (ACAGRUP, etc.)
+        ├── jamboree/                 # Logótipos e insígnia do WSJ 2027
+        ├── seccoes/                  # Ícones das secções e etapas de progresso
+        ├── equipa/                   # Fotografias dos dirigentes
+        └── atividades/               # Fotografias de atividades
 ```
 
-**Nota:** o código do Apps Script (`AppsScript_Code.gs`) não está neste repositório — vive à parte, no projeto Apps Script ligado à Google Sheet de respostas. Se algum dia mudares o caminho de `jamboree/geral.html` ou `jamboree/inscricao.html`, também tens de atualizar os links para lá dentro do Apps Script (nas páginas de confirmação/erro que ele devolve).
+> O código do formulário de inscrição do Jamboree (Google Apps Script) não está incluído neste repositório — está associado diretamente à Google Sheet que recebe as respostas.
 
 ---
 
-## 🎨 Guia de Emojis
+## Gerir Conteúdo
 
-Para o site não acumular dezenas de variantes do mesmo símbolo, usa sempre estes por omissão:
+A maior parte do conteúdo do site atualiza-se pelo painel em `/admin/`, sem necessidade de editar código:
+
+| Conteúdo | Onde | Notas |
+|---|---|---|
+| Notícias | `/admin/` → Notícias | Não geram página própria — ligam sempre a uma página real do site (`link_externo`). As 5 mais recentes aparecem na página inicial. Campos opcionais: `imagem`, `autor`, `funcao` e `prioridade` (força uma notícia a ficar em destaque, independentemente da data). |
+| Documentos | `/admin/` → Documentos | O campo "Ano" organiza automaticamente onde aparecem. |
+| Inscrições em atividades | `/admin/` → Inscrições | Só as marcadas como "Ativo" aparecem na página de Inscrições. |
+| Diário de Bordo da Comunidade | `/admin/` → Páginas do Site | Liga a pastas do Google Drive por ID. |
+| Registo de Noites/Horas | `/admin/` → Bases de Dados | Ver nota de privacidade abaixo. |
+
+### Jamboree 2027
+
+As páginas do Jamboree partilham uma navegação própria e um hero com a identidade oficial do evento e contador decrescente. O **Portal de Respostas** não aparece nessa navegação: o acesso é feito exclusivamente através do botão existente na página Geral, para evitar que o formulário nominal seja exposto a visitantes ocasionais.
+
+Na página Geral, as datas e os acessos principais ficam à esquerda e o local, com mapa da Ilha de Sobieszewo em Gdańsk, à direita. A página de Newsletters separa os boletins nacionais dos internacionais em duas colunas, adaptando-se a ecrãs pequenos.
+
+### Secções
+
+Cada secção tem uma barra de navegação própria entre Geral, Vivência, Programa e Diário de Bordo. A I - Alcateia usa amarelo, a II - Flotilha usa verde, a III - Frota usa azul e a IV - Comunidade usa vermelho. As páginas Gerais das três primeiras secções já apresentam as respetivas Equipas de Animação e dois blocos reservados para informação e recursos; as restantes páginas continuam marcadas como “Em construção”.
+
+### Padrão de página (hero + cabeçalho em vidro)
+
+Todas as páginas do redesign — página inicial, secções, Equipa, Atividades, Em Construção — seguem a mesma estrutura:
+
+- `main_class: pagina-com-hero` no front matter, para o `<main>` não herdar o espaçamento das páginas antigas.
+- Uma secção com `id="hero"` logo no topo do conteúdo (a página inicial usa um carrossel de fotos; as restantes usam `hero-generico`, um gradiente com o título e subtítulo lá dentro — algumas, como a Comunidade, têm ainda uma variante com a cor e o ícone da própria secção).
+- Um `<div class="espaco-hero-generico">` logo a seguir, só para reservar o espaço do hero no fluxo normal da página.
+- O cabeçalho (`_layouts/default.html`) fica sempre transparente sobre o hero e passa a vidro sólido assim que se começa a fazer scroll — isto é automático, o script deteta sozinho se a página tem ou não um elemento com `id="hero"`.
+
+Para criar uma página nova com este visual, o mais simples é copiar o topo de uma página já feita (ex.: `atividades/geral.md`) e adaptar o título, o texto e o conteúdo a seguir.
+
+---
+
+## Guia de Estilo
+
+**Emojis** — para manter consistência, usam-se sempre estes por omissão:
 
 | Conceito | Emoji |
 |---|---|
@@ -97,41 +149,26 @@ Para o site não acumular dezenas de variantes do mesmo símbolo, usa sempre est
 | Download | 📥 |
 | Pessoa | 🧑 |
 | Grupo / equipa | 👥 |
-| Ligação interna ("saber mais") | → |
-| Ligação externa (sai do site) | ↗️ |
-| Campismo / tenda | 🏕️ |
-| Confirmação / feito | ✓ |
+| Ligação interna | → |
+| Ligação externa | ↗️ |
+| Campismo | 🏕️ |
+| Confirmação | ✓ |
 
-Símbolos com significado próprio (⚓ 🧭 ⚜️ 🏅, as cores 🔴🟡🟢🔵 das Caravelas/dimensões) mantêm-se — representam conceitos genuinamente diferentes, não precisam de uniformizar.
-
----
-
-## ✍️ Tom de Voz
-
-- **Páginas de narrativa/imaginário** (Destaque, ACAGRUP, Vivência): tom animado, metáforas marítimas à vontade — "as velas içadas", "assumir o leme".
-- **Páginas utilitárias** (Documentos, listas, formulários): diretas e claras, sem precisar de metáfora.
-- **Evitar linguagem de regulamento** ("órgãos", "unidades", "no âmbito de") fora dos blocos que citam mesmo o Regulamento — prefere linguagem próxima, como falarias com um jovem do Agrupamento.
+**Tom de voz** — páginas de imaginário (Destaque, ACAGRUP, Vivência) usam linguagem animada e metáforas marítimas; páginas utilitárias (Documentos, formulários) são diretas e claras. Evita-se linguagem de regulamento fora dos blocos que citam diretamente o Regulamento do CNE.
 
 ---
 
-## 📰 Como acrescentar uma Notícia
+## Privacidade dos Dados
 
-Pelo painel `/admin/` → "Notícias" → "Novo Notícias". Se preencheres **"Link direto para outra página"**, o cartão liga logo para lá (ex.: para o ACAGRUP); se deixares vazio e escreveres o "Texto completo", a notícia ganha página própria. Aparece sozinha nas 3 mais recentes da página inicial e em `agrupamento/noticias.html` — não precisas de mexer em mais nada.
-
-## 📁 Como acrescentar um Documento
-
-Pelo painel `/admin/` → "Documentos" → "Novo Documentos". O campo **Ano** ("Geral" ou um ano concreto) decide onde aparece em `agrupamento/documentos.md` — a página organiza-se sozinha.
-
-## 🔐 Registo de Noites e Horas — aviso de privacidade
-
-`_data/registos.yml` já está editável pelo painel `/admin/` (mais arrumado do que estar escrito direto no código), mas **isto não resolve o problema de fundo**: o GitHub Pages só serve ficheiros estáticos, por isso este ficheiro fica sempre 100% público — qualquer pessoa que veja o código da página vê a lista toda, o número de telemóvel não é uma password, só um filtro visual. Não uses aqui dados reais de menores até isto ser substituído por uma solução com autenticação a sério (ver conversas anteriores sobre as opções A/B/C/D consideradas).
+O GitHub Pages serve exclusivamente ficheiros estáticos. Isto significa que qualquer informação incluída em `_data/registos.yml` (usado no motor de consulta de Noites de Campo e Horas de Mar, em `escuteiro/registos.md`) é publicamente visível a quem consultar o código-fonte da página, ainda que não apareça diretamente na interface. O acesso por telemóvel e email funciona como um filtro de conveniência, não como autenticação. Recomenda-se cautela na quantidade e sensibilidade dos dados aí incluídos, em particular tratando-se de dados de menores.
 
 ---
 
 ## ⚜️ Créditos
 
 Construído em HTML5 e CSS3, com JavaScript reduzido ao mínimo indispensável.
-Criado por: Ricardo Isaías Serafim em colaboração com os Companheiros (2025-2026).
+Criado por: Ricardo Isaías Serafim.
+Colaboração de: Simão Pereira.
 Insígnia do Contingente Português ao WSJ 2027: João Oliveira.
 Imaginário "O Segredo da Ilha Perdida" (ACAGRUP 2026): Agrupamento 929 - Belém.
 

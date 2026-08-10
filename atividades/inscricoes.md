@@ -1,35 +1,57 @@
 ---
 layout: default
-title: Inscrições | Atividades
-main_class: main-content
-atividade_nome: "Atividade"
-form_url: "https://docs.google.com/forms/d/e/1FAIpQLSe_EXEMPLO_AQUI/viewform"
+title: Inscrições em Atividades | Agrupamento 929 - Belém
+main_class: pagina-com-hero
+ultima_atualizacao: 22/08/2026
 ---
+{% comment %}
+  Lista todas as inscrições com "ativo: true", da coleção _inscricoes/.
+  Para abrir uma inscrição nova: painel /admin/ → "Inscrições" → "Novo
+  Inscricoes", preenche o link do Google Forms e marca "Ativo". Quando a
+  atividade terminar, desmarca "Ativo" (ou apaga a entrada) — desaparece
+  sozinha desta página, não precisas de tocar em mais nada.
+{% endcomment %}
+{% assign inscricoes_ativas = site.inscricoes | where: "ativo", true %}
 
-<div class="content-wrapper" style="justify-content: center; align-items: center; flex-direction: column;">
-    <section class="card" style="max-width: 800px; width: 100%; border-top: 8px solid var(--azul-marinho);">
-        <span style="font-size: 3rem; display: block; margin-bottom: 10px;">📄</span>
-        <h1 style="color: var(--azul-marinho);">Inscrições Abertas</h1>
-        <h3 style="color: #666; margin-top: -10px; margin-bottom: 20px;">{{ page.atividade_nome }}</h3>
-        
-        <p>Preenche o formulário abaixo para garantir a tua presença na nossa próxima atividade. Lê com atenção todas as informações pedidas.</p>
+<section class="hero-generico" id="hero">
+    <div class="pagina-cabecalho">
+        <h1>Inscrições em Atividades</h1>
+        <p>Participa nas próximas atividades do Agrupamento 929 - Belém.</p>
+    </div>
+</section>
+<div class="espaco-hero-generico" aria-hidden="true"></div>
 
-        <!-- Botão de abertura em nova janela (útil para telemóveis) -->
-        <div style="margin-top: 30px; text-align: center;">
-            <a href="{{ page.form_url }}" target="_blank" class="btn" style="background-color: #28a745; font-size: 1.1rem; padding: 15px 30px;">
-                📝 Abrir Formulário noutra janela
-            </a>
-        </div>
+<div class="pagina-conteudo">
+    {% include atividades-nav.html %}
+    <div class="atividades-painel">
+        <section class="atividades-coluna">
+            <h2 class="section-title">📋 Inscrições atuais</h2>
+            <p class="atividades-intro">Todas as inscrições abertas neste momento.</p>
+            {% for inscricao in inscricoes_ativas %}
+                {% include inscricao-card.html inscricao=inscricao %}
+            {% else %}
+                <div class="info-block atividades-vazio">
+                    <p>Não há nenhuma inscrição aberta neste momento.</p>
+                    <p>Consulta esta página mais tarde para veres as próximas atividades.</p>
+                </div>
+            {% endfor %}
+        </section>
 
-        <hr style="border: 0; border-top: 1px dashed #ddd; margin: 30px 0;">
-
-        <!-- Formulário embutido diretamente na página -->
-        <div style="margin-top: 20px; width: 100%; overflow: hidden;">
-            <iframe src="{{ page.form_url }}?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0" style="border-radius: 8px; border: 1px solid #ddd; background: #fcfcfc;">A carregar o formulário...</iframe>
-        </div>
-
-                <p style="text-align: right; font-size: 0.7rem; color: #888; margin-top: 15px; font-style: italic;">
-                    Última atualização em 13/08/2026
-                </p>
-    </section>
+        <section class="atividades-coluna">
+            <h2 class="section-title">🌊 Atividades passadas</h2>
+            <p class="atividades-intro">Um registo das atividades já vividas pelo Agrupamento.</p>
+            <div class="atividades-timeline">
+                <a class="timeline-item" href="{{ '/atividades/acagrup-2026.html' | relative_url }}">
+                    <time datetime="2026-08-05">05 ago 2026</time>
+                    <h3>ACAGRUP 2026 - Ilha dos Cavalos</h3>
+                    <p>O Segredo da Ilha Perdida</p>
+                </a>
+                <a class="timeline-item" href="{{ '/atividades/promessas26.html' | relative_url }}">
+                    <time datetime="2026-06-20">20 jun 2026</time>
+                    <h3>Promessas 2026</h3>
+                    <p>Fotografias e memórias da cerimónia</p>
+                </a>
+            </div>
+        </section>
+    </div>
 </div>
