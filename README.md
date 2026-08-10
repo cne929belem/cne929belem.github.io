@@ -170,6 +170,6 @@ Construído em HTML5 e CSS3, com JavaScript reduzido ao mínimo indispensável.
 Criado por: Ricardo Isaías Serafim.
 Colaboração de: Simão Pereira.
 Insígnia do Contingente Português ao WSJ 2027: João Oliveira.
-Imaginário "O Segredo da Ilha Perdida" (ACAGRUP 2026): Agrupamento 929 - Belém.
+Imaginário "O Segredo da Ilha Perdida" (ACAGRUP 2026): Paulo Duarte.
 
 Escutismo Marítimo • Sempre Alerta para Servir

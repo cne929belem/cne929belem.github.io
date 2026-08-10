@@ -14,7 +14,9 @@
     <link rel="icon" type="image/x-icon" href="{{ '/assets/img/marca/Logo929.ico' | relative_url }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ '/assets/img/marca/Logo929.ico' | relative_url }}">
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
@@ -28,9 +30,10 @@
         </span>
     </a>
 
+    
     <div class="menu-principal" id="menuPrincipal">
         <div class="item-menu">
-            <button onclick="alternarSubmenuMovel(this)">Agrupamento</button>
+            <button aria-expanded="false" onclick="alternarSubmenuMovel(this)">Agrupamento</button>
             <div class="submenu">
                 <a href="{{ '/agrupamento/informacoes.html' | relative_url }}">Informações</a>
                 <a href="{{ '/agrupamento/equipa.html' | relative_url }}">Equipa</a>
@@ -38,7 +41,7 @@
             </div>
         </div>
         <div class="item-menu">
-            <button onclick="alternarSubmenuMovel(this)">Secções</button>
+            <button aria-expanded="false" onclick="alternarSubmenuMovel(this)">Secções</button>
             <div class="submenu">
                 <a href="{{ '/alcateia/geral.html' | relative_url }}">Secção I · Alcateia</a>
                 <a href="{{ '/flotilha/geral.html' | relative_url }}">Secção II · Flotilha</a>
@@ -49,12 +52,12 @@
         <div class="item-menu">
             <a href="{{ '/atividades/geral.html' | relative_url }}">Atividades</a>
         </div>
+        <a href="{{ '/em-construcao.html' | relative_url }}" class="botao-area-pessoal">Área pessoal</a>
     </div>
 
     <div class="grupo-direita">
         <a href="{{ '/jamboree/geral.html' | relative_url }}" class="botao-solido">Jamboree 2027</a>
-        <a href="{{ '/escuteiro/registos.html' | relative_url }}" class="botao-area-pessoal">Área pessoal</a>
-        <button class="botao-hamburger" aria-label="Abrir menu" onclick="alternarMenuMovel()">☰</button>
+        <button class="botao-hamburger" aria-label="Abrir menu principal" aria-expanded="false" aria-controls="menuPrincipal" onclick="alternarMenuMovel()"><span aria-hidden="true">☰</span><span>Menu</span></button>
     </div>
 </nav>
 
@@ -130,14 +133,29 @@
 
 <script>
     function alternarMenuMovel() {
-        document.getElementById('menuPrincipal').classList.toggle('mostrar');
+        const menu = document.getElementById('menuPrincipal');
+        const aberto = menu.classList.toggle('mostrar');
+        document.querySelector('.botao-hamburger').setAttribute('aria-expanded', String(aberto));
+        if (!aberto) {
+            document.querySelectorAll('.item-menu.aberto').forEach(item => {
+                item.classList.remove('aberto');
+                item.querySelector(':scope > button')?.setAttribute('aria-expanded', 'false');
+            });
+        }
     }
+
     function alternarSubmenuMovel(botao) {
-        if (window.innerWidth > 860) return; // no desktop o :hover já trata disto
+        if (window.innerWidth > 860) return;
         const item = botao.closest('.item-menu');
         const jaAberto = item.classList.contains('aberto');
-        document.querySelectorAll('.item-menu.aberto').forEach(i => i.classList.remove('aberto'));
-        if (!jaAberto) item.classList.add('aberto');
+        document.querySelectorAll('.item-menu.aberto').forEach(aberto => {
+            aberto.classList.remove('aberto');
+            aberto.querySelector(':scope > button')?.setAttribute('aria-expanded', 'false');
+        });
+        if (!jaAberto) {
+            item.classList.add('aberto');
+            botao.setAttribute('aria-expanded', 'true');
+        }
     }
 
     // Vidro sólido ao rolar — só relevante em páginas com hero (ex: homepage).
