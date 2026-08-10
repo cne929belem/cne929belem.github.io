@@ -171,15 +171,33 @@ main_class: main-content
                     <!-- Preparar o PPV -->
                     <div id="progresso-ppv" style="display: none; text-align: left;">
                         <h3 style="color: var(--azul-marinho); margin-bottom: 15px; text-align: center;">Projeto Pessoal de Vida (PPV)</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.6;">O PPV é a tua verdadeira "Bússola". Não se trata apenas de preencher um papel, mas sim de fazeres uma reflexão profunda sobre o Homem ou a Mulher que queres ser na sociedade, traçando metas claras para a tua dimensão familiar, profissional, social e espiritual.</p>
-                        
-                        <div style="background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; border-radius: 6px; margin: 20px 0;">
-                            <h4 style="margin: 0 0 10px 0; color: #856404;">O Documento RUMOS</h4>
-                            <p style="font-size: 0.9rem; color: #664d03; margin: 0;">Para construíres o teu PPV com estrutura e clareza, o CNE disponibiliza o documento <strong>RUMOS</strong>. É através deste guião que vais escolher o teu "Padrinho" ou "Madrinha" de Caminhada e avaliar o teu progresso ao longo das 6 Áreas de Desenvolvimento (Física, Afetiva, Carácter, Espiritual, Social e Intelectual).</p>
+                        <p style="font-size: 0.95rem; line-height: 1.6;">O PPV é a tua verdadeira "Bússola". Não se trata apenas de preencher um papel, mas sim de fazeres uma reflexão profunda sobre o Homem ou a Mulher que queres ser na sociedade, traçando metas claras para a tua Campanha. Deve estar pronto <strong>antes da tua Promessa de Companheiro</strong>. Eis o que precisas de fazer:</p>
+
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin: 20px 0;">
+                            <div style="background: #fcfcfc; border-left: 4px solid var(--azul-claro); padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <h4 style="margin: 0 0 6px 0; color: var(--azul-marinho);">1. Escreve a parte aberta</h4>
+                                <p style="font-size: 0.85rem; color: #555; margin: 0;">Define os teus objetivos educativos e as ações concretas para os cumprires. Esta parte é para partilhar — com o Chefe de Comunidade e com a restante Comunidade. Pode haver objetivos em comum com outros Companheiros na mesma fase da Campanha; o conjunto destas partes abertas é o que dá corpo à Carta de Comunidade.</p>
+                            </div>
+                            <div style="background: #fcfcfc; border-left: 4px solid #6f42c1; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <h4 style="margin: 0 0 6px 0; color: var(--azul-marinho);">2. Escreve a parte fechada</h4>
+                                <p style="font-size: 0.85rem; color: #555; margin: 0;">Aqui ficam os teus objetivos mais íntimos — não são para toda a gente. Partilha-os de preferência só com o Chefe de Comunidade, ou com outro adulto de confiança, que te vá acompanhando e sirva de "fiel da balança" para os objetivos que traçaste.</p>
+                            </div>
+                            <div style="background: #fcfcfc; border-left: 4px solid #28a745; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <h4 style="margin: 0 0 6px 0; color: var(--azul-marinho);">3. Tem em conta estes 7 pontos</h4>
+                                <p style="font-size: 0.85rem; color: #555; margin: 0;">A Mística e os valores do Companheirismo · os fins do Companheirismo · o progresso que já fizeste · e o desenvolvimento das tuas qualidades <strong>técnicas, físicas, morais, sociais, intelectuais, profissionais e espirituais</strong>.</p>
+                            </div>
+                            <div style="background: #fcfcfc; border-left: 4px solid #ffc107; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <h4 style="margin: 0 0 6px 0; color: var(--azul-marinho);">4. Entrega-o a quem te acompanha</h4>
+                                <p style="font-size: 0.85rem; color: #555; margin: 0;">O PPV fica guardado pelo Chefe de Comunidade (ou pelo Chefe de Agrupamento, se ainda não houver Chefe de Comunidade) e por ti próprio.</p>
+                            </div>
+                            <div style="background: #fcfcfc; border-left: 4px solid #CE1126; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                <h4 style="margin: 0 0 6px 0; color: var(--azul-marinho);">5. Revê-o quando fizer sentido</h4>
+                                <p style="font-size: 0.85rem; color: #555; margin: 0;">Podes rever o teu PPV no fim de uma Campanha, de uma Etapa de Progresso, ou noutro momento que faça sentido para ti — a iniciativa de o rever é sempre tua.</p>
+                            </div>
                         </div>
-                        
+
                         <div style="text-align: center; margin-top: 20px;">
-                            <a href="{{ '/assets/docs/PostersFaceis_IV.pdf' | relative_url }}" target="_blank" class="btn" style="background-color: #28a745;">📥 Download: Guia RUMOS & Objetivos</a>
+                            <a href="{{ '/assets/docs/PostersFaceis_IV.pdf' | relative_url }}" target="_blank" class="btn" style="background-color: #28a745;">📥 Download: Guia de Objetivos Educativos</a>
                         </div>
                     </div>
                 </div>
