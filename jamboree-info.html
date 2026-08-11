@@ -102,7 +102,10 @@
                         <span>🎖️</span> A Insígnia do Contingente
                     </h3>
                     <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
-                        <img src="./assets/img/Insignia_Contingente_WSJ2027.png" alt="Insígnia do Contingente Português ao WSJ 2027, com o Galo de Barcelos a tocar guitarra portuguesa sobre motivos de azulejo" style="width: 130px; height: 130px; flex-shrink: 0; border-radius: 8px;">
+                        <button id="btnInsignia" style="padding: 0; border: none; background: none; cursor: zoom-in; flex-shrink: 0; position: relative;" aria-label="Ampliar a insígnia do Contingente">
+                            <img src="./assets/img/Insignia_Contingente_WSJ2027.png" alt="Insígnia do Contingente Português ao WSJ 2027, com o Galo de Barcelos a tocar guitarra portuguesa sobre motivos de azulejo" style="width: 130px; height: 130px; border-radius: 8px; display: block;">
+                            <span style="position: absolute; bottom: 6px; right: 6px; background: rgba(0,51,102,0.85); color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;">🔍</span>
+                        </button>
                         <p style="font-size: 0.95rem; line-height: 1.6; flex: 1; min-width: 200px;">
                             Depois de um concurso interno de criatividade entre jovens e dirigentes do Contingente Português, foi escolhido o desenho vencedor — da autoria de João Oliveira — que vai dar origem ao distintivo oficial do nosso Contingente no WSJ 2027 — ainda a passar por afinações técnicas antes da versão final.
                         </p>
@@ -230,6 +233,14 @@
                     <button id="btnFecharTropa" class="btn" style="margin-top: 20px; background-color: #CE1126; color: white; width: 100%;">Fechar</button>
                 </div>
             </dialog>
+
+            <dialog id="modalInsignia" style="border: none; border-radius: 12px; padding: 0; max-width: 460px; width: 100%; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.3); background: transparent;">
+                <div style="background-color: white; padding: 20px; border-radius: 12px;">
+                    <img src="./assets/img/Insignia_Contingente_WSJ2027.png" alt="Insígnia do Contingente Português ao WSJ 2027, ampliada" style="width: 100%; height: auto; border-radius: 8px; display: block;">
+                    <p style="font-size: 0.8rem; color: #666; margin-top: 12px;">Insígnia do Contingente Português — desenho de João Oliveira</p>
+                    <button id="btnFecharInsignia" class="btn" style="margin-top: 12px; background-color: var(--azul-marinho); color: white; width: 100%;">Fechar</button>
+                </div>
+            </dialog>
 <p style="text-align: right; font-size: 0.7rem; color: #888; margin-top: 30px; font-style: italic;">
     Última atualização por Ricardo Isaías Serafim em 11/08/2026
 </p>
@@ -298,6 +309,25 @@
         modalTropa.addEventListener("click", (event) => {
             if (event.target === modalTropa) {
                 modalTropa.close();
+            }
+        });
+
+        // --- 2. LÓGICA DO POP-UP DA INSÍGNIA (AMPLIAR) ---
+        const modalInsignia = document.getElementById("modalInsignia");
+        const btnInsignia = document.getElementById("btnInsignia");
+        const btnFecharInsignia = document.getElementById("btnFecharInsignia");
+
+        btnInsignia.addEventListener("click", () => {
+            modalInsignia.showModal();
+        });
+
+        btnFecharInsignia.addEventListener("click", () => {
+            modalInsignia.close();
+        });
+
+        modalInsignia.addEventListener("click", (event) => {
+            if (event.target === modalInsignia) {
+                modalInsignia.close();
             }
         });
     });
