@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Respostas - Jamboree 2027 | CNE 929</title>
+    <link rel="icon" type="image/x-icon" href="https://cne929belem.github.io/assets/img/Logo929.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+        .wizard-wrap { max-width: 760px; margin: 0 auto; width: 100%; text-align: left; }
+        .config-warning { background: #f8d7da; color: #58151c; border-left: 5px solid #CE1126; padding: 14px 18px; border-radius: 6px; margin-bottom: 20px; font-size: 0.9rem; }
+
+        /* --- Progresso (a "árvore" de passos) --- */
+        .stepper { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px; margin: 10px 0 30px; }
+        .stepper .node { width: 12px; height: 12px; border-radius: 50%; background: #d7dee6; transition: background 0.3s, transform 0.3s; flex-shrink: 0; }
+        .stepper .node.done { background: var(--azul-claro); }
+        .stepper .node.active { background: #CE1126; transform: scale(1.4); }
+        .stepper .branch { width: 18px; height: 2px; background: #d7dee6; flex-shrink: 0; }
+        .stepper .branch.done { background: var(--azul-claro); }
+
+        /* --- Passos --- */
+        .wizard-step { display: none; background: var(--branco); border-radius: 10px; padding: 28px; box-shadow: 0 4px 16px rgba(0,51,102,0.08); }
+        .wizard-step.active { display: block; }
+        .wizard-step h2 { font-size: 1.2rem; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+        .wizard-step .step-sub { font-size: 0.85rem; color: #666; margin-bottom: 20px; font-family: 'Nunito', sans-serif; text-transform: none; font-weight: 400; }
+
+        .field { margin-bottom: 18px; }
+        .field label.field-label { display: block; font-weight: 800; font-size: 0.88rem; color: var(--azul-marinho); margin-bottom: 6px; }
+        .field .hint { font-weight: 400; color: #777; font-size: 0.78rem; display: block; margin-top: 2px; }
+        .field input[type="text"], .field input[type="email"], .field input[type="tel"],
+        .field input[type="date"], .field input[type="time"], .field textarea, .field select {
+            width: 100%; padding: 10px 12px; border: 1.5px solid #d7dee6; border-radius: 6px;
+            font-family: 'Nunito', sans-serif; font-size: 0.95rem; background: var(--cinza-fundo); color: var(--texto);
+        }
+        .field textarea { min-height: 70px; resize: vertical; }
+        .field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: var(--azul-claro); background: white; }
+
+        .option-row { display: flex; flex-wrap: wrap; gap: 10px; }
+        .option-pill { position: relative; }
+        .option-pill input { position: absolute; opacity: 0; }
+        .option-pill span { display: inline-block; padding: 8px 16px; border: 1.5px solid #d7dee6; border-radius: 20px; font-size: 0.88rem; cursor: pointer; background: var(--cinza-fundo); transition: 0.2s; }
+        .option-pill input:checked + span { background: var(--azul-marinho); color: white; border-color: var(--azul-marinho); }
+        .option-pill input:focus-visible + span { outline: 2px solid var(--azul-claro); outline-offset: 2px; }
+
+        .err-msg { display: none; color: #CE1126; font-size: 0.8rem; margin-top: 5px; font-weight: 700; }
+        .field.field-error input, .field.field-error textarea, .field.field-error select { border-color: #CE1126; background: #fff5f5; }
+        .field.field-error .err-msg, fieldset.field-error .err-msg { display: block; }
+        fieldset.field-error .option-pill span { border-color: #CE1126; }
+
+        .conditional { display: none; }
+        .conditional.shown { display: block; }
+
+        .wizard-nav { display: flex; justify-content: space-between; margin-top: 26px; gap: 10px; }
+        .wizard-nav .btn-secondary { background: transparent; color: var(--azul-marinho); border: 2px solid var(--azul-marinho); }
+        .wizard-nav .btn-secondary:hover { background: var(--cinza-fundo); }
+        .wizard-nav button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        .consent-box { background: var(--cinza-fundo); padding: 18px; border-radius: 8px; font-size: 0.88rem; line-height: 1.6; max-height: 320px; overflow-y: auto; border: 1.5px solid #d7dee6; margin-bottom: 18px; }
+        .consent-box h4 { color: var(--azul-marinho); margin: 14px 0 4px; font-size: 0.95rem; }
+        .consent-box h4:first-child { margin-top: 0; }
+        .consent-check { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; font-weight: 700; }
+        .consent-check input { margin-top: 4px; width: 18px; height: 18px; flex-shrink: 0; }
+
+        .review-item { display: flex; justify-content: space-between; gap: 20px; padding: 8px 0; border-bottom: 1px solid #eee; font-size: 0.88rem; }
+        .review-item .rk { color: #666; }
+        .review-item .rv { font-weight: 700; text-align: right; }
+        .review-section-title { color: #CE1126; font-weight: 900; margin: 18px 0 6px; text-transform: uppercase; font-size: 0.82rem; }
+
+        .final-message { text-align: center; padding: 40px 20px; }
+        .final-message .emoji { font-size: 3rem; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+<header class="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="brand">
+            <img src="./assets/img/Logo929.jpg" alt="Logo 929" class="logo-img">
+            <div class="brand-text">
+                <span class="brand-name">Belém</span>
+                <span class="brand-sub">Agrupamento 929</span>
+            </div>
+        </a>
+        <nav>
+            <ul class="nav-menu">
+                <li class="dropdown">
+                    <a href="#" class="nav-link">Agrupamento ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html">Equipa</a></li>
+                        <li><a href="index.html">Documentos</a></li>
+                        <li><a href="index.html">Notícias</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link">Secções ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="index.html">I - Lobitos</a></li>
+                        <li><a href="index.html">II - Moços</a></li>
+                        <li><a href="index.html">III - Marinheiros</a></li>
+                        <li><a href="index.html">IV - Companheiros</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link">Jamboree 2027 ▾</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="jamboree-geral.html">Geral</a></li>
+                        <li><a href="jamboree-info.html">Informações</a></li>
+                        <li><a href="jamboree-news.html">Newsletter</a></li>
+                        <li><a href="jamboree-inscricao.html">Portal de Respostas</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main class="main-content-jamboree">
+    <div class="wizard-wrap">
+
+        <h1 style="color: var(--azul-marinho); text-align:center; margin-bottom: 4px;">🌳 Portal de Respostas — Tropa 10</h1>
+        <p style="text-align:center; color:#555; margin-bottom: 20px;">Inscrição nominal para o 26º World Scout Jamboree · Polónia 2027</p>
+
+        <div id="configWarning" class="config-warning" style="display:none;">
+            ⚠️ Este formulário ainda não está ligado à folha de respostas (falta configurar o URL do Apps Script no código). As respostas não vão ser guardadas até isso ficar pronto.
+        </div>
+
+        <div class="stepper" id="stepper"></div>
+
+        <form id="wizardForm" novalidate>
+
+            <!-- PASSO 0: CONSENTIMENTO RGPD -->
+            <section class="wizard-step active" data-step="0">
+                <h2>🔒 Consentimento de Proteção de Dados (RGPD)</h2>
+                <p class="step-sub">Antes de avançar, é necessário ler e aceitar esta informação.</p>
+
+                <div class="consent-box">
+                    <h4>Quem trata os dados</h4>
+                    <p>Agrupamento 929 de Belém — Corpo Nacional de Escutas (CNE), contacto: geral.929@escutismo.pt.</p>
+
+                    <h4>Finalidade</h4>
+                    <p>Organizar a participação da Tropa 10 no 26º Jamboree Mundial de Escutismo (WSJ 2027), incluindo a inscrição nominal junto do Contingente Português, o planeamento de viagem e alojamento, e a garantia de cuidados de saúde e segurança adequados durante o evento.</p>
+
+                    <h4>Dados recolhidos</h4>
+                    <p>Identificação e contactos do participante e do Encarregado de Educação, dados de viagem, e dados de saúde, alimentação, mobilidade e acessibilidade. Alguns destes dados (saúde, deficiência, convicções religiosas, quando aplicável) são <strong>categorias especiais de dados</strong> nos termos do artigo 9.º do RGPD, e só são tratados com consentimento explícito.</p>
+
+                    <h4>Quem tem acesso</h4>
+                    <p>A Direção do Agrupamento e os dirigentes diretamente responsáveis pela organização da Tropa 10, e — apenas na medida do estritamente necessário para a inscrição oficial — a Coordenação do Contingente Português.</p>
+
+                    <h4>Prazo de conservação</h4>
+                    <p>Os dados são conservados até ao final do Jamboree 2027 e por um período de arquivo administrativo necessário, findo o qual são eliminados ou anonimizados.</p>
+
+                    <h4>Os teus direitos</h4>
+                    <p>Podes a qualquer momento pedir acesso, retificação ou eliminação dos dados, através de geral.929@escutismo.pt.</p>
+
+                    <h4>Consentimento para menores</h4>
+                    <p>Sendo o/a participante menor de idade, este consentimento deve ser prestado pelo respetivo Encarregado de Educação.</p>
+                </div>
+
+                <label class="consent-check">
+                    <input type="checkbox" id="consentCheck">
+                    <span>Li e compreendi esta informação. Na qualidade de Encarregado de Educação (ou, sendo o participante maior de idade, em nome próprio), dou o meu consentimento explícito para o tratamento dos dados pessoais e das categorias especiais de dados acima descritas, para os fins indicados.</span>
+                </label>
+
+                <div class="wizard-nav">
+                    <span></span>
+                    <button type="button" class="btn" id="consentNextBtn" disabled>Avançar →</button>
+                </div>
+            </section>
+
+            <!-- PASSOS 1-9 GERADOS POR JAVASCRIPT -->
+            <div id="generatedSteps"></div>
+
+        </form>
+
+        <div class="wizard-step" id="finalMessage">
+            <div class="final-message">
+                <div class="emoji" id="finalEmoji">⏳</div>
+                <h2 id="finalTitle">A enviar...</h2>
+                <p id="finalText">Por favor aguarda um momento.</p>
+                <a href="jamboree-geral.html" class="btn" id="finalBackBtn" style="display:none; margin-top:20px;">Voltar à página do Jamboree</a>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-contactos">
+            <h3>Contactos</h3>
+            <p>
+                <a href="https://maps.app.goo.gl/jFjWvkipWY5HRQEE9" target="_blank" rel="noopener noreferrer" class="map-link">
+                    Av. Brasília, Doca de Recreio Belém<br>
+                    1400-434 Lisboa, Portugal
+                </a>
+            </p>
+            <p>
+                <a href="mailto:geral.929@escutismo.pt" class="email-link">geral.929@escutismo.pt</a>
+            </p>
+        </div>
+        <div class="footer-redes">
+            <div class="social-row">
+                <a href="https://www.facebook.com/929belem" target="_blank" class="social-btn" title="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="social-svg"><path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/929belem/" target="_blank" class="social-btn" title="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="social-svg"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="footer-logo">
+            <a href="https://maritimos.escutismo.pt/quem-somos/o-escutismo-maritimo/" target="_blank" rel="noopener noreferrer" title="Saber mais sobre o Escutismo Marítimo">
+                <img src="./assets/img/CNE_escuteiros_Maritimos.jpg" alt="Escutismo Marítimo" class="footer-cne-img">
+            </a>
+            <a href="https://escutismo.pt/" target="_blank" rel="noopener noreferrer" title="Ir para o site oficial do CNE">
+                <img src="./assets/img/CNE_escuteiros.jpg" alt="CNE Escuteiros" class="footer-cne-img">
+            </a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p class="copyright">© 2026 &bull; Corpo Nacional de Escutas - Agrupamento 929 Belém</p>
+    </div>
+</footer>
+
+<script>
+/* =========================================================================
+   CONFIGURA AQUI O URL DO TEU APPS SCRIPT WEB APP (ver Code.gs fornecido)
+   ========================================================================= */
+const SCRIPT_URL = "COLOCA_AQUI_O_URL_DO_WEB_APP_DO_APPS_SCRIPT";
+
+/* =========================================================================
+   1. CONFIGURAÇÃO DOS CAMPOS — baseado no documento
+      "WSJ_Participant_Registration_Form_Structure.docx"
+      Para ajustar perguntas, basta editar este array.
+   ========================================================================= */
+const SECTIONS = [
+  { title: "Dados Pessoais do Participante", icon: "🧑", fields: [
+    { key:"s1_nome", label:"Nome completo", type:"text", required:true },
+    { key:"s1_data_nascimento", label:"Data de nascimento", type:"date", required:true },
+    { key:"s1_email", label:"Email do participante", type:"email", required:true },
+    { key:"s1_email_secundario", label:"Email alternativo / secundário", type:"email" },
+    { key:"s1_organizacao", label:"Organização Escutista", type:"text", required:true, value:"CNE - Corpo Nacional de Escutas" },
+    { key:"s1_cargo", label:"Cargo / Função", type:"text", hint:"Ex: Explorador, Dirigente..." },
+    { key:"s1_posicao_atual", label:"Posição atual na Organização Escutista", type:"text" }
+  ]},
+  { title: "Morada e Contactos", icon: "📍", fields: [
+    { key:"s2_morada", label:"Morada (linha principal)", type:"textarea", required:true },
+    { key:"s2_localidade", label:"Localidade", type:"text", required:true },
+    { key:"s2_distrito", label:"Distrito", type:"text" },
+    { key:"s2_codigo_postal", label:"Código postal", type:"text", required:true },
+    { key:"s2_naturalidade", label:"Naturalidade (cidade de nascimento)", type:"text" },
+    { key:"s2_morada_secundaria", label:"Morada secundária (se aplicável)", type:"textarea" },
+    { key:"s2_localidade_secundaria", label:"Localidade (morada secundária)", type:"text" },
+    { key:"s2_distrito_secundario", label:"Distrito (morada secundária)", type:"text" },
+    { key:"s2_codigo_postal_secundario", label:"Código postal (morada secundária)", type:"text" },
+    { key:"s2_pais_residencia", label:"País de residência", type:"text", required:true, value:"Portugal" },
+    { key:"s2_segunda_nacionalidade", label:"Segunda nacionalidade (se aplicável)", type:"text" },
+    { key:"s2_telefone_fixo", label:"Telefone fixo", type:"tel" },
+    { key:"s2_indicativo_telemovel", label:"Indicativo do telemóvel", type:"text", required:true, value:"+351" },
+    { key:"s2_numero_telemovel", label:"Número de telemóvel", type:"tel", required:true }
+  ]},
+  { title: "Encarregado de Educação e Contactos de Emergência", icon: "🆘", fields: [
+    { key:"s3_nome_encarregado", label:"Nome do Encarregado de Educação", type:"text", required:true },
+    { key:"s3_telefone_encarregado", label:"Telefone do Encarregado de Educação", type:"tel", required:true },
+    { key:"s3_email_encarregado", label:"Email do Encarregado de Educação", type:"email", required:true },
+    { key:"s3_data_consentimento", label:"Data do consentimento do Encarregado de Educação", type:"date", required:true },
+    { key:"s3_emergencia1_nome", label:"Contacto de emergência principal — Nome", type:"text", required:true },
+    { key:"s3_emergencia1_relacao", label:"Contacto de emergência principal — Relação", type:"text", required:true, hint:"Ex: Pai, Mãe, Irmão/ã" },
+    { key:"s3_emergencia1_telefone", label:"Contacto de emergência principal — Telefone", type:"tel", required:true },
+    { key:"s3_emergencia2_nome", label:"Segundo contacto de emergência — Nome", type:"text" },
+    { key:"s3_emergencia2_relacao", label:"Segundo contacto de emergência — Relação", type:"text" },
+    { key:"s3_emergencia2_telefone", label:"Segundo contacto de emergência — Telefone", type:"tel" }
+  ]},
+  { title: "Viagem e Logística", icon: "🛫", fields: [
+    { key:"s4_tipo_documento", label:"Tipo de documento de viagem", type:"radio", required:true, options:["Passaporte","Cartão de Cidadão","Outro"] },
+    { key:"s4_tipo_documento_outro", label:"Se \"Outro\", especifica", type:"text", showIf:{key:"s4_tipo_documento", equals:"Outro"} },
+    { key:"s4_data_emissao", label:"Data de emissão do documento", type:"date", required:true },
+    { key:"s4_data_validade", label:"Válido até", type:"date", required:true },
+    { key:"s4_pais_emissor", label:"País emissor do documento", type:"text", required:true },
+    { key:"s4_precisa_visto", label:"Precisas de visto para entrar na Polónia?", type:"radio", required:true, options:["Sim","Não","Não sei"] },
+    { key:"s4_local_chegada", label:"Local de chegada (aeroporto / estação)", type:"text" },
+    { key:"s4_data_chegada", label:"Data de chegada", type:"date" },
+    { key:"s4_hora_chegada", label:"Hora de chegada", type:"time" },
+    { key:"s4_tipo_chegada", label:"Tipo de chegada", type:"radio", options:["Avião","Comboio","Autocarro","Carro","Outro"] },
+    { key:"s4_numero_chegada", label:"Número do voo / comboio", type:"text" },
+    { key:"s4_data_partida", label:"Data de partida", type:"date" },
+    { key:"s4_hora_partida", label:"Hora de partida", type:"time" },
+    { key:"s4_local_partida", label:"Local / hora de partida (detalhes)", type:"text" },
+    { key:"s4_tipo_partida", label:"Tipo de partida", type:"radio", options:["Avião","Comboio","Autocarro","Carro","Outro"] }
+  ]},
+  { title: "Saúde, Alimentação e Necessidades Especiais", icon: "🩺", fields: [
+    { key:"s5_necessidades_alimentares", label:"Necessidades alimentares", type:"checkbox", requireOne:true, options:["Vegetariano","Vegan","Halal","Kosher","Sem Glúten","Nenhuma","Outra"] },
+    { key:"s5_necessidades_alimentares_outra", label:"Necessidades alimentares — outra (especifica)", type:"text", showIf:{key:"s5_necessidades_alimentares", includes:"Outra"} },
+    { key:"s5_alergias", label:"Alergias conhecidas", type:"textarea" },
+    { key:"s5_alergias_gravidade", label:"Gravidade das alergias", type:"radio", options:["Ligeira","Moderada","Grave (Anafilática)"], showIf:{key:"s5_alergias", notEmpty:true} },
+    { key:"s5_medicacao_nome", label:"Nome da medicação habitual", type:"text" },
+    { key:"s5_medicacao_dosagem", label:"Dosagem", type:"text" },
+    { key:"s5_medicacao_frequencia", label:"Frequência", type:"text" },
+    { key:"s5_medicacao_motivo", label:"Motivo da medicação", type:"text" },
+    { key:"s5_crencas_religiosas", label:"Tens convicções religiosas que influenciam decisões de saúde?", type:"radio", required:true, options:["Sim","Não"] },
+    { key:"s5_crencas_religiosas_detalhe", label:"Se sim, especifica", type:"textarea", showIf:{key:"s5_crencas_religiosas", equals:"Sim"} },
+    { key:"s5_vacina_tetano", label:"Vacinado(a) contra o Tétano?", type:"radio", options:["Sim","Não"] },
+    { key:"s5_vacina_tetano_ano", label:"Em que ano? (Tétano)", type:"text", showIf:{key:"s5_vacina_tetano", equals:"Sim"} },
+    { key:"s5_vacina_difteria", label:"Vacinado(a) contra a Difteria?", type:"radio", options:["Sim","Não"] },
+    { key:"s5_vacina_difteria_ano", label:"Em que ano? (Difteria)", type:"text", showIf:{key:"s5_vacina_difteria", equals:"Sim"} },
+    { key:"s5_tipo_sanguineo", label:"Tipo sanguíneo", type:"select", options:["A+","A-","B+","B-","AB+","AB-","O+","O-","Desconhecido"] },
+    { key:"s5_tipo_sanguineo_outro", label:"Tipo sanguíneo — notas adicionais", type:"text" },
+    { key:"s5_equipamento_medico", label:"Necessidades especiais de equipamento médico", type:"textarea", hint:"Ex: armazenamento ou alimentação elétrica para dispositivos" },
+    { key:"s5_restricoes_mobilidade", label:"Restrições de mobilidade", type:"radio", options:["Sim","Não"] },
+    { key:"s5_deficiencia_visivel", label:"Deficiência visível", type:"radio", options:["Sim","Não"] },
+    { key:"s5_deficiencia_nao_visivel", label:"Deficiência não visível", type:"radio", options:["Sim","Não"] },
+    { key:"s5_deficiencia_especificar", label:"Especifica a deficiência não visível", type:"textarea", showIf:{key:"s5_deficiencia_nao_visivel", equals:"Sim"} }
+  ]},
+  { title: "Mobilidade e Acessibilidade", icon: "♿", fields: [
+    { key:"s6_precisa_acompanhante", label:"Precisas de um adulto Acompanhante (Carer) no WSJ?", type:"radio", required:true, options:["Sim","Não"] },
+    { key:"s6_nome_acompanhante", label:"Nome do Acompanhante", type:"text", showIf:{key:"s6_precisa_acompanhante", equals:"Sim"} },
+    { key:"s6_relacao_acompanhante", label:"Relação do Acompanhante com o participante", type:"text", showIf:{key:"s6_precisa_acompanhante", equals:"Sim"} },
+    { key:"s6_cadeira_rodas", label:"Utilizas cadeira de rodas?", type:"radio", options:["Sim","Não"] },
+    { key:"s6_bengala_andarilho", label:"Utilizas bengala / canadianas / andarilho?", type:"radio", options:["Sim","Não"] },
+    { key:"s6_outras_mobilidade", label:"Outras necessidades de mobilidade", type:"textarea" },
+    { key:"s6_tenda_maior", label:"Precisas de tenda maior?", type:"radio", options:["Sim","Não"] },
+    { key:"s6_cegueira", label:"Tens deficiência sensorial: Cegueira", type:"radio", options:["Sim","Não"] },
+    { key:"s6_outra_deficiencia_visual", label:"Outra deficiência visual significativa", type:"radio", options:["Sim","Não"] },
+    { key:"s6_surdez", label:"Tens deficiência sensorial: Surdez", type:"radio", options:["Sim","Não"] },
+    { key:"s6_outra_deficiencia_auditiva", label:"Outra deficiência auditiva significativa", type:"radio", options:["Sim","Não"] },
+    { key:"s6_dificuldade_maos_bracos", label:"Dificuldade no uso das mãos/braços?", type:"radio", options:["Sim","Não"] }
+  ]},
+  { title: "Conforto e Fatores Sensoriais", icon: "🌤️", fields: [
+    { key:"s7_wc_neutro", label:"Sentes-te confortável com casas de banho/duches neutros em género?", type:"radio", options:["Confortável","Não confortável","Neutro"] },
+    { key:"s7_agua_vela_caiaque", label:"Sentes-te confortável na água (vela/caiaque)?", type:"radio", options:["Sim","Não"] },
+    { key:"s7_agua_natacao", label:"Sentes-te confortável na água (natação)?", type:"radio", options:["Sim","Não"] },
+    { key:"s7_sem_equilibrio", label:"Sentes-te confortável sem apoio de equilíbrio?", type:"radio", options:["Sim","Não"] },
+    { key:"s7_multidoes", label:"Sentes-te confortável em multidões?", type:"radio", options:["Sim","Não"] },
+    { key:"s7_luzes_intermitentes", label:"Sentes-te confortável com luzes intermitentes?", type:"radio", options:["Sim","Não"] },
+    { key:"s7_ruido_forte", label:"Sentes-te confortável com ruído forte?", type:"radio", options:["Sim","Não"] }
+  ]},
+  { title: "Experiência Escutista", icon: "⚜️", fields: [
+    { key:"s8_experiencia_previa", label:"Já participaste antes num WSJ (Jamboree Mundial)?", type:"radio", required:true, options:["Sim","Não"] },
+    { key:"s8_funcoes_anteriores", label:"Que função(ões) tiveste em WSJ anteriores?", type:"checkbox", options:["Participante","IST","Staff de Contingente","Dirigente","Líder de Unidade","Outro"], showIf:{key:"s8_experiencia_previa", equals:"Sim"} },
+    { key:"s8_experiencia_outros_detalhes", label:"Outros detalhes sobre experiência escutista prévia", type:"textarea" }
+  ]}
+];
+
+const TOTAL_STEPS = SECTIONS.length + 2; // 0 = consentimento, 1..N = secções, N+1 = revisão
+let currentStep = 0;
+
+/* =========================================================================
+   2. GERAÇÃO DO HTML A PARTIR DA CONFIGURAÇÃO
+   ========================================================================= */
+function fieldWrapperOpen(f) {
+  const showIfAttr = f.showIf ? ` data-show-key="${f.showIf.key}"` : "";
+  return `<div class="field conditional${f.showIf ? "" : " shown"}"${showIfAttr} data-field-key="${f.key}">`;
+}
+
+function renderField(f) {
+  let inner = "";
+  const req = f.required ? "required" : "";
+  const hint = f.hint ? `<span class="hint">${f.hint}</span>` : "";
+
+  if (["text","email","tel","date","time"].includes(f.type)) {
+    inner = `<label class="field-label" for="${f.key}">${f.label}${f.required ? " *" : ""}</label>${hint}
+      <input type="${f.type}" id="${f.key}" name="${f.key}" data-col="${f.label}" ${req} value="${f.value ? f.value : ""}">
+      <span class="err-msg">Este campo é obrigatório.</span>`;
+    return `${fieldWrapperOpen(f)}${inner}</div>`;
+  }
+
+  if (f.type === "textarea") {
+    inner = `<label class="field-label" for="${f.key}">${f.label}${f.required ? " *" : ""}</label>${hint}
+      <textarea id="${f.key}" name="${f.key}" data-col="${f.label}" ${req}></textarea>
+      <span class="err-msg">Este campo é obrigatório.</span>`;
+    return `${fieldWrapperOpen(f)}${inner}</div>`;
+  }
+
+  if (f.type === "select") {
+    const opts = f.options.map(o => `<option value="${o}">${o}</option>`).join("");
+    inner = `<label class="field-label" for="${f.key}">${f.label}${f.required ? " *" : ""}</label>${hint}
+      <select id="${f.key}" name="${f.key}" data-col="${f.label}" ${req}>
+        <option value="">Seleciona...</option>${opts}
+      </select>
+      <span class="err-msg">Este campo é obrigatório.</span>`;
+    return `${fieldWrapperOpen(f)}${inner}</div>`;
+  }
+
+  if (f.type === "radio") {
+    const opts = f.options.map((o,i) => `
+      <label class="option-pill">
+        <input type="radio" name="${f.key}" value="${o}" data-col="${f.label}" ${f.required ? "required" : ""}>
+        <span>${o}</span>
+      </label>`).join("");
+    const showIfAttr = f.showIf ? ` data-show-key="${f.showIf.key}"` : "";
+    return `<fieldset class="field conditional${f.showIf ? "" : " shown"}"${showIfAttr} data-field-key="${f.key}">
+      <label class="field-label">${f.label}${f.required ? " *" : ""}</label>${hint}
+      <div class="option-row">${opts}</div>
+      <span class="err-msg">Seleciona uma opção.</span>
+    </fieldset>`;
+  }
+
+  if (f.type === "checkbox") {
+    const opts = f.options.map((o,i) => `
+      <label class="option-pill">
+        <input type="checkbox" name="${f.key}" value="${o}" data-col="${f.label}">
+        <span>${o}</span>
+      </label>`).join("");
+    const showIfAttr = f.showIf ? ` data-show-key="${f.showIf.key}"` : "";
+    const requireAttr = f.requireOne ? ` data-require-one="true"` : "";
+    return `<fieldset class="field conditional${f.showIf ? "" : " shown"}"${showIfAttr}${requireAttr} data-field-key="${f.key}">
+      <label class="field-label">${f.label}${f.required ? " *" : ""}</label>${hint}
+      <div class="option-row">${opts}</div>
+      <span class="err-msg">Seleciona pelo menos uma opção.</span>
+    </fieldset>`;
+  }
+
+  return "";
+}
+
+function buildSteps() {
+  const container = document.getElementById("generatedSteps");
+  let html = "";
+
+  SECTIONS.forEach((section, idx) => {
+    const stepNum = idx + 1;
+    html += `<section class="wizard-step" data-step="${stepNum}">
+      <h2>${section.icon} ${section.title}</h2>
+      <p class="step-sub">Passo ${stepNum} de ${SECTIONS.length} · Campos com * são obrigatórios</p>
+      ${section.fields.map(renderField).join("")}
+      <div class="wizard-nav">
+        <button type="button" class="btn btn-secondary" data-nav="prev">← Anterior</button>
+        <button type="button" class="btn" data-nav="next">Seguinte →</button>
+      </div>
+    </section>`;
+  });
+
+  // Passo final: revisão + envio
+  const reviewStep = SECTIONS.length + 1;
+  html += `<section class="wizard-step" data-step="${reviewStep}">
+    <h2>✅ Revisão e Envio</h2>
+    <p class="step-sub">Confirma os dados antes de enviar. Podes voltar atrás para corrigir.</p>
+    <div id="reviewList"></div>
+    <div class="wizard-nav">
+      <button type="button" class="btn btn-secondary" data-nav="prev">← Anterior</button>
+      <button type="button" class="btn" id="submitBtn">Enviar respostas ✓</button>
+    </div>
+  </section>`;
+
+  container.innerHTML = html;
+}
+
+function buildStepper() {
+  const stepper = document.getElementById("stepper");
+  let html = "";
+  for (let i = 0; i <= TOTAL_STEPS - 1; i++) {
+    html += `<div class="node" data-node="${i}"></div>`;
+    if (i < TOTAL_STEPS - 1) html += `<div class="branch" data-branch="${i}"></div>`;
+  }
+  stepper.innerHTML = html;
+}
+
+function updateStepper() {
+  document.querySelectorAll(".stepper .node").forEach(n => {
+    const i = parseInt(n.dataset.node, 10);
+    n.classList.toggle("done", i < currentStep);
+    n.classList.toggle("active", i === currentStep);
+  });
+  document.querySelectorAll(".stepper .branch").forEach(b => {
+    const i = parseInt(b.dataset.branch, 10);
+    b.classList.toggle("done", i < currentStep);
+  });
+}
+
+/* =========================================================================
+   3. CAMPOS CONDICIONAIS
+   ========================================================================= */
+function getFieldValue(key) {
+  const radios = document.querySelectorAll(`input[type="radio"][name="${key}"]`);
+  if (radios.length) {
+    const checked = Array.from(radios).find(r => r.checked);
+    return checked ? checked.value : "";
+  }
+  const checkboxes = document.querySelectorAll(`input[type="checkbox"][name="${key}"]`);
+  if (checkboxes.length) {
+    return Array.from(checkboxes).filter(c => c.checked).map(c => c.value);
+  }
+  const el = document.getElementById(key);
+  return el ? el.value : "";
+}
+
+function applyConditionals() {
+  document.querySelectorAll("[data-show-key]").forEach(wrapper => {
+    const key = wrapper.dataset.showKey;
+    const cfg = findFieldConfig(key);
+    if (!cfg) return;
+    const parentField = findFieldConfigByKey(wrapper.dataset.fieldKey);
+    const showIf = parentField.showIf;
+    const val = getFieldValue(key);
+    let show = false;
+    if (showIf.equals !== undefined) show = (val === showIf.equals);
+    if (showIf.notEmpty) show = Array.isArray(val) ? val.length > 0 : (val && val.trim() !== "");
+    if (showIf.includes !== undefined) show = Array.isArray(val) && val.includes(showIf.includes);
+    wrapper.classList.toggle("shown", show);
+  });
+}
+
+function findFieldConfig(key) {
+  for (const s of SECTIONS) { for (const f of s.fields) { if (f.key === key) return f; } }
+  return null;
+}
+function findFieldConfigByKey(key) { return findFieldConfig(key); }
+
+/* =========================================================================
+   4. VALIDAÇÃO
+   ========================================================================= */
+function toggleError(el, isError) { el.classList.toggle("field-error", isError); }
+
+function isVisible(el) {
+  if (el.classList.contains("conditional") && !el.classList.contains("shown")) return false;
+  return true;
+}
+
+function validateStep(stepEl) {
+  let valid = true;
+
+  stepEl.querySelectorAll(".field").forEach(field => {
+    if (!isVisible(field)) { toggleError(field, false); return; }
+
+    if (field.tagName === "FIELDSET") {
+      const isRadioGroup = field.querySelector('input[type="radio"]');
+      const isCheckGroup = field.querySelector('input[type="checkbox"]');
+      const cfg = findFieldConfig(field.dataset.fieldKey);
+
+      if (isRadioGroup && cfg.required) {
+        const checked = field.querySelector('input[type="radio"]:checked');
+        toggleError(field, !checked);
+        if (!checked) valid = false;
+      } else if (isCheckGroup && field.dataset.requireOne === "true") {
+        const anyChecked = field.querySelector('input[type="checkbox"]:checked');
+        toggleError(field, !anyChecked);
+        if (!anyChecked) valid = false;
+      } else {
+        toggleError(field, false);
+      }
+      return;
+    }
+
+    const input = field.querySelector("input, textarea, select");
+    if (!input) return;
+    if (input.hasAttribute("required")) {
+      const ok = input.value.trim() !== "";
+      toggleError(field, !ok);
+      if (!ok) valid = false;
+    } else {
+      toggleError(field, false);
+    }
+  });
+
+  return valid;
+}
+
+/* =========================================================================
+   5. NAVEGAÇÃO ENTRE PASSOS
+   ========================================================================= */
+function showStep(n) {
+  document.querySelectorAll(".wizard-step").forEach(s => s.classList.remove("active"));
+  const target = document.querySelector(`.wizard-step[data-step="${n}"]`);
+  if (target) target.classList.add("active");
+  currentStep = n;
+  updateStepper();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  if (n === TOTAL_STEPS - 1) buildReview();
+}
+
+function buildReview() {
+  const list = document.getElementById("reviewList");
+  let html = "";
+  SECTIONS.forEach(section => {
+    html += `<div class="review-section-title">${section.icon} ${section.title}</div>`;
+    section.fields.forEach(f => {
+      const wrapper = document.querySelector(`[data-field-key="${f.key}"]`);
+      if (wrapper && !isVisible(wrapper)) return;
+      let val = getFieldValue(f.key);
+      if (Array.isArray(val)) val = val.join(", ");
+      if (!val) val = "—";
+      html += `<div class="review-item"><span class="rk">${f.label}</span><span class="rv">${val}</span></div>`;
+    });
+  });
+  list.innerHTML = html;
+}
+
+document.addEventListener("click", (e) => {
+  const navBtn = e.target.closest("[data-nav]");
+  if (navBtn) {
+    const dir = navBtn.dataset.nav;
+    const currentEl = document.querySelector(`.wizard-step[data-step="${currentStep}"]`);
+    if (dir === "next") {
+      if (!validateStep(currentEl)) return;
+      showStep(currentStep + 1);
+    } else {
+      showStep(currentStep - 1);
+    }
+  }
+});
+
+/* =========================================================================
+   6. ENVIO
+   ========================================================================= */
+function collectPayload() {
+  const payload = {};
+  document.querySelectorAll("[data-col]").forEach(el => {
+    const col = el.dataset.col;
+    if (el.type === "radio") { if (el.checked) payload[col] = el.value; return; }
+    if (el.type === "checkbox") {
+      if (!payload[col]) payload[col] = [];
+      if (el.checked) payload[col].push(el.value);
+      return;
+    }
+    payload[col] = el.value;
+  });
+  Object.keys(payload).forEach(k => { if (Array.isArray(payload[k])) payload[k] = payload[k].join("; "); });
+  return payload;
+}
+
+async function submitForm() {
+  const finalStep = document.getElementById("finalMessage");
+  document.querySelectorAll(".wizard-step").forEach(s => s.classList.remove("active"));
+  finalStep.classList.add("active");
+  document.getElementById("finalEmoji").textContent = "⏳";
+  document.getElementById("finalTitle").textContent = "A enviar...";
+  document.getElementById("finalText").textContent = "Por favor aguarda um momento.";
+
+  if (SCRIPT_URL.includes("COLOCA_AQUI")) {
+    document.getElementById("finalEmoji").textContent = "⚠️";
+    document.getElementById("finalTitle").textContent = "Formulário ainda não está ligado";
+    document.getElementById("finalText").textContent = "Falta configurar o URL do Apps Script no ficheiro. As tuas respostas não foram guardadas.";
+    document.getElementById("finalBackBtn").style.display = "inline-block";
+    return;
+  }
+
+  try {
+    const payload = collectPayload();
+    await fetch(SCRIPT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    });
+    document.getElementById("finalEmoji").textContent = "⛵";
+    document.getElementById("finalTitle").textContent = "Respostas enviadas!";
+    document.getElementById("finalText").textContent = "Obrigado. A tua inscrição foi registada com sucesso na Tropa 10.";
+    document.getElementById("finalBackBtn").style.display = "inline-block";
+  } catch (err) {
+    document.getElementById("finalEmoji").textContent = "❌";
+    document.getElementById("finalTitle").textContent = "Não foi possível enviar";
+    document.getElementById("finalText").textContent = "Verifica a tua ligação à internet e tenta novamente, ou contacta a Direção do Agrupamento.";
+    document.getElementById("finalBackBtn").style.display = "inline-block";
+  }
+}
+
+/* =========================================================================
+   7. ARRANQUE
+   ========================================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+  if (SCRIPT_URL.includes("COLOCA_AQUI")) {
+    document.getElementById("configWarning").style.display = "block";
+  }
+
+  buildSteps();
+  buildStepper();
+  updateStepper();
+
+  document.getElementById("consentCheck").addEventListener("change", (e) => {
+    document.getElementById("consentNextBtn").disabled = !e.target.checked;
+  });
+  document.getElementById("consentNextBtn").addEventListener("click", () => showStep(1));
+
+  document.addEventListener("change", applyConditionals);
+  document.addEventListener("input", applyConditionals);
+
+  document.getElementById("submitBtn").addEventListener("click", submitForm);
+});
+</script>
+
+</body>
+</html>
