@@ -538,3 +538,206 @@ footer {
         padding: 30px 20px;
     }
 }
+
+/* =========================================
+   7. POP-UPS EM CSS PURO (sem JavaScript)
+   Técnica ":target" — um link com href="#id" "abre" o
+   elemento com esse id; o link de fecho aponta para "#".
+   ========================================= */
+.css-lightbox {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 34, 68, 0.75);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.css-lightbox:target { display: flex; }
+
+.css-lightbox-box {
+    background: white;
+    border-radius: 12px;
+    max-width: 460px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.css-lightbox-header {
+    background-color: #0b1a4a;
+    color: white;
+    padding: 15px 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.css-lightbox-body { padding: 20px; text-align: center; }
+.css-lightbox-body img { width: 100%; height: auto; border-radius: 8px; display: block; }
+
+.tabela-tropa td { border: 1px solid #333; padding: 8px 12px; }
+
+.css-lightbox-close {
+    display: block;
+    margin-top: 15px;
+    background-color: #CE1126;
+    color: white !important;
+}
+
+.zoom-trigger {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    cursor: zoom-in;
+}
+.zoom-trigger .zoom-badge {
+    position: absolute;
+    bottom: 6px; right: 6px;
+    background: rgba(0,51,102,0.85);
+    color: white;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+}
+
+/* =========================================
+   8. FORMULÁRIOS (Portal de Respostas)
+   Todas as validações e campos condicionais usam
+   HTML5 nativo + seletores CSS ":checked" / ":not(:placeholder-shown)" —
+   sem nenhum JavaScript.
+   ========================================= */
+.form-intro {
+    background: linear-gradient(135deg, var(--azul-marinho), #002244);
+    color: white;
+    padding: 25px 30px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.form-intro h1 { color: white; font-size: 1.5rem; margin-bottom: 6px; }
+.form-intro p { font-size: 0.9rem; color: #cfe0f5; margin: 0; }
+
+.form-jump-nav {
+    background: var(--branco);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,51,102,0.06);
+    font-size: 0.82rem;
+}
+.form-jump-nav strong { color: var(--azul-marinho); display: block; margin-bottom: 6px; }
+.form-jump-nav a { color: var(--azul-claro); text-decoration: none; margin-right: 14px; display: inline-block; margin-bottom: 4px; }
+.form-jump-nav a:hover { text-decoration: underline; }
+
+.consent-block {
+    background: #fff8e1;
+    border: 2px solid #ffc107;
+    border-radius: 10px;
+    padding: 22px;
+    margin-bottom: 25px;
+}
+.consent-block h2 { font-size: 1.1rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.consent-box { background: white; padding: 16px; border-radius: 8px; font-size: 0.87rem; line-height: 1.6; max-height: 260px; overflow-y: auto; border: 1px solid #eee; margin-bottom: 16px; }
+.consent-box h4 { color: var(--azul-marinho); margin: 12px 0 4px; font-size: 0.9rem; }
+.consent-box h4:first-child { margin-top: 0; }
+.consent-check { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; font-weight: 800; color: var(--azul-marinho); cursor: pointer; }
+.consent-check input { margin-top: 4px; width: 20px; height: 20px; flex-shrink: 0; }
+
+/* Gate: esconde visualmente as secções seguintes até o consentimento ser aceite */
+#consent-check:not(:checked) ~ .form-body {
+    opacity: 0.3;
+    pointer-events: none;
+    filter: grayscale(70%);
+}
+#consent-check:checked ~ .form-body { opacity: 1; pointer-events: auto; filter: none; }
+.form-body { transition: opacity 0.3s; }
+
+.form-section {
+    background: var(--cinza-fundo);
+    border: none;
+    padding: 22px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--azul-claro);
+    scroll-margin-top: 85px; /* para os links de âncora não ficarem por baixo da navbar fixa */
+}
+.form-section legend {
+    color: var(--azul-marinho);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.05rem;
+    padding: 0 6px;
+}
+.form-section .step-sub { font-size: 0.82rem; color: #666; margin: 2px 0 16px; font-family: 'Nunito', sans-serif; text-transform: none; font-weight: 400; }
+
+.field { margin-bottom: 18px; }
+.field label.field-label { display: block; font-weight: 800; font-size: 0.88rem; color: var(--azul-marinho); margin-bottom: 6px; }
+.field .hint { font-weight: 400; color: #777; font-size: 0.78rem; display: block; margin-top: 2px; }
+.field input[type="text"], .field input[type="email"], .field input[type="tel"],
+.field input[type="date"], .field input[type="time"], .field textarea, .field select {
+    width: 100%; padding: 10px 12px; border: 1.5px solid #d7dee6; border-radius: 6px;
+    font-family: 'Nunito', sans-serif; font-size: 0.95rem; background: white; color: var(--texto);
+}
+.field textarea { min-height: 70px; resize: vertical; }
+.field input:focus, .field textarea:focus, .field select:focus { outline: 2px solid var(--azul-claro); outline-offset: 1px; }
+
+/* Estado nativo de campo inválido (HTML5) — só depois de o utilizador tentar submeter */
+.field input:invalid:not(:placeholder-shown), .field input:user-invalid,
+.field textarea:invalid:not(:placeholder-shown) { border-color: #CE1126; background: #fff5f5; }
+
+.field.options-field {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+.field.options-field .field-label,
+.field.options-field .hint {
+    flex-basis: 100%;
+}
+.field.options-field input[type="radio"],
+.field.options-field input[type="checkbox"] {
+    position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none;
+}
+.field.options-field > label,
+.option-row > label {
+    display: inline-block; padding: 8px 16px; border: 1.5px solid #d7dee6; border-radius: 20px;
+    font-size: 0.88rem; cursor: pointer; background: white; transition: 0.2s;
+}
+.field.options-field input:checked + label,
+.option-row input:checked + label {
+    background: var(--azul-marinho); color: white; border-color: var(--azul-marinho);
+}
+.field.options-field input:focus-visible + label,
+.option-row input:focus-visible + label {
+    outline: 2px solid var(--azul-claro); outline-offset: 2px;
+}
+/* .option-row: versão compacta usada DENTRO de campos condicionais (não precisa do truque de irmãos) */
+.option-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+.option-row input[type="radio"], .option-row input[type="checkbox"] {
+    position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none;
+}
+
+/* Campos condicionais — revelados apenas com CSS, consoante o irmão anterior */
+.conditional-field { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px dashed #d7dee6; width: 100%; }
+.field.options-field .conditional-field { flex-basis: 100%; }
+input.trigger-yes:checked ~ .conditional-field,
+input.trigger-outro:checked ~ .conditional-field { display: block; }
+textarea.trigger-filled:not(:placeholder-shown) ~ .conditional-field { display: block; }
+
+.form-submit-row { text-align: center; margin-top: 10px; }
+.form-submit-row .btn { font-size: 1.05rem; padding: 14px 40px; }
+.form-note { font-size: 0.8rem; color: #666; text-align: center; margin-top: 12px; }
+
+@media (max-width: 768px) {
+    .form-intro { padding: 20px; }
+    .form-section { padding: 16px; }
+}
+
