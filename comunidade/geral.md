@@ -44,7 +44,7 @@ seccao_cor: '#CE1126'
         <!-- TEMA 2: INFORMAÇÃO DA PÁGINA GERAL ESCUTISTA -->
         <div>
             <h3 class="section-title vermelho">🌐 A IV Secção no CNE</h3>
-            <p style="font-size: 0.95rem; line-height: 1.6;">Para além do que aqui partilhamos sobre a nossa Comunidade marítima, o Corpo Nacional de Escutas tem uma página nacional dedicada à IV Secção (Companheiros), com mais informação sobre o método, o percurso e o Sistema de Progresso.</p>
+            <p style="line-height: 1.6;">Para além do que aqui partilhamos sobre a nossa Comunidade marítima, o Corpo Nacional de Escutas tem uma página nacional dedicada à IV Secção (Companheiros), com mais informação sobre o método, o percurso e o Sistema de Progresso.</p>
             <a href="https://escutismo.pt/caminheiros-18-aos-22-anos/" target="_blank" rel="noopener noreferrer" class="quick-link-card" style="max-width: 100%;">
                 <span class="quick-link-icon">🧭</span>
                 <h3>Página Oficial da IV Secção — CNE</h3>
@@ -55,7 +55,7 @@ seccao_cor: '#CE1126'
         <!-- TEMA 3: UNIFORME -->
         <div>
             <h3 class="section-title vermelho">👕 O nosso Uniforme e Insígnias</h3>
-            <p style="font-size: 0.95rem; line-height: 1.6;">Clica nos cartões abaixo para consultares os documentos oficiais detalhados em formato PDF.</p>
+            <p style="line-height: 1.6;">Clica nos cartões abaixo para consultares os documentos oficiais detalhados em formato PDF.</p>
 
             <div class="quick-links-grid" style="margin-top: 20px;">
                 <a href="{{ '/assets/docs/uniforme-maritimo_v2024-4.pdf' | relative_url }}" target="_blank" class="quick-link-card">
