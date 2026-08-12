@@ -739,6 +739,14 @@ input.trigger-yes:checked ~ .conditional-field,
 input.trigger-outro:checked ~ .conditional-field { display: block; }
 textarea.trigger-filled:not(:placeholder-shown) ~ .conditional-field { display: block; }
 
+/* Variante que reage SÓ ao gatilho "Outro/Outra" — usada quando há mais do
+   que um campo condicional na mesma pergunta, e cada um deve responder a
+   um gatilho diferente (ex.: Alergias — "especifica" só com Outra,
+   "Gravidade" com qualquer alergia real). */
+.conditional-field-outro-only { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px dashed #d7dee6; width: 100%; }
+.field.options-field .conditional-field-outro-only { flex-basis: 100%; }
+input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
+
 .form-submit-row { text-align: center; margin-top: 10px; }
 .form-submit-row .btn { font-size: 1.05rem; padding: 14px 40px; }
 .form-note { font-size: 0.8rem; color: #666; text-align: center; margin-top: 12px; }
