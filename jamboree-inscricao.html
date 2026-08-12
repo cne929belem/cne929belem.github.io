@@ -50,7 +50,6 @@
                         <li><a href="jamboree-geral.html">Geral</a></li>
                         <li><a href="jamboree-info.html">Informações</a></li>
                         <li><a href="jamboree-news.html">Newsletter</a></li>
-                        <li><a href="jamboree-inscricao.html">Portal de Respostas</a></li>
                     </ul>
                 </li>
             </ul>
@@ -113,10 +112,17 @@
                         <select id="s1_nome" name="s1_nome" required
                                 onchange="document.getElementById('s1_nin').value = this.selectedOptions[0] ? (this.selectedOptions[0].dataset.nin || '') : '';">
                             <option value="">Seleciona o teu nome...</option>
-                        <option value="Nome Exemplo Um" data-nin="0000000">Nome Exemplo Um</option>
-                        <option value="Nome Exemplo Dois" data-nin="0000001">Nome Exemplo Dois</option>
+                        <option value="Dinis Vicente Pena Carpinteiro" data-nin="1812040929005">Dinis Vicente Pena Carpinteiro</option>
+                        <option value="Filipe Pinto Neto da Palma Nunes" data-nin="2612040929002">Filipe Pinto Neto da Palma Nunes</option>
+                        <option value="João Ferreira Gonçalves" data-nin="1812040929007">João Ferreira Gonçalves</option>
+                        <option value="Leonor Fonseca Santos da Costa Mouro" data-nin="2112040929009">Leonor Fonseca Santos da Costa Mouro</option>
+                        <option value="Manuel Caixeiro Bustorff Silva" data-nin="1812040929006">Manuel Caixeiro Bustorff Silva</option>
+                        <option value="Maria Isabel Vilhena de Almeida" data-nin="2612040929001">Maria Isabel Vilhena de Almeida</option>
+                        <option value="Maria Joana Callado de Mendia" data-nin="1612040929039">Maria Joana Callado de Mendia</option>
+                        <option value="Maria Morais Ventura Lopes Cintra" data-nin="2212040929003">Maria Morais Ventura Lopes Cintra</option>
+                        <option value="Maria do Carmo Cabral Ogando de Mello Campello" data-nin="1812040929001">Maria do Carmo Cabral Ogando de Mello Campello</option>
+                        <option value="Marta Leal da Silva Neves" data-nin="1616000044015">Marta Leal da Silva Neves</option>
                         </select>
-                        <span class="hint">⚠️ Lista de exemplo — substituir pela lista real da Tropa 10 (ver comentário no HTML).</span>
                     </div>
                     <div class="field">
                         <label class="field-label" for="s1_nin">NIN</label>
@@ -134,9 +140,6 @@
                     </div><div class="field">
                         <label class="field-label" for="s1_email">Email do participante *</label>
                         <input type="email" id="s1_email" name="s1_email" value="" required>
-                    </div><div class="field">
-                        <label class="field-label" for="s1_email_secundario">Email alternativo / secundário</label>
-                        <input type="email" id="s1_email_secundario" name="s1_email_secundario" value="">
                     </div><div class="field">
                         <label class="field-label" for="s1_organizacao">Organização Escutista *</label>
                         <input type="text" id="s1_organizacao" name="s1_organizacao" value="CNE - Corpo Nacional de Escutas" required>
@@ -205,9 +208,10 @@
                     </div><div class="field">
                         <label class="field-label" for="s3_emergencia2_nome">Segundo contacto de emergência — Nome</label>
                         <input type="text" id="s3_emergencia2_nome" name="s3_emergencia2_nome" value="">
-                    </div><div class="field">
-                        <label class="field-label" for="s3_emergencia2_relacao">Segundo contacto de emergência — Relação</label>
-                        <input type="text" id="s3_emergencia2_relacao" name="s3_emergencia2_relacao" value="">
+                    </div><div class="field options-field">
+                        <span class="field-label">Segundo contacto de emergência — Relação</span>
+                        <input type="radio" id="s3_emergencia2_relacao__familia" name="s3_emergencia2_relacao" value="Family"><label for="s3_emergencia2_relacao__familia">Família</label><input type="radio" id="s3_emergencia2_relacao__pai-mae" name="s3_emergencia2_relacao" value="Parent"><label for="s3_emergencia2_relacao__pai-mae">Pai/Mãe</label><input type="radio" id="s3_emergencia2_relacao__conjuge-parceiro-a" name="s3_emergencia2_relacao" value="Partner"><label for="s3_emergencia2_relacao__conjuge-parceiro-a">Cônjuge/Parceiro(a)</label><input type="radio" id="s3_emergencia2_relacao__membro" name="s3_emergencia2_relacao" value="Member"><label for="s3_emergencia2_relacao__membro">Membro</label><input type="radio" id="s3_emergencia2_relacao__amigo-a" name="s3_emergencia2_relacao" value="Friend"><label for="s3_emergencia2_relacao__amigo-a">Amigo(a)</label><input type="radio" id="s3_emergencia2_relacao__colega" name="s3_emergencia2_relacao" value="Colleague"><label for="s3_emergencia2_relacao__colega">Colega</label><input type="radio" id="s3_emergencia2_relacao__outro" name="s3_emergencia2_relacao" value="Other"><label for="s3_emergencia2_relacao__outro">Outro</label>
+                        
                     </div><div class="field">
                         <label class="field-label" for="s3_emergencia2_telefone">Segundo contacto de emergência — Telefone</label>
                         <input type="tel" id="s3_emergencia2_telefone" name="s3_emergencia2_telefone" value="">
