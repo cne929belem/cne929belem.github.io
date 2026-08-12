@@ -38,15 +38,13 @@
                         <li><a href="em-construcao.html">IV - Companheiros</a></li>
                     </ul>
                 </li>
-                
                 <li class="dropdown">
                     <a href="#" class="nav-link">ACAGRUP ▾</a>
                     <ul class="dropdown-menu">
                         <li><a href="em-construcao.html">2026 - Ilha dos Cavalos</a></li>
                     </ul>
                 </li>
-
-<li class="dropdown">
+                <li class="dropdown">
                     <a href="#" class="nav-link">Jamboree 2027 ▾</a>
                     <ul class="dropdown-menu">
                         <li><a href="jamboree-geral.html">Geral</a></li>
@@ -68,18 +66,9 @@
             <p>Inscrição nominal para o 26º World Scout Jamboree · Polónia 2027</p>
         </div>
 
-        <!--
-            LEMBRETE PARA QUEM PUBLICA: substitui o "action" do <form> abaixo
-            pelo URL do teu Apps Script (ver AppsScript_Code.gs), e depois
-            apaga este aviso e o parágrafo <p class="form-note"> a seguir.
-        -->
-        <p class="form-note" style="background:#fff3cd; border-left:5px solid #ffc107; padding:12px 16px; border-radius:6px; color:#664d03; text-align:left;">
-            ⚠️ Nota para a Direção: confirma que o <code>action</code> do formulário abaixo já foi substituído pelo URL do Apps Script antes de partilhares este link com as famílias.
-        </p>
-
         <nav class="form-jump-nav">
             <strong>Ir diretamente para uma secção:</strong>
-<a href="#secao-1">🧑 Dados Pessoais</a> · <a href="#secao-2">📍 Morada</a> · <a href="#secao-3">🆘 Encarregado / Emergência</a> · <a href="#secao-4">🛫 Viagem</a> · <a href="#secao-5">🩺 Saúde</a> · <a href="#secao-6">♿ Mobilidade</a> · <a href="#secao-7">🌤️ Conforto</a> · <a href="#secao-8">⚜️ Experiência Escutista</a>
+<a href="#secao-1">🧑 Dados Pessoais</a> · <a href="#secao-2">📍 Morada</a> · <a href="#secao-3">🆘 Encarregado / Emergência</a> · <a href="#secao-4">🛫 Viagem</a> · <a href="#secao-5">🩺 Saúde</a> · <a href="#secao-6">♿ Mobilidade</a> · <a href="#secao-7">🌤️ Conforto</a>
         </nav>
 
         <form action="COLOCA_AQUI_O_URL_DO_WEB_APP_DO_APPS_SCRIPT" method="POST">
@@ -118,13 +107,30 @@
 
             <fieldset class="form-section" id="secao-1">
                 <legend>🧑 Dados Pessoais do Participante</legend>
-                <p class="step-sub">Secção 1 de 8 · Campos com * são obrigatórios</p>
+                <p class="step-sub">Secção 1 de 7 · Campos com * são obrigatórios</p>
                 <div class="field">
                         <label class="field-label" for="s1_nome">Nome completo *</label>
-                        <input type="text" id="s1_nome" name="s1_nome" value="" required>
+                        <select id="s1_nome" name="s1_nome" required
+                                onchange="document.getElementById('s1_nin').value = this.selectedOptions[0] ? (this.selectedOptions[0].dataset.nin || '') : '';">
+                            <option value="">Seleciona o teu nome...</option>
+                        <option value="Nome Exemplo Um" data-nin="0000000">Nome Exemplo Um</option>
+                        <option value="Nome Exemplo Dois" data-nin="0000001">Nome Exemplo Dois</option>
+                        </select>
+                        <span class="hint">⚠️ Lista de exemplo — substituir pela lista real da Tropa 10 (ver comentário no HTML).</span>
+                    </div>
+                    <div class="field">
+                        <label class="field-label" for="s1_nin">NIN</label>
+                        <input type="text" id="s1_nin" name="s1_nin" readonly placeholder="Preenchido automaticamente ao escolher o nome">
                     </div><div class="field">
                         <label class="field-label" for="s1_data_nascimento">Data de nascimento *</label>
                         <input type="date" id="s1_data_nascimento" name="s1_data_nascimento" value="" required>
+                    </div><div class="field options-field">
+                        <span class="field-label">Género *</span>
+                        <input type="radio" id="s1_genero__m-masculino" name="s1_genero" value="M - Male" required><label for="s1_genero__m-masculino">M - Masculino</label><input type="radio" id="s1_genero__f-feminino" name="s1_genero" value="F - Female" required><label for="s1_genero__f-feminino">F - Feminino</label><input type="radio" id="s1_genero__o-nao-especificado" name="s1_genero" value="O - Unspecified" required><label for="s1_genero__o-nao-especificado">O - Não especificado</label>
+                        
+                    </div><div class="field">
+                        <label class="field-label" for="s1_religiao">Religião *</label><span class="hint">Preenchido automaticamente — contacta a Direção se precisares de alterar.</span>
+                        <input type="text" id="s1_religiao" name="s1_religiao" value="02 - Christian (Catholic)" required readonly>
                     </div><div class="field">
                         <label class="field-label" for="s1_email">Email do participante *</label>
                         <input type="email" id="s1_email" name="s1_email" value="" required>
@@ -134,17 +140,11 @@
                     </div><div class="field">
                         <label class="field-label" for="s1_organizacao">Organização Escutista *</label>
                         <input type="text" id="s1_organizacao" name="s1_organizacao" value="CNE - Corpo Nacional de Escutas" required>
-                    </div><div class="field">
-                        <label class="field-label" for="s1_cargo">Cargo / Função</label><span class="hint">Ex: Explorador, Dirigente...</span>
-                        <input type="text" id="s1_cargo" name="s1_cargo" value="">
-                    </div><div class="field">
-                        <label class="field-label" for="s1_posicao_atual">Posição atual na Organização Escutista</label>
-                        <input type="text" id="s1_posicao_atual" name="s1_posicao_atual" value="">
                     </div>
             </fieldset>
             <fieldset class="form-section" id="secao-2">
                 <legend>📍 Morada e Contactos</legend>
-                <p class="step-sub">Secção 2 de 8</p>
+                <p class="step-sub">Secção 2 de 7</p>
                 <div class="field">
                         <label class="field-label" for="s2_morada">Morada (linha principal) *</label>
                         <textarea id="s2_morada" name="s2_morada" placeholder=" " class="" required></textarea>
@@ -158,20 +158,8 @@
                         <label class="field-label" for="s2_codigo_postal">Código postal *</label>
                         <input type="text" id="s2_codigo_postal" name="s2_codigo_postal" value="" required>
                     </div><div class="field">
-                        <label class="field-label" for="s2_naturalidade">Naturalidade (cidade de nascimento)</label>
-                        <input type="text" id="s2_naturalidade" name="s2_naturalidade" value="">
-                    </div><div class="field">
-                        <label class="field-label" for="s2_morada_secundaria">Morada secundária (se aplicável)</label>
-                        <textarea id="s2_morada_secundaria" name="s2_morada_secundaria" placeholder=" " class=""></textarea>
-                    </div><div class="field">
-                        <label class="field-label" for="s2_localidade_secundaria">Localidade (morada secundária)</label>
-                        <input type="text" id="s2_localidade_secundaria" name="s2_localidade_secundaria" value="">
-                    </div><div class="field">
-                        <label class="field-label" for="s2_distrito_secundario">Distrito (morada secundária)</label>
-                        <input type="text" id="s2_distrito_secundario" name="s2_distrito_secundario" value="">
-                    </div><div class="field">
-                        <label class="field-label" for="s2_codigo_postal_secundario">Código postal (morada secundária)</label>
-                        <input type="text" id="s2_codigo_postal_secundario" name="s2_codigo_postal_secundario" value="">
+                        <label class="field-label" for="s2_nacionalidade">Nacionalidade *</label>
+                        <input type="text" id="s2_nacionalidade" name="s2_nacionalidade" value="195 - Portugal" required>
                     </div><div class="field">
                         <label class="field-label" for="s2_pais_residencia">País de residência *</label>
                         <input type="text" id="s2_pais_residencia" name="s2_pais_residencia" value="Portugal" required>
@@ -179,11 +167,8 @@
                         <label class="field-label" for="s2_segunda_nacionalidade">Segunda nacionalidade (se aplicável)</label>
                         <input type="text" id="s2_segunda_nacionalidade" name="s2_segunda_nacionalidade" value="">
                     </div><div class="field">
-                        <label class="field-label" for="s2_telefone_fixo">Telefone fixo</label>
-                        <input type="tel" id="s2_telefone_fixo" name="s2_telefone_fixo" value="">
-                    </div><div class="field">
                         <label class="field-label" for="s2_indicativo_telemovel">Indicativo do telemóvel *</label>
-                        <input type="text" id="s2_indicativo_telemovel" name="s2_indicativo_telemovel" value="+351" required>
+                        <input type="text" id="s2_indicativo_telemovel" name="s2_indicativo_telemovel" value="351 - Portugal" required>
                     </div><div class="field">
                         <label class="field-label" for="s2_numero_telemovel">Número de telemóvel *</label>
                         <input type="tel" id="s2_numero_telemovel" name="s2_numero_telemovel" value="" required>
@@ -191,7 +176,7 @@
             </fieldset>
             <fieldset class="form-section" id="secao-3">
                 <legend>🆘 Encarregado de Educação e Contactos de Emergência</legend>
-                <p class="step-sub">Secção 3 de 8</p>
+                <p class="step-sub">Secção 3 de 7</p>
                 <div class="field">
                         <label class="field-label" for="s3_nome_encarregado">Nome do Encarregado de Educação *</label>
                         <input type="text" id="s3_nome_encarregado" name="s3_nome_encarregado" value="" required>
@@ -207,9 +192,13 @@
                     </div><div class="field">
                         <label class="field-label" for="s3_emergencia1_nome">Contacto de emergência principal — Nome *</label>
                         <input type="text" id="s3_emergencia1_nome" name="s3_emergencia1_nome" value="" required>
+                    </div><div class="field options-field">
+                        <span class="field-label">Contacto de emergência principal — Relação *</span>
+                        <input type="radio" id="s3_emergencia1_relacao__familia" name="s3_emergencia1_relacao" value="Family" required><label for="s3_emergencia1_relacao__familia">Família</label><input type="radio" id="s3_emergencia1_relacao__pai-mae" name="s3_emergencia1_relacao" value="Parent" required><label for="s3_emergencia1_relacao__pai-mae">Pai/Mãe</label><input type="radio" id="s3_emergencia1_relacao__conjuge-parceiro-a" name="s3_emergencia1_relacao" value="Partner" required><label for="s3_emergencia1_relacao__conjuge-parceiro-a">Cônjuge/Parceiro(a)</label><input type="radio" id="s3_emergencia1_relacao__membro" name="s3_emergencia1_relacao" value="Member" required><label for="s3_emergencia1_relacao__membro">Membro</label><input type="radio" id="s3_emergencia1_relacao__amigo-a" name="s3_emergencia1_relacao" value="Friend" required><label for="s3_emergencia1_relacao__amigo-a">Amigo(a)</label><input type="radio" id="s3_emergencia1_relacao__colega" name="s3_emergencia1_relacao" value="Colleague" required><label for="s3_emergencia1_relacao__colega">Colega</label><input type="radio" id="s3_emergencia1_relacao__outro" name="s3_emergencia1_relacao" value="Other" required><label for="s3_emergencia1_relacao__outro">Outro</label>
+                        
                     </div><div class="field">
-                        <label class="field-label" for="s3_emergencia1_relacao">Contacto de emergência principal — Relação *</label><span class="hint">Ex: Pai, Mãe, Irmão/ã</span>
-                        <input type="text" id="s3_emergencia1_relacao" name="s3_emergencia1_relacao" value="" required>
+                        <label class="field-label" for="s3_emergencia1_nacionalidade">Nacionalidade do contacto de emergência</label>
+                        <input type="text" id="s3_emergencia1_nacionalidade" name="s3_emergencia1_nacionalidade" value="Portuguese">
                     </div><div class="field">
                         <label class="field-label" for="s3_emergencia1_telefone">Contacto de emergência principal — Telefone *</label>
                         <input type="tel" id="s3_emergencia1_telefone" name="s3_emergencia1_telefone" value="" required>
@@ -226,10 +215,10 @@
             </fieldset>
             <fieldset class="form-section" id="secao-4">
                 <legend>🛫 Viagem e Logística</legend>
-                <p class="step-sub">Secção 4 de 8</p>
+                <p class="step-sub">Secção 4 de 7</p>
                 <div class="field options-field">
                         <span class="field-label">Tipo de documento de viagem *</span>
-                        <input type="radio" id="s4_tipo_documento__passaporte" name="s4_tipo_documento" value="Passaporte" required><label for="s4_tipo_documento__passaporte">Passaporte</label><input type="radio" id="s4_tipo_documento__cartao-de-cidadao" name="s4_tipo_documento" value="Cartão de Cidadão" required><label for="s4_tipo_documento__cartao-de-cidadao">Cartão de Cidadão</label><input type="radio" id="s4_tipo_documento__outro" name="s4_tipo_documento" value="Outro" class="trigger-outro" required><label for="s4_tipo_documento__outro">Outro</label>
+                        <input type="radio" id="s4_tipo_documento__cartao-de-cidadao" name="s4_tipo_documento" value="Cartão de Cidadão" required><label for="s4_tipo_documento__cartao-de-cidadao">Cartão de Cidadão</label><input type="radio" id="s4_tipo_documento__passaporte-oficial" name="s4_tipo_documento" value="Official Passport" required><label for="s4_tipo_documento__passaporte-oficial">Passaporte Oficial</label><input type="radio" id="s4_tipo_documento__outro-documento-de-viagem" name="s4_tipo_documento" value="Other Travel Document" class="trigger-outro" required><label for="s4_tipo_documento__outro-documento-de-viagem">Outro Documento de Viagem</label>
                         <div class="conditional-field"><div class="field">
                         <label class="field-label" for="s4_tipo_documento_outro">Se "Outro", especifica</label>
                         <input type="text" id="s4_tipo_documento_outro" name="s4_tipo_documento_outro" value="">
@@ -244,54 +233,29 @@
                         <label class="field-label" for="s4_pais_emissor">País emissor do documento *</label>
                         <input type="text" id="s4_pais_emissor" name="s4_pais_emissor" value="" required>
                     </div><div class="field options-field">
-                        <span class="field-label">Precisas de visto para entrar na Polónia? *</span>
-                        <input type="radio" id="s4_precisa_visto__sim" name="s4_precisa_visto" value="Sim" required><label for="s4_precisa_visto__sim">Sim</label><input type="radio" id="s4_precisa_visto__nao" name="s4_precisa_visto" value="Não" required><label for="s4_precisa_visto__nao">Não</label><input type="radio" id="s4_precisa_visto__nao-sei" name="s4_precisa_visto" value="Não sei" required><label for="s4_precisa_visto__nao-sei">Não sei</label>
-                        
-                    </div><div class="field">
-                        <label class="field-label" for="s4_local_chegada">Local de chegada (aeroporto / estação)</label>
-                        <input type="text" id="s4_local_chegada" name="s4_local_chegada" value="">
-                    </div><div class="field">
-                        <label class="field-label" for="s4_data_chegada">Data de chegada</label>
-                        <input type="date" id="s4_data_chegada" name="s4_data_chegada" value="">
-                    </div><div class="field">
-                        <label class="field-label" for="s4_hora_chegada">Hora de chegada</label>
-                        <input type="time" id="s4_hora_chegada" name="s4_hora_chegada" value="">
-                    </div><div class="field options-field">
-                        <span class="field-label">Tipo de chegada</span>
-                        <input type="radio" id="s4_tipo_chegada__aviao" name="s4_tipo_chegada" value="Avião"><label for="s4_tipo_chegada__aviao">Avião</label><input type="radio" id="s4_tipo_chegada__comboio" name="s4_tipo_chegada" value="Comboio"><label for="s4_tipo_chegada__comboio">Comboio</label><input type="radio" id="s4_tipo_chegada__autocarro" name="s4_tipo_chegada" value="Autocarro"><label for="s4_tipo_chegada__autocarro">Autocarro</label><input type="radio" id="s4_tipo_chegada__carro" name="s4_tipo_chegada" value="Carro"><label for="s4_tipo_chegada__carro">Carro</label><input type="radio" id="s4_tipo_chegada__outro" name="s4_tipo_chegada" value="Outro"><label for="s4_tipo_chegada__outro">Outro</label>
-                        
-                    </div><div class="field">
-                        <label class="field-label" for="s4_numero_chegada">Número do voo / comboio</label>
-                        <input type="text" id="s4_numero_chegada" name="s4_numero_chegada" value="">
-                    </div><div class="field">
-                        <label class="field-label" for="s4_data_partida">Data de partida</label>
-                        <input type="date" id="s4_data_partida" name="s4_data_partida" value="">
-                    </div><div class="field">
-                        <label class="field-label" for="s4_hora_partida">Hora de partida</label>
-                        <input type="time" id="s4_hora_partida" name="s4_hora_partida" value="">
-                    </div><div class="field">
-                        <label class="field-label" for="s4_local_partida">Local / hora de partida (detalhes)</label>
-                        <input type="text" id="s4_local_partida" name="s4_local_partida" value="">
-                    </div><div class="field options-field">
-                        <span class="field-label">Tipo de partida</span>
-                        <input type="radio" id="s4_tipo_partida__aviao" name="s4_tipo_partida" value="Avião"><label for="s4_tipo_partida__aviao">Avião</label><input type="radio" id="s4_tipo_partida__comboio" name="s4_tipo_partida" value="Comboio"><label for="s4_tipo_partida__comboio">Comboio</label><input type="radio" id="s4_tipo_partida__autocarro" name="s4_tipo_partida" value="Autocarro"><label for="s4_tipo_partida__autocarro">Autocarro</label><input type="radio" id="s4_tipo_partida__carro" name="s4_tipo_partida" value="Carro"><label for="s4_tipo_partida__carro">Carro</label><input type="radio" id="s4_tipo_partida__outro" name="s4_tipo_partida" value="Outro"><label for="s4_tipo_partida__outro">Outro</label>
+                        <span class="field-label">Visto para entrar na Polónia *</span>
+                        <input type="radio" id="s4_precisa_visto__nao-e-necessario" name="s4_precisa_visto" value="Not Needed" required checked><label for="s4_precisa_visto__nao-e-necessario">Não é necessário</label><input type="radio" id="s4_precisa_visto__ja-tenho-visto" name="s4_precisa_visto" value="Visa Exist" required><label for="s4_precisa_visto__ja-tenho-visto">Já tenho visto</label><input type="radio" id="s4_precisa_visto__preciso-de-visto-schengen" name="s4_precisa_visto" value="I need a Schengen Visa" required><label for="s4_precisa_visto__preciso-de-visto-schengen">Preciso de visto Schengen</label>
                         
                     </div>
             </fieldset>
             <fieldset class="form-section" id="secao-5">
                 <legend>🩺 Saúde, Alimentação e Necessidades Especiais</legend>
-                <p class="step-sub">Secção 5 de 8</p>
+                <p class="step-sub">Secção 5 de 7</p>
                 <div class="field options-field">
-                        <span class="field-label">Necessidades alimentares</span><span class="hint">Seleciona todas as que se aplicam, incluindo "Nenhuma" se não for o caso.</span>
-                        <input type="checkbox" id="s5_necessidades_alimentares__vegetariano" name="s5_necessidades_alimentares" value="Vegetariano"><label for="s5_necessidades_alimentares__vegetariano">Vegetariano</label><input type="checkbox" id="s5_necessidades_alimentares__vegan" name="s5_necessidades_alimentares" value="Vegan"><label for="s5_necessidades_alimentares__vegan">Vegan</label><input type="checkbox" id="s5_necessidades_alimentares__halal" name="s5_necessidades_alimentares" value="Halal"><label for="s5_necessidades_alimentares__halal">Halal</label><input type="checkbox" id="s5_necessidades_alimentares__kosher" name="s5_necessidades_alimentares" value="Kosher"><label for="s5_necessidades_alimentares__kosher">Kosher</label><input type="checkbox" id="s5_necessidades_alimentares__sem-gluten" name="s5_necessidades_alimentares" value="Sem Glúten"><label for="s5_necessidades_alimentares__sem-gluten">Sem Glúten</label><input type="checkbox" id="s5_necessidades_alimentares__nenhuma" name="s5_necessidades_alimentares" value="Nenhuma"><label for="s5_necessidades_alimentares__nenhuma">Nenhuma</label><input type="checkbox" id="s5_necessidades_alimentares__outra" name="s5_necessidades_alimentares" value="Outra" class="trigger-outro"><label for="s5_necessidades_alimentares__outra">Outra</label>
+                        <span class="field-label">Necessidades alimentares</span><span class="hint">Seleciona todas as que se aplicam.</span>
+                        <input type="checkbox" id="s5_necessidades_alimentares__vegetariano" name="s5_necessidades_alimentares" value="Vegetarian"><label for="s5_necessidades_alimentares__vegetariano">Vegetariano</label><input type="checkbox" id="s5_necessidades_alimentares__vegano" name="s5_necessidades_alimentares" value="Vegan"><label for="s5_necessidades_alimentares__vegano">Vegano</label><input type="checkbox" id="s5_necessidades_alimentares__halal" name="s5_necessidades_alimentares" value="Halal"><label for="s5_necessidades_alimentares__halal">Halal</label><input type="checkbox" id="s5_necessidades_alimentares__kosher" name="s5_necessidades_alimentares" value="Kosher"><label for="s5_necessidades_alimentares__kosher">Kosher</label><input type="checkbox" id="s5_necessidades_alimentares__hinduismo-sem-carne-de-vaca" name="s5_necessidades_alimentares" value="Hinduism - No Beef"><label for="s5_necessidades_alimentares__hinduismo-sem-carne-de-vaca">Hinduísmo - Sem Carne de Vaca</label><input type="checkbox" id="s5_necessidades_alimentares__sem-dieta-especial" name="s5_necessidades_alimentares" value="No special Diet"><label for="s5_necessidades_alimentares__sem-dieta-especial">Sem dieta especial</label><input type="checkbox" id="s5_necessidades_alimentares__outra" name="s5_necessidades_alimentares" value="Other" class="trigger-outro"><label for="s5_necessidades_alimentares__outra">Outra</label>
                         <div class="conditional-field"><div class="field">
                         <label class="field-label" for="s5_necessidades_alimentares_outra">Necessidades alimentares — outra (especifica)</label>
                         <input type="text" id="s5_necessidades_alimentares_outra" name="s5_necessidades_alimentares_outra" value="">
                     </div></div>
+                    </div><div class="field options-field">
+                        <span class="field-label">Alergias conhecidas</span><span class="hint">Seleciona todas as que se aplicam.</span>
+                        <input type="checkbox" id="s5_alergias__leite-leite-de-vaca" name="s5_alergias" value="Milk (Cows milk)" class="trigger-yes"><label for="s5_alergias__leite-leite-de-vaca">Leite (Leite de vaca)</label><input type="checkbox" id="s5_alergias__caseina" name="s5_alergias" value="Casein" class="trigger-yes"><label for="s5_alergias__caseina">Caseína</label><input type="checkbox" id="s5_alergias__ovo" name="s5_alergias" value="Egg" class="trigger-yes"><label for="s5_alergias__ovo">Ovo</label><input type="checkbox" id="s5_alergias__cereais-com-gluten-trigo-centeio-cevada-aveia" name="s5_alergias" value="Cereals containing Gluten (wheat, rye, barley, oats)" class="trigger-yes"><label for="s5_alergias__cereais-com-gluten-trigo-centeio-cevada-aveia">Cereais com Glúten (trigo, centeio, cevada, aveia)</label><input type="checkbox" id="s5_alergias__amendoim" name="s5_alergias" value="Peanuts" class="trigger-yes"><label for="s5_alergias__amendoim">Amendoim</label><input type="checkbox" id="s5_alergias__frutos-de-casca-rija" name="s5_alergias" value="Tree Nuts" class="trigger-yes"><label for="s5_alergias__frutos-de-casca-rija">Frutos de Casca Rija</label><input type="checkbox" id="s5_alergias__soja" name="s5_alergias" value="Soybeans" class="trigger-yes"><label for="s5_alergias__soja">Soja</label><input type="checkbox" id="s5_alergias__tremoco" name="s5_alergias" value="Lupin" class="trigger-yes"><label for="s5_alergias__tremoco">Tremoço</label><input type="checkbox" id="s5_alergias__mostarda" name="s5_alergias" value="Mustard" class="trigger-yes"><label for="s5_alergias__mostarda">Mostarda</label><input type="checkbox" id="s5_alergias__peixe" name="s5_alergias" value="Fish" class="trigger-yes"><label for="s5_alergias__peixe">Peixe</label><input type="checkbox" id="s5_alergias__marisco" name="s5_alergias" value="Shellfish" class="trigger-yes"><label for="s5_alergias__marisco">Marisco</label><input type="checkbox" id="s5_alergias__crustaceos" name="s5_alergias" value="Crustaceans" class="trigger-yes"><label for="s5_alergias__crustaceos">Crustáceos</label><input type="checkbox" id="s5_alergias__sesamo" name="s5_alergias" value="Sesame" class="trigger-yes"><label for="s5_alergias__sesamo">Sésamo</label><input type="checkbox" id="s5_alergias__moluscos" name="s5_alergias" value="Molluscs" class="trigger-yes"><label for="s5_alergias__moluscos">Moluscos</label><input type="checkbox" id="s5_alergias__dioxido-de-enxofre-e-sulfitos" name="s5_alergias" value="Sulphur dioxide & Sulphites" class="trigger-yes"><label for="s5_alergias__dioxido-de-enxofre-e-sulfitos">Dióxido de enxofre e Sulfitos</label><input type="checkbox" id="s5_alergias__fruta" name="s5_alergias" value="Fruit" class="trigger-yes"><label for="s5_alergias__fruta">Fruta</label><input type="checkbox" id="s5_alergias__aliaceas-alho-cebola" name="s5_alergias" value="Alliums" class="trigger-yes"><label for="s5_alergias__aliaceas-alho-cebola">Aliáceas (alho, cebola)</label><input type="checkbox" id="s5_alergias__nao-tenho-alergias" name="s5_alergias" value="I don't have any Allergies"><label for="s5_alergias__nao-tenho-alergias">Não tenho alergias</label><input type="checkbox" id="s5_alergias__outra" name="s5_alergias" value="Other" class="trigger-yes trigger-outro"><label for="s5_alergias__outra">Outra</label>
+                        <div class="conditional-field"><div class="field">
+                        <label class="field-label" for="s5_alergias_outra">Se "Outra", especifica</label>
+                        <input type="text" id="s5_alergias_outra" name="s5_alergias_outra" value="">
+                    </div><div class="field"><span class="field-label">Gravidade das alergias</span><div class="option-row"><input type="radio" id="s5_alergias_gravidade__ligeira" name="s5_alergias_gravidade" value="Ligeira"><label for="s5_alergias_gravidade__ligeira">Ligeira</label><input type="radio" id="s5_alergias_gravidade__moderada" name="s5_alergias_gravidade" value="Moderada"><label for="s5_alergias_gravidade__moderada">Moderada</label><input type="radio" id="s5_alergias_gravidade__grave-anafilatica" name="s5_alergias_gravidade" value="Grave (Anafilática)"><label for="s5_alergias_gravidade__grave-anafilatica">Grave (Anafilática)</label></div></div></div>
                     </div><div class="field">
-                        <label class="field-label" for="s5_alergias">Alergias conhecidas</label>
-                        <textarea id="s5_alergias" name="s5_alergias" placeholder=" " class="trigger-filled"></textarea>
-                    <div class="conditional-field"><div class="field"><span class="field-label">Gravidade das alergias</span><div class="option-row"><input type="radio" id="s5_alergias_gravidade__ligeira" name="s5_alergias_gravidade" value="Ligeira"><label for="s5_alergias_gravidade__ligeira">Ligeira</label><input type="radio" id="s5_alergias_gravidade__moderada" name="s5_alergias_gravidade" value="Moderada"><label for="s5_alergias_gravidade__moderada">Moderada</label><input type="radio" id="s5_alergias_gravidade__grave-anafilatica" name="s5_alergias_gravidade" value="Grave (Anafilática)"><label for="s5_alergias_gravidade__grave-anafilatica">Grave (Anafilática)</label></div></div></div></div><div class="field">
                         <label class="field-label" for="s5_medicacao_nome">Nome da medicação habitual</label>
                         <input type="text" id="s5_medicacao_nome" name="s5_medicacao_nome" value="">
                     </div><div class="field">
@@ -314,27 +278,30 @@
                         <span class="field-label">Vacinado(a) contra o Tétano?</span>
                         <input type="radio" id="s5_vacina_tetano__sim" name="s5_vacina_tetano" value="Sim" class="trigger-yes"><label for="s5_vacina_tetano__sim">Sim</label><input type="radio" id="s5_vacina_tetano__nao" name="s5_vacina_tetano" value="Não"><label for="s5_vacina_tetano__nao">Não</label>
                         <div class="conditional-field"><div class="field">
-                        <label class="field-label" for="s5_vacina_tetano_ano">Em que ano? (Tétano)</label>
-                        <input type="text" id="s5_vacina_tetano_ano" name="s5_vacina_tetano_ano" value="">
+                        <label class="field-label" for="s5_vacina_tetano_data">Data da vacinação (Tétano)</label>
+                        <input type="date" id="s5_vacina_tetano_data" name="s5_vacina_tetano_data" value="">
                     </div></div>
                     </div><div class="field options-field">
                         <span class="field-label">Vacinado(a) contra a Difteria?</span>
                         <input type="radio" id="s5_vacina_difteria__sim" name="s5_vacina_difteria" value="Sim" class="trigger-yes"><label for="s5_vacina_difteria__sim">Sim</label><input type="radio" id="s5_vacina_difteria__nao" name="s5_vacina_difteria" value="Não"><label for="s5_vacina_difteria__nao">Não</label>
                         <div class="conditional-field"><div class="field">
-                        <label class="field-label" for="s5_vacina_difteria_ano">Em que ano? (Difteria)</label>
-                        <input type="text" id="s5_vacina_difteria_ano" name="s5_vacina_difteria_ano" value="">
+                        <label class="field-label" for="s5_vacina_difteria_data">Data da vacinação (Difteria)</label>
+                        <input type="date" id="s5_vacina_difteria_data" name="s5_vacina_difteria_data" value="">
                     </div></div>
-                    </div><div class="field">
-                        <label class="field-label" for="s5_tipo_sanguineo">Tipo sanguíneo</label>
-                        <select id="s5_tipo_sanguineo" name="s5_tipo_sanguineo">
-                            <option value="">Seleciona...</option><option value="A+">A+</option><option value="A-">A-</option><option value="B+">B+</option><option value="B-">B-</option><option value="AB+">AB+</option><option value="AB-">AB-</option><option value="O+">O+</option><option value="O-">O-</option><option value="Desconhecido">Desconhecido</option>
-                        </select>
+                    </div><div class="field options-field">
+                        <span class="field-label">Tipo sanguíneo</span>
+                        <input type="radio" id="s5_tipo_sanguineo__a-rh" name="s5_tipo_sanguineo" value="1 - A Rh+"><label for="s5_tipo_sanguineo__a-rh">A Rh+</label><input type="radio" id="s5_tipo_sanguineo__b-rh" name="s5_tipo_sanguineo" value="2 - B Rh+"><label for="s5_tipo_sanguineo__b-rh">B Rh+</label><input type="radio" id="s5_tipo_sanguineo__o-rh" name="s5_tipo_sanguineo" value="3 - O Rh+"><label for="s5_tipo_sanguineo__o-rh">O Rh+</label><input type="radio" id="s5_tipo_sanguineo__ab-rh" name="s5_tipo_sanguineo" value="4 - AB Rh+"><label for="s5_tipo_sanguineo__ab-rh">AB Rh+</label><input type="radio" id="s5_tipo_sanguineo__a-rh" name="s5_tipo_sanguineo" value="5 - A Rh-"><label for="s5_tipo_sanguineo__a-rh">A Rh-</label><input type="radio" id="s5_tipo_sanguineo__b-rh" name="s5_tipo_sanguineo" value="6 - B Rh-"><label for="s5_tipo_sanguineo__b-rh">B Rh-</label><input type="radio" id="s5_tipo_sanguineo__o-rh" name="s5_tipo_sanguineo" value="7 - O Rh-"><label for="s5_tipo_sanguineo__o-rh">O Rh-</label><input type="radio" id="s5_tipo_sanguineo__ab-rh" name="s5_tipo_sanguineo" value="8 - AB Rh-"><label for="s5_tipo_sanguineo__ab-rh">AB Rh-</label><input type="radio" id="s5_tipo_sanguineo__outro-nao-sei" name="s5_tipo_sanguineo" value="ETC - Other"><label for="s5_tipo_sanguineo__outro-nao-sei">Outro / Não sei</label>
+                        
                     </div><div class="field">
                         <label class="field-label" for="s5_tipo_sanguineo_outro">Tipo sanguíneo — notas adicionais</label>
                         <input type="text" id="s5_tipo_sanguineo_outro" name="s5_tipo_sanguineo_outro" value="">
-                    </div><div class="field">
-                        <label class="field-label" for="s5_equipamento_medico">Necessidades especiais de equipamento médico</label><span class="hint">Ex: armazenamento ou alimentação elétrica para dispositivos</span>
-                        <textarea id="s5_equipamento_medico" name="s5_equipamento_medico" placeholder=" " class=""></textarea>
+                    </div><div class="field options-field">
+                        <span class="field-label">Necessidades especiais de equipamento médico</span>
+                        <input type="checkbox" id="s5_equipamento_medico__preciso-de-carregamento-de-bateria-para-equipamento-medico-ou-apoios-ex-utilizador-de-maquina-cpap" name="s5_equipamento_medico" value="I need Requires battery charging for medical equipment or aids (e.g., Continuous positive airway (CPAP) machine user)"><label for="s5_equipamento_medico__preciso-de-carregamento-de-bateria-para-equipamento-medico-ou-apoios-ex-utilizador-de-maquina-cpap">Preciso de carregamento de bateria para equipamento médico ou apoios (ex.: utilizador de máquina CPAP)</label><input type="checkbox" id="s5_equipamento_medico__preciso-de-alimentacao-eletrica-permanente-para-equipamento-medico-ou-apoios" name="s5_equipamento_medico" value="I need permanent electrical supply for medical equipment or aids"><label for="s5_equipamento_medico__preciso-de-alimentacao-eletrica-permanente-para-equipamento-medico-ou-apoios">Preciso de alimentação elétrica permanente para equipamento médico ou apoios</label><input type="checkbox" id="s5_equipamento_medico__preciso-de-refrigeracao-de-medicacao" name="s5_equipamento_medico" value="I need refrigeration of medication"><label for="s5_equipamento_medico__preciso-de-refrigeracao-de-medicacao">Preciso de refrigeração de medicação</label><input type="checkbox" id="s5_equipamento_medico__outro" name="s5_equipamento_medico" value="Other" class="trigger-outro"><label for="s5_equipamento_medico__outro">Outro</label>
+                        <div class="conditional-field"><div class="field">
+                        <label class="field-label" for="s5_equipamento_medico_outro">Se "Outro", especifica</label>
+                        <input type="text" id="s5_equipamento_medico_outro" name="s5_equipamento_medico_outro" value="">
+                    </div></div>
                     </div><div class="field options-field">
                         <span class="field-label">Restrições de mobilidade</span>
                         <input type="radio" id="s5_restricoes_mobilidade__sim" name="s5_restricoes_mobilidade" value="Sim"><label for="s5_restricoes_mobilidade__sim">Sim</label><input type="radio" id="s5_restricoes_mobilidade__nao" name="s5_restricoes_mobilidade" value="Não"><label for="s5_restricoes_mobilidade__nao">Não</label>
@@ -354,7 +321,7 @@
             </fieldset>
             <fieldset class="form-section" id="secao-6">
                 <legend>♿ Mobilidade e Acessibilidade</legend>
-                <p class="step-sub">Secção 6 de 8</p>
+                <p class="step-sub">Secção 6 de 7</p>
                 <div class="field options-field">
                         <span class="field-label">Precisas de um adulto Acompanhante (Carer) no WSJ? *</span>
                         <input type="radio" id="s6_precisa_acompanhante__sim" name="s6_precisa_acompanhante" value="Sim" class="trigger-yes" required><label for="s6_precisa_acompanhante__sim">Sim</label><input type="radio" id="s6_precisa_acompanhante__nao" name="s6_precisa_acompanhante" value="Não" required><label for="s6_precisa_acompanhante__nao">Não</label>
@@ -404,47 +371,35 @@
             </fieldset>
             <fieldset class="form-section" id="secao-7">
                 <legend>🌤️ Conforto e Fatores Sensoriais</legend>
-                <p class="step-sub">Secção 7 de 8</p>
+                <p class="step-sub">Secção 7 de 7</p>
                 <div class="field options-field">
                         <span class="field-label">Sentes-te confortável com casas de banho/duches neutros em género?</span>
-                        <input type="radio" id="s7_wc_neutro__confortavel" name="s7_wc_neutro" value="Confortável"><label for="s7_wc_neutro__confortavel">Confortável</label><input type="radio" id="s7_wc_neutro__nao-confortavel" name="s7_wc_neutro" value="Não confortável"><label for="s7_wc_neutro__nao-confortavel">Não confortável</label><input type="radio" id="s7_wc_neutro__neutro" name="s7_wc_neutro" value="Neutro"><label for="s7_wc_neutro__neutro">Neutro</label>
+                        <input type="radio" id="s7_wc_neutro__sim" name="s7_wc_neutro" value="Yes"><label for="s7_wc_neutro__sim">Sim</label><input type="radio" id="s7_wc_neutro__nao" name="s7_wc_neutro" value="No"><label for="s7_wc_neutro__nao">Não</label>
                         
                     </div><div class="field options-field">
                         <span class="field-label">Sentes-te confortável na água (vela/caiaque)?</span>
-                        <input type="radio" id="s7_agua_vela_caiaque__sim" name="s7_agua_vela_caiaque" value="Sim"><label for="s7_agua_vela_caiaque__sim">Sim</label><input type="radio" id="s7_agua_vela_caiaque__nao" name="s7_agua_vela_caiaque" value="Não"><label for="s7_agua_vela_caiaque__nao">Não</label>
+                        <input type="radio" id="s7_agua_vela_caiaque__sinto-me-confortavel" name="s7_agua_vela_caiaque" value="I feel comfortable"><label for="s7_agua_vela_caiaque__sinto-me-confortavel">Sinto-me confortável</label><input type="radio" id="s7_agua_vela_caiaque__nao-me-sinto-confortavel" name="s7_agua_vela_caiaque" value="I don't feel comfortable"><label for="s7_agua_vela_caiaque__nao-me-sinto-confortavel">Não me sinto confortável</label>
                         
                     </div><div class="field options-field">
                         <span class="field-label">Sentes-te confortável na água (natação)?</span>
-                        <input type="radio" id="s7_agua_natacao__sim" name="s7_agua_natacao" value="Sim"><label for="s7_agua_natacao__sim">Sim</label><input type="radio" id="s7_agua_natacao__nao" name="s7_agua_natacao" value="Não"><label for="s7_agua_natacao__nao">Não</label>
+                        <input type="radio" id="s7_agua_natacao__sinto-me-confortavel" name="s7_agua_natacao" value="I feel comfortable"><label for="s7_agua_natacao__sinto-me-confortavel">Sinto-me confortável</label><input type="radio" id="s7_agua_natacao__nao-me-sinto-confortavel" name="s7_agua_natacao" value="I don't feel comfortable"><label for="s7_agua_natacao__nao-me-sinto-confortavel">Não me sinto confortável</label>
                         
                     </div><div class="field options-field">
                         <span class="field-label">Sentes-te confortável sem apoio de equilíbrio?</span>
-                        <input type="radio" id="s7_sem_equilibrio__sim" name="s7_sem_equilibrio" value="Sim"><label for="s7_sem_equilibrio__sim">Sim</label><input type="radio" id="s7_sem_equilibrio__nao" name="s7_sem_equilibrio" value="Não"><label for="s7_sem_equilibrio__nao">Não</label>
+                        <input type="radio" id="s7_sem_equilibrio__sinto-me-confortavel" name="s7_sem_equilibrio" value="I feel comfortable"><label for="s7_sem_equilibrio__sinto-me-confortavel">Sinto-me confortável</label><input type="radio" id="s7_sem_equilibrio__nao-me-sinto-confortavel" name="s7_sem_equilibrio" value="I don't feel comfortable"><label for="s7_sem_equilibrio__nao-me-sinto-confortavel">Não me sinto confortável</label>
                         
                     </div><div class="field options-field">
                         <span class="field-label">Sentes-te confortável em multidões?</span>
-                        <input type="radio" id="s7_multidoes__sim" name="s7_multidoes" value="Sim"><label for="s7_multidoes__sim">Sim</label><input type="radio" id="s7_multidoes__nao" name="s7_multidoes" value="Não"><label for="s7_multidoes__nao">Não</label>
+                        <input type="radio" id="s7_multidoes__sinto-me-confortavel" name="s7_multidoes" value="I feel comfortable"><label for="s7_multidoes__sinto-me-confortavel">Sinto-me confortável</label><input type="radio" id="s7_multidoes__nao-me-sinto-confortavel" name="s7_multidoes" value="I don't feel comfortable"><label for="s7_multidoes__nao-me-sinto-confortavel">Não me sinto confortável</label>
                         
                     </div><div class="field options-field">
                         <span class="field-label">Sentes-te confortável com luzes intermitentes?</span>
-                        <input type="radio" id="s7_luzes_intermitentes__sim" name="s7_luzes_intermitentes" value="Sim"><label for="s7_luzes_intermitentes__sim">Sim</label><input type="radio" id="s7_luzes_intermitentes__nao" name="s7_luzes_intermitentes" value="Não"><label for="s7_luzes_intermitentes__nao">Não</label>
+                        <input type="radio" id="s7_luzes_intermitentes__sinto-me-confortavel" name="s7_luzes_intermitentes" value="I feel comfortable"><label for="s7_luzes_intermitentes__sinto-me-confortavel">Sinto-me confortável</label><input type="radio" id="s7_luzes_intermitentes__nao-me-sinto-confortavel" name="s7_luzes_intermitentes" value="I don't feel comfortable"><label for="s7_luzes_intermitentes__nao-me-sinto-confortavel">Não me sinto confortável</label>
                         
                     </div><div class="field options-field">
                         <span class="field-label">Sentes-te confortável com ruído forte?</span>
-                        <input type="radio" id="s7_ruido_forte__sim" name="s7_ruido_forte" value="Sim"><label for="s7_ruido_forte__sim">Sim</label><input type="radio" id="s7_ruido_forte__nao" name="s7_ruido_forte" value="Não"><label for="s7_ruido_forte__nao">Não</label>
+                        <input type="radio" id="s7_ruido_forte__sinto-me-confortavel" name="s7_ruido_forte" value="I feel comfortable"><label for="s7_ruido_forte__sinto-me-confortavel">Sinto-me confortável</label><input type="radio" id="s7_ruido_forte__nao-me-sinto-confortavel" name="s7_ruido_forte" value="I don't feel comfortable"><label for="s7_ruido_forte__nao-me-sinto-confortavel">Não me sinto confortável</label>
                         
-                    </div>
-            </fieldset>
-            <fieldset class="form-section" id="secao-8">
-                <legend>⚜️ Experiência Escutista</legend>
-                <p class="step-sub">Secção 8 de 8</p>
-                <div class="field options-field">
-                        <span class="field-label">Já participaste antes num WSJ (Jamboree Mundial)? *</span>
-                        <input type="radio" id="s8_experiencia_previa__sim" name="s8_experiencia_previa" value="Sim" class="trigger-yes" required><label for="s8_experiencia_previa__sim">Sim</label><input type="radio" id="s8_experiencia_previa__nao" name="s8_experiencia_previa" value="Não" required><label for="s8_experiencia_previa__nao">Não</label>
-                        <div class="conditional-field"><div class="field"><span class="field-label">Que função(ões) tiveste em WSJ anteriores?</span><div class="option-row"><input type="checkbox" id="s8_funcoes_anteriores__participante" name="s8_funcoes_anteriores" value="Participante"><label for="s8_funcoes_anteriores__participante">Participante</label><input type="checkbox" id="s8_funcoes_anteriores__ist" name="s8_funcoes_anteriores" value="IST"><label for="s8_funcoes_anteriores__ist">IST</label><input type="checkbox" id="s8_funcoes_anteriores__staff-de-contingente" name="s8_funcoes_anteriores" value="Staff de Contingente"><label for="s8_funcoes_anteriores__staff-de-contingente">Staff de Contingente</label><input type="checkbox" id="s8_funcoes_anteriores__dirigente" name="s8_funcoes_anteriores" value="Dirigente"><label for="s8_funcoes_anteriores__dirigente">Dirigente</label><input type="checkbox" id="s8_funcoes_anteriores__lider-de-unidade" name="s8_funcoes_anteriores" value="Líder de Unidade"><label for="s8_funcoes_anteriores__lider-de-unidade">Líder de Unidade</label><input type="checkbox" id="s8_funcoes_anteriores__outro" name="s8_funcoes_anteriores" value="Outro"><label for="s8_funcoes_anteriores__outro">Outro</label></div></div></div>
-                    </div><div class="field">
-                        <label class="field-label" for="s8_experiencia_outros_detalhes">Outros detalhes sobre experiência escutista prévia</label>
-                        <textarea id="s8_experiencia_outros_detalhes" name="s8_experiencia_outros_detalhes" placeholder=" " class=""></textarea>
                     </div>
             </fieldset>
                 <div class="form-submit-row">
