@@ -626,19 +626,20 @@ footer {
 .form-jump-nav {
     background: var(--branco);
     border-radius: 8px;
-    padding: 12px 18px;
+    padding: 14px 18px;
     margin-bottom: 20px;
     box-shadow: 0 2px 8px rgba(0,51,102,0.06);
     font-size: 0.82rem;
+    text-align: center;
 }
-.form-jump-nav strong { color: var(--azul-marinho); display: block; margin-bottom: 6px; }
+.form-jump-nav strong { color: var(--azul-marinho); display: block; margin-bottom: 8px; }
 .form-jump-links {
-    white-space: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 2px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 14px;
 }
-.form-jump-nav a { color: var(--azul-claro); text-decoration: none; margin-right: 10px; }
+.form-jump-nav a { color: var(--azul-claro); text-decoration: none; }
 .form-jump-nav a:hover { text-decoration: underline; }
 
 .consent-block {
