@@ -18,3 +18,12 @@ collections:
           - {label: "Classe CSS (Não mexer)", name: "main_class", widget: "hidden", default: "main-content"}
           - {label: "Layout (Não mexer)", name: "layout", widget: "hidden", default: "default"}
           - {label: "Conteúdo da Página", name: "body", widget: "markdown"}
+          
+      - label: "Documentos do Agrupamento"
+        name: "documentos"
+        file: "documentos.md"
+        fields:
+          - {label: "Título da Página", name: "title", widget: "string"}
+          - {label: "Classe CSS (Não mexer)", name: "main_class", widget: "hidden", default: "main-content"}
+          - {label: "Layout (Não mexer)", name: "layout", widget: "hidden", default: "default"}
+          - {label: "Conteúdo da Página", name: "body", widget: "markdown"}
