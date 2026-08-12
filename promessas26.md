@@ -20,7 +20,7 @@ main_class: main-content
             </p>
             
             <!-- Substitui o link abaixo pelo link de partilha do teu álbum do Google Fotos -->
-            <a href="COLA_AQUI_O_LINK_DE_PARTILHA_DO_GOOGLE_FOTOS" target="_blank" rel="noopener noreferrer" class="btn" style="font-size: 1.1rem; padding: 15px 30px; display: inline-block;">
+            <a href="https://photos.app.goo.gl/waGhWPgzFRNnR9Qn6" target="_blank" rel="noopener noreferrer" class="btn" style="font-size: 1.1rem; padding: 15px 30px; display: inline-block;">
                 Abrir Álbum de Fotografias ↗️
             </a>
         </div>
