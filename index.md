@@ -22,6 +22,8 @@ main_class: pagina-inicial-main
   </div>
 </section>
 
+<div class="espaco-hero" aria-hidden="true"></div>
+
 <div class="feed">
   {% if noticia_destaque %}
   <article class="destaque">
