@@ -45,5 +45,10 @@ main_class: main-content
         });
       }
     });
+    
+    // Diz ao widget onde está o "guarda-costas"
+    window.netlifyIdentity.init({
+      APIUrl: "https://eloquent-rugelach-5b440d.netlify.app/.netlify/identity"
+    });
   }
 </script>

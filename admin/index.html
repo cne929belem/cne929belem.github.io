@@ -10,5 +10,14 @@
   <body>
     <!-- Inclui o motor do Decap CMS -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    
+    <!-- Diz ao CMS onde validar o login -->
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.init({
+          APIUrl: "https://eloquent-rugelach-5b440d.netlify.app/.netlify/identity"
+        });
+      }
+    </script>
   </body>
 </html>
