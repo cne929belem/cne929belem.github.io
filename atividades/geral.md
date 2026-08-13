@@ -1,9 +1,10 @@
 ---
 layout: default
 title: Atividades | 929 - Belém
+main_class: pagina-com-hero
 ---
 <style>
-  .pagina-cabecalho { max-width: 1100px; margin: 0 auto; padding: 110px 28px 6px; }
+  .pagina-cabecalho { max-width: 1100px; margin: 0 auto; padding: 40px 28px 6px; }
   .pagina-cabecalho h1 { font-size: 30px; margin: 0 0 8px; }
   .pagina-cabecalho p { color: #555; font-size: 15px; margin: 0; }
 
@@ -21,6 +22,9 @@ title: Atividades | 929 - Belém
   .cartao-atividade p { font-size: 13.5px; line-height: 1.5; margin: 0; opacity: .92; }
   .cartao-atividade:hover { outline: 2px solid rgba(255,255,255,0.6); outline-offset: -2px; }
 </style>
+
+<section class="hero-generico" id="hero"></section>
+<div class="espaco-hero" aria-hidden="true"></div>
 
 <div class="pagina-cabecalho">
   <h1>Atividades</h1>

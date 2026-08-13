@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 929 - Belém | Corpo Nacional de Escutas
-main_class: pagina-inicial-main
+main_class: pagina-com-hero
 ---
 {% assign noticias_recentes = site.noticias | sort: "date" | reverse | limit: 5 %}
 {% assign noticia_destaque = noticias_recentes | first %}
@@ -34,7 +34,7 @@ main_class: pagina-inicial-main
         <div class="foto-destaque placeholder-foto-feed"></div>
       {% endif %}
       <h2>{{ noticia_destaque.title }}</h2>
-      <p class="assinatura">{{ noticia_destaque.date | date: "%-d de %B de %Y" }}</p>
+      <p class="assinatura">{{ noticia_destaque.date | date: "%-d de %B de %Y" }}{% if noticia_destaque.autor %} · {{ noticia_destaque.autor }}{% endif %}</p>
       <p>{{ noticia_destaque.resumo }}</p>
     </a>
   </article>
@@ -50,7 +50,7 @@ main_class: pagina-inicial-main
       {% endif %}
       <div>
         <h3>{{ noticia.title }}</h3>
-        <p class="assinatura">{{ noticia.date | date: "%-d de %B de %Y" }}</p>
+        <p class="assinatura">{{ noticia.date | date: "%-d de %B de %Y" }}{% if noticia.autor %} · {{ noticia.autor }}{% endif %}</p>
       </div>
     </a>
     {% endfor %}
