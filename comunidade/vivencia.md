@@ -85,27 +85,27 @@ main_class: main-content
                     <p style="font-size: 0.95rem; line-height: 1.6;">Tal como nas restantes secções, também a Comunidade tem os seus próprios símbolos — adaptados, na versão marítima, à linguagem do mar:</p>
 
                     <div class="quick-links-grid" style="margin-top: 15px;">
-                        <div style="background: #fcfcfc; border: 1px solid #eee; border-radius: 6px; padding: 15px; text-align: center;">
+                        <div style="background: var(--cinza-fundo); border: 1px solid #eee; border-radius: 6px; padding: 15px; text-align: center;">
                             <strong style="color: var(--azul-marinho); font-size: 1.1rem;">Leme</strong>
                             <p style="font-size: 0.85rem; margin: 8px 0 0;">O compromisso de escolher e corrigir o próprio rumo.</p>
                         </div>
-                        <div style="background: #fcfcfc; border: 1px solid #eee; border-radius: 6px; padding: 15px; text-align: center;">
+                        <div style="background: var(--cinza-fundo); border: 1px solid #eee; border-radius: 6px; padding: 15px; text-align: center;">
                             <strong style="color: var(--azul-marinho); font-size: 1.1rem;">Barca</strong>
                             <p style="font-size: 0.85rem; margin: 8px 0 0;">Só o essencial a bordo — sinal de desprendimento.</p>
                         </div>
-                        <div style="background: #fcfcfc; border: 1px solid #eee; border-radius: 6px; padding: 15px; text-align: center;">
+                        <div style="background: var(--cinza-fundo); border: 1px solid #eee; border-radius: 6px; padding: 15px; text-align: center;">
                             <strong style="color: var(--azul-marinho); font-size: 1.1rem;">Vento / Vela</strong>
                             <p style="font-size: 0.85rem; margin: 8px 0 0;">A força que nos põe em marcha — sinal da presença de Deus.</p>
                         </div>
-                        <div style="background: #fcfcfc; border: 1px solid #eee; border-radius: 6px; padding: 15px; text-align: center;">
+                        <div style="background: var(--cinza-fundo); border: 1px solid #eee; border-radius: 6px; padding: 15px; text-align: center;">
                             <strong style="color: var(--azul-marinho); font-size: 1.1rem;">Rede</strong>
                             <p style="font-size: 0.85rem; margin: 8px 0 0;">Lançada em partilha e comunhão com os outros.</p>
                         </div>
-                        <div style="background: #fcfcfc; border: 1px solid #eee; border-radius: 6px; padding: 15px; text-align: center;">
+                        <div style="background: var(--cinza-fundo); border: 1px solid #eee; border-radius: 6px; padding: 15px; text-align: center;">
                             <strong style="color: var(--azul-marinho); font-size: 1.1rem;">Pão</strong>
                             <p style="font-size: 0.85rem; margin: 8px 0 0;">Alimento do corpo, dado e partilhado com a Tripulação.</p>
                         </div>
-                        <div style="background: #fcfcfc; border: 1px solid #eee; border-radius: 6px; padding: 15px; text-align: center;">
+                        <div style="background: var(--cinza-fundo); border: 1px solid #eee; border-radius: 6px; padding: 15px; text-align: center;">
                             <strong style="color: var(--azul-marinho); font-size: 1.1rem;">Evangelho</strong>
                             <p style="font-size: 0.85rem; margin: 8px 0 0;">O anúncio da Boa Nova que guia toda a travessia.</p>
                         </div>
@@ -128,7 +128,7 @@ main_class: main-content
                         <p style="margin-bottom: 20px; font-size: 0.95rem; line-height: 1.6;">A progressão do Companheiro mede-se pelo grau de maturação enquanto se transforma no <strong>Homem Novo</strong>, capaz de servir a sua comunidade. O Sistema de Progresso e as Dimensões do Companheirismo fundem-se num percurso de 4 etapas:</p>
 
                         <div style="display: flex; flex-direction: column; gap: 15px;">
-                            <div style="background: #fcfcfc; border-left: 4px solid #aaa; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                            <div style="background: var(--cinza-fundo); border-left: 4px solid #aaa; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                 <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
                                     <img src="{{ '/assets/img/seccoes/caminho.png' | relative_url }}" alt="O Caminho" style="width: 45px; height: 45px;">
                                     <h4 style="margin: 0; color: var(--azul-marinho);">1. A Rota / O Caminho (Adesão)</h4>
@@ -136,7 +136,7 @@ main_class: main-content
                                 <p style="font-size: 0.85rem; color: #555; margin: 0;">A tua adesão à Comunidade começa quando buscas a Rota. É aqui que inicias o teu Projeto Pessoal de Vida (PPV). Ser Companheiro é traçar a sua própria rota: ter a largueza de vistas para aceitar a mudança, o desapego para viver só do essencial, e a perseverança para não abandonar o rumo aos primeiros ventos contrários.</p>
                             </div>
                             
-                            <div style="background: #fcfcfc; border-left: 4px solid #cd7f32; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                            <div style="background: var(--cinza-fundo); border-left: 4px solid #cd7f32; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                 <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
                                     <img src="{{ '/assets/img/seccoes/comunidade.png' | relative_url }}" alt="A Comunidade" style="width: 45px; height: 45px;">
                                     <h4 style="margin: 0; color: var(--azul-marinho);">2. A Tripulação / A Comunidade</h4>
@@ -144,7 +144,7 @@ main_class: main-content
                                 <p style="font-size: 0.85rem; color: #555; margin: 0;">Quando a Rota estiver clara, estarás pronto para a Promessa e vinculação à Comunidade (Companhia). Nenhuma travessia se faz sozinho. Navegar ao lado dos outros é aprender a acolher, a ajudar e a deixar-se ajudar — a partilhar tanto a bonança como o mau tempo. A união vivenciada é a tua maior força.</p>
                             </div>
                             
-                            <div style="background: #fcfcfc; border-left: 4px solid #c0c0c0; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                            <div style="background: var(--cinza-fundo); border-left: 4px solid #c0c0c0; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                 <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
                                     <img src="{{ '/assets/img/seccoes/servico.png' | relative_url }}" alt="O Serviço" style="width: 45px; height: 45px;">
                                     <h4 style="margin: 0; color: var(--azul-marinho);">3. O Serviço</h4>
@@ -152,7 +152,7 @@ main_class: main-content
                                 <p style="font-size: 0.85rem; color: #555; margin: 0;">Em busca do Homem Novo assumirás a missão de Serviço. O Serviço não é um gesto pontual, mas um compromisso vivido em cada instante — nem sempre um ato físico, por vezes só um apoio ou uma partilha. É gratuito, mas quem o presta sai sempre a ganhar. Servir é preparar-se para a missão.</p>
                             </div>
                             
-                            <div style="background: #fcfcfc; border-left: 4px solid #ffd700; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                            <div style="background: var(--cinza-fundo); border-left: 4px solid #ffd700; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                 <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
                                     <img src="{{ '/assets/img/seccoes/partida.png' | relative_url }}" alt="A Partida" style="width: 45px; height: 45px;">
                                     <h4 style="margin: 0; color: var(--azul-marinho);">4. A Partida</h4>
@@ -174,23 +174,23 @@ main_class: main-content
                         <p style="font-size: 0.95rem; line-height: 1.6;">O PPV é a tua verdadeira "Bússola". Não se trata apenas de preencher um papel, mas sim de fazeres uma reflexão profunda sobre o Homem ou a Mulher que queres ser na sociedade, traçando metas claras para a tua Campanha. Deve estar pronto <strong>antes da tua Promessa de Companheiro</strong>. Eis o que precisas de fazer:</p>
 
                         <div style="display: flex; flex-direction: column; gap: 12px; margin: 20px 0;">
-                            <div style="background: #fcfcfc; border-left: 4px solid var(--azul-claro); padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                            <div style="background: var(--cinza-fundo); border-left: 4px solid var(--azul-claro); padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                 <h4 style="margin: 0 0 6px 0; color: var(--azul-marinho);">1. Escreve a parte aberta</h4>
                                 <p style="font-size: 0.85rem; color: #555; margin: 0;">Define os teus objetivos educativos e as ações concretas para os cumprires. Esta parte é para partilhar — com o Chefe de Comunidade e com a restante Comunidade. Pode haver objetivos em comum com outros Companheiros na mesma fase da Campanha; o conjunto destas partes abertas é o que dá corpo à Carta de Comunidade.</p>
                             </div>
-                            <div style="background: #fcfcfc; border-left: 4px solid #6f42c1; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                            <div style="background: var(--cinza-fundo); border-left: 4px solid #6f42c1; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                 <h4 style="margin: 0 0 6px 0; color: var(--azul-marinho);">2. Escreve a parte fechada</h4>
                                 <p style="font-size: 0.85rem; color: #555; margin: 0;">Aqui ficam os teus objetivos mais íntimos — não são para toda a gente. Partilha-os de preferência só com o Chefe de Comunidade, ou com outro adulto de confiança, que te vá acompanhando e sirva de "fiel da balança" para os objetivos que traçaste.</p>
                             </div>
-                            <div style="background: #fcfcfc; border-left: 4px solid #28a745; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                            <div style="background: var(--cinza-fundo); border-left: 4px solid #28a745; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                 <h4 style="margin: 0 0 6px 0; color: var(--azul-marinho);">3. Tem em conta estes 7 pontos</h4>
                                 <p style="font-size: 0.85rem; color: #555; margin: 0;">A Mística e os valores do Companheirismo · os fins do Companheirismo · o progresso que já fizeste · e o desenvolvimento das tuas qualidades <strong>técnicas, físicas, morais, sociais, intelectuais, profissionais e espirituais</strong>.</p>
                             </div>
-                            <div style="background: #fcfcfc; border-left: 4px solid #ffc107; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                            <div style="background: var(--cinza-fundo); border-left: 4px solid var(--amarelo); padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                 <h4 style="margin: 0 0 6px 0; color: var(--azul-marinho);">4. Entrega-o a quem te acompanha</h4>
                                 <p style="font-size: 0.85rem; color: #555; margin: 0;">O PPV fica guardado pelo Chefe de Comunidade (ou pelo Chefe de Agrupamento, se ainda não houver Chefe de Comunidade) e por ti próprio.</p>
                             </div>
-                            <div style="background: #fcfcfc; border-left: 4px solid #CE1126; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                            <div style="background: var(--cinza-fundo); border-left: 4px solid #CE1126; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                 <h4 style="margin: 0 0 6px 0; color: var(--azul-marinho);">5. Revê-o quando fizer sentido</h4>
                                 <p style="font-size: 0.85rem; color: #555; margin: 0;">Podes rever o teu PPV no fim de uma Campanha, de uma Etapa de Progresso, ou noutro momento que faça sentido para ti — a iniciativa de o rever é sempre tua.</p>
                             </div>
@@ -243,7 +243,7 @@ main_class: main-content
                         <button onclick="iniciarEstudoPromessas('seccao')" class="btn" style="background-color: #CE1126; padding: 12px 25px;">Adesão à Secção</button>
                     </div>
 
-                    <div id="estudo-flashcard" style="display: none; text-align: left; background: #f8f9fa; border: 1px solid #ddd; padding: 25px; border-radius: 8px; margin-top: 15px;">
+                    <div id="estudo-flashcard" style="display: none; text-align: left; background: var(--cinza-fundo); border: 1px solid #ddd; padding: 25px; border-radius: 8px; margin-top: 15px;">
                         <div id="flashcard-contador" style="font-size: 0.85rem; color: #888; font-weight: bold; margin-bottom: 10px; text-transform: uppercase;"></div>
                         <h2 id="flashcard-pergunta" style="color: var(--azul-marinho); font-size: 1.2rem; margin-bottom: 15px; border-bottom: 2px solid #eee; padding-bottom: 10px;"></h2>
                         <div id="flashcard-resposta" style="line-height: 1.6; font-size: 0.95rem; color: #444;"></div>
