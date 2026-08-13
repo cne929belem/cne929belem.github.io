@@ -1,0 +1,11 @@
+elementos:
+  - telefone: "912345678"
+    seccao: Companheiro
+    toten: Lobo Astuto
+    noites: 26
+    horas: 110
+  - telefone: "960000000"
+    seccao: Moço
+    toten: Águia Veloz
+    noites: 101
+    horas: 201

@@ -25,17 +25,17 @@ main_class: main-content
                 <div style="background: #f4f7f6; padding: 25px; border-radius: 8px; margin-top: 15px; border: 1px solid #e0e6ed;">
                     
                     <!-- Topo: Assistente e Chefe -->
-                    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 15px;">
-                        <div style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px; flex: 1; min-width: 250px; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
-                            <div style="width: 50px; height: 50px; background-color: rgba(255,255,255,0.15); border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <span style="font-size: 1.5rem;">👤</span>
-                            </div>
+					<div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 15px;">
+						<div style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px; flex: 1; min-width: 250px; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
+							<div style="width: 50px; height: 50px; background-color: rgba(255,255,255,0.15); border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            <img src="{{ '/assets/img/jose_ferreira.jpg' | relative_url }}" alt="Cón. José Manuel Ferreira" style="width: 100%; height: 100%; object-fit: cover;">
+							</div>
                             <div style="text-align: left;">
                                 <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #cfe0f5; margin-bottom: 3px;">Assistente</div>
                                 <div style="font-size: 1rem; font-weight: bold;">Cón. José Manuel Ferreira</div>
                             </div>
                         </div>
-                        <div style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px; flex: 1; min-width: 250px; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
+                        <div class="orgchart-card-grande" style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px; flex: 1; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
                             <div style="width: 50px; height: 50px; background-color: rgba(255,255,255,0.15); border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                                 <img src="{{ '/assets/img/eunice-goncalves.jpg' | relative_url }}" alt="Eunice Gonçalves" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
@@ -48,16 +48,16 @@ main_class: main-content
 
                     <!-- Linha do Meio: Secretário e Tesoureiro -->
                     <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 15px;">
-                        <div style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px; flex: 1; min-width: 250px; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
+                        <div class="orgchart-card-grande" style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px; flex: 1; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
                             <div style="width: 50px; height: 50px; background-color: rgba(255,255,255,0.15); border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <img src="{{ '/assets/img/carolina-mascaranhas.jpg' | relative_url }}" alt="Carolina Mascaranhas" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="{{ '/assets/img/carolina-mascarenhas.jpg' | relative_url }}" alt="Carolina Mascarenhas" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <div style="text-align: left;">
                                 <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #cfe0f5; margin-bottom: 3px;">Secretário</div>
-                                <div style="font-size: 1rem; font-weight: bold;">Carolina Mascaranhas</div>
+                                <div style="font-size: 1rem; font-weight: bold;">Carolina Mascarenhas</div>
                             </div>
                         </div>
-                        <div style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px; flex: 1; min-width: 250px; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
+                        <div class="orgchart-card-grande" style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px; flex: 1; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
                             <div style="width: 50px; height: 50px; background-color: rgba(255,255,255,0.15); border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                                 <img src="{{ '/assets/img/ricardo-isaias.jpg' | relative_url }}" alt="Ricardo Isaías" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
@@ -69,7 +69,7 @@ main_class: main-content
                     </div>
 
                     <!-- Base: Chefias de Unidade Lado a Lado -->
-                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+                    <div class="orgchart-secoes-grid">
                         <div style="background: rgba(255, 193, 7, 0.15); padding: 12px 5px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 5px solid #FFC107; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
                             <img src="{{ '/assets/img/1_lobitos.png' | relative_url }}" alt="Ícone Lobitos" style="height: 25px; margin-bottom: 8px; object-fit: contain;">
                             <div style="width: 40px; height: 40px; background-color: white; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; flex-shrink: 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
@@ -83,11 +83,11 @@ main_class: main-content
                         <div style="background: rgba(40, 167, 69, 0.15); padding: 12px 5px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 5px solid #28a745; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
                             <img src="{{ '/assets/img/2_mocos.png' | relative_url }}" alt="Ícone Moços" style="height: 25px; margin-bottom: 8px; object-fit: contain;">
                             <div style="width: 40px; height: 40px; background-color: white; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; flex-shrink: 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                                <img src="{{ '/assets/img/carolina-mascaranhas.jpg' | relative_url }}" alt="Carolina Mascaranhas" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="{{ '/assets/img/carolina-mascarenhas.jpg' | relative_url }}" alt="Carolina Mascarenhas" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <div>
                                 <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; color: #666; margin-bottom: 4px; line-height: 1.2;">Flotilha<br>(Moços)</div>
-                                <div style="font-size: 0.85rem; font-weight: bold; color: var(--azul-marinho); line-height: 1.2;">Carolina<br>Mascaranhas</div>
+                                <div style="font-size: 0.85rem; font-weight: bold; color: var(--azul-marinho); line-height: 1.2;">Carolina<br>Mascarenhas</div>
                             </div>
                         </div>
                         <div style="background: rgba(0, 86, 179, 0.1); padding: 12px 5px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 5px solid var(--azul-claro); box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
@@ -183,11 +183,11 @@ main_class: main-content
                             <!-- Chefe de Unidade -->
                             <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
                                 <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/carolina-mascaranhas.jpg' | relative_url }}" alt="Carolina Mascaranhas" style="width: 100%; height: 100%; object-fit: cover;">
+                                    <img src="{{ '/assets/img/carolina-mascarenhas.jpg' | relative_url }}" alt="Carolina Mascarenhas" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Chefe de Unidade</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Carolina Mascaranhas</div>
+                                    <div style="font-weight: bold; color: var(--azul-marinho);">Carolina Mascarenhas</div>
                                 </div>
                             </div>
                             <!-- Candidatos a Dirigente -->
@@ -241,11 +241,11 @@ main_class: main-content
                             </div>
                             <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
                                 <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/simao.jpg' | relative_url }}" alt="Simão" style="width: 100%; height: 100%; object-fit: cover;">
+                                    <img src="{{ '/assets/img/simao.jpg' | relative_url }}" alt="Simão Pereira" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Candidato a Dirigente</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Simão</div>
+                                    <div style="font-weight: bold; color: var(--azul-marinho);">Simão Pereira</div>
                                 </div>
                             </div>
                         </div>

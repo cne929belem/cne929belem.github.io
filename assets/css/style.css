@@ -926,3 +926,25 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     .quick-links-grid .info-block span { font-size: 0.7rem !important; }
 }
 
+/* Grelha das 4 Secções no organigrama (equipa.md, linha "Base" da Direção).
+   4 colunas em ecrãs largos; em telemóvel, 4 colunas ficavam demasiado
+   estreitas (o conteúdo saía da janela) — passa a 2x2. */
+.orgchart-secoes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+@media (max-width: 480px) {
+    .orgchart-secoes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}
+
+/* Cartões grandes do topo do organigrama (Assistente, Chefe de Agrupamento,
+   Secretário, Tesoureiro). O min-width de 250px é bom em desktop, mas por
+   si só já não cabe em telemóveis muito estreitos — reduz-se aí. */
+.orgchart-card-grande { min-width: 250px; }
+@media (max-width: 360px) {
+    .orgchart-card-grande { min-width: 0; width: 100%; }
+}

@@ -35,8 +35,7 @@ main_class: main-content
                 <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.95rem; line-height: 2;">
                     <li>📩 <strong>Comunicações genéricas:</strong> <a href="mailto:geral.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">geral.929@escutismo.pt</a></li>
                     <li>⚜️ <strong>Chefe do Agrupamento:</strong> <a href="mailto:ca.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">ca.929@escutismo.pt</a></li>
-                    <li>📊 <strong>Secretaria:</strong> <a href="mailto:Secretaria929.grupo@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">Secretaria929.grupo@escutismo.pt</a></li>
-                    <li>💰 <strong>Tesouraria:</strong> <a href="mailto:gestao.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">gestao.929@escutismo.pt</a></li>
+                    <li>📊 <strong>Secretaria e Tesouraria:</strong> <a href="mailto:secretaria929.grupo@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">secretaria929.grupo@escutismo.pt</a></li>
                     <li>⛺ <strong>Paiol do Agrupamento:</strong> <a href="mailto:paiol.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">paiol.929@escutismo.pt</a></li>
                     <li style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ddd;">🐺 <strong>I - Lobitos:</strong> <a href="mailto:lobitos.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">lobitos.929@escutismo.pt</a></li>
                     <li>⛵ <strong>II - Moços:</strong> <a href="mailto:mocos.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">mocos.929@escutismo.pt</a></li>
@@ -77,17 +76,16 @@ main_class: main-content
                     <strong>IBAN:</strong> PT50 0010 0000 2155 4030 0015 1
                 </p>
                 <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 25px;">
-                    Enviar comprovativo da transferência para a Tesouraria (<a href="mailto:gestao.929@escutismo.pt" style="color: var(--azul-claro);">gestao.929@escutismo.pt</a>) com o <strong>nome do elemento</strong> e a <strong>descrição</strong> a que diz respeito o pagamento.
+                    Enviar comprovativo da transferência para a Tesouraria (<a href="mailto:secretaria929.grupo@escutismo.pt" style="color: var(--azul-claro);">secretaria929.grupo@escutismo.pt</a>) com o <strong>nome do elemento</strong> e a <strong>descrição</strong> a que diz respeito o pagamento.
                 </p>
 
                 <div style="background: #fff3cd; color: #664d03; padding: 15px; border-radius: 6px; text-align: center; border: 1px solid #ffe69c;">
                     <strong>⚠️ Ninguém deixará de participar nas atividades por questões financeiras!</strong>
                 </div>
+                <p style="text-align: right; font-size: 0.7rem; color: #888; margin-top: 15px; font-style: italic;">
+                    Última atualização em 13/08/2026
+                </p>
             </div>
         </div>
-
-        <p style="text-align: right; font-size: 0.7rem; color: #888; margin-top: 15px; font-style: italic;">
-            Última atualização em 13/08/2026
-        </p>
     </section>
 </div>
