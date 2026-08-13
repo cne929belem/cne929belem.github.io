@@ -31,21 +31,18 @@ main_class: main-content
 
         <!-- UNIFORME E INSÍGNIAS -->
         <div style="margin-top: 40px;">
-            <h3 style="color: #CE1126; border-bottom: 2px solid #eee; padding-bottom: 8px;">👕 O nosso Uniforme e Insígnias</h3>
+            <h3 class="section-title vermelho">👕 O nosso Uniforme e Insígnias</h3>
             <p style="font-size: 0.95rem; line-height: 1.6;">Clica nos cartões abaixo para consultares os documentos oficiais detalhados em formato PDF.</p>
-            
-            <div style="display: flex; gap: 20px; margin-top: 20px; flex-wrap: wrap;">
-                <!-- Link para o Uniforme -->
-                <a href="{{ '/assets/docs/uniforme-maritimo_v2024-4.pdf' | relative_url }}" target="_blank" style="flex: 1; min-width: 250px; background: #fff; padding: 25px 15px; border: 1px solid #eee; border-radius: 8px; text-align: center; text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-                    <span style="font-size: 3rem; display: block; margin-bottom: 10px;">👔</span>
-                    <h4 style="margin: 0; color: var(--azul-marinho);">Uniforme Marítimo</h4>
+
+            <div class="quick-links-grid" style="margin-top: 20px;">
+                <a href="{{ '/assets/docs/uniforme-maritimo_v2024-4.pdf' | relative_url }}" target="_blank" class="quick-link-card">
+                    <span class="quick-link-icon">👔</span>
+                    <h3>Uniforme Marítimo</h3>
                     <span style="font-size: 0.75rem; color: #888; margin-top: 5px; display: block;">Abrir PDF 📄</span>
                 </a>
-                
-                <!-- Link para a Insígnia -->
-                <a href="{{ '/assets/docs/insignia_maritimo-1.pdf' | relative_url }}" target="_blank" style="flex: 1; min-width: 250px; background: #fff; padding: 25px 15px; border: 1px solid #eee; border-radius: 8px; text-align: center; text-decoration: none; display: block; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-                    <span style="font-size: 3rem; display: block; margin-bottom: 10px;">⚓</span>
-                    <h4 style="margin: 0; color: var(--azul-marinho);">Insígnia Marítima</h4>
+                <a href="{{ '/assets/docs/insignia_maritimo-1.pdf' | relative_url }}" target="_blank" class="quick-link-card">
+                    <span class="quick-link-icon">⚓</span>
+                    <h3>Insígnia Marítima</h3>
                     <span style="font-size: 0.75rem; color: #888; margin-top: 5px; display: block;">Abrir PDF 📄</span>
                 </a>
             </div>

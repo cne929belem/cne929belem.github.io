@@ -12,10 +12,10 @@ main_class: main-content
 
         <!-- SECÇÃO: QUEM SOMOS -->
         <div style="text-align: left; margin-top: 40px;">
-            <h2 style="color: var(--azul-marinho); border-bottom: 2px solid #eee; padding-bottom: 8px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+            <h2 class="section-title">
                 <span>⚜️</span> O Agrupamento 929 - Belém
             </h2>
-            <div style="background: var(--cinza-fundo); padding: 25px; border-radius: 8px; border-left: 5px solid var(--azul-marinho);">
+            <div class="info-block">
                 <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">O <strong>Agrupamento Marítimo 929 - Belém</strong> é um dos muitos agrupamentos escutistas que incorporam o Corpo Nacional de Escutas (CNE) – Escutismo Católico Português. É uma associação de juventude sem fins lucrativos, não-política e não-governamental, destinada à formação integral de jovens, com base no método criado por Baden-Powell e no voluntariado dos seus membros.</p>
                 
                 <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">O CNE é um movimento da Igreja Católica. A animação da fé, característica do escutismo do CNE, é feita naturalmente através do jogo escutista, vivido à luz de Jesus Cristo e do Evangelho. Propomo-nos a contribuir para a educação dos jovens, partindo de um sistema de valores enunciados na Lei e na Promessa escutistas, ajudando a construir um mundo melhor em que as pessoas desempenhem um papel construtivo na sociedade.</p>
@@ -28,17 +28,18 @@ main_class: main-content
 
         <!-- SECÇÃO: CONTACTOS -->
         <div style="text-align: left; margin-top: 40px;">
-            <h2 style="color: var(--azul-marinho); border-bottom: 2px solid #eee; padding-bottom: 8px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+            <h2 class="section-title">
                 <span>📧</span> Contactos
             </h2>
-            <div style="background: var(--cinza-fundo); padding: 25px; border-radius: 8px; border-left: 5px solid var(--azul-claro);">
+            <div class="info-block azul-claro">
                 <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.95rem; line-height: 2;">
                     <li>📩 <strong>Comunicações genéricas:</strong> <a href="mailto:geral.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">geral.929@escutismo.pt</a></li>
                     <li>⚜️ <strong>Chefe do Agrupamento:</strong> <a href="mailto:ca.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">ca.929@escutismo.pt</a></li>
-                    <li>📊 <strong>Secretaria/Tesouraria:</strong> <a href="mailto:gestao.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">gestao.929@escutismo.pt</a></li>
+                    <li>📊 <strong>Secretaria:</strong> <a href="mailto:Secretaria929.grupo@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">Secretaria929.grupo@escutismo.pt</a></li>
+                    <li>💰 <strong>Tesouraria:</strong> <a href="mailto:gestao.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">gestao.929@escutismo.pt</a></li>
                     <li>⛺ <strong>Paiol do Agrupamento:</strong> <a href="mailto:paiol.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">paiol.929@escutismo.pt</a></li>
                     <li style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ddd;">🐺 <strong>I - Lobitos:</strong> <a href="mailto:lobitos.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">lobitos.929@escutismo.pt</a></li>
-                    <li>⛵ <strong>II - Moços:</strong> <a href="mailto:expedicao.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">expedicao.929@escutismo.pt</a></li>
+                    <li>⛵ <strong>II - Moços:</strong> <a href="mailto:mocos.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">mocos.929@escutismo.pt</a></li>
                     <li>⚓ <strong>III - Marinheiros:</strong> <a href="mailto:marinheiros.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">marinheiros.929@escutismo.pt</a></li>
                     <li>🧭 <strong>IV - Companheiros:</strong> <a href="mailto:companheiros.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">companheiros.929@escutismo.pt</a></li>
                 </ul>
@@ -47,10 +48,10 @@ main_class: main-content
 
         <!-- SECÇÃO: QUOTAS E PAGAMENTOS -->
         <div style="text-align: left; margin-top: 40px;">
-            <h2 style="color: var(--azul-marinho); border-bottom: 2px solid #eee; padding-bottom: 8px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+            <h2 class="section-title">
                 <span>💶</span> Quota Anual e Pagamentos
             </h2>
-            <div style="background: var(--cinza-fundo); padding: 25px; border-radius: 8px; border-left: 5px solid #28a745;">
+            <div class="info-block verde">
                 <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">Os novos elementos devem pagar a quota com o preenchimento da ficha de inscrição. Antes da entrega da ficha de inscrição e pagamento da quota, os novos elementos não podem participar em atividades extraordinárias.</p>
                 
                 <h4 style="color: var(--azul-marinho); margin-bottom: 10px;">Valores da quota anual (por agregado familiar)</h4>
