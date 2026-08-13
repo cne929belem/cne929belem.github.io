@@ -1,0 +1,13 @@
+{% comment %}
+  Renderiza um cartão de notícia. Espera "noticia" (um item de
+  site.noticias). Se tiver "link_externo" preenchido, liga diretamente
+  para lá; caso contrário, liga para a página própria da notícia.
+  Uso: {% include noticia-card.html noticia=alguma_noticia %}
+{% endcomment %}
+{% assign noticia = include.noticia %}
+{% assign destino = noticia.link_externo | default: noticia.url | relative_url %}
+<a href="{{ destino }}" class="noticia-card">
+    <div class="noticia-data">{{ noticia.date | date: "%d de %B de %Y" }}</div>
+    <h3>{{ noticia.title }}</h3>
+    <p>{{ noticia.resumo }}</p>
+</a>

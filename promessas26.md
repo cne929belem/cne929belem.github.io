@@ -8,7 +8,7 @@ main_class: main-content
     <section class="card" style="max-width: 800px; width: 100%;">
         <span style="font-size: 3rem; display: block; margin-bottom: 10px;">⚜️📸</span>
         <h1>Fotografias das Promessas</h1>
-        <p>Recordar é viver! Aqui podes encontrar os registos fotográficos dos momentos mais marcantes das nossas Promessas.</p>
+        <p>Recordar é viver! Aqui podes encontrar os registos fotográficos das nossas Promessas.</p>
 
         <!-- Imagem de Destaque -->
         <img src="{{ '/assets/img/DSC_6301.jpg' | relative_url }}" alt="Fotografia das Promessas" style="width: 100%; height: auto; border-radius: 8px; margin: 25px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
