@@ -3,6 +3,16 @@ layout: default
 title: Geral - Jamboree 2027 | CNE 929 - Belém
 main_class: main-content-jamboree
 ---
+<!--
+  JAMBOREE — PÁGINA GERAL. Ponto de partida da secção Jamboree: datas,
+  local, contador, e os dois botões que levam às outras páginas
+  (Informações/Newsletter) mais o botão de destaque para o Portal de
+  Respostas (jamboree-inscricao.html).
+
+  O Portal de Respostas está deliberadamente FORA do menu principal do
+  site — só é acessível a partir deste botão, para não aparecer a
+  qualquer visitante ocasional do site.
+-->
 <div class="jamboree-wrapper">
     <aside class="jamboree-band">
         <img src="./assets/img/RGB_logo_white_WSJ2027.png" alt="Logo Jamboree 2027">
@@ -63,14 +73,24 @@ main_class: main-content-jamboree
     </section>
 </div>
 
+<!--
+  ÚNICO JAVASCRIPT DESTA PÁGINA — E UM DOS POUCOS DE TODO O SITE.
+  Contador de dias/horas/minutos até ao início do Jamboree (30 julho 2027).
+  Isto é uma exceção deliberada à filosofia "sem JavaScript" do resto do
+  site: uma contagem que se atualiza sozinha, em tempo real, não tem
+  forma de se fazer só com HTML/CSS. Ver assets/css/style.css (comentário
+  de topo) para a lista completa das exceções.
+-->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Momento-alvo: início oficial do Jamboree (fuso horário da Polónia, UTC+2 em julho)
         const dataJamboree = new Date("2027-07-30T00:00:00+02:00").getTime();
-        
+
         function atualizaRelogio() {
             const agora = new Date().getTime();
             const distancia = dataJamboree - agora;
-            
+
+            // Se já passou a data, troca o contador por uma mensagem fixa
             if (distancia < 0) {
                 document.getElementById("relogio").innerHTML = "<h2 style='color: #CE1126;'>O Jamboree já começou!</h2>";
                 return;
@@ -79,14 +99,17 @@ main_class: main-content-jamboree
             const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
             const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-            
+
             document.getElementById("dias").innerText = dias.toString().padStart(2, '0');
             document.getElementById("horas").innerText = horas.toString().padStart(2, '0');
             document.getElementById("minutos").innerText = minutos.toString().padStart(2, '0');
         }
 
-        atualizaRelogio(); 
-        
+        atualizaRelogio();
+
+        // Sincroniza as atualizações seguintes com o início de cada minuto
+        // real (em vez de um intervalo fixo a partir do momento em que a
+        // página carregou), para os minutos não "saltarem" de forma visível.
         const msAteProximoMinuto = 60000 - (new Date().getSeconds() * 1000 + new Date().getMilliseconds());
         setTimeout(function() {
             atualizaRelogio();

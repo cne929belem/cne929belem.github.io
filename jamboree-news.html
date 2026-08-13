@@ -3,6 +3,18 @@ layout: default
 title: Newsletter - Jamboree 2027 | CNE 929 - Belém
 main_class: main-content-jamboree
 ---
+<!--
+  JAMBOREE — NEWSLETTER. Lista os boletins oficiais para download, em
+  duas secções: os do Contingente Português (nacionais) e os
+  internacionais da organização do WSJ.
+
+  Ao contrário de documentos.md, esta lista NÃO vem de uma coleção — os
+  boletins do Jamboree são só uma dúzia, publicados de vez em quando ao
+  longo de vários anos, por isso não se justifica a complexidade de uma
+  coleção. Para acrescentar um boletim novo, copia um bloco <a> existente
+  (usa a classe .doc-link, definida em assets/css/style.css) e ajusta o
+  título, a descrição e o caminho do PDF em assets/docs/.
+-->
 <div class="jamboree-wrapper">
     <aside class="jamboree-band">
         <img src="./assets/img/RGB_logo_white_WSJ2027.png" alt="Logo Jamboree 2027">
@@ -12,73 +24,65 @@ main_class: main-content-jamboree
     <section class="card-jamboree">
         <h1>Newsletters do Jamboree</h1>
         <p>Acompanha as informações oficiais e as informações do nosso contingente para o 26º World Scout Jamboree.</p>
-        
+
         <div style="margin-top: 40px; text-align: left;">
-            <h2 style="color: var(--azul-marinho); border-bottom: 2px solid #eee; padding-bottom: 8px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                <span>🇵🇹</span> Boletins do Contingente (Nacionais)
-            </h2>
-            <div style="display: flex; flex-direction: column; gap: 12px;">
-                <a href="./assets/docs/Proposta%20Educativa_Geral.pdf" target="_blank" style="display: flex; justify-content: space-between; align-items: center; padding: 18px; background: var(--cinza-fundo); border-radius: 8px; text-decoration: none; color: var(--texto); border-left: 5px solid #28a745; transition: background 0.3s;">
-                    <div>
-                        <h3 style="margin: 0; font-size: 1.1rem; color: var(--azul-marinho);">Proposta Educativa: A Viagem do Vaz</h3>
-                        <small style="color: #666;">Dinâmica, cronograma e estrutura das tropas do Contingente Português</small>
-                    </div>
-                    <span style="font-size: 1.4rem;" title="Descarregar PDF">📥</span>
-                </a>
-                <a href="./assets/docs/pt_Boletim2_WSJ%202027.pdf" target="_blank" style="display: flex; justify-content: space-between; align-items: center; padding: 18px; background: var(--cinza-fundo); border-radius: 8px; text-decoration: none; color: var(--texto); border-left: 5px solid #28a745; transition: background 0.3s;">
-                    <div>
-                        <h3 style="margin: 0; font-size: 1.1rem; color: var(--azul-marinho);">Boletim Nacional #2 - Vida em Campo</h3>
-                        <small style="color: #666;">Data de publicação: Abril 2026</small>
-                    </div>
-                    <span style="font-size: 1.4rem;" title="Descarregar PDF">📥</span>
-                </a>
-                <a href="./assets/docs/pt_WSJBoletim%201.pdf" target="_blank" style="display: flex; justify-content: space-between; align-items: center; padding: 18px; background: var(--cinza-fundo); border-radius: 8px; text-decoration: none; color: var(--texto); border-left: 5px solid #28a745; transition: background 0.3s;">
-                    <div>
-                        <h3 style="margin: 0; font-size: 1.1rem; color: var(--azul-marinho);">Boletim Nacional #1 - Arranque</h3>
-                        <small style="color: #666;">Informações do Contingente Português</small>
-                    </div>
-                    <span style="font-size: 1.4rem;" title="Descarregar PDF">📥</span>
-                </a>
-            </div>
+            <h2 class="section-title"><span>🇵🇹</span> Boletins do Contingente (Nacionais)</h2>
+            <a href="./assets/docs/Proposta%20Educativa_Geral.pdf" target="_blank" class="doc-link verde">
+                <div>
+                    <h3>Proposta Educativa: A Viagem do Vaz</h3>
+                    <small>Dinâmica, cronograma e estrutura das tropas do Contingente Português</small>
+                </div>
+                <span class="doc-icon" title="Descarregar PDF">📥</span>
+            </a>
+            <a href="./assets/docs/pt_Boletim2_WSJ%202027.pdf" target="_blank" class="doc-link verde">
+                <div>
+                    <h3>Boletim Nacional #2 - Vida em Campo</h3>
+                    <small>Data de publicação: Abril 2026</small>
+                </div>
+                <span class="doc-icon" title="Descarregar PDF">📥</span>
+            </a>
+            <a href="./assets/docs/pt_WSJBoletim%201.pdf" target="_blank" class="doc-link verde">
+                <div>
+                    <h3>Boletim Nacional #1 - Arranque</h3>
+                    <small>Informações do Contingente Português</small>
+                </div>
+                <span class="doc-icon" title="Descarregar PDF">📥</span>
+            </a>
             <div style="margin-top: 15px; padding: 12px 18px; background: #fff3cd; border-left: 5px solid #ffc107; border-radius: 6px; font-size: 0.9rem; color: #664d03;">
                 🔄 O <strong>Boletim Nacional #3</strong>, com a tradução e adaptação do Bulletin Internacional #3, será publicado aqui assim que disponibilizado pela Coordenação do Contingente.
             </div>
         </div>
 
         <div style="margin-top: 40px; text-align: left;">
-            <h2 style="color: var(--azul-marinho); border-bottom: 2px solid #eee; padding-bottom: 8px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                <span>🌍</span> Boletins Oficiais (Internacionais)
-            </h2>
-            <div style="display: flex; flex-direction: column; gap: 12px;">
-                <a href="./assets/docs/EN%20Bulletin_3.pdf" target="_blank" style="display: flex; justify-content: space-between; align-items: center; padding: 18px; background: var(--cinza-fundo); border-radius: 8px; text-decoration: none; color: var(--texto); border-left: 5px solid #CE1126; transition: background 0.3s;">
-                    <div>
-                        <h3 style="margin: 0; font-size: 1.1rem; color: var(--azul-marinho);">Bulletin #3 - Official Updates (EN)</h3>
-                        <small style="color: #666;">Data de publicação: Dezembro 2025</small>
-                    </div>
-                    <span style="font-size: 1.4rem;" title="Descarregar PDF">📥</span>
-                </a>
-                <a href="./assets/docs/WSJ2027EN%20Bulletin2.pdf" target="_blank" style="display: flex; justify-content: space-between; align-items: center; padding: 18px; background: var(--cinza-fundo); border-radius: 8px; text-decoration: none; color: var(--texto); border-left: 5px solid #CE1126; transition: background 0.3s;">
-                    <div>
-                        <h3 style="margin: 0; font-size: 1.1rem; color: var(--azul-marinho);">Bulletin #2 - Progress & Prep (EN)</h3>
-                        <small style="color: #666;">Data de publicação: Agosto 2024</small>
-                    </div>
-                    <span style="font-size: 1.4rem;" title="Descarregar PDF">📥</span>
-                </a>
-                <a href="./assets/docs/Bulletin%201%20EN%20WSJ2027.pdf" target="_blank" style="display: flex; justify-content: space-between; align-items: center; padding: 18px; background: var(--cinza-fundo); border-radius: 8px; text-decoration: none; color: var(--texto); border-left: 5px solid #CE1126; transition: background 0.3s;">
-                    <div>
-                        <h3 style="margin: 0; font-size: 1.1rem; color: var(--azul-marinho);">Bulletin #1 - Presentation (EN)</h3>
-                        <small style="color: #666;">Data de publicação: Agosto 2023</small>
-                    </div>
-                    <span style="font-size: 1.4rem;" title="Descarregar PDF">📥</span>
-                </a>
-            </div>
+            <h2 class="section-title"><span>🌍</span> Boletins Oficiais (Internacionais)</h2>
+            <a href="./assets/docs/EN%20Bulletin_3.pdf" target="_blank" class="doc-link vermelho">
+                <div>
+                    <h3>Bulletin #3 - Official Updates (EN)</h3>
+                    <small>Data de publicação: Dezembro 2025</small>
+                </div>
+                <span class="doc-icon" title="Descarregar PDF">📥</span>
+            </a>
+            <a href="./assets/docs/WSJ2027EN%20Bulletin2.pdf" target="_blank" class="doc-link vermelho">
+                <div>
+                    <h3>Bulletin #2 - Progress &amp; Prep (EN)</h3>
+                    <small>Data de publicação: Agosto 2024</small>
+                </div>
+                <span class="doc-icon" title="Descarregar PDF">📥</span>
+            </a>
+            <a href="./assets/docs/Bulletin%201%20EN%20WSJ2027.pdf" target="_blank" class="doc-link vermelho">
+                <div>
+                    <h3>Bulletin #1 - Presentation (EN)</h3>
+                    <small>Data de publicação: Agosto 2023</small>
+                </div>
+                <span class="doc-icon" title="Descarregar PDF">📥</span>
+            </a>
         </div>
 
         <p style="text-align: center; color: #888; font-size: 0.85rem; font-style: italic; margin-top: 30px;">
             Novos documentos serão publicados aqui assim que forem disponibilizados.
         </p>
         <p style="text-align: right; font-size: 0.7rem; color: #888; margin-top: 30px; font-style: italic;">
-            Última atualização em 12/08/2026
+            Última atualização em 13/08/2026
         </p>
     </section>
 </div>

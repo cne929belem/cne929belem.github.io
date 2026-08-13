@@ -24,20 +24,20 @@ main_class: main-content
             <h3 style="color: var(--azul-marinho); margin-bottom: 12px;">🚢 As Quatro Caravelas</h3>
             <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Durante a expedição, todo o Agrupamento deixou de estar organizado por secção e passou a integrar uma tripulação vertical — Lobitos, Moços, Marinheiros e Companheiros lado a lado — inspirada em figuras d'Os Lusíadas.</p>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px;">
-                <div style="background: var(--cinza-fundo); padding: 15px; border-radius: 8px; border-left: 5px solid #CE1126;">
+            <div class="quick-links-grid">
+                <div class="info-block vermelho" style="margin: 0;">
                     <strong>🔴 Adamastor</strong><br>
                     <span style="font-size: 0.85rem; color: #555;">O Gigante das Tempestades — Coragem e Superação</span>
                 </div>
-                <div style="background: var(--cinza-fundo); padding: 15px; border-radius: 8px; border-left: 5px solid #ffc107;">
+                <div class="info-block amarelo" style="margin: 0;">
                     <strong>🟡 Nereu</strong><br>
                     <span style="font-size: 0.85rem; color: #555;">O Velho do Mar — Sabedoria e Conhecimento</span>
                 </div>
-                <div style="background: var(--cinza-fundo); padding: 15px; border-radius: 8px; border-left: 5px solid #28a745;">
+                <div class="info-block verde" style="margin: 0;">
                     <strong>🟢 Tétis</strong><br>
                     <span style="font-size: 0.85rem; color: #555;">A Protetora dos Navegadores — Proteção e Harmonia</span>
                 </div>
-                <div style="background: var(--cinza-fundo); padding: 15px; border-radius: 8px; border-left: 5px solid var(--azul-claro);">
+                <div class="info-block azul-claro" style="margin: 0;">
                     <strong>🔵 Ulisses</strong><br>
                     <span style="font-size: 0.85rem; color: #555;">O Herói do Engenho — Estratégia e Criatividade</span>
                 </div>
@@ -48,5 +48,8 @@ main_class: main-content
             <h3 style="color: var(--azul-marinho); margin-bottom: 10px;">🧭 A Expedição</h3>
             <p style="font-size: 0.95rem; line-height: 1.6;">Ao longo da semana, cada Caravela viveu diferentes momentos da expedição: <strong>o Desembarque</strong>, <strong>a Exploração da Ilha</strong>, <strong>as Águas do Tejo</strong>, <strong>a Vila dos Mercadores</strong> e <strong>a Noite das Estrelas</strong> — até que todas se reencontraram para <strong>a Revelação</strong>, junto ao fogo de conselho.</p>
         </div>
+        <p style="text-align: right; font-size: 0.7rem; color: #888; margin-top: 30px; font-style: italic;">
+            Última atualização em 12/08/2026
+        </p>
     </section>
 </div>
