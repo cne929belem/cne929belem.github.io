@@ -1,6 +1,9 @@
 ---
 title: "Já está disponível o álbum de fotos das Promessas 2026"
 date: 2026-06-20
+prioridade: 0
+autor: "Madalena Catita"
+funcao: "Candidata a Dirigente"
 resumo: "Revive os momentos em que os nossos elementos deram o seu \"Sim\" ao Escutismo."
 link_externo: /atividades/promessas26.html
 imagem: /assets/img/atividades/26promessas.jpg

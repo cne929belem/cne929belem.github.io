@@ -4,8 +4,10 @@ title: 929 - Belém | Corpo Nacional de Escutas
 main_class: pagina-com-hero
 ---
 {% assign noticias_recentes = site.noticias | sort: "date" | reverse | limit: 5 %}
-{% assign noticia_destaque = noticias_recentes | first %}
-{% assign noticias_lista = noticias_recentes | slice: 1, 4 %}
+{% assign noticia_destaque = noticias_recentes | where: "prioridade", 1 | first %}
+{% unless noticia_destaque %}{% assign noticia_destaque = noticias_recentes | first %}{% endunless %}
+{% assign meses = "janeiro,fevereiro,março,abril,maio,junho,julho,agosto,setembro,outubro,novembro,dezembro" | split: "," %}
+{% assign meses = "janeiro,fevereiro,março,abril,maio,junho,julho,agosto,setembro,outubro,novembro,dezembro" | split: "," %}
 
 <h1 class="visualmente-oculto">929 - Belém, Corpo Nacional de Escutas</h1>
 
@@ -34,14 +36,16 @@ main_class: pagina-com-hero
         <div class="foto-destaque placeholder-foto-feed"></div>
       {% endif %}
       <h2>{{ noticia_destaque.title }}</h2>
-      <p class="assinatura">{{ noticia_destaque.date | date: "%-d de %B de %Y" }}{% if noticia_destaque.autor %} · {{ noticia_destaque.autor }}{% endif %}</p>
+      {% assign mes_destaque = noticia_destaque.date | date: "%-m" | minus: 1 %}
+      <p class="assinatura">{{ noticia_destaque.date | date: "%-d" }} de {{ meses[mes_destaque] }} de {{ noticia_destaque.date | date: "%Y" }} · {{ noticia_destaque.autor }} ({{ noticia_destaque.funcao }})</p>
       <p>{{ noticia_destaque.resumo }}</p>
     </a>
   </article>
   {% endif %}
 
   <div class="lista-noticias">
-    {% for noticia in noticias_lista %}
+    {% for noticia in noticias_recentes %}
+    {% unless noticia == noticia_destaque %}
     <a class="noticia-item" href="{{ noticia.link_externo | relative_url }}">
       {% if noticia.imagem %}
         <img class="foto-noticia" src="{{ noticia.imagem | relative_url }}" alt="">
@@ -50,9 +54,11 @@ main_class: pagina-com-hero
       {% endif %}
       <div>
         <h3>{{ noticia.title }}</h3>
-        <p class="assinatura">{{ noticia.date | date: "%-d de %B de %Y" }}{% if noticia.autor %} · {{ noticia.autor }}{% endif %}</p>
+        {% assign mes_noticia = noticia.date | date: "%-m" | minus: 1 %}
+        <p class="assinatura">{{ noticia.date | date: "%-d" }} de {{ meses[mes_noticia] }} de {{ noticia.date | date: "%Y" }} · {{ noticia.autor }} ({{ noticia.funcao }})</p>
       </div>
     </a>
+    {% endunless %}
     {% endfor %}
   </div>
 </div>

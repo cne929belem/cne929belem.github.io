@@ -1,6 +1,9 @@
 ---
 title: "ACAGRUP 2026: reviva a aventura d'O Segredo da Ilha Perdida"
 date: 2026-08-05
+prioridade: 0
+autor: "Simão Pereira"
+funcao: "Candidato a Dirigente"
 resumo: "Quatro Caravelas, uma ilha isolada no Tejo, e um segredo escondido há séculos. Sabe tudo sobre o nosso Acampamento de Agrupamento."
 link_externo: /atividades/acagrup-2026.html
 imagem: /assets/img/atividades/26acagrup.jpg
