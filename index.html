@@ -10,6 +10,7 @@ main_class: main-content
   para a lista completa, e _noticias/ para como acrescentar uma).
 {% endcomment %}
 {% assign noticias_recentes = site.noticias | sort: "date" | reverse | slice: 0, 3 %}
+{% assign ultima_atividade = site.noticias | sort: "date" | reverse | first %}
 
 <div class="content-wrapper">
     <aside class="sidebar-desktop">
@@ -52,7 +53,7 @@ main_class: main-content
                 {% else %}
                     <p>Ainda não há notícias publicadas.</p>
                 {% endfor %}
-                <p style="text-align: right; margin-top: 5px;"><a href="{{ '/noticias.html' | relative_url }}" style="color: var(--azul-claro); text-decoration: none; font-weight: 700;">Ver todas as notícias →</a></p>
+                <p style="text-align: right; margin-top: 5px;"><a href="{{ '/agrupamento/noticias.html' | relative_url }}" style="color: var(--azul-claro); text-decoration: none; font-weight: 700;">Ver todas as notícias →</a></p>
             </div>
 
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
@@ -65,16 +66,18 @@ main_class: main-content
                 <div class="quick-links-grid">
                     <a href="{{ '/assets/docs/Proposta_de_Admissao_929.pdf' | relative_url }}" target="_blank" class="quick-link-card">
                         <span class="quick-link-icon">📝</span>
-                        <h3>Inscreve-te!</h3>
+                        <h3>Inscreve-te no Agrupamento</h3>
                     </a>
-                    <a href="{{ '/atividades/acagrup-2026.html' | relative_url }}" class="quick-link-card">
-                        <span class="quick-link-icon">🏕️🐎</span>
-                        <h3>ACAGRUP 2026</h3>
+                    <a href="{{ '/atividades/inscricoes.html' | relative_url }}" class="quick-link-card">
+                        <span class="quick-link-icon">📋</span>
+                        <h3>Regista-te numa Atividade</h3>
                     </a>
-                    <a href="{{ '/atividades/promessas26.html' | relative_url }}" class="quick-link-card">
-                        <span class="quick-link-icon">⚜️📸</span>
-                        <h3>Promessas 2026</h3>
+                    {% if ultima_atividade %}
+                    <a href="{{ ultima_atividade.link_externo | default: ultima_atividade.url | relative_url }}" class="quick-link-card">
+                        <span class="quick-link-icon">🏕️</span>
+                        <h3>Última Atividade</h3>
                     </a>
+                    {% endif %}
                     <a href="{{ 'agrupamento/documentos.html' | relative_url }}" class="quick-link-card">
                         <span class="quick-link-icon">📄</span>
                         <h3>Documentos</h3>

@@ -196,8 +196,9 @@ main_class: main-content
                             </div>
                         </div>
 
-                        <div style="text-align: center; margin-top: 20px;">
-                            <a href="{{ '/assets/docs/PostersFaceis_IV.pdf' | relative_url }}" target="_blank" class="btn" style="background-color: #28a745;">📥 Download: Guia de Objetivos Educativos</a>
+                        <div style="text-align: center; margin-top: 20px; display: flex; flex-wrap: nowrap; gap: 8px; justify-content: center;">
+                            <a href="{{ '/assets/docs/PostersFaceis_IV.pdf' | relative_url }}" target="_blank" class="btn" style="background-color: #28a745; flex: 1 1 0; min-width: 0; padding-left: 10px; padding-right: 10px; font-size: 0.85rem;">📥 Guia de Objetivos</a>
+                            <a href="{{ '/assets/docs/Ficha_Modelo_PPV.docx' | relative_url }}" target="_blank" class="btn" style="background-color: #6f42c1; flex: 1 1 0; min-width: 0; padding-left: 10px; padding-right: 10px; font-size: 0.85rem;">📄 Ficha Modelo do PPV</a>
                         </div>
                     </div>
                 </div>
