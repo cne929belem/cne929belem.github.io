@@ -28,7 +28,7 @@ main_class: main-content
 					<div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 15px;">
 						<div style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px; flex: 1; min-width: 250px; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
 							<div style="width: 50px; height: 50px; background-color: rgba(255,255,255,0.15); border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                            <img src="{{ '/assets/img/equipa/jose_ferreira.jpg' | relative_url }}" alt="Cón. José Manuel Ferreira" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="{{ '/assets/img/equipa/jose-ferreira_equipa.jpg' | relative_url }}" alt="Cón. José Manuel Ferreira" style="width: 100%; height: 100%; object-fit: cover;">
 							</div>
                             <div style="text-align: left;">
                                 <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #cfe0f5; margin-bottom: 3px;">Assistente</div>
@@ -37,7 +37,7 @@ main_class: main-content
                         </div>
                         <div class="orgchart-card-grande" style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px; flex: 1; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
                             <div style="width: 50px; height: 50px; background-color: rgba(255,255,255,0.15); border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <img src="{{ '/assets/img/equipa/eunice-goncalves.jpg' | relative_url }}" alt="Eunice Gonçalves" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="{{ '/assets/img/equipa/eunice-goncalves_equipa.jpg' | relative_url }}" alt="Eunice Gonçalves" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <div style="text-align: left;">
                                 <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #cfe0f5; margin-bottom: 3px;">Chefe de Agrupamento</div>
@@ -50,7 +50,7 @@ main_class: main-content
                     <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 15px;">
                         <div class="orgchart-card-grande" style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px; flex: 1; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
                             <div style="width: 50px; height: 50px; background-color: rgba(255,255,255,0.15); border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <img src="{{ '/assets/img/equipa/carolina-mascarenhas.jpg' | relative_url }}" alt="Carolina Mascarenhas" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="{{ '/assets/img/equipa/carolina-mascarenhas_equipa.jpg' | relative_url }}" alt="Carolina Mascarenhas" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <div style="text-align: left;">
                                 <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #cfe0f5; margin-bottom: 3px;">Secretário</div>
@@ -59,7 +59,7 @@ main_class: main-content
                         </div>
                         <div class="orgchart-card-grande" style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px; flex: 1; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
                             <div style="width: 50px; height: 50px; background-color: rgba(255,255,255,0.15); border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                <img src="{{ '/assets/img/equipa/ricardo-isaias.jpg' | relative_url }}" alt="Ricardo Isaías" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <div style="text-align: left;">
                                 <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #cfe0f5; margin-bottom: 3px;">Tesoureiro</div>
@@ -73,7 +73,7 @@ main_class: main-content
                         <div style="background: rgba(255, 193, 7, 0.15); padding: 12px 5px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 5px solid #FFC107; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
                             <img src="{{ '/assets/img/seccoes/1_lobitos.png' | relative_url }}" alt="Ícone Lobitos" style="height: 25px; margin-bottom: 8px; object-fit: contain;">
                             <div style="width: 40px; height: 40px; background-color: white; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; flex-shrink: 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                                <img src="{{ '/assets/img/equipa/paulo-duarte.jpg' | relative_url }}" alt="Paulo Duarte" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <div>
                                 <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; color: #666; margin-bottom: 4px; line-height: 1.2;">Alcateia<br>(Lobitos)</div>
@@ -83,7 +83,7 @@ main_class: main-content
                         <div style="background: rgba(40, 167, 69, 0.15); padding: 12px 5px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 5px solid #28a745; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
                             <img src="{{ '/assets/img/seccoes/2_mocos.png' | relative_url }}" alt="Ícone Moços" style="height: 25px; margin-bottom: 8px; object-fit: contain;">
                             <div style="width: 40px; height: 40px; background-color: white; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; flex-shrink: 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                                <img src="{{ '/assets/img/equipa/carolina-mascarenhas.jpg' | relative_url }}" alt="Carolina Mascarenhas" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="{{ '/assets/img/equipa/carolina-mascarenhas_equipa.jpg' | relative_url }}" alt="Carolina Mascarenhas" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <div>
                                 <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; color: #666; margin-bottom: 4px; line-height: 1.2;">Flotilha<br>(Moços)</div>
@@ -93,7 +93,7 @@ main_class: main-content
                         <div style="background: rgba(0, 86, 179, 0.1); padding: 12px 5px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 5px solid var(--azul-claro); box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
                             <img src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt="Ícone Marinheiros" style="height: 25px; margin-bottom: 8px; object-fit: contain;">
                             <div style="width: 40px; height: 40px; background-color: white; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; flex-shrink: 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                                <img src="{{ '/assets/img/equipa/paulo-duarte.jpg' | relative_url }}" alt="Paulo Duarte" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <div>
                                 <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; color: #666; margin-bottom: 4px; line-height: 1.2;">Frota<br>(Marinheiros)</div>
@@ -103,7 +103,7 @@ main_class: main-content
                         <div style="background: rgba(206, 17, 38, 0.1); padding: 12px 5px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
                             <img src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="Ícone Companheiros" style="height: 25px; margin-bottom: 8px; object-fit: contain;">
                             <div style="width: 40px; height: 40px; background-color: white; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; flex-shrink: 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                                <img src="{{ '/assets/img/equipa/ricardo-isaias.jpg' | relative_url }}" alt="Ricardo Isaías" style="width: 100%; height: 100%; object-fit: cover;">
+                                <img src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías" style="width: 100%; height: 100%; object-fit: cover;">
                             </div>
                             <div>
                                 <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; color: #666; margin-bottom: 4px; line-height: 1.2;">Comunidade<br>(Companheiros)</div>
@@ -153,7 +153,7 @@ main_class: main-content
                             <!-- Chefe de Unidade -->
                             <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
                                 <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/equipa/paulo-duarte.jpg' | relative_url }}" alt="Paulo Duarte" style="width: 100%; height: 100%; object-fit: cover;">
+                                    <img src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Chefe de Unidade</div>
@@ -163,7 +163,7 @@ main_class: main-content
                             <!-- Candidato a Dirigente -->
                             <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
                                 <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/equipa/madalena-catita.jpg' | relative_url }}" alt="Madalena Catita" style="width: 100%; height: 100%; object-fit: cover;">
+                                    <img src="{{ '/assets/img/equipa/madalena-catita_equipa.jpg' | relative_url }}" alt="Madalena Catita" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Candidato a Dirigente</div>
@@ -183,7 +183,7 @@ main_class: main-content
                             <!-- Chefe de Unidade -->
                             <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
                                 <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/equipa/carolina-mascarenhas.jpg' | relative_url }}" alt="Carolina Mascarenhas" style="width: 100%; height: 100%; object-fit: cover;">
+                                    <img src="{{ '/assets/img/equipa/carolina-mascarenhas_equipa.jpg' | relative_url }}" alt="Carolina Mascarenhas" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Chefe de Unidade</div>
@@ -202,7 +202,7 @@ main_class: main-content
                             </div>
                             <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
                                 <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/equipa/jose-batalha.jpg' | relative_url }}" alt="José Batalha" style="width: 100%; height: 100%; object-fit: cover;">
+                                    <img src="{{ '/assets/img/equipa/jose-batalha_equipa.jpg' | relative_url }}" alt="José Batalha" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Candidato a Dirigente</div>
@@ -222,7 +222,7 @@ main_class: main-content
                             <!-- Chefe de Unidade -->
                             <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
                                 <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/equipa/paulo-duarte.jpg' | relative_url }}" alt="Paulo Duarte" style="width: 100%; height: 100%; object-fit: cover;">
+                                    <img src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Chefe de Unidade</div>
@@ -241,7 +241,7 @@ main_class: main-content
                             </div>
                             <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
                                 <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/equipa/simao.jpg' | relative_url }}" alt="Simão Pereira" style="width: 100%; height: 100%; object-fit: cover;">
+                                    <img src="{{ '/assets/img/equipa/simao-pereira_equipa.jpg' | relative_url }}" alt="Simão Pereira" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Candidato a Dirigente</div>
@@ -261,7 +261,7 @@ main_class: main-content
                             <!-- Chefe de Unidade -->
                             <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
                                 <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/equipa/ricardo-isaias.jpg' | relative_url }}" alt="Ricardo Isaías" style="width: 100%; height: 100%; object-fit: cover;">
+                                    <img src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Chefe de Unidade</div>
@@ -271,7 +271,7 @@ main_class: main-content
                             <!-- Dirigente -->
                             <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
                                 <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/equipa/ruben-rodrigues.jpg' | relative_url }}" alt="Ruben Rodrigues" style="width: 100%; height: 100%; object-fit: cover;">
+                                    <img src="{{ '/assets/img/equipa/ruben-rodrigues_equipa.jpg' | relative_url }}" alt="Ruben Rodrigues" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Dirigente</div>
@@ -289,7 +289,7 @@ main_class: main-content
                         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                             <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
                                 <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                                    <img src="{{ '/assets/img/equipa/eunice-goncalves.jpg' | relative_url }}" alt="Eunice Gonçalves" style="width: 100%; height: 100%; object-fit: cover;">
+                                    <img src="{{ '/assets/img/equipa/eunice-goncalves_equipa.jpg' | relative_url }}" alt="Eunice Gonçalves" style="width: 100%; height: 100%; object-fit: cover;">
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Dirigente</div>
