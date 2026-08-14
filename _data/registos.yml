@@ -1,13 +1,11 @@
 elementos:
-  - telefone: "912345678"
-    email: "joao.escuteiro@exemplo.pt"
-    seccao: Companheiro
-    toten: Lobo Astuto
-    noites: 26
-    horas: 110
-  - telefone: "960000000"
-    email: "maria.companheira@exemplo.pt"
-    seccao: Moço
-    toten: Águia Veloz
-    noites: 101
-    horas: 201
+  - nin: "0000000000000"
+    nome: "Exemplo da Silva"
+    toten: "Exemplo"
+    data_admissao: "01/01/2020"
+    data_promessa: "01/06/2020"
+    sexo: M
+    categoria: "Exemplo de Categoria"
+    seccao: "Exemplo de Secção"
+    noites: 0
+    horas: 0
