@@ -22,7 +22,7 @@ main_class: main-content
                         </div>
                         <div>
                             <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Chefe de Unidade</div>
-                            <div style="font-weight: bold; color: var(--azul-marinho);">Ricardo Isaías</div>
+                            <div style="font-weight: bold; color: var(--azul-marinho);">Ricardo Isaías (Axolote)</div>
                         </div>
                     </div>
                     <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
@@ -31,7 +31,7 @@ main_class: main-content
                         </div>
                         <div>
                             <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Dirigente</div>
-                            <div style="font-weight: bold; color: var(--azul-marinho);">Ruben Rodrigues</div>
+                            <div style="font-weight: bold; color: var(--azul-marinho);">Ruben Rodrigues (Tubarão Empenhado)</div>
                         </div>
                     </div>
                 </div>
