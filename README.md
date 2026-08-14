@@ -34,7 +34,7 @@ As páginas estão organizadas em pastas que seguem **exatamente** a estrutura d
 │   └── noticias.html             # Lista TODAS as notícias (lê de _noticias/)
 │
 ├── comunidade/                   # Menu "Secções ▾ → IV - Comunidade"
-│   ├── geral.md                   # Equipa de Animação, ligação ao CNE, Uniforme, Registo de Noites/Horas
+│   ├── geral.md                   # Equipa de Animação, ligação ao CNE, Uniforme, Registo de Noites de Campo e Horas de Mar
 │   ├── vivencia.md                # Imaginário, O que é ser Companheiro, Dimensões, Simbologia, Progresso/PPV
 │   ├── programa.md                # (em construção)
 │   ├── atividades.md              # (em construção)
@@ -65,7 +65,7 @@ As páginas estão organizadas em pastas que seguem **exatamente** a estrutura d
 ├── _noticias/                     # Coleção — uma notícia por ficheiro
 ├── _documentos/                   # Coleção — um documento por ficheiro
 ├── _data/
-│   └── registos.yml               # Registo de Noites/Horas (editável pelo CMS) — ver aviso de privacidade abaixo
+│   └── registos.yml               # Registo de Noites de Campo e Horas de Mar (editável pelo CMS) — ver aviso de privacidade abaixo
 │
 ├── admin/
 │   ├── config.yml                 # Configuração do Decap CMS + DecapBridge
@@ -122,16 +122,17 @@ Pelo painel `/admin/` → "Notícias" → "Novo Notícias". Se preencheres **"Li
 
 Pelo painel `/admin/` → "Documentos" → "Novo Documentos". O campo **Ano** ("Geral" ou um ano concreto) decide onde aparece em `agrupamento/documentos.md` — a página organiza-se sozinha.
 
-## 🔐 Registo de Noites e Horas — aviso de privacidade
+## 🔐 Registo de Noites de Campo e Horas de Mar — aviso de privacidade
 
-`_data/registos.yml` já está editável pelo painel `/admin/` (mais arrumado do que estar escrito direto no código), mas **isto não resolve o problema de fundo**: o GitHub Pages só serve ficheiros estáticos, por isso este ficheiro fica sempre 100% público — qualquer pessoa que veja o código da página vê a lista toda, o número de telemóvel não é uma password, só um filtro visual. Não uses aqui dados reais de menores até isto ser substituído por uma solução com autenticação a sério (ver conversas anteriores sobre as opções A/B/C/D consideradas).
+`_data/registos.yml` já está editável pelo painel `/admin/` (mais arrumado do que estar escrito direto no código), mas **isto não resolve o problema de fundo**: o GitHub Pages só serve ficheiros estáticos, por isso este ficheiro fica sempre 100% público — qualquer pessoa que veja o código da página vê a lista toda, com telefone e email incluídos; a combinação dos dois filtra melhor do que só o telefone, mas continua a não ser uma password. Não uses aqui dados reais de menores até isto ser substituído por uma solução com autenticação a sério (ver conversas anteriores sobre as opções A/B/C/D consideradas).
 
 ---
 
 ## ⚜️ Créditos
 
 Construído em HTML5 e CSS3, com JavaScript reduzido ao mínimo indispensável.
-Criado por: Ricardo Isaías Serafim em colaboração com os Companheiros (2025-2026).
+Criado por: Ricardo Isaías Serafim.
+Colaboração de: Simão Pereira.
 Insígnia do Contingente Português ao WSJ 2027: João Oliveira.
 Imaginário "O Segredo da Ilha Perdida" (ACAGRUP 2026): Agrupamento 929 - Belém.
 

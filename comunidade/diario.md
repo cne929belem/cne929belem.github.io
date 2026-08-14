@@ -22,7 +22,7 @@ pasta_imagens: "1SuqsdzNBkOm3D762mdcsWlr2txQ-sj0z"
 
             <div style="width: 100%; overflow: hidden; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
                 <!-- O parâmetro #list força o Google Drive a mostrar em formato de lista (ideal para PDFs e Word) -->
-                <iframe src="https://drive.google.com/embeddedfolderview?id={{ page.pasta_documentos }}#list" width="100%" height="400" frameborder="0" style="display: block;"></iframe>
+                <iframe src="https://drive.google.com/embeddedfolderview?id={{ page.pasta_documentos }}#list" width="100%" height="400" frameborder="0" loading="lazy" style="display: block;"></iframe>
             </div>
         </div>
 
@@ -33,7 +33,7 @@ pasta_imagens: "1SuqsdzNBkOm3D762mdcsWlr2txQ-sj0z"
 
             <div style="width: 100%; overflow: hidden; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
                 <!-- O parâmetro #grid força o Google Drive a mostrar as miniaturas das fotos -->
-                <iframe src="https://drive.google.com/embeddedfolderview?id={{ page.pasta_imagens }}#grid" width="100%" height="600" frameborder="0" style="display: block;"></iframe>
+                <iframe src="https://drive.google.com/embeddedfolderview?id={{ page.pasta_imagens }}#grid" width="100%" height="600" frameborder="0" loading="lazy" style="display: block;"></iframe>
             </div>
         </div>
     </section>

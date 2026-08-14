@@ -145,7 +145,7 @@ main_class: main-content
                     
                     <!-- Linha 1: Alcateia (Amarelo) -->
                     <div style="background: rgba(255, 193, 7, 0.15); border-left: 5px solid #FFC107; border-radius: 6px; padding: 15px; display: flex; align-items: center; flex-wrap: wrap; gap: 20px;">
-                        <div style="flex: 0 0 220px; font-weight: bold; color: var(--azul-marinho); display: flex; align-items: center; gap: 10px;">
+                        <div style="flex: 1 0 100%; font-weight: bold; color: var(--azul-marinho); display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
                             <img src="{{ '/assets/img/seccoes/1_lobitos.png' | relative_url }}" alt="Lobitos" style="height: 30px; object-fit: contain;">
                             Alcateia (Lobitos)
                         </div>
@@ -175,7 +175,7 @@ main_class: main-content
 
                     <!-- Linha 2: Flotilha (Verde) -->
                     <div style="background: rgba(40, 167, 69, 0.15); border-left: 5px solid #28a745; border-radius: 6px; padding: 15px; display: flex; align-items: center; flex-wrap: wrap; gap: 20px;">
-                        <div style="flex: 0 0 220px; font-weight: bold; color: var(--azul-marinho); display: flex; align-items: center; gap: 10px;">
+                        <div style="flex: 1 0 100%; font-weight: bold; color: var(--azul-marinho); display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
                             <img src="{{ '/assets/img/seccoes/2_mocos.png' | relative_url }}" alt="Moços" style="height: 30px; object-fit: contain;">
                             Flotilha (Moços)
                         </div>
@@ -214,7 +214,7 @@ main_class: main-content
 
                     <!-- Linha 3: Frota (Azul) -->
                     <div style="background: rgba(0, 86, 179, 0.1); border-left: 5px solid var(--azul-claro); border-radius: 6px; padding: 15px; display: flex; align-items: center; flex-wrap: wrap; gap: 20px;">
-                        <div style="flex: 0 0 220px; font-weight: bold; color: var(--azul-marinho); display: flex; align-items: center; gap: 10px;">
+                        <div style="flex: 1 0 100%; font-weight: bold; color: var(--azul-marinho); display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
                             <img src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt="Marinheiros" style="height: 30px; object-fit: contain;">
                             Frota (Marinheiros)
                         </div>
@@ -253,7 +253,7 @@ main_class: main-content
 
                     <!-- Linha 4: Comunidade (Vermelho) -->
                     <div style="background: rgba(206, 17, 38, 0.1); border-left: 5px solid #CE1126; border-radius: 6px; padding: 15px; display: flex; align-items: center; flex-wrap: wrap; gap: 20px;">
-                        <div style="flex: 0 0 220px; font-weight: bold; color: var(--azul-marinho); display: flex; align-items: center; gap: 10px;">
+                        <div style="flex: 1 0 100%; font-weight: bold; color: var(--azul-marinho); display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
                             <img src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="Companheiros" style="height: 30px; object-fit: contain;">
                             Comunidade (Companheiros)
                         </div>
@@ -283,7 +283,7 @@ main_class: main-content
 
                     <!-- Linha 5: Agrupamento (Cinzento) -->
                     <div style="background: rgba(108, 117, 125, 0.15); border-left: 5px solid #6c757d; border-radius: 6px; padding: 15px; display: flex; align-items: center; flex-wrap: wrap; gap: 20px;">
-                        <div style="flex: 0 0 220px; font-weight: bold; color: var(--azul-marinho); display: flex; align-items: center; gap: 10px;">
+                        <div style="flex: 1 0 100%; font-weight: bold; color: var(--azul-marinho); display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
                             Agrupamento
                         </div>
                         <div style="display: flex; gap: 10px; flex-wrap: wrap;">

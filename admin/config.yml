@@ -23,6 +23,12 @@ auth:
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 site_url: https://cne929belem.github.io
 
+# editorial_workflow: cada alteração feita no painel fica como "rascunho"
+# (Pull Request no GitHub), com estados Rascunho → Em Revisão → Pronto a
+# Publicar, em vez de ir direto para o site. Dá controlo antes de algo
+# ficar visível ao público. Os estados/fluxo exato ficam por definir.
+publish_mode: editorial_workflow
+
 media_folder: "assets/img"
 public_folder: "/assets/img"
 
@@ -145,6 +151,7 @@ collections:
             widget: "list"
             fields:
               - {label: "Telemóvel (Usado para pesquisa)", name: "telefone", widget: "string"}
+              - {label: "Email (Usado para pesquisa, em conjunto com o telemóvel)", name: "email", widget: "string"}
               - {label: "Secção / Cargo", name: "seccao", widget: "select", options: ["Lobito", "Moço", "Marinheiro", "Companheiro", "Adulto"]}
               - {label: "Tótem", name: "toten", widget: "string"}
               - {label: "Noites de Campo", name: "noites", widget: "number", value_type: "int", default: 0}

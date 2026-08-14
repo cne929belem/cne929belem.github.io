@@ -1,10 +1,12 @@
 elementos:
   - telefone: "912345678"
+    email: "joao.escuteiro@exemplo.pt"
     seccao: Companheiro
     toten: Lobo Astuto
     noites: 26
     horas: 110
   - telefone: "960000000"
+    email: "maria.companheira@exemplo.pt"
     seccao: Moço
     toten: Águia Veloz
     noites: 101
