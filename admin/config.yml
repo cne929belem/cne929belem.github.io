@@ -150,9 +150,13 @@ collections:
             name: "elementos"
             widget: "list"
             fields:
-              - {label: "Telemóvel (Usado para pesquisa)", name: "telefone", widget: "string"}
-              - {label: "Email (Usado para pesquisa, em conjunto com o telemóvel)", name: "email", widget: "string"}
-              - {label: "Secção / Cargo", name: "seccao", widget: "select", options: ["Lobito", "Moço", "Marinheiro", "Companheiro", "Adulto"]}
-              - {label: "Tótem", name: "toten", widget: "string"}
+              - {label: "NIN (Usado para pesquisa)", name: "nin", widget: "string"}
+              - {label: "Nome Completo", name: "nome", widget: "string"}
+              - {label: "Tótem (Usado para pesquisa)", name: "toten", widget: "string"}
+              - {label: "Data de Admissão", name: "data_admissao", widget: "string", required: false, hint: "Formato DD/MM/AAAA"}
+              - {label: "Data de Promessa", name: "data_promessa", widget: "string", required: false, hint: "Formato DD/MM/AAAA — deixa vazio se ainda não fez Promessa"}
+              - {label: "Sexo", name: "sexo", widget: "select", options: ["M", "F"]}
+              - {label: "Categoria", name: "categoria", widget: "string", hint: "Ex.: Lobito, Aspirante a Lobito, Dirigente..."}
+              - {label: "Secção", name: "seccao", widget: "string", hint: "Ex.: Lobitos, Exploradores / Moços, Dirigentes..."}
               - {label: "Noites de Campo", name: "noites", widget: "number", value_type: "int", default: 0}
               - {label: "Horas de Mar", name: "horas", widget: "number", value_type: "int", default: 0}
