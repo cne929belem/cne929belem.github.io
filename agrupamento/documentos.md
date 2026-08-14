@@ -19,7 +19,7 @@ pasta_anos_anteriores: COLA_AQUI_O_ID_DA_PASTA
 <div class="content-wrapper" style="justify-content: center; align-items: center; flex-direction: column;">
     <section class="card" style="max-width: 800px; width: 100%;">
         <span style="font-size: 3rem; display: block; margin-bottom: 10px;">📄</span>
-        <h1>Documentos do Agrupamento - -teste</h1>
+        <h1>Documentos do Agrupamento</h1>
         <p>Aqui podes consultar e descarregar a documentação importante do Agrupamento 929 - Belém.</p>
 
 ```
