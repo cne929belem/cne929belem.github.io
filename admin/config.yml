@@ -1,36 +1,64 @@
 backend:
   name: git-gateway
   branch: main
-  site_domain: eloquent-rugelach-5b440d.netlify.app
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/960f7679-5e07-43aa-b176-a32c0b0faa81/pkce
+  auth_token_endpoint: /sites/960f7679-5e07-43aa-b176-a32c0b0faa81/token
+  gateway_url: https://gateway.decapbridge.com
+  commit_messages:
+    create: Create {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    update: Update {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    delete: Delete {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    uploadMedia: Upload "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    deleteMedia: Delete "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
+
+auth:
+  email_claim: email
+  first_name_claim: first_name
+  last_name_claim: last_name
+  avatar_url_claim: avatar_url
+
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+site_url: https://cne929belem.github.io
 
 media_folder: "assets/img"
 public_folder: "/assets/img"
 
+# =========================================================================
+# Há quatro tipos de conteúdo geridos aqui:
+# 1. "paginas" — páginas simples e soltas. Conteúdo livre.
+# 2. Coleções ("noticias", "documentos", "inscricoes") — conteúdo repetido,
+#    cada entrada vira um ficheiro novo na respetiva pasta _..., e as
+#    páginas de listagem organizam-nas sozinhas.
+# 3. "dados" — a base de registos de Noites/Horas (_data/registos.yml).
+# =========================================================================
 collections:
   - name: "paginas"
     label: "Páginas do Site"
     files:
       - label: "ACAGRUP 2026 - Ilha dos Cavalos"
         name: "acagrup-2026"
-        file: "acagrup-2026.md"
-        fields:
-          - {label: "Título da Página", name: "title", widget: "string"}
-          - {label: "Classe CSS (Não mexer)", name: "main_class", widget: "hidden", default: "main-content"}
-          - {label: "Layout (Não mexer)", name: "layout", widget: "hidden", default: "default"}
-          - {label: "Conteúdo da Página", name: "body", widget: "markdown"}
-          
-      - label: "Documentos do Agrupamento"
-        name: "documentos"
-        file: "documentos.md"
+        file: "atividades/acagrup-2026.md"
         fields:
           - {label: "Título da Página", name: "title", widget: "string"}
           - {label: "Classe CSS (Não mexer)", name: "main_class", widget: "hidden", default: "main-content"}
           - {label: "Layout (Não mexer)", name: "layout", widget: "hidden", default: "default"}
           - {label: "Conteúdo da Página", name: "body", widget: "markdown"}
 
-      - label: "Promessas"
+      - label: "Documentos do Agrupamento"
+        name: "documentos"
+        file: "agrupamento/documentos.md"
+        fields:
+          - {label: "Título da Página", name: "title", widget: "string"}
+          - {label: "Classe CSS (Não mexer)", name: "main_class", widget: "hidden", default: "main-content"}
+          - {label: "Layout (Não mexer)", name: "layout", widget: "hidden", default: "default"}
+          - {label: "Conteúdo da Página", name: "body", widget: "markdown"}
+
+      - label: "Promessas 2026"
         name: "promessas"
-        file: "promessas.md"
+        file: "atividades/promessas26.md"
         fields:
           - {label: "Título da Página", name: "title", widget: "string"}
           - {label: "Classe CSS (Não mexer)", name: "main_class", widget: "hidden", default: "main-content"}
@@ -39,7 +67,7 @@ collections:
 
       - label: "A Nossa Equipa"
         name: "equipa"
-        file: "equipa.md"
+        file: "agrupamento/equipa.md"
         fields:
           - {label: "Título da Página", name: "title", widget: "string"}
           - {label: "Classe CSS (Não mexer)", name: "main_class", widget: "hidden", default: "main-content"}
@@ -48,14 +76,64 @@ collections:
 
       - label: "Informações"
         name: "informacoes"
-        file: "informacoes.md"
+        file: "agrupamento/informacoes.md"
         fields:
           - {label: "Título da Página", name: "title", widget: "string"}
           - {label: "Classe CSS (Não mexer)", name: "main_class", widget: "hidden", default: "main-content"}
           - {label: "Layout (Não mexer)", name: "layout", widget: "hidden", default: "default"}
           - {label: "Conteúdo da Página", name: "body", widget: "markdown"}
 
-          - name: "dados"
+      - label: "Diário de Bordo (Comunidade)"
+        name: "comunidade_diario"
+        file: "comunidade/diario.md"
+        fields:
+          - {label: "ID da Pasta de Documentos", name: "pasta_documentos", widget: "string", hint: "Apenas o ID da pasta do Google Drive"}
+          - {label: "ID da Pasta de Imagens", name: "pasta_imagens", widget: "string", hint: "Apenas o ID da pasta do Google Drive"}
+          - {label: "Título da Página", name: "title", widget: "hidden", default: "Diário de Bordo | IV - Comunidade"}
+          - {label: "Classe CSS (Não mexer)", name: "main_class", widget: "hidden", default: "main-content"}
+          - {label: "Layout (Não mexer)", name: "layout", widget: "hidden", default: "default"}
+          - {label: "Conteúdo da Página", name: "body", widget: "markdown", required: false}
+
+  - name: "noticias"
+    label: "Notícias"
+    folder: "_noticias"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Layout (Não mexer)", name: "layout", widget: "hidden", default: "noticia"}
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Data", name: "date", widget: "datetime"}
+      - {label: "Resumo (aparece no cartão)", name: "resumo", widget: "text"}
+      - {label: "Imagem (opcional)", name: "imagem", widget: "image", required: false}
+      - {label: "Link direto para outra página (opcional)", name: "link_externo", widget: "string", required: false, hint: "Se preenchido, o cartão liga diretamente para aqui em vez de criar uma página de notícia própria."}
+      - {label: "Texto completo (só se NÃO preencheres o link direto)", name: "body", widget: "markdown", required: false}
+
+  - name: "documentos"
+    label: "Documentos"
+    folder: "_documentos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Descrição", name: "descricao", widget: "string"}
+      - {label: "Ficheiro PDF", name: "ficheiro", widget: "file", required: false, media_folder: "/assets/docs", public_folder: "/assets/docs", hint: "Deixa vazio se o documento ainda não existir (aparece como 'brevemente')."}
+      - {label: "Ano (ou 'Geral')", name: "ano", widget: "string", default: "Geral"}
+      - {label: "Estado", name: "estado", widget: "select", options: ["disponivel", "brevemente"], default: "brevemente"}
+      - {label: "Ordem dentro do grupo", name: "ordem", widget: "number", default: 1, required: false}
+
+  - name: "inscricoes"
+    label: "Inscrições"
+    folder: "_inscricoes"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nome da Atividade", name: "title", widget: "string"}
+      - {label: "Descrição breve", name: "descricao", widget: "text"}
+      - {label: "Link do Google Forms", name: "form_url", widget: "string"}
+      - {label: "Ativo (aparece na página de Inscrições?)", name: "ativo", widget: "boolean", default: true}
+      - {label: "Data limite (opcional, texto livre)", name: "data_limite", widget: "string", required: false}
+
+  - name: "dados"
     label: "Bases de Dados"
     files:
       - label: "Registo de Noites e Horas"
@@ -71,14 +149,3 @@ collections:
               - {label: "Tótem", name: "toten", widget: "string"}
               - {label: "Noites de Campo", name: "noites", widget: "number", value_type: "int", default: 0}
               - {label: "Horas de Mar", name: "horas", widget: "number", value_type: "int", default: 0}
-
-              - label: "Diário de Bordo (Comunidade)"
-        name: "comunidade_diario"
-        file: "comunidade-diario.md"
-        fields:
-          - {label: "ID da Pasta de Documentos", name: "pasta_documentos", widget: "string", hint: "Apenas o ID da pasta do Google Drive"}
-          - {label: "ID da Pasta de Imagens", name: "pasta_imagens", widget: "string", hint: "Apenas o ID da pasta do Google Drive"}
-          - {label: "Título da Página", name: "title", widget: "hidden", default: "Diário de Bordo | IV - Comunidade"}
-          - {label: "Classe CSS (Não mexer)", name: "main_class", widget: "hidden", default: "main-content"}
-          - {label: "Layout (Não mexer)", name: "layout", widget: "hidden", default: "default"}
-          - {label: "Conteúdo da Página", name: "body", widget: "markdown", required: false}

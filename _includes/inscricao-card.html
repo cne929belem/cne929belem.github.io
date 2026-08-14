@@ -1,0 +1,10 @@
+{% comment %}
+  Renderiza um cartão de inscrição ativa. Espera "inscricao" (um item de
+  site.inscricoes). Uso: {% include inscricao-card.html inscricao=alguma %}
+{% endcomment %}
+{% assign inscricao = include.inscricao %}
+<a href="{{ inscricao.form_url }}" target="_blank" rel="noopener noreferrer" class="noticia-card" style="border-left-color: #6f42c1;">
+    {% if inscricao.data_limite %}<div class="noticia-data">Inscrições até {{ inscricao.data_limite }}</div>{% endif %}
+    <h3>📋 {{ inscricao.title }}</h3>
+    <p>{{ inscricao.descricao }}</p>
+</a>
