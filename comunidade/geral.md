@@ -6,10 +6,8 @@ main_class: main-content
 
 <div class="content-wrapper" style="justify-content: center; align-items: center; flex-direction: column;">
     <section class="card" style="max-width: 800px; width: 100%; border-top: 8px solid #CE1126;">
-        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-            <img src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="Companheiros" style="height: 60px;">
-            <h1 style="margin: 0; color: #CE1126;">IV - Comunidade</h1>
-        </div>
+        <img src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="Companheiros" style="height: 60px; display: block; margin: 0 auto 10px;">
+        <h1 style="color: #CE1126;">IV - Comunidade</h1>
 
         <p>Bem-vindo à Comunidade do Agrupamento 929 - Belém! A nossa secção é formada por jovens dos 18 aos 22 anos, os Companheiros, cuja divisa é <strong>"Servir"</strong>.</p>
 
@@ -19,7 +17,7 @@ main_class: main-content
             <div style="background: rgba(206, 17, 38, 0.1); border-left: 5px solid #CE1126; border-radius: 6px; padding: 15px; display: flex; align-items: center; flex-wrap: wrap; gap: 20px; margin-top: 15px;">
                 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                     <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
-                        <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <div style="width: 40px; height: 40px; background-color: var(--cinza-fundo); border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                             <img src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div>
@@ -28,7 +26,7 @@ main_class: main-content
                         </div>
                     </div>
                     <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
-                        <div style="width: 40px; height: 40px; background-color: #f0f0f0; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                        <div style="width: 40px; height: 40px; background-color: var(--cinza-fundo); border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                             <img src="{{ '/assets/img/equipa/ruben-rodrigues_equipa.jpg' | relative_url }}" alt="Ruben Rodrigues" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div>

@@ -23,10 +23,10 @@ main_class: main-content
             <div style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 25px;">
                 <p style="font-size: 0.9rem; color: #666;">Insere o teu NIN ou o teu Tótem para consultares as tuas noites de campo e horas de mar validadas pela Chefia.</p>
 
-                <div style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
-                    <input type="text" id="buscaInput" placeholder="O teu NIN ou o teu Tótem" onkeypress="if(event.key==='Enter') procurarNoites();" style="padding: 10px 15px; border: 1px solid #ccc; border-radius: 6px; flex: 1 1 250px; min-width: 0; font-size: 1rem;">
-                    <button onclick="procurarNoites()" style="background-color: var(--azul-marinho); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 1rem;">Pesquisar</button>
-                </div>
+                <form onsubmit="event.preventDefault(); procurarNoites(); return false;" style="display: flex; gap: 10px; margin-top: 15px; flex-wrap: wrap;">
+                    <input type="text" id="buscaInput" placeholder="O teu NIN ou o teu Tótem" style="padding: 10px 15px; border: 1px solid #ccc; border-radius: 6px; flex: 1 1 250px; min-width: 0; font-size: 1rem;">
+                    <button type="submit" style="background-color: var(--azul-marinho); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 1rem;">Pesquisar</button>
+                </form>
 
                 <!-- Espaço onde o resultado vai aparecer -->
                 <div id="resultadoNoites"></div>
