@@ -685,6 +685,9 @@ footer {
 .form-intro p { font-size: 0.9rem; color: #cfe0f5; margin: 0; }
 
 .form-jump-nav {
+    position: sticky;
+    top: 75px;
+    z-index: 500;
     background: var(--branco);
     border-radius: 8px;
     padding: 14px 18px;
@@ -885,8 +888,14 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
 .doc-link.pendente:hover { background: var(--cinza-fundo); }
 .doc-link.pendente h3 { color: #6c757d; }
 
-/* Barra de âncoras para saltar entre secções de uma página longa. */
+/* Barra de âncoras para saltar entre secções de uma página longa.
+   "sticky": fica presa logo abaixo do cabeçalho fixo, visível mesmo depois
+   de fazer scroll — o "top" tem de bater certo com a altura da navbar
+   (65px no desktop, 130px em mobile, ver secção 6). */
 .jump-nav {
+    position: sticky;
+    top: 75px;
+    z-index: 500;
     background: var(--branco);
     border-radius: 8px;
     padding: 14px 18px;
@@ -983,4 +992,13 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
 .orgchart-card-grande { min-width: 250px; }
 @media (max-width: 360px) {
     .orgchart-card-grande { min-width: 0; width: 100%; }
+}
+
+/* A navbar é mais alta em mobile (embrulha em 2 linhas) — o sticky do
+   jump-nav/form-jump-nav tem de descer com ela, senão fica escondido
+   atrás do cabeçalho. Esta regra tem de vir DEPOIS das regras base
+   (.jump-nav / .form-jump-nav, secção 10) no ficheiro para ganhar a
+   cascata — @media não dá prioridade sozinho, a ordem no ficheiro conta. */
+@media (max-width: 768px) {
+    .jump-nav, .form-jump-nav { top: 140px; }
 }
