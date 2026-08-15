@@ -41,7 +41,7 @@ main_class: main-content
                             </div>
                             <div style="text-align: left;">
                                 <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #cfe0f5; margin-bottom: 3px;">Chefe de Agrupamento</div>
-                                <div style="font-size: 1rem; font-weight: bold;">Eunice Gonçalves</div>
+                                <div style="font-size: 1rem; font-weight: bold;">Eunice Gonçalves (Salamandra)</div>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@ main_class: main-content
                             </div>
                             <div style="text-align: left;">
                                 <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #cfe0f5; margin-bottom: 3px;">Secretário</div>
-                                <div style="font-size: 1rem; font-weight: bold;">Carolina Mascarenhas</div>
+                                <div style="font-size: 1rem; font-weight: bold;">Carolina Mascarenhas (Koala Pensadora)</div>
                             </div>
                         </div>
                         <div class="orgchart-card-grande" style="background: var(--azul-marinho); color: white; padding: 15px; border-radius: 8px; display: flex; align-items: center; gap: 15px; flex: 1; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.1);">
@@ -63,7 +63,7 @@ main_class: main-content
                             </div>
                             <div style="text-align: left;">
                                 <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #cfe0f5; margin-bottom: 3px;">Tesoureiro</div>
-                                <div style="font-size: 1rem; font-weight: bold;">Ricardo Isaías</div>
+                                <div style="font-size: 1rem; font-weight: bold;">Ricardo Isaías (Axolote)</div>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@ main_class: main-content
                             </div>
                             <div>
                                 <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; color: #666; margin-bottom: 4px; line-height: 1.2;">Alcateia<br>(Lobitos)</div>
-                                <div style="font-size: 0.85rem; font-weight: bold; color: var(--azul-marinho); line-height: 1.2;">Paulo<br>Duarte</div>
+                                <div style="font-size: 0.85rem; font-weight: bold; color: var(--azul-marinho); line-height: 1.2;">Paulo Duarte<br>(Roaz Criativo)</div>
                             </div>
                         </div>
                         <div style="background: rgba(40, 167, 69, 0.15); padding: 12px 5px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 5px solid #28a745; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
@@ -87,7 +87,7 @@ main_class: main-content
                             </div>
                             <div>
                                 <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; color: #666; margin-bottom: 4px; line-height: 1.2;">Flotilha<br>(Moços)</div>
-                                <div style="font-size: 0.85rem; font-weight: bold; color: var(--azul-marinho); line-height: 1.2;">Carolina<br>Mascarenhas</div>
+                                <div style="font-size: 0.85rem; font-weight: bold; color: var(--azul-marinho); line-height: 1.2;">Carolina Mascarenhas<br>(Koala Pensadora)</div>
                             </div>
                         </div>
                         <div style="background: rgba(0, 86, 179, 0.1); padding: 12px 5px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 5px solid var(--azul-claro); box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
@@ -97,7 +97,7 @@ main_class: main-content
                             </div>
                             <div>
                                 <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; color: #666; margin-bottom: 4px; line-height: 1.2;">Frota<br>(Marinheiros)</div>
-                                <div style="font-size: 0.85rem; font-weight: bold; color: var(--azul-marinho); line-height: 1.2;">Paulo<br>Duarte</div>
+                                <div style="font-size: 0.85rem; font-weight: bold; color: var(--azul-marinho); line-height: 1.2;">Paulo Duarte<br>(Roaz Criativo)</div>
                             </div>
                         </div>
                         <div style="background: rgba(206, 17, 38, 0.1); padding: 12px 5px; border-radius: 8px; display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 5px solid #CE1126; box-shadow: 0 3px 6px rgba(0,0,0,0.05);">
@@ -107,7 +107,7 @@ main_class: main-content
                             </div>
                             <div>
                                 <div style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.5px; color: #666; margin-bottom: 4px; line-height: 1.2;">Comunidade<br>(Companheiros)</div>
-                                <div style="font-size: 0.85rem; font-weight: bold; color: var(--azul-marinho); line-height: 1.2;">Ricardo<br>Isaías</div>
+                                <div style="font-size: 0.85rem; font-weight: bold; color: var(--azul-marinho); line-height: 1.2;">Ricardo Isaías<br>(Axolote)</div>
                             </div>
                         </div>
                     </div>
@@ -157,7 +157,7 @@ main_class: main-content
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Chefe de Unidade</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Paulo Duarte</div>
+                                    <div style="font-weight: bold; color: var(--azul-marinho);">Paulo Duarte (Roaz Criativo)</div>
                                 </div>
                             </div>
                             <!-- Candidato a Dirigente -->
@@ -167,7 +167,7 @@ main_class: main-content
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Candidato a Dirigente</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Madalena Catita</div>
+                                    <div style="font-weight: bold; color: var(--azul-marinho);">Madalena Catita (Raposa Exigente)</div>
                                 </div>
                             </div>
                         </div>
@@ -187,7 +187,7 @@ main_class: main-content
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Chefe de Unidade</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Carolina Mascarenhas</div>
+                                    <div style="font-weight: bold; color: var(--azul-marinho);">Carolina Mascarenhas (Koala Pensadora)</div>
                                 </div>
                             </div>
                             <!-- Candidatos a Dirigente -->
@@ -226,7 +226,7 @@ main_class: main-content
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Chefe de Unidade</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Paulo Duarte</div>
+                                    <div style="font-weight: bold; color: var(--azul-marinho);">Paulo Duarte (Roaz Criativo)</div>
                                 </div>
                             </div>
                             <!-- Candidatos a Dirigente -->
@@ -236,7 +236,7 @@ main_class: main-content
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Candidato a Dirigente</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">João Dragovic</div>
+                                    <div style="font-weight: bold; color: var(--azul-marinho);">João Dragovic (Espadarte)</div>
                                 </div>
                             </div>
                             <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
@@ -245,7 +245,7 @@ main_class: main-content
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Candidato a Dirigente</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Simão Pereira</div>
+                                    <div style="font-weight: bold; color: var(--azul-marinho);">Simão Pereira (Sapo)</div>
                                 </div>
                             </div>
                         </div>
@@ -265,7 +265,7 @@ main_class: main-content
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Chefe de Unidade</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Ricardo Isaías</div>
+                                    <div style="font-weight: bold; color: var(--azul-marinho);">Ricardo Isaías (Axolote)</div>
                                 </div>
                             </div>
                             <!-- Dirigente -->
@@ -275,7 +275,7 @@ main_class: main-content
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Dirigente</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Ruben Rodrigues</div>
+                                    <div style="font-weight: bold; color: var(--azul-marinho);">Ruben Rodrigues (Tubarão Empenhado)</div>
                                 </div>
                             </div>
                         </div>
@@ -293,7 +293,7 @@ main_class: main-content
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Dirigente</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Eunice Gonçalves</div>
+                                    <div style="font-weight: bold; color: var(--azul-marinho);">Eunice Gonçalves (Salamandra)</div>
                                 </div>
                             </div>
                             <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
@@ -302,7 +302,7 @@ main_class: main-content
                                 </div>
                                 <div>
                                     <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Dirigente</div>
-                                    <div style="font-weight: bold; color: var(--azul-marinho);">Pedro Fernando</div>
+                                    <div style="font-weight: bold; color: var(--azul-marinho);">Pedro Fernando (Carapau)</div>
                                 </div>
                             </div>
                         </div>
