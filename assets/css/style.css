@@ -436,10 +436,10 @@ footer {
    6. RESPONSIVIDADE (TELEMÓVEIS E TABLETS)
    ========================================= */
 @media (max-width: 768px) {
-    body { padding-top: 130px; } 
+    body { padding-top: 75px; } /* cabeçalho mobile ficou compacto (1 linha), já não precisa dos 130px de antes */
     
     .navbar { height: auto; padding: 10px 0; }
-    .nav-container { flex-direction: column; gap: 15px; }
+    .nav-container { flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0; }
     
     /* CORREÇÃO DO LOGO NO MOBILE */
     .brand-name {
@@ -489,8 +489,6 @@ footer {
     .menu-toggle-checkbox:checked ~ nav .nav-menu {
         max-height: 600px;
     }
-
-    .nav-container { flex-wrap: wrap; justify-content: space-between; align-items: center; }
 
     .dropdown-menu {
         position: static; 
@@ -996,11 +994,7 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     .orgchart-card-grande { min-width: 0; width: 100%; }
 }
 
-/* A navbar é mais alta em mobile (embrulha em 2 linhas) — o sticky do
-   jump-nav/form-jump-nav tem de descer com ela, senão fica escondido
-   atrás do cabeçalho. Esta regra tem de vir DEPOIS das regras base
-   (.jump-nav / .form-jump-nav, secção 10) no ficheiro para ganhar a
-   cascata — @media não dá prioridade sozinho, a ordem no ficheiro conta. */
-@media (max-width: 768px) {
-    .jump-nav, .form-jump-nav { top: 140px; }
-}
+/* Nota: o "top" do sticky do jump-nav/form-jump-nav (secção 10) já não
+   precisa de ajuste específico para mobile — desde que o cabeçalho
+   passou a ter a mesma altura compacta em mobile e desktop (1 linha),
+   o valor base (75px) serve para os dois. */
