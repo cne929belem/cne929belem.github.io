@@ -1,0 +1,6 @@
+<nav class="seccao-navegacao" style="--cor-seccao: {{ page.seccao_cor }};" aria-label="Navegação da {{ page.seccao_nome }}">
+    <a href="{{ '/' | append: page.seccao_slug | append: '/geral.html' | relative_url }}"{% if page.url contains '/geral' %} class="ativo"{% endif %}>🏠 Geral</a>
+    <a href="{{ '/' | append: page.seccao_slug | append: '/vivencia.html' | relative_url }}"{% if page.url contains '/vivencia' %} class="ativo"{% endif %}>🌊 Vivência</a>
+    <a href="{{ '/' | append: page.seccao_slug | append: '/programa.html' | relative_url }}"{% if page.url contains '/programa' %} class="ativo"{% endif %}>🧭 Programa</a>
+    <a href="{{ '/' | append: page.seccao_slug | append: '/diario.html' | relative_url }}"{% if page.url contains '/diario' %} class="ativo"{% endif %}>📖 Diário de Bordo</a>
+</nav>

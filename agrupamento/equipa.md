@@ -54,7 +54,7 @@ main_class: pagina-com-hero
   }
   .chefia-cartao .icone-seccao-chefia { display: block; height: 20px; margin: 0 auto 8px; object-fit: contain; }
   .chefia-foto-linha { display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 8px; }
-  .chefia-foto-linha .insignia-lado { width: 26px; height: 26px; }
+  .chefia-foto-linha .insignia-lado { width: 42px; height: 42px; }
   .chefia-foto-linha .foto-pessoa { width: 48px; height: 48px; }
   .chefia-cartao .nome-seccao { font-size: 10.5px; text-transform: uppercase; letter-spacing: .04em; color: #888; margin: 0 0 3px; }
   .chefia-cartao .nome { font-size: 13px; font-weight: 700; color: #222; line-height: 1.25; }
@@ -87,7 +87,7 @@ main_class: pagina-com-hero
     background: #fff; border-radius: 12px; padding: 10px 14px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.06);
   }
-  .pessoa-cartao .insignia-lado { width: 42px; height: 42px; }
+  .pessoa-cartao .insignia-lado { width: 60px; height: 60px; }
   .pessoa-cartao .foto-pessoa { width: 64px; height: 64px; }
   .placeholder-foto {
     background: linear-gradient(160deg, var(--cne-verde) 0%, var(--cne-verde-escuro) 100%);
@@ -120,7 +120,7 @@ main_class: pagina-com-hero
 
   <div class="grelha-direcao">
     <div class="pessoa-cartao-grande">
-      <img class="insignia-lado" src="{{ '/assets/img/equipa/assistente.jpg' | relative_url }}" alt="">
+      <img class="insignia-lado" src="{{ '/assets/img/equipa/assistente.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/jose-ferreira_equipa.jpg' | relative_url }}" alt="Cón. José Manuel Ferreira">
       <div>
         <p class="cargo">Assistente</p>
@@ -128,7 +128,7 @@ main_class: pagina-com-hero
       </div>
     </div>
     <div class="pessoa-cartao-grande">
-      <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_agrupamento.jpg' | relative_url }}" alt="">
+      <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_agrupamento.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/eunice-goncalves_equipa.jpg' | relative_url }}" alt="Eunice Gonçalves">
       <div>
         <p class="cargo">Chefe de Agrupamento</p>
@@ -136,7 +136,7 @@ main_class: pagina-com-hero
       </div>
     </div>
     <div class="pessoa-cartao-grande">
-      <img class="insignia-lado" src="{{ '/assets/img/equipa/secretario_tesoureiro.jpg' | relative_url }}" alt="">
+      <img class="insignia-lado" src="{{ '/assets/img/equipa/secretario_tesoureiro.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/carolina-mascarenhas_equipa.jpg' | relative_url }}" alt="Carolina Mascarenhas">
       <div>
         <p class="cargo">Secretário</p>
@@ -144,7 +144,7 @@ main_class: pagina-com-hero
       </div>
     </div>
     <div class="pessoa-cartao-grande">
-      <img class="insignia-lado" src="{{ '/assets/img/equipa/secretario_tesoureiro.jpg' | relative_url }}" alt="">
+      <img class="insignia-lado" src="{{ '/assets/img/equipa/secretario_tesoureiro.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías">
       <div>
         <p class="cargo">Tesoureiro</p>
@@ -157,7 +157,7 @@ main_class: pagina-com-hero
     <div class="chefia-cartao" style="--cor-seccao:#ffc107">
       <img class="icone-seccao-chefia" src="{{ '/assets/img/seccoes/1_lobitos.png' | relative_url }}" alt="">
       <div class="chefia-foto-linha">
-        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte">
       </div>
       <p class="nome-seccao">Alcateia</p>
@@ -166,7 +166,7 @@ main_class: pagina-com-hero
     <div class="chefia-cartao" style="--cor-seccao:#28a745">
       <img class="icone-seccao-chefia" src="{{ '/assets/img/seccoes/2_mocos.png' | relative_url }}" alt="">
       <div class="chefia-foto-linha">
-        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/carolina-mascarenhas_equipa.jpg' | relative_url }}" alt="Carolina Mascarenhas">
       </div>
       <p class="nome-seccao">Flotilha</p>
@@ -175,7 +175,7 @@ main_class: pagina-com-hero
     <div class="chefia-cartao" style="--cor-seccao:#0056b3">
       <img class="icone-seccao-chefia" src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt="">
       <div class="chefia-foto-linha">
-        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte">
       </div>
       <p class="nome-seccao">Frota</p>
@@ -184,7 +184,7 @@ main_class: pagina-com-hero
     <div class="chefia-cartao" style="--cor-seccao:#BD242C">
       <img class="icone-seccao-chefia" src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="">
       <div class="chefia-foto-linha">
-        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías">
       </div>
       <p class="nome-seccao">Comunidade</p>
@@ -215,12 +215,12 @@ main_class: pagina-com-hero
     <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/1_lobitos.png' | relative_url }}" alt="">Alcateia (Lobitos)</span><span class="descricao-unidade">A primeira secção, dedicada aos Lobitos.</span></summary>
     <div class="lista-pessoas">
       <div class="pessoa-cartao">
-        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte">
         <div><p class="funcao">Chefe de Unidade</p><p class="nome">Paulo Duarte (Roaz Criativo)</p></div>
       </div>
       <div class="pessoa-cartao">
-        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.jpg' | relative_url }}" alt="">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/madalena-catita_equipa.jpg' | relative_url }}" alt="Madalena Catita">
         <div><p class="funcao">Candidato a Dirigente</p><p class="nome">Madalena Catita (Raposa Exigente)</p></div>
       </div>
@@ -231,17 +231,17 @@ main_class: pagina-com-hero
     <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/2_mocos.png' | relative_url }}" alt="">Flotilha (Moços)</span><span class="descricao-unidade">A segunda secção, dedicada aos Moços.</span></summary>
     <div class="lista-pessoas">
       <div class="pessoa-cartao">
-        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/carolina-mascarenhas_equipa.jpg' | relative_url }}" alt="Carolina Mascarenhas">
         <div><p class="funcao">Chefe de Unidade</p><p class="nome">Carolina Mascarenhas (Koala Pensadora)</p></div>
       </div>
       <div class="pessoa-cartao">
-        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.jpg' | relative_url }}" alt="">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/maria-rodrigues_equipa.jpg' | relative_url }}" alt="Maria Rodrigues">
         <div><p class="funcao">Candidato a Dirigente</p><p class="nome">Maria Rodrigues</p></div>
       </div>
       <div class="pessoa-cartao">
-        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.jpg' | relative_url }}" alt="">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/jose-batalha_equipa.jpg' | relative_url }}" alt="José Batalha">
         <div><p class="funcao">Candidato a Dirigente</p><p class="nome">José Batalha</p></div>
       </div>
@@ -252,17 +252,17 @@ main_class: pagina-com-hero
     <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt="">Frota (Marinheiros)</span><span class="descricao-unidade">A terceira secção, dedicada aos Marinheiros.</span></summary>
     <div class="lista-pessoas">
       <div class="pessoa-cartao">
-        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte">
         <div><p class="funcao">Chefe de Unidade</p><p class="nome">Paulo Duarte (Roaz Criativo)</p></div>
       </div>
       <div class="pessoa-cartao">
-        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.jpg' | relative_url }}" alt="">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="">
         <span class="placeholder-foto foto-pessoa" aria-hidden="true">JD</span>
         <div><p class="funcao">Candidato a Dirigente</p><p class="nome">João Dragovic (Espadarte)</p></div>
       </div>
       <div class="pessoa-cartao">
-        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.jpg' | relative_url }}" alt="">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/simao-pereira_equipa.jpg' | relative_url }}" alt="Simão Pereira">
         <div><p class="funcao">Candidato a Dirigente</p><p class="nome">Simão Pereira (Sapo)</p></div>
       </div>
@@ -273,12 +273,12 @@ main_class: pagina-com-hero
     <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="">Comunidade (Companheiros)</span><span class="descricao-unidade">A quarta secção, dedicada aos Companheiros.</span></summary>
     <div class="lista-pessoas">
       <div class="pessoa-cartao">
-        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías">
         <div><p class="funcao">Chefe de Unidade</p><p class="nome">Ricardo Isaías (Axolote)</p></div>
       </div>
       <div class="pessoa-cartao">
-        <img class="insignia-lado" src="{{ '/assets/img/equipa/instrutor.jpg' | relative_url }}" alt="">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/instrutor.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/ruben-rodrigues_equipa.jpg' | relative_url }}" alt="Ruben Rodrigues">
         <div><p class="funcao">Dirigente</p><p class="nome">Ruben Rodrigues (Tubarão Empenhado)</p></div>
       </div>

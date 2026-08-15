@@ -2,6 +2,9 @@
 layout: default
 title: Vivência | IV - Comunidade
 main_class: pagina-com-hero
+seccao_slug: comunidade
+seccao_nome: IV - Comunidade
+seccao_cor: '#CE1126'
 ---
 <!--
   Página "Vivência" da IV Secção — Comunidade. Reestruturada a pedido do
@@ -61,7 +64,7 @@ main_class: pagina-com-hero
 <div class="espaco-hero-generico" aria-hidden="true"></div>
 
 <div class="comunidade-pagina">
-    {% include comunidade-nav.html %}
+    {% include seccao-nav.html %}
     <section class="card" style="max-width: 800px; width: 100%; border-top: 8px solid #CE1126;">
         <p>O que significa ser Companheiro, a nossa mística, os nossos símbolos, e o caminho — ou melhor, o rumo — que se percorre na Comunidade.</p>
 

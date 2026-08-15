@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Inscrições em Atividades | Agrupamento 929 - Belém
-main_class: main-content
+main_class: pagina-com-hero
+ultima_atualizacao: 22/08/2026
 ---
 {% comment %}
   Lista todas as inscrições com "ativo: true", da coleção _inscricoes/.
@@ -12,24 +13,45 @@ main_class: main-content
 {% endcomment %}
 {% assign inscricoes_ativas = site.inscricoes | where: "ativo", true %}
 
-<div class="content-wrapper" style="justify-content: center; align-items: center; flex-direction: column;">
-    <section class="card" style="max-width: 800px; width: 100%;">
-        <span style="font-size: 3rem; display: block; margin-bottom: 10px;">📋</span>
+<section class="hero-generico" id="hero">
+    <div class="pagina-cabecalho">
         <h1>Inscrições em Atividades</h1>
-        <p>Todas as inscrições abertas neste momento — clica para preencheres o formulário.</p>
+        <p>Participa nas próximas atividades do Agrupamento 929 - Belém.</p>
+    </div>
+</section>
+<div class="espaco-hero-generico" aria-hidden="true"></div>
 
-        <div style="text-align: left; margin-top: 20px;">
+<div class="pagina-conteudo">
+    {% include atividades-nav.html %}
+    <div class="atividades-painel">
+        <section class="atividades-coluna">
+            <h2 class="section-title">📋 Inscrições atuais</h2>
+            <p class="atividades-intro">Todas as inscrições abertas neste momento.</p>
             {% for inscricao in inscricoes_ativas %}
                 {% include inscricao-card.html inscricao=inscricao %}
             {% else %}
-                <div class="info-block" style="text-align: center;">
-                    <p style="margin: 0;">Não há nenhuma inscrição aberta neste momento. Volta a consultar mais tarde, ou acompanha o <a href="{{ '/agrupamento/noticias.html' | relative_url }}" style="color: var(--azul-claro); font-weight: bold;">Diário de Bordo</a> para saberes quando uma nova atividade abrir.</p>
+                <div class="info-block atividades-vazio">
+                    <p>Não há nenhuma inscrição aberta neste momento.</p>
+                    <p>Consulta esta página mais tarde para veres as próximas atividades.</p>
                 </div>
             {% endfor %}
-        </div>
+        </section>
 
-        <p style="text-align: right; font-size: 0.7rem; color: #888; margin-top: 30px; font-style: italic;">
-            Última atualização em 14/08/2026
-        </p>
-    </section>
+        <section class="atividades-coluna">
+            <h2 class="section-title">🌊 Atividades passadas</h2>
+            <p class="atividades-intro">Um registo das atividades já vividas pelo Agrupamento.</p>
+            <div class="atividades-timeline">
+                <a class="timeline-item" href="{{ '/atividades/acagrup-2026.html' | relative_url }}">
+                    <time datetime="2026-08-05">05 ago 2026</time>
+                    <h3>ACAGRUP 2026 - Ilha dos Cavalos</h3>
+                    <p>O Segredo da Ilha Perdida</p>
+                </a>
+                <a class="timeline-item" href="{{ '/atividades/promessas26.html' | relative_url }}">
+                    <time datetime="2026-06-20">20 jun 2026</time>
+                    <h3>Promessas 2026</h3>
+                    <p>Fotografias e memórias da cerimónia</p>
+                </a>
+            </div>
+        </section>
+    </div>
 </div>
