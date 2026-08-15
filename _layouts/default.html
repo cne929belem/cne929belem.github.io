@@ -61,7 +61,14 @@
                 <span class="brand-sub">Corpo Nacional de Escutas</span>
             </div>
         </a>
-        
+
+        <!-- Menu mobile recolhível — só CSS, sem JavaScript (técnica "checkbox hack").
+             TEM de ficar aqui, como irmão direto de <nav>, logo a seguir — o CSS
+             usa o seletor ".menu-toggle-checkbox:checked ~ nav .nav-menu" (~
+             = "irmão seguinte"), por isso a ordem exata no HTML importa. -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
+        <label for="menu-toggle" class="hamburger-icon" aria-label="Abrir menu">☰</label>
+
         <nav>
             <ul class="nav-menu">
                 <li class="dropdown">
