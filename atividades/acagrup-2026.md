@@ -20,7 +20,7 @@ main_class: main-content
         </div>
 
         <div style="text-align: left; margin: 20px 0;">
-            <img src="{{ '/assets/img/eventos/26acagrup.jpg' | relative_url }}" alt="Fotografia do Acampamento de Agrupamento 2026 - Ilha dos Cavalos" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px;">
+            <img src="{{ '/assets/img/eventos/26acagrup.jpg' | relative_url }}" alt="Fotografia do Acampamento de Agrupamento 2026 - Ilha dos Cavalos" width="1000" height="750" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px;">
             <h3 style="color: var(--azul-marinho); margin-bottom: 12px;">🚢 As Quatro Caravelas</h3>
             <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 15px;">Durante a expedição, todo o Agrupamento deixou de estar organizado por secção e passou a integrar uma tripulação vertical — Lobitos, Moços, Marinheiros e Companheiros lado a lado — inspirada em figuras d'Os Lusíadas.</p>
 

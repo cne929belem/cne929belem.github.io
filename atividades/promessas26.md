@@ -11,7 +11,7 @@ main_class: main-content
         <p>Recordar é viver! Aqui podes encontrar os registos fotográficos das nossas Promessas.</p>
 
         <!-- Imagem de Destaque -->
-        <img src="{{ '/assets/img/eventos/26promessas.jpg' | relative_url }}" alt="Fotografia das Promessas" style="width: 100%; height: auto; border-radius: 8px; margin: 25px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <img src="{{ '/assets/img/eventos/26promessas.jpg' | relative_url }}" alt="Fotografia das Promessas" width="1000" height="667" style="width: 100%; height: auto; border-radius: 8px; margin: 25px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
 
         <div style="background: var(--cinza-fundo); padding: 30px; border-radius: 8px; margin-top: 10px; text-align: center; border-left: 5px solid var(--azul-marinho);">
             <h3 style="color: var(--azul-marinho); margin-bottom: 15px;">Galeria Oficial</h3>
