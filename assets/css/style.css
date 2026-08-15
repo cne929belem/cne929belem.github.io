@@ -685,6 +685,7 @@ footer {
 .form-intro p { font-size: 0.9rem; color: #cfe0f5; margin: 0; }
 
 .form-jump-nav {
+    position: -webkit-sticky;
     position: sticky;
     top: 75px;
     z-index: 500;
@@ -893,6 +894,7 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
    de fazer scroll — o "top" tem de bater certo com a altura da navbar
    (65px no desktop, 130px em mobile, ver secção 6). */
 .jump-nav {
+    position: -webkit-sticky;
     position: sticky;
     top: 75px;
     z-index: 500;
