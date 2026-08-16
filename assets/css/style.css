@@ -822,7 +822,7 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
 .info-block.vermelho { border-left-color: #CE1126; }
 .info-block.azul-claro { border-left-color: var(--azul-claro); }
 
-/* Link de documento — usado em documentos.md e jamboree-news.html.
+/* Link de documento — usado em documentos.md e jamboree/newsletter.html.
    Modificadores de cor: .doc-link.verde / .vermelho.
    .pendente = ainda sem ficheiro real (fica cinzento, com ⏳ em vez de 📥). */
 .doc-link {
@@ -926,7 +926,7 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     .quick-links-grid .info-block span { font-size: 0.7rem !important; }
 }
 
-/* Grelha das 4 Secções no organigrama (equipa.md, linha "Base" da Direção).
+/* Grelha das 4 Secções no organigrama (agrupamento/equipa.md, linha "Base" da Direção).
    4 colunas em ecrãs largos; em telemóvel, 4 colunas ficavam demasiado
    estreitas (o conteúdo saía da janela) — passa a 2x2. */
 .orgchart-secoes-grid {
