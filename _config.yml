@@ -7,15 +7,14 @@ markdown: kramdown
 # COLEÇÕES — grupos de conteúdo geridos como "ficheiros repetíveis", em vez
 # de páginas soltas. Cada coleção fica na sua própria pasta (_noticias/,
 # _documentos/, _inscricoes/), e o Jekyll junta-os automaticamente para os
-# podermos listar, ordenar por data, ou agrupar por ano nas páginas
-# agrupamento/noticias.html, agrupamento/documentos.md e
-# atividades/inscricoes.md. Ver README.md, secção "Como acrescentar
-# conteúdo", para o passo-a-passo.
+# podermos listar ou ordenar por data. As notícias alimentam o feed da
+# página inicial (index.md); os documentos aparecem em
+# agrupamento/documentos.md; as inscrições em atividades/inscricoes.md.
+# Ver README.md, secção "Como acrescentar conteúdo", para o passo-a-passo.
 # =========================================================================
 collections:
   noticias:
-    output: true              # cada notícia gera a sua própria página (ex.: /noticias/titulo-da-noticia.html)
-    permalink: /noticias/:slug.html
+    output: false              # sem página própria — alimentam só o feed da página inicial (index.md)
   documentos:
     output: false              # os documentos não têm página própria — só aparecem listados em agrupamento/documentos.md
   inscricoes:

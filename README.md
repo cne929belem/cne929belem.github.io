@@ -31,13 +31,12 @@ As páginas estão organizadas em pastas que espelham a estrutura do menu do sit
 ```text
 /
 ├── index.md                      # Página inicial (gera index.html)
-├── em-construcao.html            # Aviso genérico para secções ainda por desenvolver
+├── em-construcao.md              # Aviso genérico para secções ainda por desenvolver
 │
 ├── agrupamento/                  # Menu "Agrupamento"
 │   ├── informacoes.md              # Sobre o Agrupamento, contactos, quotas
 │   ├── equipa.md                   # Organigrama e Equipas de Animação
-│   ├── documentos.md               # Documentos oficiais, agrupados por ano
-│   └── noticias.html               # Diário de Bordo — todas as notícias
+│   └── documentos.md               # Documentos oficiais, agrupados por ano
 │
 ├── escuteiro/                    # Menu "Escuteiro"
 │   └── registos.md                 # Espaço pessoal — Registo de Noites/Horas (mais registos a virem)
@@ -80,11 +79,13 @@ As páginas estão organizadas em pastas que espelham a estrutura do menu do sit
 ├── Gemfile / Gemfile.lock        # Dependências Ruby
 │
 ├── _layouts/                     # Layouts partilhados
-├── _includes/                    # Componentes reutilizáveis (navegação, contador, cartões)
-├── _noticias/                    # Coleção de notícias
+├── _includes/                    # Componentes reutilizáveis (navegação de Atividades, Jamboree e Secções, contador, cartões)
+├── _noticias/                    # Coleção de notícias (alimenta o feed da página inicial)
 ├── _documentos/                  # Coleção de documentos
-├── _inscricoes/                  # Coleção de inscrições ativas
-├── _data/                        # Bases de dados geridas pelo CMS
+├── _inscricoes/                  # Coleção de inscrições ativas (vazia até à primeira inscrição criada no /admin/)
+├── _data/
+│   ├── registos.yml                # Base de dados de Noites/Horas, gerida pelo CMS
+│   └── links_uteis.yml             # Links externos (CNE nacional, etc.), editado à mão
 │
 ├── admin/                        # Painel de administração (Decap CMS)
 │
@@ -109,7 +110,7 @@ A maior parte do conteúdo do site atualiza-se pelo painel em `/admin/`, sem nec
 
 | Conteúdo | Onde | Notas |
 |---|---|---|
-| Notícias | `/admin/` → Notícias | Com link direto para outra página, ou texto próprio para gerar uma página nova. As 3 mais recentes aparecem sempre na página inicial. |
+| Notícias | `/admin/` → Notícias | Não geram página própria — ligam sempre a uma página real do site (`link_externo`). As 5 mais recentes aparecem na página inicial. Campos opcionais: `imagem`, `autor`, `funcao` e `prioridade` (força uma notícia a ficar em destaque, independentemente da data). |
 | Documentos | `/admin/` → Documentos | O campo "Ano" organiza automaticamente onde aparecem. |
 | Inscrições em atividades | `/admin/` → Inscrições | Só as marcadas como "Ativo" aparecem na página de Inscrições. |
 | Diário de Bordo da Comunidade | `/admin/` → Páginas do Site | Liga a pastas do Google Drive por ID. |
@@ -124,6 +125,17 @@ Na página Geral, as datas e os acessos principais ficam à esquerda e o local, 
 ### Secções
 
 Cada secção tem uma barra de navegação própria entre Geral, Vivência, Programa e Diário de Bordo. A I - Alcateia usa amarelo, a II - Flotilha usa verde, a III - Frota usa azul e a IV - Comunidade usa vermelho. As páginas Gerais das três primeiras secções já apresentam as respetivas Equipas de Animação e dois blocos reservados para informação e recursos; as restantes páginas continuam marcadas como “Em construção”.
+
+### Padrão de página (hero + cabeçalho em vidro)
+
+Todas as páginas do redesign — página inicial, secções, Equipa, Atividades, Em Construção — seguem a mesma estrutura:
+
+- `main_class: pagina-com-hero` no front matter, para o `<main>` não herdar o espaçamento das páginas antigas.
+- Uma secção com `id="hero"` logo no topo do conteúdo (a página inicial usa um carrossel de fotos; as restantes usam `hero-generico`, um gradiente com o título e subtítulo lá dentro — algumas, como a Comunidade, têm ainda uma variante com a cor e o ícone da própria secção).
+- Um `<div class="espaco-hero-generico">` logo a seguir, só para reservar o espaço do hero no fluxo normal da página.
+- O cabeçalho (`_layouts/default.html`) fica sempre transparente sobre o hero e passa a vidro sólido assim que se começa a fazer scroll — isto é automático, o script deteta sozinho se a página tem ou não um elemento com `id="hero"`.
+
+Para criar uma página nova com este visual, o mais simples é copiar o topo de uma página já feita (ex.: `atividades/geral.md`) e adaptar o título, o texto e o conteúdo a seguir.
 
 ---
 
