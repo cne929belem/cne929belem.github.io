@@ -1286,11 +1286,28 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     text-align: center; font-size: 11px; color: #aaa;
   }
 
-  /* Reset do <main> da homepage: evita herdar o flex/padding do
-     .main-content antigo, para o hero poder ocupar o ecrã inteiro. */
-  .pagina-inicial-main { display: block; flex: none; justify-content: normal; padding: 0; }
+  /* Reset do <main>: evita herdar o flex/padding do .main-content antigo,
+     para o hero (desta página ou de qualquer outra) poder ocupar o ecrã
+     inteiro em vez de ficar espremido/centrado pelo layout antigo. */
+  .pagina-com-hero { display: block; flex: none; justify-content: normal; padding: 0; }
 
-  /* Imagem de notícia em falta (ainda sem campo "imagem" no front matter) */
+  /* Hero genérico para páginas internas sem foto própria ainda — mesmo
+     mecanismo (fixo, id="hero") do hero da homepage, só que com um
+     gradiente em vez de carrossel. Substituir por foto real quando existir:
+     background: url('/assets/img/.../foto.jpg') center / cover no-repeat; */
+  .hero-generico {
+    position: fixed; top: 0; left: 0; right: 0; height: 20vh; z-index: 1; overflow: hidden;
+    background: linear-gradient(160deg, var(--mar-noturno) 0%, var(--cne-verde-escuro) 55%, var(--cne-verde) 100%);
+  }
+  .espaco-hero-generico { height: 20vh; }
+
+  /* Data de última atualização de qualquer página (basta pôr
+     ultima_atualizacao: DD/MM/AAAA no front matter da página) */
+  .data-atualizacao-pagina {
+    max-width: 1100px; margin: 20px auto 0; padding: 0 28px;
+    text-align: right; font-size: 12px; color: #999; font-style: italic;
+  }
+
   .placeholder-foto-feed {
     background: linear-gradient(160deg, var(--cne-verde) 0%, var(--cne-verde-escuro) 100%);
   }

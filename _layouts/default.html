@@ -60,6 +60,9 @@
 
 <main class="{{ page.main_class | default: 'main-content' }}">
     {{ content }}
+    {% if page.ultima_atualizacao %}
+    <p class="data-atualizacao-pagina">Última atualização em {{ page.ultima_atualizacao }}</p>
+    {% endif %}
 </main>
 
 <footer class="rodape">
