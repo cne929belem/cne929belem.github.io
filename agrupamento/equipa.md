@@ -4,11 +4,15 @@ title: Equipa | Agrupamento 929 - Belém
 main_class: pagina-com-hero
 ---
 <style>
-  .pagina-cabecalho { max-width: 900px; margin: 0 auto; padding: 40px 28px 6px; }
-  .pagina-cabecalho h1 { font-size: 30px; margin: 0 0 10px; }
-  .pagina-cabecalho > p { color: #555; font-size: 15px; line-height: 1.6; margin: 0; }
+  .pagina-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+  .pagina-cabecalho h1 { color: #fff; font-size: 30px; margin: 0 0 10px; }
+  .pagina-cabecalho > p { color: #fff; font-size: 15px; line-height: 1.6; margin: 0; }
 
+  .grelha-equipa { position: relative; z-index: 5; max-width: 1200px; margin: 0 auto; background: #fff; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
+  @media (max-width: 860px) { .grelha-equipa { grid-template-columns: 1fr; } }
   .secao-equipa { max-width: 900px; margin: 0 auto; padding: 34px 28px 0; }
+  .grelha-equipa > .secao-equipa { max-width: none; min-width: 0; margin: 0; }
+  .grelha-equipa + .secao-equipa { max-width: 1200px; }
   .secao-equipa h2 {
     display: flex; align-items: center; gap: 10px;
     font-size: 21px; margin: 0 0 14px; color: var(--cne-verde-escuro);
@@ -27,23 +31,24 @@ main_class: pagina-com-hero
   .grelha-direcao { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0; }
   @media (max-width: 560px) { .grelha-direcao { grid-template-columns: 1fr; } }
   .pessoa-cartao-grande {
-    display: flex; align-items: center; gap: 18px; text-align: left;
+    display: flex; align-items: center; gap: 10px; min-width: 0; text-align: left;
     background: linear-gradient(160deg, var(--cne-verde-escuro) 0%, var(--mar-noturno) 100%);
-    color: #fff; border-radius: 16px; padding: 18px 22px;
+    color: #fff; border-radius: 16px; padding: 12px 10px;
   }
   .pessoa-cartao-grande .insignia-lado { width: 46px; height: 46px; }
   .pessoa-cartao-grande .foto-pessoa { width: 84px; height: 84px; border: 3px solid rgba(255,255,255,0.25); }
+  .pessoa-cartao-grande > div { min-width: 0; }
   .pessoa-cartao-grande .cargo { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; opacity: .75; margin: 0 0 4px; }
-  .pessoa-cartao-grande .nome { font-size: 15px; font-weight: 700; margin: 0; }
+  .pessoa-cartao-grande .nome { font-size: 13px; line-height: 1.25; font-weight: 700; margin: 0; overflow-wrap: break-word; }
 
   /* Chefias de Unidade — sub-grelha dentro da Direção do Aquário, uma
      por secção, com o ícone da secção antes do nome */
   .grelha-chefias {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 10px; margin-top: 4px;
   }
   .chefia-cartao {
-    background: #fff; border-radius: 12px; padding: 12px;
+    background: color-mix(in srgb, var(--cor-seccao, var(--cne-verde)) 10%, white); border-radius: 12px; padding: 12px;
     text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.06);
     border-top: 4px solid var(--cor-seccao, var(--cne-verde));
   }
@@ -53,6 +58,7 @@ main_class: pagina-com-hero
   .chefia-foto-linha .foto-pessoa { width: 48px; height: 48px; }
   .chefia-cartao .nome-seccao { font-size: 10.5px; text-transform: uppercase; letter-spacing: .04em; color: #888; margin: 0 0 3px; }
   .chefia-cartao .nome { font-size: 13px; font-weight: 700; color: #222; line-height: 1.25; }
+  @media (max-width: 560px) { .grelha-chefias { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
   .aviso-mandato {
     background: #fff8e1; border: 1px solid #ffe28a; border-radius: 10px;
@@ -66,7 +72,14 @@ main_class: pagina-com-hero
     background: #f7f7f5;
     background: color-mix(in srgb, var(--cor-seccao, var(--cne-verde)) 10%, white);
   }
-  .grupo-seccao h3 { margin: 0 0 12px; font-size: 15px; color: #2a2a2a; display: flex; align-items: center; gap: 8px; }
+  .grupo-seccao summary { position: relative; list-style: none; cursor: pointer; padding-right: 28px; }
+  .grupo-seccao summary::-webkit-details-marker { display: none; }
+  .grupo-seccao summary::after { content: '+'; position: absolute; top: 50%; right: 0; transform: translateY(-50%); font-size: 20px; line-height: 1; color: var(--cor-seccao, var(--cne-verde)); }
+  .grupo-seccao[open] summary::after { content: '-'; }
+  .grupo-titulo { display: flex; align-items: center; gap: 8px; margin: 0 28px 6px 0; font-size: 15px; font-weight: 900; color: #2a2a2a; }
+  .descricao-unidade { display: block; margin: 0 28px 0 30px; font-size: 13px; line-height: 1.45; color: #555; }
+  .grupo-seccao[open] .descricao-unidade { display: none; }
+  .grupo-seccao[open] .lista-pessoas { margin-top: 12px; }
   .icone-seccao { width: 22px; height: 22px; object-fit: contain; flex-shrink: 0; }
   .lista-pessoas { display: flex; flex-direction: column; gap: 10px; }
   .pessoa-cartao {
@@ -74,7 +87,7 @@ main_class: pagina-com-hero
     background: #fff; border-radius: 12px; padding: 10px 14px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.06);
   }
-  .pessoa-cartao .insignia-lado { width: 34px; height: 34px; }
+  .pessoa-cartao .insignia-lado { width: 42px; height: 42px; }
   .pessoa-cartao .foto-pessoa { width: 64px; height: 64px; }
   .placeholder-foto {
     background: linear-gradient(160deg, var(--cne-verde) 0%, var(--cne-verde-escuro) 100%);
@@ -84,17 +97,18 @@ main_class: pagina-com-hero
   .pessoa-cartao .nome { font-size: 14px; font-weight: 700; color: #222; margin: 0; }
 
   .ultima-atualizacao { text-align: right; font-size: 12px; color: #999; font-style: italic; margin-top: 14px; }
-  .conselho-texto { padding-bottom: 50px; }
+  .conselho-texto { position: relative; z-index: 5; background: #fff; padding-bottom: 50px; }
 </style>
 
-<section class="hero-generico" id="hero"></section>
+<section class="hero-generico" id="hero">
+  <div class="pagina-cabecalho">
+    <h1>A Nossa Equipa</h1>
+    <p>Conhece quem dá vida ao 929 — a tripulação de adultos que torna cada aventura possível.</p>
+  </div>
+</section>
 <div class="espaco-hero-generico" aria-hidden="true"></div>
 
-<div class="pagina-cabecalho">
-  <h1>A Nossa Equipa</h1>
-  <p>Conhece quem dá vida ao 929 — a tripulação de adultos que torna cada aventura possível.</p>
-</div>
-
+<div class="grelha-equipa">
 <section class="secao-equipa">
   <h2>🧭 Direção do Aquário</h2>
   <div class="texto-intro">
@@ -185,7 +199,7 @@ main_class: pagina-com-hero
       Aviso Eleitoral: Ocorrerão eleições para a nova Chefia de Agrupamento em 2026. <a href="#">Consultar Informação sobre eleições para Chefe de Agrupamento</a>.
     </div>
   </div>
-  <p class="ultima-atualizacao">Última atualização em 13/08/2026</p>
+  <p class="ultima-atualizacao">Última atualização em 22/08/2026</p>
 </section>
 
 <section class="secao-equipa">
@@ -197,8 +211,8 @@ main_class: pagina-com-hero
     <p class="referencia">Nos termos do Regulamento Geral e do Sistema de Formação de Adultos do CNE</p>
   </div>
 
-  <div class="grupo-seccao" style="--cor-seccao:#ffc107">
-    <h3><img class="icone-seccao" src="{{ '/assets/img/seccoes/1_lobitos.png' | relative_url }}" alt="">Alcateia (Lobitos)</h3>
+  <details class="grupo-seccao" style="--cor-seccao:#ffc107">
+    <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/1_lobitos.png' | relative_url }}" alt="">Alcateia (Lobitos)</span><span class="descricao-unidade">A primeira secção, dedicada aos Lobitos.</span></summary>
     <div class="lista-pessoas">
       <div class="pessoa-cartao">
         <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
@@ -211,10 +225,10 @@ main_class: pagina-com-hero
         <div><p class="funcao">Candidato a Dirigente</p><p class="nome">Madalena Catita (Raposa Exigente)</p></div>
       </div>
     </div>
-  </div>
+  </details>
 
-  <div class="grupo-seccao" style="--cor-seccao:#28a745">
-    <h3><img class="icone-seccao" src="{{ '/assets/img/seccoes/2_mocos.png' | relative_url }}" alt="">Flotilha (Moços)</h3>
+  <details class="grupo-seccao" style="--cor-seccao:#28a745">
+    <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/2_mocos.png' | relative_url }}" alt="">Flotilha (Moços)</span><span class="descricao-unidade">A segunda secção, dedicada aos Moços.</span></summary>
     <div class="lista-pessoas">
       <div class="pessoa-cartao">
         <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
@@ -232,10 +246,10 @@ main_class: pagina-com-hero
         <div><p class="funcao">Candidato a Dirigente</p><p class="nome">José Batalha</p></div>
       </div>
     </div>
-  </div>
+  </details>
 
-  <div class="grupo-seccao" style="--cor-seccao:#0056b3">
-    <h3><img class="icone-seccao" src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt="">Frota (Marinheiros)</h3>
+  <details class="grupo-seccao" style="--cor-seccao:#0056b3">
+    <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt="">Frota (Marinheiros)</span><span class="descricao-unidade">A terceira secção, dedicada aos Marinheiros.</span></summary>
     <div class="lista-pessoas">
       <div class="pessoa-cartao">
         <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
@@ -253,10 +267,10 @@ main_class: pagina-com-hero
         <div><p class="funcao">Candidato a Dirigente</p><p class="nome">Simão Pereira (Sapo)</p></div>
       </div>
     </div>
-  </div>
+  </details>
 
-  <div class="grupo-seccao" style="--cor-seccao:#BD242C">
-    <h3><img class="icone-seccao" src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="">Comunidade (Companheiros)</h3>
+  <details class="grupo-seccao" style="--cor-seccao:#BD242C">
+    <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="">Comunidade (Companheiros)</span><span class="descricao-unidade">A quarta secção, dedicada aos Companheiros.</span></summary>
     <div class="lista-pessoas">
       <div class="pessoa-cartao">
         <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
@@ -269,10 +283,11 @@ main_class: pagina-com-hero
         <div><p class="funcao">Dirigente</p><p class="nome">Ruben Rodrigues (Tubarão Empenhado)</p></div>
       </div>
     </div>
-  </div>
+  </details>
 
-  <p class="ultima-atualizacao">Última atualização em 13/08/2026</p>
+  <p class="ultima-atualizacao">Última atualização em 22/08/2026</p>
 </section>
+</div>
 
 <section class="secao-equipa conselho-texto">
   <h2>📜 Conselho de Agrupamento</h2>
