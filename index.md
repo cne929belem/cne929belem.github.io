@@ -7,7 +7,6 @@ main_class: pagina-com-hero
 {% assign noticia_destaque = noticias_recentes | where: "prioridade", 1 | first %}
 {% unless noticia_destaque %}{% assign noticia_destaque = noticias_recentes | first %}{% endunless %}
 {% assign meses = "janeiro,fevereiro,março,abril,maio,junho,julho,agosto,setembro,outubro,novembro,dezembro" | split: "," %}
-{% assign meses = "janeiro,fevereiro,março,abril,maio,junho,julho,agosto,setembro,outubro,novembro,dezembro" | split: "," %}
 
 <h1 class="visualmente-oculto">929 - Belém, Corpo Nacional de Escutas</h1>
 
@@ -37,7 +36,7 @@ main_class: pagina-com-hero
       {% endif %}
       <h2>{{ noticia_destaque.title }}</h2>
       {% assign mes_destaque = noticia_destaque.date | date: "%-m" | minus: 1 %}
-      <p class="assinatura">{{ noticia_destaque.date | date: "%-d" }} de {{ meses[mes_destaque] }} de {{ noticia_destaque.date | date: "%Y" }} · {{ noticia_destaque.autor }} ({{ noticia_destaque.funcao }})</p>
+      <p class="assinatura">{{ noticia_destaque.date | date: "%-d" }} de {{ meses[mes_destaque] }} de {{ noticia_destaque.date | date: "%Y" }}{% if noticia_destaque.autor %} · {{ noticia_destaque.autor }}{% if noticia_destaque.funcao %} ({{ noticia_destaque.funcao }}){% endif %}{% endif %}</p>
       <p>{{ noticia_destaque.resumo }}</p>
     </a>
   </article>
@@ -55,7 +54,7 @@ main_class: pagina-com-hero
       <div>
         <h3>{{ noticia.title }}</h3>
         {% assign mes_noticia = noticia.date | date: "%-m" | minus: 1 %}
-        <p class="assinatura">{{ noticia.date | date: "%-d" }} de {{ meses[mes_noticia] }} de {{ noticia.date | date: "%Y" }} · {{ noticia.autor }} ({{ noticia.funcao }})</p>
+        <p class="assinatura">{{ noticia.date | date: "%-d" }} de {{ meses[mes_noticia] }} de {{ noticia.date | date: "%Y" }}{% if noticia.autor %} · {{ noticia.autor }}{% if noticia.funcao %} ({{ noticia.funcao }}){% endif %}{% endif %}</p>
       </div>
     </a>
     {% endunless %}

@@ -1,20 +1,27 @@
 ---
 layout: default
 title: Informações - Jamboree 2027 | CNE 929 - Belém
-main_class: main-content-jamboree
+main_class: pagina-com-hero
+ultima_atualizacao: 22/08/2026
 ---
-<div class="jamboree-wrapper">
-    <aside class="jamboree-band">
-        <img src="/assets/img/jamboree/RGB_logo_white_WSJ2027.png" alt="Logo Jamboree 2027">
-        <img src="/assets/img/jamboree/RGB_bravely_short_white_WSJ2027.png" alt="Bravely" class="img-bravely">
-    </aside>
+<section class="hero-generico hero-jamboree" id="hero">
+    <div class="pagina-cabecalho">
+        <img class="hero-jamboree-oficial" src="/assets/img/jamboree/RGB_logo_white_WSJ2027.png" alt="Logótipo oficial do World Scout Jamboree 2027">
+        <img class="hero-jamboree-logo" src="/assets/img/jamboree/RGB_bravely_short_white_WSJ2027.png" alt="Bravely">
+        <h1>Informações do Jamboree</h1>
+        {% include jamboree-contador.html %}
+    </div>
+</section>
+<div class="espaco-hero-generico" aria-hidden="true"></div>
 
-    <section class="card-jamboree">
+<div class="pagina-conteudo jamboree-pagina">
+    {% include jamboree-nav.html %}
+    <section class="jamboree-largura">
         <h1>Informações</h1>
         <p>Tudo o que os jovens (e os pais!) precisam de saber sobre a nossa expedição à Polónia.</p>
         
         <a href="#modalTropa" class="btn" style="margin-top: 15px; margin-bottom: 20px;">🏕️⚜️ TROPA</a>
-        <div style="text-align: left; margin-top: 40px; display: flex; flex-direction: column; gap: 20px;">
+        <div class="jamboree-info-blocos">
 
             <div class="info-block vermelho">
                 <h3><span>🧭</span> A Grande Aventura: O Imaginário</h3>
@@ -28,7 +35,7 @@ main_class: main-content-jamboree
                 </div>
             </div>
 
-            <div class="info-block amarelo">
+            <div class="info-block amarelo" id="insignia-contingente">
                 <h3><span>🎖️</span> A Insígnia do Contingente</h3>
                 <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
                     <a href="#modalInsignia" class="zoom-trigger" aria-label="Ampliar a insígnia do Contingente">
@@ -130,8 +137,5 @@ main_class: main-content-jamboree
             </div>
         </div>
 
-        <p style="text-align: right; font-size: 0.7rem; color: #888; margin-top: 30px; font-style: italic;">
-            Última atualização em 13/08/2026
-        </p>
     </section>
 </div>
