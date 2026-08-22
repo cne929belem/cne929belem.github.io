@@ -108,6 +108,8 @@
             </a>
         </div>
 
+        <a class="rodape-protecao-dados" href="{{ '/agrupamento/protecao-dados.html' | relative_url }}">Proteção de Dados</a>
+
         <div class="rodape-logos">
             <a href="https://maritimos.escutismo.pt/quem-somos/o-escutismo-maritimo/" target="_blank" rel="noopener noreferrer" title="Escutismo Marítimo">
                 <img src="{{ '/assets/img/marca/CNE_escuteiros_Maritimos.jpg' | relative_url }}" alt="Escutismo Marítimo">
@@ -120,6 +122,11 @@
 
     <p class="rodape-copyright">© 2026 · Corpo Nacional de Escutas · Agrupamento 929 - Belém</p>
 </footer>
+
+<!-- Ícone provisório (seta) — será substituído por um ícone próprio em assets/ mais tarde -->
+<button class="botao-topo" id="botaoTopo" aria-label="Voltar ao topo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <span aria-hidden="true">↑</span>
+</button>
 
 <script>
     function alternarMenuMovel() {
@@ -148,6 +155,14 @@
     } else {
         navTopo.classList.add('rolado');
     }
+
+    // Botão de voltar ao topo — só aparece depois de rolar um pouco
+    const botaoTopo = document.getElementById('botaoTopo');
+    function aoRolarTopo() {
+        botaoTopo.classList.toggle('visivel', window.scrollY > 400);
+    }
+    window.addEventListener('scroll', aoRolarTopo, { passive: true });
+    aoRolarTopo();
 </script>
 
 </body>

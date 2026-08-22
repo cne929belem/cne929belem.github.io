@@ -65,8 +65,13 @@ seccao_cor: '#CE1126'
 
 <div class="comunidade-pagina">
     {% include seccao-nav.html %}
-    <section class="card" style="max-width: 800px; width: 100%; border-top: 8px solid #CE1126;">
-        <p>O que significa ser Companheiro, a nossa mística, os nossos símbolos, e o caminho — ou melhor, o rumo — que se percorre na Comunidade.</p>
+    <section class="card">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+            <span style="font-size: 2.5rem;">📄</span>
+            <h2 style="margin: 0; color: #CE1126;">Vivência</h2>
+        </div>
+
+        <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 30px;">O que significa ser Companheiro, a nossa mística, os nossos símbolos, e o caminho (ou melhor, o rumo) que se percorre na Comunidade.</p>
 
         <div style="margin-top: 40px; text-align: left;">
 

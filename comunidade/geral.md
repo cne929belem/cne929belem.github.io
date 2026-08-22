@@ -28,7 +28,7 @@ seccao_cor: '#CE1126'
 
 <div class="comunidade-pagina">
     {% include seccao-nav.html %}
-    <section class="card" style="max-width: 800px; width: 100%;">
+    <section class="card card-sem-caixa">
         <div class="seccao-equipa-bloco comunidade-equipa-bloco" style="--cor-seccao: #CE1126;">
             <h2 class="section-title vermelho">🏕️ A nossa Equipa de Animação</h2>
             <p class="seccao-geral-intro">A equipa que acompanha a Comunidade e ajuda cada Companheiro a escolher o seu rumo e a viver a vocação do Serviço.</p>

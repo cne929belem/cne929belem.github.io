@@ -1449,6 +1449,25 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     background: linear-gradient(160deg, var(--cne-verde) 0%, var(--cne-verde-escuro) 100%);
   }
 
+  /* Botão de voltar ao topo — centrado ao fundo, aparece a partir de
+     algum scroll. O ícone (seta) é provisório, a substituir mais tarde. */
+  .botao-topo {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--cne-verde-escuro); color: #fff; border: none;
+    font-size: 20px; line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    opacity: 0; pointer-events: none;
+    transition: opacity .25s ease, transform .2s ease;
+    z-index: 90;
+  }
+  .botao-topo.visivel { opacity: 1; pointer-events: auto; }
+  .botao-topo:hover { transform: translateX(-50%) translateY(-3px); }
+  @media (prefers-reduced-motion: reduce) {
+    .botao-topo { transition: opacity .01s linear; }
+  }
+
     .comunidade-pagina {
         position: relative; z-index: 5; max-width: 1200px; margin: 0 auto;
         padding: 24px 28px 56px; background: #fff;

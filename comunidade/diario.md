@@ -20,13 +20,13 @@ pasta_imagens: "1SuqsdzNBkOm3D762mdcsWlr2txQ-sj0z"
 
 <div class="comunidade-pagina">
     {% include seccao-nav.html %}
-    <section class="card" style="max-width: 900px; width: 100%; border-top: 8px solid #CE1126;">
+    <section class="card">
         <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
             <span style="font-size: 2.5rem;">📄</span>
             <h2 style="margin: 0; color: #CE1126;">Diário de Bordo</h2>
         </div>
 
-        <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 30px;">O arquivo vivo da nossa Comunidade. Aqui guardamos as memórias das nossas navegações, os relatórios de atividade e as imagens que marcam a nossa rota.</p>
+        <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 30px;">O arquivo vivo da nossa Comunidade, onde guardamos as memórias das nossas navegações, os relatórios de atividade e as imagens que nos marcaram.</p>
 
         <!-- CAIXA DOS DOCUMENTOS (Apresentação em Lista) -->
         <div style="margin-top: 40px; text-align: left;">

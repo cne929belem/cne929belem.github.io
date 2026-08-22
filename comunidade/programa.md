@@ -17,7 +17,7 @@ seccao_cor: '#CE1126'
 
 <div class="comunidade-pagina pagina-seccao">
     {% include seccao-nav.html %}
-    <section class="card seccao-construcao">
+    <section class="card card-sem-caixa seccao-construcao">
         <span class="seccao-construcao-icone" aria-hidden="true">⚓🛠️</span>
         <h2>Em construção</h2>
         <p>O Programa desta secção está a ganhar forma nos estaleiros do Agrupamento. Novidades em breve!</p>

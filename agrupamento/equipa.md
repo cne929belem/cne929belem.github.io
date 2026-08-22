@@ -196,7 +196,7 @@ main_class: pagina-com-hero
     <span aria-hidden="true">🗳️</span>
     <div>
       <strong>Mandato em Exercício: 2023 — 2026</strong><br>
-      Aviso Eleitoral: Ocorrerão eleições para a nova Chefia de Agrupamento em 2026. <a href="#">Consultar Informação sobre eleições para Chefe de Agrupamento</a>.
+      Aviso Eleitoral: Ocorrerão eleições para a nova Chefia de Agrupamento em 2026. <a href="{{ '/agrupamento/documentos.html' | relative_url }}">Consultar Informação sobre eleições para Chefe de Agrupamento</a>.
     </div>
   </div>
   <p class="ultima-atualizacao">Última atualização em 22/08/2026</p>
