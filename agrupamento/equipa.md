@@ -15,17 +15,15 @@ title: Equipa | Agrupamento 929 - Belém
   .texto-intro p { font-size: 14.5px; line-height: 1.65; color: #333; margin: 0 0 10px; }
   .texto-intro .referencia { font-size: 12.5px; color: #888; font-style: italic; }
 
-  .grelha-direcao {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px;
-    margin: 22px 0;
-  }
+  .grelha-direcao { display: flex; flex-direction: column; gap: 14px; margin: 22px 0; }
   .pessoa-cartao-grande {
+    display: flex; align-items: center; gap: 18px; text-align: left;
     background: linear-gradient(160deg, var(--cne-verde-escuro) 0%, var(--mar-noturno) 100%);
-    color: #fff; border-radius: 16px; padding: 20px; text-align: center;
+    color: #fff; border-radius: 16px; padding: 18px 22px;
   }
   .pessoa-cartao-grande img, .pessoa-cartao-grande .placeholder-foto {
-    width: 116px; height: 116px; border-radius: 50%; object-fit: cover;
-    margin: 0 auto 12px; display: block; border: 3px solid rgba(255,255,255,0.25);
+    width: 84px; height: 84px; border-radius: 50%; object-fit: cover;
+    margin: 0; display: block; flex-shrink: 0; border: 3px solid rgba(255,255,255,0.25);
   }
   .pessoa-cartao-grande .cargo { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; opacity: .75; margin: 0 0 4px; }
   .pessoa-cartao-grande .nome { font-size: 15px; font-weight: 700; margin: 0; }
@@ -43,7 +41,7 @@ title: Equipa | Agrupamento 929 - Belém
     background: color-mix(in srgb, var(--cor-seccao, var(--cne-verde)) 10%, white);
   }
   .grupo-seccao h3 { margin: 0 0 12px; font-size: 15px; color: #2a2a2a; }
-  .lista-pessoas { display: flex; flex-wrap: wrap; gap: 12px; }
+  .lista-pessoas { display: flex; flex-direction: column; gap: 10px; }
   .pessoa-cartao {
     display: flex; align-items: center; gap: 12px;
     background: #fff; border-radius: 12px; padding: 10px 14px;
@@ -189,10 +187,6 @@ title: Equipa | Agrupamento 929 - Belém
       <div class="pessoa-cartao">
         <img src="{{ '/assets/img/equipa/eunice-goncalves_equipa.jpg' | relative_url }}" alt="Eunice Gonçalves">
         <div><p class="funcao">Dirigente</p><p class="nome">Eunice Gonçalves (Salamandra)</p></div>
-      </div>
-      <div class="pessoa-cartao">
-        <span class="placeholder-foto" aria-hidden="true">PF</span>
-        <div><p class="funcao">Dirigente</p><p class="nome">Pedro Fernando (Carapau)</p></div>
       </div>
     </div>
   </div>
