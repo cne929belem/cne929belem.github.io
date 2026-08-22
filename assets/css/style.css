@@ -1006,8 +1006,14 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
    continuam a funcionar exatamente como antes.
    ========================================================================= */
   :root {
-    --cne-verde: #2B966C;
-    --cne-verde-escuro: #1E6042;
+    /* Nota: os nomes das variáveis mantêm "verde" por serem usados em toda
+       a folha de estilos, mas os valores são azuis — o Manual de Identidade
+       do CNE usa verde, mas este é um agrupamento marítimo, por isso a cor
+       principal é substituída por azul (reaproveitando o --azul-marinho e
+       --azul-claro já usados no resto do site). Vermelho, amarelo e os
+       verdes específicos de cada secção mantêm-se como estão. */
+    --cne-verde: #0056b3;
+    --cne-verde-escuro: #003366;
     --cne-vermelho: #BD242C;
     --mar-noturno: #071b30;
     --mar-profundo: #0c3350;
@@ -1039,11 +1045,20 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
   }
 
   /* ==================== HERO + CARROSSEL DE FUNDO ==================== */
+  /* Fixo no ecrã: o feed (abaixo) é que sobe por cima dele ao rolar. A
+     imagem nunca é recarregada nem alterada — fica sempre no mesmo sítio,
+     só passa a ficar tapada (ou destapada) pelo feed, conforme o scroll. */
   .hero {
-    position: relative;
+    position: fixed;
+    top: 0; left: 0; right: 0;
     height: 40vh;
+    z-index: 1;
     overflow: hidden;
   }
+
+  /* Ocupa o mesmo espaço do hero no fluxo normal do documento, para o
+     feed começar visualmente logo a seguir a ele antes de se rolar. */
+  .espaco-hero { height: 40vh; }
 
   .hero-slide {
     position: absolute; inset: 0;
@@ -1052,10 +1067,10 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
   }
   .hero-slide.ativo { opacity: 1; }
   .hero-slide:nth-child(1) {
-    background: url('/assets/img/atividades/26acagrup.jpeg') center / cover no-repeat;
+    background: url('/assets/img/atividades/26acagrup.jpg') center / cover no-repeat;
   }
   .hero-slide:nth-child(2) {
-    background: url('/assets/img/atividades/26promessas.jpeg') center / cover no-repeat;
+    background: url('/assets/img/atividades/26promessas.jpg') center / cover no-repeat;
   }
 
   .hero::after {
@@ -1211,7 +1226,7 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
 
   /* ==================== FEED DE NOTÍCIAS (secção que faz scroll) ==================== */
   .feed {
-    background: #fff;
+    position: relative; z-index: 5; background: #fff;
     max-width: 1100px; margin: 0 auto; padding: 56px 28px 30px;
     display: grid; grid-template-columns: 1.1fr 1fr; gap: 44px;
   }
@@ -1242,7 +1257,7 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
   .noticia-item .assinatura { margin: 0; }
 
   /* ==================== RODAPÉ — branco, fino, com onda subtil ==================== */
-  .rodape { background: #fff; padding: 0 28px 18px; }
+  .rodape { position: relative; z-index: 5; background: #fff; padding: 0 28px 18px; }
   .rodape-onda { display: block; width: 100%; height: 20px; }
 
   .rodape-conteudo {
