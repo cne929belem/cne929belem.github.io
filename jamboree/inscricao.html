@@ -48,19 +48,7 @@ ultima_atualizacao: 22/08/2026
 
 <div class="pagina-conteudo jamboree-pagina jamboree-form-pagina">
     {% include jamboree-nav.html %}
-    <div class="content-wrapper" style="flex-direction: column; max-width: 760px;">
-
-    <div class="form-intro">
-        <h1>🌳 Portal de Respostas — Tropa 10</h1>
-        <p>Inscrição nominal para o 26º World Scout Jamboree · Polónia 2027</p>
-    </div>
-
-    <nav class="form-jump-nav">
-        <strong>Ir diretamente para uma secção:</strong>
-        <div class="form-jump-links">
-        <a href="#secao-1">🧑 Dados Pessoais</a><a href="#secao-2">📍 Morada</a><a href="#secao-3">🆘 Encarregado / Emergência</a><a href="#secao-4">🛫 Viagem</a><a href="#secao-5">🩺 Saúde</a><a href="#secao-6">♿ Mobilidade</a><a href="#secao-7">🌤️ Conforto</a><a href="#secao-8">🏥 SIIE Update</a>
-        </div>
-    </nav>
+    <div class="content-wrapper" style="flex-direction: column;">
 
     <form action="https://script.google.com/macros/s/AKfycbxwz3zrihTDIyCcrEMd-EINhQ9-aZUH5wdAEUnpOzRRo1Bj0GiaZ1j8kU4fgbFQIONMIg/exec" method="POST">
         <fieldset class="consent-block">
@@ -116,6 +104,17 @@ ultima_atualizacao: 22/08/2026
 
         <input type="checkbox" id="consent-check" name="consentimento" value="Sim" required>
         <label for="consent-check" class="consent-check">Li e compreendi esta informação. Na qualidade de Encarregado de Educação ou Tutor legal do/a participante menor de idade, dou o meu consentimento explícito para o tratamento dos dados pessoais e das categorias especiais de dados acima descritas, para os fins indicados. *</label>
+
+        <nav class="form-jump-nav seccao-navegacao">
+            <a href="#secao-1">🧑 Dados Pessoais</a>
+            <a href="#secao-2">📍 Morada</a>
+            <a href="#secao-3">🆘 Encarregado / Emergência</a>
+            <a href="#secao-4">🛫 Viagem</a>
+            <a href="#secao-5">🩺 Saúde</a>
+            <a href="#secao-6">♿ Mobilidade</a>
+            <a href="#secao-7">🌤️ Conforto</a>
+            <a href="#secao-8">🏥 SIIE Update</a>
+        </nav>
 
         <div class="form-body">
             <fieldset class="form-section" id="secao-1">
