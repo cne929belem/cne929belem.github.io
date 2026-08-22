@@ -3,7 +3,7 @@ layout: default
 title: Atividades | 929 - Belém
 ---
 <style>
-  .pagina-cabecalho { max-width: 1100px; margin: 0 auto; padding: 40px 28px 6px; }
+  .pagina-cabecalho { max-width: 1100px; margin: 0 auto; padding: 110px 28px 6px; }
   .pagina-cabecalho h1 { font-size: 30px; margin: 0 0 8px; }
   .pagina-cabecalho p { color: #555; font-size: 15px; margin: 0; }
 
