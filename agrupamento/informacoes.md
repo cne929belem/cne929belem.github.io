@@ -1,17 +1,46 @@
 ---
 layout: default
 title: Informações Gerais | Agrupamento 929 - Belém
-main_class: main-content
+main_class: pagina-com-hero
 ---
 
-<div class="content-wrapper" style="justify-content: center; align-items: center; flex-direction: column;">
-    <section class="card" style="max-width: 800px; width: 100%;">
-        <span style="font-size: 3rem; display: block; margin-bottom: 10px;">⚓</span>
+<style>
+    .pagina-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+    .pagina-cabecalho h1 { color: #fff; font-size: 30px; margin: 0 0 10px; }
+    .pagina-cabecalho p { color: #fff; font-size: 15px; line-height: 1.6; margin: 0; }
+    .info-pagina { position: relative; z-index: 5; max-width: 1200px; margin: 0 auto; padding: 28px; background: #fff; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+    .info-bloco { min-width: 0; }
+    .info-bloco .section-title { margin: 0 0 15px; font-size: 21px; }
+    .info-bloco .info-block { height: calc(100% - 52px); margin: 0; }
+    .info-bloco.contactos .info-block { height: auto; }
+    .localizacao { margin-top: 14px; padding: 16px 20px; border-left: 5px solid var(--azul-claro); border-radius: 8px; background: #eaf4fb; }
+    .localizacao h3 { margin: 0 0 8px; color: var(--azul-marinho); font-size: 16px; }
+    .localizacao p { margin: 0 0 8px; line-height: 1.5; }
+    .localizacao a { color: var(--azul-claro); font-weight: 700; text-decoration: none; }
+    .localizacao a:hover { text-decoration: underline; }
+    .localizacao iframe { display: block; width: 100%; height: 190px; margin-top: 14px; border: 0; border-radius: 6px; }
+    .info-bloco.quota { grid-column: 1 / -1; }
+    .info-bloco.quota .info-block { height: auto; }
+    .info-bloco p, .info-bloco li { overflow-wrap: break-word; }
+    .info-bloco table { min-width: 520px; }
+    @media (max-width: 760px) {
+        .info-pagina { grid-template-columns: 1fr; padding: 24px 20px 48px; }
+        .info-bloco.quota { grid-column: auto; }
+        .info-bloco .info-block { height: auto; }
+    }
+</style>
+
+<section class="hero-generico" id="hero">
+    <div class="pagina-cabecalho">
         <h1>Informações Gerais</h1>
         <p>Conhece melhor o Agrupamento 929 - Belém, os nossos contactos e informações úteis.</p>
+    </div>
+</section>
+<div class="espaco-hero-generico" aria-hidden="true"></div>
 
-        <!-- SECÇÃO: QUEM SOMOS -->
-        <div style="text-align: left; margin-top: 40px;">
+<div class="info-pagina">
+
+        <section class="info-bloco">
             <h2 class="section-title">
                 <span>⚜️</span> O Agrupamento 929 - Belém
             </h2>
@@ -24,10 +53,9 @@ main_class: main-content
                 
                 <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">Nos Escuteiros Marítimos os escalões etários dividem-se em: <strong>Lobitos</strong>, <strong>Moços</strong>, <strong>Marinheiros</strong> e <strong>Companheiros</strong>, sempre acompanhados por um Dirigente que os orienta na sua vida escutista.</p>
             </div>
-        </div>
+        </section>
 
-        <!-- SECÇÃO: CONTACTOS -->
-        <div style="text-align: left; margin-top: 40px;">
+        <section class="info-bloco contactos">
             <h2 class="section-title">
                 <span>📧</span> Contactos
             </h2>
@@ -43,10 +71,14 @@ main_class: main-content
                     <li>🧭 <strong>IV - Companheiros:</strong> <a href="mailto:companheiros.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">companheiros.929@escutismo.pt</a></li>
                 </ul>
             </div>
-        </div>
+            <div class="localizacao">
+                <h3>📍 Localização</h3>
+                <p><a href="https://maps.app.goo.gl/jFjWvkipWY5HRQEE9" target="_blank" rel="noopener noreferrer">Doca de Recreio de Belém, Lisboa</a></p>
+                <iframe src="https://www.google.com/maps?q=Doca+de+Recreio+de+Bel%C3%A9m%2C+Lisboa&output=embed" title="Mapa da Doca de Recreio de Belém" loading="lazy" allowfullscreen></iframe>
+            </div>
+        </section>
 
-        <!-- SECÇÃO: QUOTAS E PAGAMENTOS -->
-        <div style="text-align: left; margin-top: 40px;">
+        <section class="info-bloco quota">
             <h2 class="section-title">
                 <span>💶</span> Quota Anual e Pagamentos
             </h2>
@@ -83,9 +115,8 @@ main_class: main-content
                     <strong>⚠️ Ninguém deixará de participar nas atividades por questões financeiras!</strong>
                 </div>
                 <p style="text-align: right; font-size: 0.7rem; color: #888; margin-top: 15px; font-style: italic;">
-                    Última atualização em 13/08/2026
+                    Última atualização em 22/08/2026
                 </p>
             </div>
-        </div>
-    </section>
+        </section>
 </div>

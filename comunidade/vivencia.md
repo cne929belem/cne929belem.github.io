@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Vivência | IV - Comunidade
-main_class: main-content
+main_class: pagina-com-hero
 ---
 <!--
   Página "Vivência" da IV Secção — Comunidade. Reestruturada a pedido do
@@ -32,14 +32,13 @@ main_class: main-content
         user-select: none;
         outline: none;
     }
-    /* Seta animada CSS */
+    /* Controlo de expansão */
     .acordeao summary::after {
-        content: '▼';
-        font-size: 0.9rem;
-        transition: transform 0.3s ease;
+        content: '+';
+        font-size: 1.2rem;
     }
     .acordeao[open] summary::after {
-        transform: rotate(180deg);
+        content: '−';
     }
     .acordeao[open] summary {
         border-bottom: 1px solid #e0e0e0;
@@ -52,9 +51,18 @@ main_class: main-content
     .acordeao.verde { border-left-color: #28a745; }
 </style>
 
-<div class="content-wrapper" style="justify-content: center; align-items: center; flex-direction: column;">
+<section class="hero-generico hero-comunidade" id="hero">
+    <div class="pagina-cabecalho">
+        <span class="icone-hero-caixa" aria-hidden="true"><img class="icone-hero-seccao" src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt=""></span>
+        <h1>Vivência</h1>
+        <p>A nossa mística, os nossos símbolos e o rumo da Comunidade.</p>
+    </div>
+</section>
+<div class="espaco-hero-generico" aria-hidden="true"></div>
+
+<div class="comunidade-pagina">
+    {% include comunidade-nav.html %}
     <section class="card" style="max-width: 800px; width: 100%; border-top: 8px solid #CE1126;">
-        <h1 style="color: #CE1126; margin-bottom: 5px;">Vivência</h1>
         <p>O que significa ser Companheiro, a nossa mística, os nossos símbolos, e o caminho — ou melhor, o rumo — que se percorre na Comunidade.</p>
 
         <div style="margin-top: 40px; text-align: left;">
@@ -296,7 +304,7 @@ main_class: main-content
         </div>
 
         <p style="text-align: right; font-size: 0.7rem; color: #888; margin-top: 30px; font-style: italic;">
-            Última atualização em 13/08/2026
+            Última atualização em 22/08/2026
         </p>
     </section>
 </div>

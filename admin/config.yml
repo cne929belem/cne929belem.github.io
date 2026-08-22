@@ -109,6 +109,9 @@ collections:
       - {label: "Layout (Não mexer)", name: "layout", widget: "hidden", default: "noticia"}
       - {label: "Título", name: "title", widget: "string"}
       - {label: "Data", name: "date", widget: "datetime"}
+      - {label: "Prioridade", name: "prioridade", widget: "select", options: [0, 1], default: 0}
+      - {label: "Autor", name: "autor", widget: "string"}
+      - {label: "Função do autor", name: "funcao", widget: "string"}
       - {label: "Resumo (aparece no cartão)", name: "resumo", widget: "text"}
       - {label: "Imagem (opcional)", name: "imagem", widget: "image", required: false}
       - {label: "Link direto para outra página (opcional)", name: "link_externo", widget: "string", required: false, hint: "Se preenchido, o cartão liga diretamente para aqui em vez de criar uma página de notícia própria."}

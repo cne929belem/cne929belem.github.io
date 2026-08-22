@@ -1,16 +1,26 @@
 ---
 layout: default
 title: Diário de Bordo | IV - Comunidade
-main_class: main-content
+main_class: pagina-com-hero
 pasta_documentos: "1dbzKTvBdIoigtzF5DascO4hJfjrT1dQb"
 pasta_imagens: "1SuqsdzNBkOm3D762mdcsWlr2txQ-sj0z"
 ---
 
-<div class="content-wrapper" style="justify-content: center; align-items: center; flex-direction: column;">
+<section class="hero-generico hero-comunidade" id="hero">
+    <div class="pagina-cabecalho">
+        <span class="icone-hero-caixa" aria-hidden="true"><img class="icone-hero-seccao" src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt=""></span>
+        <h1>Diário de Bordo</h1>
+        <p>As memórias, relatórios e imagens das nossas navegações.</p>
+    </div>
+</section>
+<div class="espaco-hero-generico" aria-hidden="true"></div>
+
+<div class="comunidade-pagina">
+    {% include comunidade-nav.html %}
     <section class="card" style="max-width: 900px; width: 100%; border-top: 8px solid #CE1126;">
         <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
             <span style="font-size: 2.5rem;">📄</span>
-            <h1 style="margin: 0; color: #CE1126;">Diário de Bordo</h1>
+            <h2 style="margin: 0; color: #CE1126;">Diário de Bordo</h2>
         </div>
 
         <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 30px;">O arquivo vivo da nossa Comunidade. Aqui guardamos as memórias das nossas navegações, os relatórios de atividade e as imagens que marcam a nossa rota.</p>

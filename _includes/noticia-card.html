@@ -6,8 +6,10 @@
 {% endcomment %}
 {% assign noticia = include.noticia %}
 {% assign destino = noticia.link_externo | default: noticia.url | relative_url %}
+{% assign meses = "janeiro,fevereiro,março,abril,maio,junho,julho,agosto,setembro,outubro,novembro,dezembro" | split: "," %}
+{% assign mes_noticia = noticia.date | date: "%-m" | minus: 1 %}
 <a href="{{ destino }}" class="noticia-card">
-    <div class="noticia-data">{{ noticia.date | date: "%d de %B de %Y" }}</div>
+  <div class="noticia-data">{{ noticia.date | date: "%-d" }} de {{ meses[mes_noticia] }} de {{ noticia.date | date: "%Y" }} · {{ noticia.autor }} ({{ noticia.funcao }})</div>
     <h3>{{ noticia.title }}</h3>
     <p>{{ noticia.resumo }}</p>
 </a>

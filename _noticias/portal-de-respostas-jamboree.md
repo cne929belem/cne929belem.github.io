@@ -1,6 +1,9 @@
 ---
 title: "Portal de Respostas do Jamboree 2027 já está disponível"
 date: 2026-08-13
+prioridade: 1
+autor: "Ricardo Isaías"
+funcao: "Tesoureiro"
 resumo: "A Tropa 10 já pode fazer a inscrição nominal para o WSJ 2027 diretamente através do nosso site."
 link_externo: /jamboree/geral.html
 imagem: /assets/img/jamboree/Insignia_Contingente_WSJ2027.png
