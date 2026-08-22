@@ -5,200 +5,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>{{ page.title | default: site.name }}</title>
-    
+
     <meta name="description" content="{{ site.description }}">
     <meta name="keywords" content="Escuteiros, Marítimos, CNE 929, Belém, Agrupamento 929, Escutismo Marítimo, Lisboa, Corpo Nacional de Escutas">
-    
+
     <link rel="icon" type="image/x-icon" href="{{ '/assets/img/marca/Logo929.ico' | relative_url }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ '/assets/img/marca/Logo929.ico' | relative_url }}">
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-
-    <style>
-        /* Lógica e design do Sub-menu em formato Acordeão (Expande para baixo) */
-        ul.dropdown-menu-sub {
-            background-color: var(--cinza-fundo);
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.03); /* Sombra interior suave */
-        }
-
-        ul.dropdown-menu-sub li a {
-            display: block;
-            padding: 12px 15px 12px 30px; /* 30px de recuo para mostrar que é um sub-menu */
-            color: #555;
-            text-decoration: none;
-            border-bottom: 1px dashed #eee;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-        }
-        
-        ul.dropdown-menu-sub li:last-child a {
-            border-bottom: none;
-        }
-
-        ul.dropdown-menu-sub li a:hover {
-            background-color: var(--cinza-hover);
-            color: #CE1126 !important;
-            padding-left: 35px; /* Efeito de seta ao passar o rato */
-        }
-    </style>
 </head>
 <body>
 
-<header class="navbar">
-    <div class="nav-container">
-        <a href="{{ '/index.html' | relative_url }}" class="brand">
-            <img src="{{ '/assets/img/marca/Logo929.jpg' | relative_url }}" alt="Logo 929" class="logo-img">
-            <div class="brand-text">
-                <span class="brand-name">929 - Belém</span>
-                <span class="brand-sub">Corpo Nacional de Escutas</span>
+<nav class="nav-topo" id="navTopo">
+    <a href="{{ '/index.html' | relative_url }}" class="marca">
+        <img class="emblema" src="{{ '/assets/img/marca/Logo929.jpg' | relative_url }}" alt="Emblema do Agrupamento 929 - Belém">
+        <span class="nome">
+            <strong>929 - Belém</strong>
+            <span>Corpo Nacional de Escutas</span>
+        </span>
+    </a>
+
+    <div class="menu-principal" id="menuPrincipal">
+        <div class="item-menu">
+            <button onclick="alternarSubmenuMovel(this)">Agrupamento</button>
+            <div class="submenu">
+                <a href="{{ '/agrupamento/informacoes.html' | relative_url }}">Informações</a>
+                <a href="{{ '/agrupamento/equipa.html' | relative_url }}">Equipa</a>
+                <a href="{{ '/agrupamento/documentos.html' | relative_url }}">Documentos</a>
             </div>
-        </a>
-
-        <!-- Menu mobile recolhível — só CSS, sem JavaScript (técnica "checkbox hack").
-             TEM de ficar aqui, como irmão direto de <nav>, logo a seguir — o CSS
-             usa o seletor ".menu-toggle-checkbox:checked ~ nav .nav-menu" (~
-             = "irmão seguinte"), por isso a ordem exata no HTML importa. -->
-        <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
-        <label for="menu-toggle" class="hamburger-icon" aria-label="Abrir menu">☰</label>
-
-        <nav>
-            <ul class="nav-menu">
-                <li class="dropdown">
-                    <a href="#" class="nav-link">Agrupamento ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ '/agrupamento/informacoes.html' | relative_url }}">Informações</a></li>
-                        <li><a href="{{ '/agrupamento/equipa.html' | relative_url }}">Equipa</a></li>
-                        <li><a href="{{ '/agrupamento/documentos.html' | relative_url }}">Documentos</a></li>
-                        <li><a href="{{ '/agrupamento/noticias.html' | relative_url }}">Diário de Bordo</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#" class="nav-link">Escuteiro ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ '/escuteiro/registos.html' | relative_url }}">Registos</a></li>
-                        <li><a href="{{ '/em-construcao.html' | relative_url }}">Percurso</a></li>
-                    </ul>
-                </li>
-                
-                <li class="dropdown">
-                    <a href="#" class="nav-link">Secções ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ '/em-construcao.html' | relative_url }}">I - Alcateia</a></li>
-                        <li><a href="{{ '/em-construcao.html' | relative_url }}">II - Flotilha</a></li>
-                        <li><a href="{{ '/em-construcao.html' | relative_url }}">III - Frota</a></li>
-                        
-                        <!-- IV - COMUNIDADE (Com botão expansível Acordeão) -->
-                        <li class="dropdown-submenu">
-                            <a href="javascript:void(0);" onclick="toggleSubMenu(this, event)" style="display: flex; justify-content: space-between; align-items: center; color: #CE1126; font-weight: bold; padding-right: 15px;">
-                                IV - Comunidade <span class="submenu-arrow" style="font-size: 1.2rem; line-height: 1;">▸</span>
-                            </a>
-                            <ul class="dropdown-menu-sub" style="display: none;">
-                                <li><a href="{{ '/comunidade/geral.html' | relative_url }}">Geral</a></li>
-                                <li><a href="{{ '/comunidade/vivencia.html' | relative_url }}">Vivência</a></li>
-                                <li><a href="{{ '/comunidade/programa.html' | relative_url }}">Programa</a></li>
-                                <li><a href="{{ '/comunidade/diario.html' | relative_url }}">Diário de Bordo</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                
-                <li class="dropdown">
-                    <a href="#" class="nav-link">ATIVIDADES ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ '/atividades/inscricoes.html' | relative_url }}">Inscrições</a></li>
-                        <li><a href="{{ '/atividades/promessas26.html' | relative_url }}">26 Promessas</a></li>
-                        <li><a href="{{ '/atividades/acagrup-2026.html' | relative_url }}">26 ACAGRUP</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#" class="nav-link">Jamboree 2027 ▾</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ '/jamboree/geral.html' | relative_url }}">Geral</a></li>
-                        <li><a href="{{ '/jamboree/informacoes.html' | relative_url }}">Informações</a></li>
-                        <li><a href="{{ '/jamboree/newsletter.html' | relative_url }}">Newsletter</a></li>
-                    </ul>
-                </li>
-                
-                <li>
-                    <a href="{{ '/admin/' | relative_url }}" class="nav-link" style="color: var(--amarelo); font-weight: 800;">🔒 Login</a>
-                </li>
-            </ul>
-        </nav>
+        </div>
+        <div class="item-menu">
+            <button onclick="alternarSubmenuMovel(this)">Secções</button>
+            <div class="submenu">
+                <a href="{{ '/em-construcao.html' | relative_url }}">Secção I · Alcateia</a>
+                <a href="{{ '/em-construcao.html' | relative_url }}">Secção II · Flotilha</a>
+                <a href="{{ '/em-construcao.html' | relative_url }}">Secção III · Frota</a>
+                <a href="{{ '/comunidade/geral.html' | relative_url }}">Secção IV · Comunidade</a>
+            </div>
+        </div>
+        <div class="item-menu">
+            <a href="{{ '/atividades/geral.html' | relative_url }}">Atividades</a>
+        </div>
     </div>
-</header>
+
+    <div class="grupo-direita">
+        <a href="{{ '/jamboree/geral.html' | relative_url }}" class="botao-solido">Jamboree - 2027</a>
+        <a href="{{ '/escuteiro/registos.html' | relative_url }}" class="botao-area-pessoal">Área pessoal</a>
+        <button class="botao-hamburger" aria-label="Abrir menu" onclick="alternarMenuMovel()">☰</button>
+    </div>
+</nav>
 
 <main class="{{ page.main_class | default: 'main-content' }}">
     {{ content }}
 </main>
-    
-<footer>
-    <div class="footer-content">
-        <div class="footer-contactos">
+
+<footer class="rodape">
+    <div class="rodape-conteudo">
+        <div class="rodape-contactos">
             <h3>Contactos</h3>
             <p>
-                <a href="https://maps.app.goo.gl/jFjWvkipWY5HRQEE9" target="_blank" rel="noopener noreferrer" class="map-link">
-                    Av. Brasília, Doca de Recreio Belém<br>
-                    1400-434 Lisboa, Portugal
+                <a href="https://maps.app.goo.gl/jFjWvkipWY5HRQEE9" target="_blank" rel="noopener noreferrer">
+                    Av. Brasília, Doca de Recreio Belém<br>1400-434 Lisboa, Portugal
                 </a>
             </p>
-            <p>
-                <a href="mailto:geral.929@escutismo.pt" class="email-link">geral.929@escutismo.pt</a>
-            </p>
+            <p><a href="mailto:geral.929@escutismo.pt">geral.929@escutismo.pt</a></p>
         </div>
 
-        <div class="footer-redes">
-            <div class="social-row">
-                <a href="https://www.facebook.com/929belem" target="_blank" class="social-btn" title="Facebook">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="social-svg"><path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
-                </a>
-                <a href="https://www.instagram.com/929belem/" target="_blank" class="social-btn" title="Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="social-svg"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
-                </a>
-            </div>
-        </div>
-
-        <div class="footer-logo">
-            <a href="https://maritimos.escutismo.pt/quem-somos/o-escutismo-maritimo/" target="_blank" rel="noopener noreferrer" title="Saber mais sobre o Escutismo Marítimo">
-                <img src="{{ '/assets/img/marca/CNE_escuteiros_Maritimos.jpg' | relative_url }}" alt="Escutismo Marítimo" class="footer-cne-img">
+        <div class="rodape-redes">
+            <a href="https://www.facebook.com/929belem" target="_blank" rel="noopener noreferrer" class="rodape-social" title="Facebook">
+                <svg viewBox="0 0 320 512" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
             </a>
-            <a href="https://escutismo.pt/" target="_blank" rel="noopener noreferrer" title="Ir para o site oficial do CNE">
-                <img src="{{ '/assets/img/marca/CNE_escuteiros.jpg' | relative_url }}" alt="CNE Escuteiros" class="footer-cne-img">
+            <a href="https://www.instagram.com/929belem/" target="_blank" rel="noopener noreferrer" class="rodape-social" title="Instagram">
+                <svg viewBox="0 0 448 512" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+            </a>
+        </div>
+
+        <div class="rodape-logos">
+            <a href="https://maritimos.escutismo.pt/quem-somos/o-escutismo-maritimo/" target="_blank" rel="noopener noreferrer" title="Escutismo Marítimo">
+                <img src="{{ '/assets/img/marca/CNE_escuteiros_Maritimos.jpg' | relative_url }}" alt="Escutismo Marítimo">
+            </a>
+            <a href="https://escutismo.pt/" target="_blank" rel="noopener noreferrer" title="CNE">
+                <img src="{{ '/assets/img/marca/CNE_escuteiros.jpg' | relative_url }}" alt="CNE Escuteiros">
             </a>
         </div>
     </div>
-    <div class="footer-bottom">
-        <p class="copyright">© 2026 &bull; Corpo Nacional de Escutas &bull; Agrupamento 929 - Belém</p>
-    </div>
+
+    <p class="rodape-copyright">© 2026 · Corpo Nacional de Escutas · Agrupamento 929 - Belém</p>
 </footer>
 
 <script>
-    function toggleSubMenu(elementoClique, evento) {
-        // Trava a ação padrão do link (não salta a página) e evita que feche o menu pai
-        evento.preventDefault();
-        evento.stopPropagation();
-        
-        // Seleciona a lista exata e a setinha do link que foi clicado
-        var subMenu = elementoClique.nextElementSibling;
-        var seta = elementoClique.querySelector('.submenu-arrow');
-        
-        // Alterna entre mostrar e esconder (efeito acordeão)
-        if (subMenu.style.display === 'none' || subMenu.style.display === '') {
-            subMenu.style.display = 'block';
-            seta.innerHTML = '▾';
-        } else {
-            subMenu.style.display = 'none';
-            seta.innerHTML = '▸';
-        }
+    function alternarMenuMovel() {
+        document.getElementById('menuPrincipal').classList.toggle('mostrar');
+    }
+    function alternarSubmenuMovel(botao) {
+        if (window.innerWidth > 860) return; // no desktop o :hover já trata disto
+        const item = botao.closest('.item-menu');
+        const jaAberto = item.classList.contains('aberto');
+        document.querySelectorAll('.item-menu.aberto').forEach(i => i.classList.remove('aberto'));
+        if (!jaAberto) item.classList.add('aberto');
+    }
+
+    // Vidro sólido ao rolar — só relevante em páginas com hero (ex: homepage).
+    // Nas restantes páginas (sem #hero), o menu fica sempre no estado sólido.
+    const navTopo = document.getElementById('navTopo');
+    const heroEl = document.getElementById('hero');
+
+    if (heroEl) {
+        function calcularLimiteRolado() { return heroEl.offsetHeight - navTopo.offsetHeight; }
+        let limiteRolado = calcularLimiteRolado();
+        window.addEventListener('resize', () => { limiteRolado = calcularLimiteRolado(); });
+        function aoRolar() { navTopo.classList.toggle('rolado', window.scrollY > limiteRolado); }
+        window.addEventListener('scroll', aoRolar, { passive: true });
+        aoRolar();
+    } else {
+        navTopo.classList.add('rolado');
     }
 </script>
 
