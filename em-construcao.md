@@ -1,11 +1,12 @@
 ---
 layout: default
 title: Em Construção | 929 - Belém
+main_class: pagina-com-hero
 ---
 <style>
   .em-construcao {
     max-width: 560px; margin: 0 auto;
-    padding: 100px 28px 90px;
+    padding: 40px 28px 90px;
     text-align: center;
   }
   .em-construcao .icone { font-size: 52px; display: block; margin-bottom: 18px; }
@@ -20,6 +21,9 @@ title: Em Construção | 929 - Belém
   .em-construcao .botao-voltar:hover { opacity: .9; }
   .em-construcao .ultima-atualizacao { margin-top: 30px; font-size: 12px; color: #999; font-style: italic; }
 </style>
+
+<section class="hero-generico" id="hero"></section>
+<div class="espaco-hero" aria-hidden="true"></div>
 
 <div class="em-construcao">
   <span class="icone" aria-hidden="true">⚓🛠️</span>

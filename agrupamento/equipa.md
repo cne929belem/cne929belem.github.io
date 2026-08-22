@@ -1,9 +1,10 @@
 ---
 layout: default
 title: Equipa | Agrupamento 929 - Belém
+main_class: pagina-com-hero
 ---
 <style>
-  .pagina-cabecalho { max-width: 900px; margin: 0 auto; padding: 110px 28px 6px; }
+  .pagina-cabecalho { max-width: 900px; margin: 0 auto; padding: 40px 28px 6px; }
   .pagina-cabecalho h1 { font-size: 30px; margin: 0 0 10px; }
   .pagina-cabecalho > p { color: #555; font-size: 15px; line-height: 1.6; margin: 0; }
 
@@ -15,31 +16,43 @@ title: Equipa | Agrupamento 929 - Belém
   .texto-intro p { font-size: 14.5px; line-height: 1.65; color: #333; margin: 0 0 10px; }
   .texto-intro .referencia { font-size: 12.5px; color: #888; font-style: italic; }
 
-  /* Foto + crachá de função (crachá branco com sombra — não uma imagem
-     transparente, por isso é desenhado para parecer moldura intencional
-     em vez de fundo mal recortado) */
-  .foto-com-insignia { position: relative; display: inline-flex; flex-shrink: 0; }
-  .insignia-funcao {
-    position: absolute; bottom: -5px; right: -5px;
-    width: 26px; height: 26px; padding: 3px;
-    background: #fff; border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-    object-fit: contain;
+  /* Insígnia da função ao lado esquerdo da foto (não sobreposta) */
+  .insignia-lado { object-fit: contain; flex-shrink: 0; }
+  .foto-pessoa, .placeholder-foto {
+    border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
   }
-  .pessoa-cartao-grande .insignia-funcao { width: 30px; height: 30px; padding: 4px; bottom: -6px; right: -6px; }
+  .foto-pessoa { object-fit: cover; }
 
-  .grelha-direcao { display: flex; flex-direction: column; gap: 14px; margin: 22px 0; }
+  .grelha-direcao { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0; }
+  @media (max-width: 560px) { .grelha-direcao { grid-template-columns: 1fr; } }
   .pessoa-cartao-grande {
     display: flex; align-items: center; gap: 18px; text-align: left;
     background: linear-gradient(160deg, var(--cne-verde-escuro) 0%, var(--mar-noturno) 100%);
     color: #fff; border-radius: 16px; padding: 18px 22px;
   }
-  .pessoa-cartao-grande img, .pessoa-cartao-grande .placeholder-foto {
-    width: 84px; height: 84px; border-radius: 50%; object-fit: cover;
-    margin: 0; display: block; flex-shrink: 0; border: 3px solid rgba(255,255,255,0.25);
-  }
+  .pessoa-cartao-grande .insignia-lado { width: 46px; height: 46px; }
+  .pessoa-cartao-grande .foto-pessoa { width: 84px; height: 84px; border: 3px solid rgba(255,255,255,0.25); }
   .pessoa-cartao-grande .cargo { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; opacity: .75; margin: 0 0 4px; }
   .pessoa-cartao-grande .nome { font-size: 15px; font-weight: 700; margin: 0; }
+
+  /* Chefias de Unidade — sub-grelha dentro da Direção do Aquário, uma
+     por secção, com o ícone da secção antes do nome */
+  .grelha-chefias {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px; margin-top: 4px;
+  }
+  .chefia-cartao {
+    background: #fff; border-radius: 12px; padding: 12px;
+    text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    border-top: 4px solid var(--cor-seccao, var(--cne-verde));
+  }
+  .chefia-cartao .icone-seccao-chefia { display: block; height: 20px; margin: 0 auto 8px; object-fit: contain; }
+  .chefia-foto-linha { display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 8px; }
+  .chefia-foto-linha .insignia-lado { width: 26px; height: 26px; }
+  .chefia-foto-linha .foto-pessoa { width: 48px; height: 48px; }
+  .chefia-cartao .nome-seccao { font-size: 10.5px; text-transform: uppercase; letter-spacing: .04em; color: #888; margin: 0 0 3px; }
+  .chefia-cartao .nome { font-size: 13px; font-weight: 700; color: #222; line-height: 1.25; }
 
   .aviso-mandato {
     background: #fff8e1; border: 1px solid #ffe28a; border-radius: 10px;
@@ -61,19 +74,21 @@ title: Equipa | Agrupamento 929 - Belém
     background: #fff; border-radius: 12px; padding: 10px 14px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.06);
   }
-  .pessoa-cartao img, .pessoa-cartao .placeholder-foto { width: 64px; height: 64px; }
+  .pessoa-cartao .insignia-lado { width: 34px; height: 34px; }
+  .pessoa-cartao .foto-pessoa { width: 64px; height: 64px; }
   .placeholder-foto {
-    border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
     background: linear-gradient(160deg, var(--cne-verde) 0%, var(--cne-verde-escuro) 100%);
-    color: #fff; font-weight: 700; font-size: 20px;
+    color: #fff; font-weight: 700; font-size: 18px;
   }
-  .pessoa-cartao img { border-radius: 50%; object-fit: cover; flex-shrink: 0; }
   .pessoa-cartao .funcao { font-size: 11px; text-transform: uppercase; color: #888; margin: 0 0 2px; }
   .pessoa-cartao .nome { font-size: 14px; font-weight: 700; color: #222; margin: 0; }
 
   .ultima-atualizacao { text-align: right; font-size: 12px; color: #999; font-style: italic; margin-top: 14px; }
   .conselho-texto { padding-bottom: 50px; }
 </style>
+
+<section class="hero-generico" id="hero"></section>
+<div class="espaco-hero-generico" aria-hidden="true"></div>
 
 <div class="pagina-cabecalho">
   <h1>A Nossa Equipa</h1>
@@ -91,44 +106,75 @@ title: Equipa | Agrupamento 929 - Belém
 
   <div class="grelha-direcao">
     <div class="pessoa-cartao-grande">
-      <div class="foto-com-insignia">
-        <img src="{{ '/assets/img/equipa/jose-ferreira_equipa.jpg' | relative_url }}" alt="Cón. José Manuel Ferreira">
-        <img class="insignia-funcao" src="{{ '/assets/img/equipa/assistente.jpeg' | relative_url }}" alt="">
-      </div>
+      <img class="insignia-lado" src="{{ '/assets/img/equipa/assistente.jpg' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/jose-ferreira_equipa.jpg' | relative_url }}" alt="Cón. José Manuel Ferreira">
       <div>
         <p class="cargo">Assistente</p>
         <p class="nome">Cón. José Manuel Ferreira</p>
       </div>
     </div>
     <div class="pessoa-cartao-grande">
-      <div class="foto-com-insignia">
-        <img src="{{ '/assets/img/equipa/eunice-goncalves_equipa.jpg' | relative_url }}" alt="Eunice Gonçalves">
-        <img class="insignia-funcao" src="{{ '/assets/img/equipa/chefe_agrupamento.jpg' | relative_url }}" alt="">
-      </div>
+      <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_agrupamento.jpg' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/eunice-goncalves_equipa.jpg' | relative_url }}" alt="Eunice Gonçalves">
       <div>
         <p class="cargo">Chefe de Agrupamento</p>
         <p class="nome">Eunice Gonçalves (Salamandra)</p>
       </div>
     </div>
     <div class="pessoa-cartao-grande">
-      <div class="foto-com-insignia">
-        <img src="{{ '/assets/img/equipa/carolina-mascarenhas_equipa.jpg' | relative_url }}" alt="Carolina Mascarenhas">
-        <img class="insignia-funcao" src="{{ '/assets/img/equipa/secretario_tesoureiro.jpg' | relative_url }}" alt="">
-      </div>
+      <img class="insignia-lado" src="{{ '/assets/img/equipa/secretario_tesoureiro.jpg' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/carolina-mascarenhas_equipa.jpg' | relative_url }}" alt="Carolina Mascarenhas">
       <div>
         <p class="cargo">Secretário</p>
         <p class="nome">Carolina Mascarenhas (Koala Pensadora)</p>
       </div>
     </div>
     <div class="pessoa-cartao-grande">
-      <div class="foto-com-insignia">
-        <img src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías">
-        <img class="insignia-funcao" src="{{ '/assets/img/equipa/secretario_tesoureiro.jpg' | relative_url }}" alt="">
-      </div>
+      <img class="insignia-lado" src="{{ '/assets/img/equipa/secretario_tesoureiro.jpg' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías">
       <div>
         <p class="cargo">Tesoureiro</p>
         <p class="nome">Ricardo Isaías (Axolote)</p>
       </div>
+    </div>
+  </div>
+
+  <div class="grelha-chefias">
+    <div class="chefia-cartao" style="--cor-seccao:#ffc107">
+      <img class="icone-seccao-chefia" src="{{ '/assets/img/seccoes/1_lobitos.png' | relative_url }}" alt="">
+      <div class="chefia-foto-linha">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte">
+      </div>
+      <p class="nome-seccao">Alcateia</p>
+      <p class="nome">Paulo Duarte<br>(Roaz Criativo)</p>
+    </div>
+    <div class="chefia-cartao" style="--cor-seccao:#28a745">
+      <img class="icone-seccao-chefia" src="{{ '/assets/img/seccoes/2_mocos.png' | relative_url }}" alt="">
+      <div class="chefia-foto-linha">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/carolina-mascarenhas_equipa.jpg' | relative_url }}" alt="Carolina Mascarenhas">
+      </div>
+      <p class="nome-seccao">Flotilha</p>
+      <p class="nome">Carolina Mascarenhas<br>(Koala Pensadora)</p>
+    </div>
+    <div class="chefia-cartao" style="--cor-seccao:#0056b3">
+      <img class="icone-seccao-chefia" src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt="">
+      <div class="chefia-foto-linha">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte">
+      </div>
+      <p class="nome-seccao">Frota</p>
+      <p class="nome">Paulo Duarte<br>(Roaz Criativo)</p>
+    </div>
+    <div class="chefia-cartao" style="--cor-seccao:#BD242C">
+      <img class="icone-seccao-chefia" src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="">
+      <div class="chefia-foto-linha">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías">
+      </div>
+      <p class="nome-seccao">Comunidade</p>
+      <p class="nome">Ricardo Isaías<br>(Axolote)</p>
     </div>
   </div>
 
@@ -155,17 +201,13 @@ title: Equipa | Agrupamento 929 - Belém
     <h3><img class="icone-seccao" src="{{ '/assets/img/seccoes/1_lobitos.png' | relative_url }}" alt="">Alcateia (Lobitos)</h3>
     <div class="lista-pessoas">
       <div class="pessoa-cartao">
-        <div class="foto-com-insignia">
-          <img src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte">
-          <img class="insignia-funcao" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
-        </div>
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte">
         <div><p class="funcao">Chefe de Unidade</p><p class="nome">Paulo Duarte (Roaz Criativo)</p></div>
       </div>
       <div class="pessoa-cartao">
-        <div class="foto-com-insignia">
-          <img src="{{ '/assets/img/equipa/madalena-catita_equipa.jpg' | relative_url }}" alt="Madalena Catita">
-          <img class="insignia-funcao" src="{{ '/assets/img/equipa/candidato_dirigente.jpg' | relative_url }}" alt="">
-        </div>
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.jpg' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/madalena-catita_equipa.jpg' | relative_url }}" alt="Madalena Catita">
         <div><p class="funcao">Candidato a Dirigente</p><p class="nome">Madalena Catita (Raposa Exigente)</p></div>
       </div>
     </div>
@@ -175,24 +217,18 @@ title: Equipa | Agrupamento 929 - Belém
     <h3><img class="icone-seccao" src="{{ '/assets/img/seccoes/2_mocos.png' | relative_url }}" alt="">Flotilha (Moços)</h3>
     <div class="lista-pessoas">
       <div class="pessoa-cartao">
-        <div class="foto-com-insignia">
-          <img src="{{ '/assets/img/equipa/carolina-mascarenhas_equipa.jpg' | relative_url }}" alt="Carolina Mascarenhas">
-          <img class="insignia-funcao" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
-        </div>
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/carolina-mascarenhas_equipa.jpg' | relative_url }}" alt="Carolina Mascarenhas">
         <div><p class="funcao">Chefe de Unidade</p><p class="nome">Carolina Mascarenhas (Koala Pensadora)</p></div>
       </div>
       <div class="pessoa-cartao">
-        <div class="foto-com-insignia">
-          <img src="{{ '/assets/img/equipa/maria-rodrigues_equipa.jpg' | relative_url }}" alt="Maria Rodrigues">
-          <img class="insignia-funcao" src="{{ '/assets/img/equipa/candidato_dirigente.jpg' | relative_url }}" alt="">
-        </div>
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.jpg' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/maria-rodrigues_equipa.jpg' | relative_url }}" alt="Maria Rodrigues">
         <div><p class="funcao">Candidato a Dirigente</p><p class="nome">Maria Rodrigues</p></div>
       </div>
       <div class="pessoa-cartao">
-        <div class="foto-com-insignia">
-          <img src="{{ '/assets/img/equipa/jose-batalha_equipa.jpg' | relative_url }}" alt="José Batalha">
-          <img class="insignia-funcao" src="{{ '/assets/img/equipa/candidato_dirigente.jpg' | relative_url }}" alt="">
-        </div>
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.jpg' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/jose-batalha_equipa.jpg' | relative_url }}" alt="José Batalha">
         <div><p class="funcao">Candidato a Dirigente</p><p class="nome">José Batalha</p></div>
       </div>
     </div>
@@ -202,24 +238,18 @@ title: Equipa | Agrupamento 929 - Belém
     <h3><img class="icone-seccao" src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt="">Frota (Marinheiros)</h3>
     <div class="lista-pessoas">
       <div class="pessoa-cartao">
-        <div class="foto-com-insignia">
-          <img src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte">
-          <img class="insignia-funcao" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
-        </div>
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte">
         <div><p class="funcao">Chefe de Unidade</p><p class="nome">Paulo Duarte (Roaz Criativo)</p></div>
       </div>
       <div class="pessoa-cartao">
-        <div class="foto-com-insignia">
-          <span class="placeholder-foto" aria-hidden="true">JD</span>
-          <img class="insignia-funcao" src="{{ '/assets/img/equipa/candidato_dirigente.jpg' | relative_url }}" alt="">
-        </div>
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.jpg' | relative_url }}" alt="">
+        <span class="placeholder-foto foto-pessoa" aria-hidden="true">JD</span>
         <div><p class="funcao">Candidato a Dirigente</p><p class="nome">João Dragovic (Espadarte)</p></div>
       </div>
       <div class="pessoa-cartao">
-        <div class="foto-com-insignia">
-          <img src="{{ '/assets/img/equipa/simao-pereira_equipa.jpg' | relative_url }}" alt="Simão Pereira">
-          <img class="insignia-funcao" src="{{ '/assets/img/equipa/candidato_dirigente.jpg' | relative_url }}" alt="">
-        </div>
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.jpg' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/simao-pereira_equipa.jpg' | relative_url }}" alt="Simão Pereira">
         <div><p class="funcao">Candidato a Dirigente</p><p class="nome">Simão Pereira (Sapo)</p></div>
       </div>
     </div>
@@ -229,31 +259,14 @@ title: Equipa | Agrupamento 929 - Belém
     <h3><img class="icone-seccao" src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="">Comunidade (Companheiros)</h3>
     <div class="lista-pessoas">
       <div class="pessoa-cartao">
-        <div class="foto-com-insignia">
-          <img src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías">
-          <img class="insignia-funcao" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
-        </div>
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías">
         <div><p class="funcao">Chefe de Unidade</p><p class="nome">Ricardo Isaías (Axolote)</p></div>
       </div>
       <div class="pessoa-cartao">
-        <div class="foto-com-insignia">
-          <img src="{{ '/assets/img/equipa/ruben-rodrigues_equipa.jpg' | relative_url }}" alt="Ruben Rodrigues">
-          <img class="insignia-funcao" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="">
-        </div>
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/instrutor.jpg' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/ruben-rodrigues_equipa.jpg' | relative_url }}" alt="Ruben Rodrigues">
         <div><p class="funcao">Dirigente</p><p class="nome">Ruben Rodrigues (Tubarão Empenhado)</p></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="grupo-seccao" style="--cor-seccao:#6c757d">
-    <h3>Agrupamento</h3>
-    <div class="lista-pessoas">
-      <div class="pessoa-cartao">
-        <div class="foto-com-insignia">
-          <img src="{{ '/assets/img/equipa/eunice-goncalves_equipa.jpg' | relative_url }}" alt="Eunice Gonçalves">
-          <img class="insignia-funcao" src="{{ '/assets/img/equipa/chefe_agrupamento.jpg' | relative_url }}" alt="">
-        </div>
-        <div><p class="funcao">Dirigente</p><p class="nome">Eunice Gonçalves (Salamandra)</p></div>
       </div>
     </div>
   </div>
