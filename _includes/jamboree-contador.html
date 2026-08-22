@@ -1,0 +1,22 @@
+<div class="jamboree-contador" id="relogio" aria-label="Contagem decrescente para o Jamboree">
+    <div><span id="dias">00</span><small>DIAS</small></div>
+    <div><span id="horas">00</span><small>HORAS</small></div>
+    <div><span id="minutos">00</span><small>MINUTOS</small></div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dataJamboree = new Date('2027-07-30T00:00:00+02:00').getTime();
+        function atualizaContador() {
+            const distancia = dataJamboree - Date.now();
+            if (distancia < 0) {
+                document.getElementById('relogio').innerHTML = '<strong>O Jamboree já começou!</strong>';
+                return;
+            }
+            document.getElementById('dias').textContent = Math.floor(distancia / 86400000).toString().padStart(2, '0');
+            document.getElementById('horas').textContent = Math.floor(distancia % 86400000 / 3600000).toString().padStart(2, '0');
+            document.getElementById('minutos').textContent = Math.floor(distancia % 3600000 / 60000).toString().padStart(2, '0');
+        }
+        atualizaContador();
+        setInterval(atualizaContador, 60000);
+    });
+</script>

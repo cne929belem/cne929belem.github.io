@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Portal de Respostas - Jamboree 2027 | CNE 929 - Belém
-main_class: main-content
+main_class: pagina-com-hero
+ultima_atualizacao: 22/08/2026
 ---
 <!--
   PORTAL DE RESPOSTAS — Inscrição nominal da Tropa 10 para o WSJ 2027.
@@ -35,7 +36,19 @@ main_class: main-content
   Google Sheet. Se mudares o "name" de algum campo aqui, atualiza também
   o FIELD_MAP lá, ou essa coluna deixa de ser preenchida.
 -->
-<div class="content-wrapper" style="flex-direction: column; max-width: 760px;">
+<section class="hero-generico hero-jamboree" id="hero">
+    <div class="pagina-cabecalho">
+        <img class="hero-jamboree-oficial" src="/assets/img/jamboree/RGB_logo_white_WSJ2027.png" alt="Logótipo oficial do World Scout Jamboree 2027">
+        <img class="hero-jamboree-logo" src="/assets/img/jamboree/RGB_bravely_short_white_WSJ2027.png" alt="Bravely">
+        <h1>Portal de Respostas</h1>
+        {% include jamboree-contador.html %}
+    </div>
+</section>
+<div class="espaco-hero-generico" aria-hidden="true"></div>
+
+<div class="pagina-conteudo jamboree-pagina jamboree-form-pagina">
+    {% include jamboree-nav.html %}
+    <div class="content-wrapper" style="flex-direction: column; max-width: 760px;">
 
     <div class="form-intro">
         <h1>🌳 Portal de Respostas — Tropa 10</h1>
@@ -519,8 +532,5 @@ main_class: main-content
         </div>
     </form>
 
-    <p style="text-align: center; font-size: 0.7rem; color: #888; margin-top: 20px; font-style: italic;">
-        Última atualização em 12/08/2026
-    </p>
-
+</div>
 </div>

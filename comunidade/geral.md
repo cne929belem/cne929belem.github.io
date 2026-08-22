@@ -2,6 +2,9 @@
 layout: default
 title: Geral | IV - Comunidade
 main_class: pagina-com-hero
+seccao_slug: comunidade
+seccao_nome: IV - Comunidade
+seccao_cor: '#CE1126'
 ---
 
 <style>
@@ -24,37 +27,16 @@ main_class: pagina-com-hero
 <div class="espaco-hero-generico" aria-hidden="true"></div>
 
 <div class="comunidade-pagina">
-    {% include comunidade-nav.html %}
+    {% include seccao-nav.html %}
     <section class="card" style="max-width: 800px; width: 100%;">
-        <p>Conhece a nossa Equipa de Animação, a IV Secção no CNE e os recursos que acompanham a vivência dos Companheiros.</p>
-
-        <!-- TEMA 1: EQUIPA DE ANIMAÇÃO -->
-        <div style="margin-top: 30px;">
-            <h3 class="section-title vermelho">🏕️ A nossa Equipa de Animação</h3>
-            <div style="background: rgba(206, 17, 38, 0.1); border-left: 5px solid #CE1126; border-radius: 6px; padding: 15px; display: flex; align-items: center; flex-wrap: wrap; gap: 20px; margin-top: 15px;">
-                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
-                        <img class="insignia-equipa" src="{{ '/assets/img/equipa/chefe_unidade.jpg' | relative_url }}" alt="Insígnia de Chefe de Unidade">
-                        <div style="width: 40px; height: 40px; background-color: var(--cinza-fundo); border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                            <img src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div>
-                            <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Chefe de Unidade</div>
-                            <div style="font-weight: bold; color: var(--azul-marinho);">Ricardo Isaías (Axolote)</div>
-                        </div>
-                    </div>
-                    <div style="background: white; border: 1px solid #ddd; border-radius: 6px; padding: 10px 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 12px;">
-                        <img class="insignia-equipa" src="{{ '/assets/img/equipa/instrutor.jpg' | relative_url }}" alt="Insígnia de Dirigente">
-                        <div style="width: 40px; height: 40px; background-color: var(--cinza-fundo); border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                            <img src="{{ '/assets/img/equipa/ruben-rodrigues_equipa.jpg' | relative_url }}" alt="Ruben Rodrigues" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div>
-                            <div style="font-size: 0.75rem; color: #666; text-transform: uppercase;">Dirigente</div>
-                            <div style="font-weight: bold; color: var(--azul-marinho);">Ruben Rodrigues (Tubarão Empenhado)</div>
-                        </div>
-                    </div>
-                </div>
+        <div class="seccao-equipa-bloco comunidade-equipa-bloco" style="--cor-seccao: #CE1126;">
+            <h2 class="section-title vermelho">🏕️ A nossa Equipa de Animação</h2>
+            <p class="seccao-geral-intro">A equipa que acompanha a Comunidade e ajuda cada Companheiro a escolher o seu rumo e a viver a vocação do Serviço.</p>
+            <div class="equipa-seccao-grelha">
+                <div class="pessoa-seccao"><img src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="Insígnia de Chefe de Unidade"><img src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías"><div><small>Chefe de Unidade</small><strong>Ricardo Isaías (Axolote)</strong></div></div>
+                <div class="pessoa-seccao"><img src="{{ '/assets/img/equipa/instrutor.png' | relative_url }}" alt="Insígnia de Dirigente"><img src="{{ '/assets/img/equipa/ruben-rodrigues_equipa.jpg' | relative_url }}" alt="Ruben Rodrigues"><div><small>Dirigente</small><strong>Ruben Rodrigues (Tubarão Empenhado)</strong></div></div>
             </div>
+            <a class="seccao-equipa-link" href="{{ '/agrupamento/equipa.html' | relative_url }}">Ver a equipa completa do Agrupamento →</a>
         </div>
 
         <div class="geral-grelha">

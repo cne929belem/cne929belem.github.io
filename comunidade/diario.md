@@ -2,6 +2,9 @@
 layout: default
 title: Diário de Bordo | IV - Comunidade
 main_class: pagina-com-hero
+seccao_slug: comunidade
+seccao_nome: IV - Comunidade
+seccao_cor: '#CE1126'
 pasta_documentos: "1dbzKTvBdIoigtzF5DascO4hJfjrT1dQb"
 pasta_imagens: "1SuqsdzNBkOm3D762mdcsWlr2txQ-sj0z"
 ---
@@ -16,7 +19,7 @@ pasta_imagens: "1SuqsdzNBkOm3D762mdcsWlr2txQ-sj0z"
 <div class="espaco-hero-generico" aria-hidden="true"></div>
 
 <div class="comunidade-pagina">
-    {% include comunidade-nav.html %}
+    {% include seccao-nav.html %}
     <section class="card" style="max-width: 900px; width: 100%; border-top: 8px solid #CE1126;">
         <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
             <span style="font-size: 2.5rem;">📄</span>

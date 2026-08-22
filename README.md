@@ -15,7 +15,8 @@ O Agrupamento 929 é um agrupamento de Escutismo Marítimo, sediado em Belém, L
 ## Tecnologia
 
 - **[Jekyll](https://jekyllrb.com/)**, compilado automaticamente pelo [GitHub Pages](https://pages.github.com/) a partir deste repositório — sem necessidade de servidor próprio.
-- **Layout partilhado** (`_layouts/default.html`): cabeçalho, navegação e rodapé definidos uma única vez.
+- **Layout partilhado** (`_layouts/default.html`): cabeçalho, navegação, rodapé e data de atualização definidos uma única vez.
+- **Componentes reutilizáveis** (`_includes/`): navegações de Atividades e Jamboree, contador do Jamboree e cartões de conteúdo.
 - **Coleções Jekyll** (`_noticias/`, `_documentos/`, `_inscricoes/`) para conteúdo repetível, geridas através do painel de administração.
 - **[Decap CMS](https://decapcms.org/)**, com autenticação via [DecapBridge](https://decapbridge.com/), disponível em `/admin/` — permite à Direção editar a maior parte do conteúdo sem tocar em código.
 - **HTML e CSS puro sempre que possível.** O site evita JavaScript deliberadamente; as exceções (contador do Jamboree, widget do Instagram, preenchimento automático de campos, motor de pesquisa de registos) estão documentadas nos próprios ficheiros onde ocorrem.
@@ -29,7 +30,7 @@ As páginas estão organizadas em pastas que espelham a estrutura do menu do sit
 
 ```text
 /
-├── index.html                    # Página inicial
+├── index.md                      # Página inicial (gera index.html)
 ├── em-construcao.html            # Aviso genérico para secções ainda por desenvolver
 │
 ├── agrupamento/                  # Menu "Agrupamento"
@@ -41,28 +42,45 @@ As páginas estão organizadas em pastas que espelham a estrutura do menu do sit
 ├── escuteiro/                    # Menu "Escuteiro"
 │   └── registos.md                 # Espaço pessoal — Registo de Noites/Horas (mais registos a virem)
 │
-├── comunidade/                   # Menu "Secções → IV - Comunidade"
+├── comunidade/                   # Secção IV — Comunidade
 │   ├── geral.md                    # Equipa de Animação, uniforme, ligação ao CNE
 │   ├── vivencia.md                 # Imaginário, mística, simbologia, progresso e PPV
 │   ├── programa.md                 # Programa de atividades da secção
 │   └── diario.md                   # Diário de Bordo da Comunidade — arquivo e galeria
 │
+├── alcateia/                     # Secção I — Lobitos
+│   ├── geral.md
+│   ├── vivencia.md
+│   ├── programa.md
+│   └── diario.md
+├── flotilha/                     # Secção II — Moços
+│   ├── geral.md
+│   ├── vivencia.md
+│   ├── programa.md
+│   └── diario.md
+├── frota/                        # Secção III — Marinheiros
+│   ├── geral.md
+│   ├── vivencia.md
+│   ├── programa.md
+│   └── diario.md
+│
 ├── atividades/                   # Menu "Atividades"
+│   ├── geral.md                    # Índice de atividades e navegação
 │   ├── acagrup-2026.md             # Acampamento de Agrupamento 2026
 │   ├── promessas26.md              # Galeria de Promessas 2026
-│   └── inscricoes.md               # Inscrições abertas em atividades
+│   └── inscricoes.md               # Inscrições atuais e histórico em timeline
 │
 ├── jamboree/                     # Menu "Jamboree 2027"
-│   ├── geral.html                   # Contador e resumo
-│   ├── informacoes.html             # Informações da Tropa e do Contingente
-│   ├── newsletter.html              # Boletins nacionais e internacionais
-│   └── inscricao.html               # Portal de Respostas — inscrição nominal
+│   ├── geral.html                  # Datas, local, mapa, contador e acesso ao portal
+│   ├── informacoes.html            # Informações da Tropa e do Contingente
+│   ├── newsletter.html             # Boletins nacionais e internacionais
+│   └── inscricao.html              # Portal de Respostas — inscrição nominal
 │
 ├── _config.yml                   # Configuração do Jekyll e das coleções
 ├── Gemfile / Gemfile.lock        # Dependências Ruby
 │
 ├── _layouts/                     # Layouts partilhados
-├── _includes/                    # Componentes reutilizáveis (cartões, listas)
+├── _includes/                    # Componentes reutilizáveis (navegação, contador, cartões)
 ├── _noticias/                    # Coleção de notícias
 ├── _documentos/                  # Coleção de documentos
 ├── _inscricoes/                  # Coleção de inscrições ativas
@@ -78,7 +96,7 @@ As páginas estão organizadas em pastas que espelham a estrutura do menu do sit
         ├── jamboree/                 # Logótipos e insígnia do WSJ 2027
         ├── seccoes/                  # Ícones das secções e etapas de progresso
         ├── equipa/                   # Fotografias dos dirigentes
-        └── eventos/                  # Fotografias de atividades
+        └── atividades/               # Fotografias de atividades
 ```
 
 > O código do formulário de inscrição do Jamboree (Google Apps Script) não está incluído neste repositório — está associado diretamente à Google Sheet que recebe as respostas.
@@ -96,6 +114,16 @@ A maior parte do conteúdo do site atualiza-se pelo painel em `/admin/`, sem nec
 | Inscrições em atividades | `/admin/` → Inscrições | Só as marcadas como "Ativo" aparecem na página de Inscrições. |
 | Diário de Bordo da Comunidade | `/admin/` → Páginas do Site | Liga a pastas do Google Drive por ID. |
 | Registo de Noites/Horas | `/admin/` → Bases de Dados | Ver nota de privacidade abaixo. |
+
+### Jamboree 2027
+
+As páginas do Jamboree partilham uma navegação própria e um hero com a identidade oficial do evento e contador decrescente. O **Portal de Respostas** não aparece nessa navegação: o acesso é feito exclusivamente através do botão existente na página Geral, para evitar que o formulário nominal seja exposto a visitantes ocasionais.
+
+Na página Geral, as datas e os acessos principais ficam à esquerda e o local, com mapa da Ilha de Sobieszewo em Gdańsk, à direita. A página de Newsletters separa os boletins nacionais dos internacionais em duas colunas, adaptando-se a ecrãs pequenos.
+
+### Secções
+
+Cada secção tem uma barra de navegação própria entre Geral, Vivência, Programa e Diário de Bordo. A I - Alcateia usa amarelo, a II - Flotilha usa verde, a III - Frota usa azul e a IV - Comunidade usa vermelho. As páginas Gerais das três primeiras secções já apresentam as respetivas Equipas de Animação e dois blocos reservados para informação e recursos; as restantes páginas continuam marcadas como “Em construção”.
 
 ---
 

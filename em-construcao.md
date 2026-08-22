@@ -2,15 +2,20 @@
 layout: default
 title: Em Construção | 929 - Belém
 main_class: pagina-com-hero
+ultima_atualizacao: 12/08/2026
 ---
 <style>
+  .pagina-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+  .pagina-cabecalho h1 { color: #fff; font-size: 30px; margin: 0 0 10px; }
+  .pagina-cabecalho p { color: #fff; font-size: 15px; margin: 0; }
+
   .em-construcao {
+    position: relative; z-index: 5; background: #fff;
     max-width: 560px; margin: 0 auto;
     padding: 40px 28px 90px;
     text-align: center;
   }
   .em-construcao .icone { font-size: 52px; display: block; margin-bottom: 18px; }
-  .em-construcao h1 { font-size: 28px; margin: 0 0 12px; color: var(--cne-verde-escuro); }
   .em-construcao p { font-size: 15px; line-height: 1.6; color: #444; margin: 0 0 26px; }
   .em-construcao .botao-voltar {
     display: inline-block;
@@ -19,16 +24,18 @@ main_class: pagina-com-hero
     padding: 13px 28px; border-radius: 999px; font-size: 14px;
   }
   .em-construcao .botao-voltar:hover { opacity: .9; }
-  .em-construcao .ultima-atualizacao { margin-top: 30px; font-size: 12px; color: #999; font-style: italic; }
 </style>
 
-<section class="hero-generico" id="hero"></section>
-<div class="espaco-hero" aria-hidden="true"></div>
+<section class="hero-generico" id="hero">
+  <div class="pagina-cabecalho">
+    <h1>Em construção</h1>
+    <p>Esta secção está a ganhar forma nos estaleiros do Agrupamento.</p>
+  </div>
+</section>
+<div class="espaco-hero-generico" aria-hidden="true"></div>
 
 <div class="em-construcao">
   <span class="icone" aria-hidden="true">⚓🛠️</span>
-  <h1>Em construção</h1>
-  <p>Esta secção está a ganhar forma nos estaleiros do Agrupamento. Novidades em breve!</p>
+  <p>Novidades em breve!</p>
   <a href="{{ '/index.html' | relative_url }}" class="botao-voltar">Voltar à página inicial</a>
-  <p class="ultima-atualizacao">Última atualização em 12/08/2026</p>
 </div>
