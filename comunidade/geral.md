@@ -2,6 +2,7 @@
 layout: default
 title: Geral | IV - Comunidade
 main_class: pagina-com-hero
+ultima_atualizacao: 23/08/2026
 seccao_slug: comunidade
 seccao_nome: IV - Comunidade
 seccao_cor: '#CE1126'
@@ -43,7 +44,7 @@ seccao_cor: '#CE1126'
         <!-- TEMA 2: INFORMAÇÃO DA PÁGINA GERAL ESCUTISTA -->
         <div>
             <h3 class="section-title vermelho">🌐 A IV Secção no CNE</h3>
-            <p style="font-size: 0.95rem; line-height: 1.6;">Para além do que aqui partilhamos sobre a nossa Comunidade marítima, o Corpo Nacional de Escutas tem uma página nacional dedicada à IV Secção (Caminheiros/Companheiros), com mais informação sobre o método, o percurso e o Sistema de Progresso.</p>
+            <p style="font-size: 0.95rem; line-height: 1.6;">Para além do que aqui partilhamos sobre a nossa Comunidade marítima, o Corpo Nacional de Escutas tem uma página nacional dedicada à IV Secção (Companheiros), com mais informação sobre o método, o percurso e o Sistema de Progresso.</p>
             <a href="https://escutismo.pt/caminheiros-18-aos-22-anos/" target="_blank" rel="noopener noreferrer" class="quick-link-card" style="max-width: 100%;">
                 <span class="quick-link-icon">🧭</span>
                 <h3>Página Oficial da IV Secção — CNE</h3>

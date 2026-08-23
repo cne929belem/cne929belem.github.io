@@ -666,6 +666,15 @@ footer {
     margin-bottom: 20px;
     border-left: 5px solid var(--azul-claro);
     scroll-margin-top: 85px; /* para os links de âncora não ficarem por baixo da navbar fixa */
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+    align-items: start;
+}
+.form-section legend { grid-column: 1 / -1; }
+.form-section .step-sub { grid-column: 1 / -1; }
+@media (max-width: 700px) {
+    .form-section { grid-template-columns: 1fr; }
 }
 .form-section legend {
     color: var(--azul-marinho);
@@ -677,7 +686,17 @@ footer {
 }
 .form-section .step-sub { font-size: 0.82rem; color: #666; margin: 2px 0 16px; font-family: 'Nunito', sans-serif; text-transform: none; font-weight: 400; }
 
-.field { margin-bottom: 18px; }
+.field { margin-bottom: 18px; min-width: 0; }
+
+/* Ocupam sempre a largura toda: textos longos, grupos de checkboxes
+   (tendem a ter muitas opções) e qualquer campo marcado à mão com
+   .field-full. Deteção automática via :has(), sem precisar de marcar
+   campo a campo. */
+.field:has(textarea),
+.field.options-field:has(input[type="checkbox"]),
+.field-full {
+    grid-column: 1 / -1;
+}
 .field label.field-label { display: block; font-weight: 800; font-size: 0.88rem; color: var(--azul-marinho); margin-bottom: 6px; }
 .field .hint { font-weight: 400; color: #777; font-size: 0.78rem; display: block; margin-top: 2px; }
 .field input[type="text"], .field input[type="email"], .field input[type="tel"],
@@ -1263,7 +1282,7 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
 
     .pagina-conteudo {
         position: relative; z-index: 5; background: #fff;
-        max-width: 1100px; margin: 0 auto; padding: 34px 28px 56px;
+        max-width: 1200px; margin: 0 auto; padding: 34px 28px 56px;
     }
     .atividades-nav {
         display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
@@ -1275,10 +1294,10 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     }
     .atividades-nav a:hover, .atividades-nav a.ativo { color: #fff; background: var(--cne-verde); }
     .grelha-atividades .atividades-nav { grid-column: 1 / -1; margin-bottom: 0; }
-    .conteudo-largura { max-width: 800px; margin: 0 auto; }
+    .conteudo-largura { margin: 0 auto; }
     .conteudo-largura > p { font-size: 0.95rem; line-height: 1.6; }
     .atividades-painel {
-        max-width: 1100px; margin: 0 auto;
+        margin: 0 auto;
         display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px;
     }
     .atividades-coluna { min-width: 0; }
@@ -1338,7 +1357,8 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     .jamboree-geral-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 22px; align-items: stretch; }
     .jamboree-geral-esquerda { min-width: 0; display: flex; flex-direction: column; }
     .jamboree-geral-direita { min-width: 0; }
-    .jamboree-geral-direita .info-block { height: 100%; }
+    .jamboree-geral-direita .info-block { height: 100%; display: flex; flex-direction: column; }
+    .jamboree-geral-direita .jamboree-mapa { flex: 1; }
     .jamboree-intro { color: #555; font-size: 0.95rem; line-height: 1.6; margin: 0 0 20px; text-align: center; }
     .jamboree-insignia-link {
         position: relative; flex: 0 0 280px; display: flex; flex-direction: column; align-items: stretch; gap: 8px; margin-top: 10px; padding: 16px 18px;
@@ -1382,7 +1402,7 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     .hero-alcateia .pagina-cabecalho h1, .hero-alcateia .pagina-cabecalho p { color: var(--azul-marinho); }
     .hero-alcateia .pagina-cabecalho h1, .hero-flotilha .pagina-cabecalho h1, .hero-frota .pagina-cabecalho h1 { text-shadow: 0 1px 2px rgba(0,0,0,.25); }
     .pagina-seccao { min-height: 300px; }
-    .seccao-geral-conteudo { max-width: 1000px; margin: 0 auto; text-align: left; }
+    .seccao-geral-conteudo { text-align: left; }
     .seccao-geral-intro { font-size: 0.95rem; line-height: 1.6; color: #555; margin-bottom: 20px; }
     .seccao-equipa-bloco { margin-bottom: 16px; padding: 10px 14px 6px; border-left: 5px solid var(--cor-seccao, var(--azul-claro)); border-radius: 8px; background: color-mix(in srgb, var(--cor-seccao, var(--azul-claro)) 12%, white); }
     .seccao-equipa-bloco .section-title { margin-top: 0; }
@@ -1404,7 +1424,7 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     .seccao-construcao-icone { display: block; margin-bottom: 12px; font-size: 2.8rem; }
     .hero-alcateia + .espaco-hero-generico, .hero-flotilha + .espaco-hero-generico, .hero-frota + .espaco-hero-generico { height: 20vh; }
     .jamboree-pagina { max-width: 1200px; }
-    .jamboree-largura { max-width: 1000px; margin: 0 auto; }
+    .jamboree-largura { margin: 0 auto; }
     .jamboree-nav {
         display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
         margin: 0 auto 30px; padding-bottom: 14px; border-bottom: 2px solid #f0d5d7;
@@ -1418,7 +1438,8 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     .jamboree-destaques .info-block { margin: 0; }
     .jamboree-acoes { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin: 30px 0; }
     .jamboree-acoes > * { flex: 1 1 220px; }
-    .jamboree-form-pagina { max-width: 900px; }
+    .jamboree-form-pagina { max-width: 1200px; }
+    .jamboree-form-pagina .content-wrapper { max-width: none; }
 
     @media (max-width: 600px) {
         .pagina-conteudo { padding: 24px 18px 44px; }
@@ -1472,8 +1493,8 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
         position: relative; z-index: 5; max-width: 1200px; margin: 0 auto;
         padding: 24px 28px 56px; background: #fff;
     }
-    .comunidade-pagina > .card {
-        max-width: none !important; width: 100%; padding: 0; background: transparent;
+    .comunidade-pagina > .card.card-sem-caixa {
+        max-width: none; width: 100%; padding: 0; background: transparent;
         border: 0; border-radius: 0; box-shadow: none; text-align: left;
     }
     @media (max-width: 600px) {
