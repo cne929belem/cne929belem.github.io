@@ -2,6 +2,7 @@
 layout: default
 title: Vivência | IV - Comunidade
 main_class: pagina-com-hero
+ultima_atualizacao: 23/08/2026
 seccao_slug: comunidade
 seccao_nome: IV - Comunidade
 seccao_cor: '#CE1126'

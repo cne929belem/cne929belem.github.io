@@ -10,7 +10,7 @@ main_class: pagina-com-hero
 
     .protecao-dados-pagina {
         position: relative; z-index: 5; background: #fff;
-        max-width: 820px; margin: 0 auto; padding: 40px 28px 70px;
+        max-width: 1200px; margin: 0 auto; padding: 40px 28px 70px;
     }
     .protecao-dados-pagina h2 {
         color: var(--azul-marinho); font-size: 17px; margin: 32px 0 10px;
