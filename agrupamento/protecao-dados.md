@@ -5,8 +5,8 @@ main_class: pagina-com-hero
 ---
 <style>
     .pagina-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-    .pagina-cabecalho h1 { color: #fff; font-size: 30px; margin: 0 0 10px; }
-    .pagina-cabecalho p { color: #fff; font-size: 15px; margin: 0; }
+    .pagina-cabecalho h1 { color: #fff; margin: 0 0 10px; }
+    .pagina-cabecalho p { color: #fff; font-family: 'Fustat', sans-serif; font-weight: 300; font-size: 20px; line-height: 1.5; margin: 0; }
 
     .protecao-dados-pagina {
         position: relative; z-index: 5; background: #fff;
@@ -17,7 +17,7 @@ main_class: pagina-com-hero
         padding-top: 18px; border-top: 1px solid #eee;
     }
     .protecao-dados-pagina h2:first-of-type { margin-top: 0; padding-top: 0; border-top: 0; }
-    .protecao-dados-pagina p { font-size: 0.95rem; line-height: 1.65; color: #333; margin: 0 0 14px; }
+    .protecao-dados-pagina p { line-height: 1.5; color: #333; margin: 0 0 14px; }
     .protecao-dados-aviso {
         background: #fff3cd; color: #664d03; padding: 15px 18px; border-radius: 6px;
         border: 1px solid #ffe69c; font-size: 0.9rem; line-height: 1.5; margin: 0 0 30px;

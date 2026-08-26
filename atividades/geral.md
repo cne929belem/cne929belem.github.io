@@ -5,8 +5,8 @@ main_class: pagina-com-hero
 ---
 <style>
   .pagina-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-  .pagina-cabecalho h1 { color: #fff; font-size: 30px; margin: 0 0 10px; }
-  .pagina-cabecalho p { color: #fff; font-size: 15px; margin: 0; }
+  .pagina-cabecalho h1 { color: #fff; margin: 0 0 10px; }
+  .pagina-cabecalho p { color: #fff; font-family: 'Fustat', sans-serif; font-weight: 300; font-size: 20px; line-height: 1.5; margin: 0; }
 
   .grelha-atividades {
     position: relative; z-index: 5; background: #fff;
@@ -33,7 +33,6 @@ main_class: pagina-com-hero
 <div class="espaco-hero-generico" aria-hidden="true"></div>
 
 <div class="grelha-atividades">
-  {% include atividades-nav.html %}
   <a class="cartao-atividade" href="{{ '/atividades/inscricoes.html' | relative_url }}">
     <h2>Inscrições</h2>
     <p>Consulta e inscreve-te nas atividades abertas do agrupamento.</p>

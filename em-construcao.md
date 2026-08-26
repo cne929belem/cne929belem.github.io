@@ -6,8 +6,8 @@ ultima_atualizacao: 12/08/2026
 ---
 <style>
   .pagina-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-  .pagina-cabecalho h1 { color: #fff; font-size: 30px; margin: 0 0 10px; }
-  .pagina-cabecalho p { color: #fff; font-size: 15px; margin: 0; }
+  .pagina-cabecalho h1 { color: #fff; margin: 0 0 10px; }
+  .pagina-cabecalho p { color: #fff; font-family: 'Fustat', sans-serif; font-weight: 300; font-size: 20px; line-height: 1.5; margin: 0; }
 
   .em-construcao {
     position: relative; z-index: 5; background: #fff;
@@ -16,7 +16,7 @@ ultima_atualizacao: 12/08/2026
     text-align: center;
   }
   .em-construcao .icone { font-size: 52px; display: block; margin-bottom: 18px; }
-  .em-construcao p { font-size: 15px; line-height: 1.6; color: #444; margin: 0 0 26px; }
+  .em-construcao p { font-family: 'Fustat', sans-serif; font-weight: 300; font-size: 20px; line-height: 1.5; color: #444; margin: 0 0 26px; }
   .em-construcao .botao-voltar {
     display: inline-block;
     background: linear-gradient(160deg, var(--cne-verde) 0%, var(--cne-verde-escuro) 100%);

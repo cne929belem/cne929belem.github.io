@@ -72,7 +72,7 @@ seccao_cor: '#CE1126'
             <h2 style="margin: 0; color: #CE1126;">Vivência</h2>
         </div>
 
-        <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 30px;">O que significa ser Companheiro, a nossa mística, os nossos símbolos, e o caminho (ou melhor, o rumo) que se percorre na Comunidade.</p>
+        <p style="line-height: 1.6; margin-bottom: 30px;">O que significa ser Companheiro, a nossa mística, os nossos símbolos, e o caminho (ou melhor, o rumo) que se percorre na Comunidade.</p>
 
         <div style="margin-top: 40px; text-align: left;">
 
@@ -80,8 +80,8 @@ seccao_cor: '#CE1126'
             <details class="acordeao">
                 <summary>🌊 Imaginário</summary>
                 <div class="acordeao-content">
-                    <p style="font-size: 0.95rem; line-height: 1.6;">A vivência da IV Secção não é uma aventura com enredo fechado, como acontece nas secções mais novas — é a própria vida a tornar-se aventura. O Companheiro é chamado a viver em plenitude aquilo que é, em todas as dimensões do seu ser, tal como um marinheiro que já conhece o seu barco e se atreve a singrar mar alto.</p>
-                    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;">Se nas secções anteriores se navegava perto da costa, acompanhado de perto, a Comunidade é o momento de assumir o leme: escolher o rumo, enfrentar as tempestades que surgirem, e comprometer-se com a travessia até ao fim.</p>
+                    <p style="line-height: 1.6;">A vivência da IV Secção não é uma aventura com enredo fechado, como acontece nas secções mais novas — é a própria vida a tornar-se aventura. O Companheiro é chamado a viver em plenitude aquilo que é, em todas as dimensões do seu ser, tal como um marinheiro que já conhece o seu barco e se atreve a singrar mar alto.</p>
+                    <p style="line-height: 1.6; margin-bottom: 0;">Se nas secções anteriores se navegava perto da costa, acompanhado de perto, a Comunidade é o momento de assumir o leme: escolher o rumo, enfrentar as tempestades que surgirem, e comprometer-se com a travessia até ao fim.</p>
                 </div>
             </details>
 
@@ -89,9 +89,9 @@ seccao_cor: '#CE1126'
             <details class="acordeao">
                 <summary>🔥 O que é ser Companheiro?</summary>
                 <div class="acordeao-content">
-                    <p style="font-size: 0.95rem; line-height: 1.6;">Na IV Secção, o jovem é desafiado a assumir o seu papel na sociedade, desenvolvendo projetos próprios e vivendo a vocação do Serviço. Ainda a caminho da autonomia plena, o Companheiro já possui liberdade em várias áreas da sua vida — e é dessa liberdade, bem vivida, que depende todo o proveito que o escutismo lhe pode dar.</p>
-                    <p style="font-size: 0.95rem; line-height: 1.6;">A nossa mística inspira-se na vida de São Paulo: um homem de ofício manual (tecelão de tendas), que arriscou tudo por uma convicção, e que transformou uma travessia decisiva — o caminho para Damasco — no ponto de partida de uma vida de anúncio e de ação. Paulo não ficou pelas palavras: foi um exemplo de compromisso levado à prática. É esse espírito de partida, coragem e ação que o nosso patrono nos convida a viver.</p>
-                    <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 0;"><strong>Saber mais:</strong> <a href="https://escutismo.pt/caminheiros-18-aos-22-anos/" target="_blank" style="color: #CE1126; font-weight: bold; text-decoration: underline;">Página Oficial da IV Secção no CNE</a></p>
+                    <p style="line-height: 1.6;">Na IV Secção, o jovem é desafiado a assumir o seu papel na sociedade, desenvolvendo projetos próprios e vivendo a vocação do Serviço. Ainda a caminho da autonomia plena, o Companheiro já possui liberdade em várias áreas da sua vida — e é dessa liberdade, bem vivida, que depende todo o proveito que o escutismo lhe pode dar.</p>
+                    <p style="line-height: 1.6;">A nossa mística inspira-se na vida de São Paulo: um homem de ofício manual (tecelão de tendas), que arriscou tudo por uma convicção, e que transformou uma travessia decisiva — o caminho para Damasco — no ponto de partida de uma vida de anúncio e de ação. Paulo não ficou pelas palavras: foi um exemplo de compromisso levado à prática. É esse espírito de partida, coragem e ação que o nosso patrono nos convida a viver.</p>
+                    <p style="line-height: 1.6; margin-bottom: 0;"><strong>Saber mais:</strong> <a href="https://escutismo.pt/caminheiros-18-aos-22-anos/" target="_blank" style="color: #CE1126; font-weight: bold; text-decoration: underline;">Página Oficial da IV Secção no CNE</a></p>
                 </div>
             </details>
 
@@ -99,7 +99,7 @@ seccao_cor: '#CE1126'
             <details class="acordeao">
                 <summary>⚜️ Simbologia</summary>
                 <div class="acordeao-content">
-                    <p style="font-size: 0.95rem; line-height: 1.6;">Tal como nas restantes secções, também a Comunidade tem os seus próprios símbolos — adaptados, na versão marítima, à linguagem do mar:</p>
+                    <p style="line-height: 1.6;">Tal como nas restantes secções, também a Comunidade tem os seus próprios símbolos — adaptados, na versão marítima, à linguagem do mar:</p>
 
                     <div class="quick-links-grid" style="margin-top: 15px;">
                         <div style="background: var(--cinza-fundo); border: 1px solid #eee; border-radius: 6px; padding: 15px; text-align: center;">
@@ -142,7 +142,7 @@ seccao_cor: '#CE1126'
                     <!-- Etapas e Objetivos -->
                     <div id="progresso-etapas" style="display: block; text-align: left;">
                         <h3 style="color: #CE1126; margin-bottom: 15px; text-align: center;">O Sistema de Progresso</h3>
-                        <p style="margin-bottom: 20px; font-size: 0.95rem; line-height: 1.6;">A progressão do Companheiro mede-se pelo grau de maturação enquanto se transforma no <strong>Homem Novo</strong>, capaz de servir a sua comunidade. O Sistema de Progresso e as Dimensões do Companheirismo fundem-se num percurso de 4 etapas:</p>
+                        <p style="margin-bottom: 20px; line-height: 1.6;">A progressão do Companheiro mede-se pelo grau de maturação enquanto se transforma no <strong>Homem Novo</strong>, capaz de servir a sua comunidade. O Sistema de Progresso e as Dimensões do Companheirismo fundem-se num percurso de 4 etapas:</p>
 
                         <div style="display: flex; flex-direction: column; gap: 15px;">
                             <div style="background: var(--cinza-fundo); border-left: 4px solid #aaa; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
@@ -180,7 +180,7 @@ seccao_cor: '#CE1126'
 
                         <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #eee; text-align: center;">
                             <h4 style="margin-bottom: 15px;">🎯 Objetivos Educativos</h4>
-                            <p style="font-size: 0.9rem; margin-bottom: 15px;">Os objetivos educativos da IV Secção organizam-se em 6 dimensões — Física, Afetiva, Carácter, Espiritual, Social e Intelectual. Consulta o guia detalhado para o teu percurso:</p>
+                            <p style="margin-bottom: 15px;">Os objetivos educativos da IV Secção organizam-se em 6 dimensões — Física, Afetiva, Carácter, Espiritual, Social e Intelectual. Consulta o guia detalhado para o teu percurso:</p>
                             <a href="{{ '/assets/docs/PostersFaceis_IV.pdf' | relative_url }}" target="_blank" class="btn" style="background-color: #28a745;">📥 Download: Guia de Objetivos Educativos</a>
                         </div>
                     </div>
@@ -188,7 +188,7 @@ seccao_cor: '#CE1126'
                     <!-- Preparar o PPV -->
                     <div id="progresso-ppv" style="display: none; text-align: left;">
                         <h3 style="color: var(--azul-marinho); margin-bottom: 15px; text-align: center;">Projeto Pessoal de Vida (PPV)</h3>
-                        <p style="font-size: 0.95rem; line-height: 1.6;">O PPV é a tua verdadeira "Bússola". Não se trata apenas de preencher um papel, mas sim de fazeres uma reflexão profunda sobre o Homem ou a Mulher que queres ser na sociedade, traçando metas claras para a tua Campanha. Deve estar pronto <strong>antes da tua Promessa de Companheiro</strong>. Eis o que precisas de fazer:</p>
+                        <p style="line-height: 1.6;">O PPV é a tua verdadeira "Bússola". Não se trata apenas de preencher um papel, mas sim de fazeres uma reflexão profunda sobre o Homem ou a Mulher que queres ser na sociedade, traçando metas claras para a tua Campanha. Deve estar pronto <strong>antes da tua Promessa de Companheiro</strong>. Eis o que precisas de fazer:</p>
 
                         <div style="display: flex; flex-direction: column; gap: 12px; margin: 20px 0;">
                             <div style="background: var(--cinza-fundo); border-left: 4px solid var(--azul-claro); padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
@@ -283,7 +283,7 @@ seccao_cor: '#CE1126'
             <details class="acordeao">
                 <summary>📜 Celebrações e Cerimoniais</summary>
                 <div class="acordeao-content">
-                    <p style="font-size: 0.95rem; line-height: 1.6;">O guião litúrgico e formal para as grandes celebrações de passagem de etapa e compromissos na nossa Comunidade.</p>
+                    <p style="line-height: 1.6;">O guião litúrgico e formal para as grandes celebrações de passagem de etapa e compromissos na nossa Comunidade.</p>
 
                     <div class="quick-links-grid" style="margin-top: 15px;">
                         <a href="{{ '/assets/docs/promessa_Companheiro.pdf' | relative_url }}" target="_blank" class="quick-link-card">
