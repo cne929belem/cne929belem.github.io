@@ -5,8 +5,8 @@ main_class: pagina-com-hero
 ---
 <style>
   .pagina-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-  .pagina-cabecalho h1 { color: #fff; font-size: 30px; margin: 0 0 10px; }
-  .pagina-cabecalho > p { color: #fff; font-size: 15px; line-height: 1.6; margin: 0; }
+  .pagina-cabecalho h1 { color: #fff; margin: 0 0 10px; }
+  .pagina-cabecalho > p { color: #fff; font-family: 'Fustat', sans-serif; font-weight: 300; font-size: 20px; line-height: 1.5; margin: 0; }
 
   .grelha-equipa { position: relative; z-index: 5; max-width: 1200px; margin: 0 auto; background: #fff; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
   @media (max-width: 860px) { .grelha-equipa { grid-template-columns: 1fr; } }
@@ -17,7 +17,7 @@ main_class: pagina-com-hero
     display: flex; align-items: center; gap: 10px;
     font-size: 21px; margin: 0 0 14px; color: var(--cne-verde-escuro);
   }
-  .texto-intro p { font-size: 14.5px; line-height: 1.65; color: #333; margin: 0 0 10px; }
+  .texto-intro p { font-family: 'Fustat', sans-serif; font-weight: 300; font-size: 20px; line-height: 1.5; color: #333; margin: 0 0 10px; }
   .texto-intro .referencia { font-size: 12.5px; color: #888; font-style: italic; }
 
   /* Insígnia da função ao lado esquerdo da foto (não sobreposta) */

@@ -27,7 +27,7 @@ pasta_imagens: "1SuqsdzNBkOm3D762mdcsWlr2txQ-sj0z"
             <h2 style="margin: 0; color: #CE1126;">Diário de Bordo</h2>
         </div>
 
-        <p style="font-size: 1rem; line-height: 1.6; margin-bottom: 30px;">O arquivo vivo da nossa Comunidade, onde guardamos as memórias das nossas navegações, os relatórios de atividade e as imagens que nos marcaram.</p>
+        <p style="line-height: 1.6; margin-bottom: 30px;">O arquivo vivo da nossa Comunidade, onde guardamos as memórias das nossas navegações, os relatórios de atividade e as imagens que nos marcaram.</p>
 
         <!-- CAIXA DOS DOCUMENTOS (Apresentação em Lista) -->
         <div style="margin-top: 40px; text-align: left;">

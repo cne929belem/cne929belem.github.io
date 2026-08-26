@@ -1033,19 +1033,20 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
 
   .seta-carrossel {
     position: absolute; top: 50%; transform: translateY(-50%);
-    width: 42px; height: 42px; border-radius: 50%;
+    width: 60px; height: 60px; border-radius: 50%;
     background: var(--vidro-bg); border: 1px solid var(--vidro-borda);
     backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
     color: #fff; font-size: 20px; line-height: 1;
     display: flex; align-items: center; justify-content: center;
     cursor: pointer; z-index: 20;
   }
-  .seta-esquerda { left: 24px; }
-  .seta-direita { right: 24px; }
+  .seta-esquerda { left: 60px; }
+  .seta-direita { right: 60px; }
 
   .pontos-carrossel {
     position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
-    display: flex; gap: 8px; z-index: 20;
+    width: 150px; height: 30px; box-sizing: border-box;
+    display: flex; align-items: center; justify-content: center; gap: 8px; z-index: 20;
   }
   .ponto {
     width: 9px; height: 9px; border-radius: 50%;
@@ -1056,8 +1057,8 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
   /* ==================== NAVEGAÇÃO SUPERIOR (VIDRO LÍQUIDO) ==================== */
   .nav-topo {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; column-gap: 12px;
-    padding: 16px 28px;
+    display: flex; align-items: center; column-gap: 0;
+    height: 105px; padding: 0 28px;
     background: transparent;
     border-bottom: 1px solid transparent;
     transition: background .3s ease, border-color .3s ease, backdrop-filter .3s ease;
@@ -1071,11 +1072,16 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     border-bottom: 1px solid rgba(255,255,255,0.15);
   }
 
-  .marca {
-    justify-self: start;
-    display: flex; align-items: center; gap: 10px;
-    color: #fff; text-decoration: none;
-  }
+.marca {
+  width: 20%;
+  height: auto; /* ou remove completamente */
+  display: flex;
+  align-items: center;
+  gap: 0.625rem; /* 10px → rem opcional */
+  color: #fff;
+  text-decoration: none;
+}
+
   .marca .emblema {
     width: 40px; height: 40px; border-radius: 50%;
     border: 2px solid rgba(255,255,255,0.75);
@@ -1085,11 +1091,17 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
   .marca .nome strong { display: block; font-size: 15px; letter-spacing: .02em; }
   .marca .nome span { display: block; font-size: 10px; opacity: .85; letter-spacing: .03em; }
 
-  .menu-principal { justify-self: center; display: flex; align-items: center; gap: 4px; }
+  /* Vem logo a seguir à caixa do logótipo, não centrado */
+  .menu-principal { display: flex; align-items: flex-start; gap: 4px; padding-top: 30px; }
 
-  .item-menu { position: relative; }
+
+.item-menu {
+  position: flex;
+  width: 100%;
+}
   .item-menu > a, .item-menu > button {
-    display: block; background: none; border: 1px solid transparent; cursor: pointer;
+    display: block; width: 100%; box-sizing: border-box; text-align: center;
+    background: none; border: 1px solid transparent; cursor: pointer;
     color: #fff; font-size: 13px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase;
     padding: 12px 18px; border-radius: 999px; text-decoration: none;
     font-family: inherit; transition: background .2s ease, border-color .2s ease;
@@ -1125,33 +1137,56 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
   /* Jamboree + Área Pessoal — grupo à direita. O Jamboree é um botão
      "excecional"/temporário; este espaço fica pronto para outros
      botões do género no futuro. */
-  .grupo-direita { justify-self: end; display: flex; flex-direction: row; align-items: center; gap: 10px; }
+  .grupo-direita { margin-left: auto; position: relative; display: flex; flex-direction: row; align-items: center; gap: 10px; padding-right: 170px; }
 
-  .botao-solido, .botao-area-pessoal {
-    display: block; text-align: center;
+  .botao-solido {
+    display: flex; align-items: center; justify-content: center;
+    width: 255px; height: 50px; box-sizing: border-box;
     font-weight: 700; font-size: 12.5px; text-transform: uppercase; letter-spacing: .03em;
-    padding: 12px 20px; border-radius: 999px;
+    border-radius: 15px;
     text-decoration: none; white-space: nowrap;
     box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-    background: #fff;
+    background: #fff; color: var(--cne-vermelho);
   }
-  .botao-solido { color: var(--cne-vermelho); }
-  .botao-area-pessoal { color: #16321f; }
+
+  /* Área Pessoal fica "colada" ao topo do ecrã — arredondada só em
+     baixo, sem o espaço/padding do resto do cabeçalho por cima dela. */
+  .botao-area-pessoal {
+    position: absolute; top: 0; right: 0;
+    display: flex; align-items: center; justify-content: center;
+    width: 170px; box-sizing: border-box;
+    font-weight: 700; font-size: 12.5px; text-transform: uppercase; letter-spacing: .03em;
+    padding: 10px 20px 10px;
+    border-radius: 0 0 15px 15px;
+    text-decoration: none; white-space: nowrap;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    background: #fff; color: #16321f;
+  }
 
   .botao-hamburger {
     display: none;
-    width: 42px; height: 42px; border-radius: 50%;
+    width: 42px; height: 42px; border-radius: 15px;
     background: var(--vidro-bg); border: 1px solid var(--vidro-borda);
     backdrop-filter: blur(14px); color: #fff; font-size: 18px;
     align-items: center; justify-content: center; cursor: pointer;
   }
 
   @media (max-width: 860px) {
-    .nav-topo { grid-template-columns: 1fr auto; }
+    .nav-topo { height: auto; padding: 16px 20px; }
+.marca {
+  width: 20%;
+  height: auto; /* ou remove completamente */
+  display: flex;
+  align-items: center;
+  gap: 0.625rem; /* 10px → rem opcional */
+  color: #fff;
+  text-decoration: none;
+}
+
     .menu-principal {
       display: none;
       position: fixed; top: 74px; left: 16px; right: 16px;
-      flex-direction: column; align-items: stretch; gap: 4px;
+      flex-direction: column; align-items: stretch; gap: 4px; padding-top: 0;
       background: rgba(7, 27, 48, 0.92);
       border: 1px solid var(--vidro-borda);
       border-radius: 18px; padding: 14px;
@@ -1159,6 +1194,7 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
       -webkit-backdrop-filter: blur(24px) saturate(180%);
     }
     .menu-principal.mostrar { display: flex; }
+    .item-menu { width: auto; }
     .item-menu > a, .item-menu > button { text-align: left; }
     .item-menu:hover > a, .item-menu:hover > button {
       background: none; border-color: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: none;
@@ -1170,18 +1206,20 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     }
     .item-menu:hover .submenu { display: none; }
     .item-menu.aberto .submenu { display: block; }
-    .grupo-direita { gap: 6px; }
-    .botao-solido, .botao-area-pessoal { padding: 10px 14px; font-size: 11px; }
+    .grupo-direita { gap: 6px; padding-right: 92px; }
+    .botao-solido { width: auto; height: auto; padding: 10px 14px; font-size: 11px; }
+    .botao-area-pessoal { width: auto; padding: 8px 14px 8px; font-size: 11px; }
     .botao-hamburger { display: flex; }
   }
 
   /* ==================== FEED DE NOTÍCIAS (secção que faz scroll) ==================== */
   .feed {
     position: relative; z-index: 5; background: #fff;
-    max-width: 1100px; margin: 0 auto; padding: 56px 28px 30px;
-    display: grid; grid-template-columns: 1.1fr 1fr; gap: 44px;
+    margin: 0 auto; padding: 55px 155px 30px;
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 55px;
   }
-  @media (max-width: 780px) { .feed { grid-template-columns: 1fr; } }
+  @media (max-width: 1100px) { .feed { padding-left: 60px; padding-right: 60px; } }
+  @media (max-width: 780px) { .feed { grid-template-columns: 1fr; padding-left: 20px; padding-right: 20px; } }
 
   .cartao-link { display: block; color: inherit; text-decoration: none; }
   .cartao-link:hover h2 { text-decoration: underline; }
@@ -1194,14 +1232,14 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
   .assinatura { font-size: 13px; color: #6b6b6b; margin: 0 0 14px; }
   .destaque p { font-size: 15px; line-height: 1.6; color: #333; margin: 0; }
 
-  .lista-noticias { display: flex; flex-direction: column; gap: 26px; }
+  .lista-noticias { display: flex; flex-direction: column; gap: 20px; }
   .noticia-item {
     display: flex; gap: 16px; align-items: flex-start;
     color: inherit; text-decoration: none;
   }
   .noticia-item:hover h3 { text-decoration: underline; }
   .foto-noticia {
-    width: 130px; height: 90px; object-fit: cover;
+    width: 285px; height: 120px; object-fit: cover;
     border-radius: 12px; flex-shrink: 0; display: block;
   }
   .noticia-item h3 { font-size: 18px; margin: 0 0 6px; line-height: 1.25; }
@@ -1470,13 +1508,25 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     background: linear-gradient(160deg, var(--cne-verde) 0%, var(--cne-verde-escuro) 100%);
   }
 
+  /* ==================== TIPOGRAFIA (Fustat) ==================== */
+  /* Escala pedida: Títulos 36/Bold, Subtítulos 32/SemiBold,
+     Assinaturas 20/Light, Texto 25/Regular, Destaques 25/SemiBold.
+     Aplicada aos elementos-base partilhados por todas as páginas do
+     redesign — texto dentro de blocos com tamanho definido em
+     "style=" inline não é afetado por isto (ver nota na resposta). */
+  h1 { font-family: 'Fustat', sans-serif; font-weight: 700; font-size: 36px; }
+  h2 { font-family: 'Fustat', sans-serif; font-weight: 600; font-size: 32px; }
+  p { font-family: 'Fustat', sans-serif; font-weight: 400; font-size: 25px; }
+  .assinatura { font-family: 'Fustat', sans-serif; font-weight: 300; font-size: 20px; }
+  .destaque-texto { font-family: 'Fustat', sans-serif; font-weight: 600; font-size: 25px; }
+
   /* Botão de voltar ao topo — centrado ao fundo, aparece a partir de
      algum scroll. O ícone (seta) é provisório, a substituir mais tarde. */
   .botao-topo {
     position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
-    width: 44px; height: 44px; border-radius: 50%;
+    width: 20px; height: 20px; border-radius: 50%;
     background: var(--cne-verde-escuro); color: #fff; border: none;
-    font-size: 20px; line-height: 1;
+    font-size: 10px; line-height: 1;
     display: flex; align-items: center; justify-content: center;
     cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.25);
     opacity: 0; pointer-events: none;
