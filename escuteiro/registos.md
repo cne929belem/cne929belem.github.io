@@ -32,7 +32,7 @@ main_class: main-content
                 <div id="resultadoNoites"></div>
 
                 <p style="text-align: right; font-size: 0.7rem; color: #999; margin-top: 15px; font-style: italic;">
-                    Última atualização em 15/08/2026
+                    Última atualização em 05/09/2026
                 </p>
             </div>
         </div>

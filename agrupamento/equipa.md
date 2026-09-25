@@ -199,7 +199,7 @@ main_class: pagina-com-hero
       Aviso Eleitoral: Ocorrerão eleições para a nova Chefia de Agrupamento em 2026. <a href="{{ '/agrupamento/documentos.html' | relative_url }}">Consultar Informação sobre eleições para Chefe de Agrupamento</a>.
     </div>
   </div>
-  <p class="ultima-atualizacao">Última atualização em 22/08/2026</p>
+  <p class="ultima-atualizacao">Última atualização em 05/09/2026</p>
 </section>
 
 <section class="secao-equipa">
@@ -285,7 +285,7 @@ main_class: pagina-com-hero
     </div>
   </details>
 
-  <p class="ultima-atualizacao">Última atualização em 22/08/2026</p>
+  <p class="ultima-atualizacao">Última atualização em 05/09/2026</p>
 </section>
 </div>
 
