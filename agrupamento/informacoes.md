@@ -2,6 +2,7 @@
 layout: default
 title: Informações Gerais | Agrupamento 929 - Belém
 main_class: pagina-com-hero
+ultima_atualizacao: 25/09/2026
 ---
 
 <style>
@@ -84,7 +85,7 @@ main_class: pagina-com-hero
             <div class="localizacao">
                 <h3>📍 Localização</h3>
                 <p><a href="https://maps.app.goo.gl/jFjWvkipWY5HRQEE9" target="_blank" rel="noopener noreferrer">Doca de Recreio de Belém, Lisboa</a></p>
-                <iframe src="https://www.google.com/maps?q=Doca+de+Recreio+de+Bel%C3%A9m%2C+Lisboa&output=embed" title="Mapa da Doca de Recreio de Belém" loading="lazy" allowfullscreen></iframe>
+                <iframe src="https://www.google.com/maps?q=38.694593%2C-9.201885&amp;z=16&amp;output=embed" title="Mapa da Doca de Recreio de Belém" loading="lazy" allowfullscreen></iframe>
             </div>
         </section>
 
@@ -131,8 +132,9 @@ main_class: pagina-com-hero
                             <h3>Prazo de Pagamento de Quotas</h3>
                         </div>
                         <div class="timeline-item">
-                            <time datetime="--10-01">1 de outubro</time>
+                            <time datetime="2026-10-10">10 de outubro</time>
                             <h3>Início do Ano Escutista</h3>
+                            <p>Começa às 10h, na Base.</p>
                         </div>
                     </div>
                     <a class="btn" href="mailto:secretaria929.grupo@escutismo.pt?subject=pagamento%20de%20quotas&amp;body=Nome%3A%20%0ANIN%3A%20%0AData%20nascimento%3A%20%0A%0A%5Bn%C3%A3o%20se%20esque%C3%A7a%20de%20anexar%20o%20comprovativo%20de%20transfer%C3%AAncia%5D">Já paguei</a>
@@ -142,8 +144,5 @@ main_class: pagina-com-hero
             <div class="quota-aviso">
                 <strong>⚠️ Ninguém deixará de participar nas atividades por questões financeiras!</strong>
             </div>
-            <p style="text-align: right; font-size: 0.7rem; color: #888; margin-top: 15px; font-style: italic;">
-                Última atualização em 05/09/2026
-            </p>
         </section>
 </div>

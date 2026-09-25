@@ -2,6 +2,7 @@
 layout: default
 title: Vivência | III - Frota
 main_class: pagina-com-hero
+ultima_atualizacao: 25/09/2026
 seccao_slug: frota
 seccao_nome: III - Frota
 seccao_cor: '#0056b3'

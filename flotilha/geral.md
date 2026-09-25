@@ -2,7 +2,7 @@
 layout: default
 title: II - Flotilha | Agrupamento 929 - Belém
 main_class: pagina-com-hero
-ultima_atualizacao: 05/09/2026
+ultima_atualizacao: 25/09/2026
 seccao_slug: flotilha
 seccao_nome: II - Flotilha
 seccao_cor: '#28a745'
@@ -24,8 +24,8 @@ seccao_cor: '#28a745'
             <p class="seccao-geral-intro">A equipa que acompanha a Flotilha e ajuda cada Moço a crescer em autonomia, amizade e espírito de tripulação.</p>
             <div class="equipa-seccao-grelha">
             <div class="pessoa-seccao"><img src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="Insígnia de Chefe de Unidade"><img src="{{ '/assets/img/equipa/carolina-mascarenhas_equipa.jpg' | relative_url }}" alt="Carolina Mascarenhas"><div><small>Chefe de Unidade</small><strong>Carolina Mascarenhas (Koala Pensadora)</strong></div></div>
-            <div class="pessoa-seccao"><img src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="Insígnia de Candidato a Dirigente"><img src="{{ '/assets/img/equipa/maria-rodrigues_equipa.jpg' | relative_url }}" alt="Maria Rodrigues"><div><small>Candidata a Dirigente</small><strong>Maria Rodrigues</strong></div></div>
-            <div class="pessoa-seccao"><img src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="Insígnia de Candidato a Dirigente"><img src="{{ '/assets/img/equipa/jose-batalha_equipa.jpg' | relative_url }}" alt="José Batalha"><div><small>Candidato a Dirigente</small><strong>José Batalha</strong></div></div>
+            <div class="pessoa-seccao"><img src="{{ '/assets/img/equipa/instrutor.png' | relative_url }}" alt="Insígnia de Dirigente"><img src="{{ '/assets/img/equipa/eunice-goncalves_equipa.jpg' | relative_url }}" alt="Eunice Gonçalves"><div><small>Dirigente</small><strong>Eunice Gonçalves (Salamandra)</strong></div></div>
+            <div class="pessoa-seccao"><img src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="Insígnia de Candidata a Dirigente"><img src="{{ '/assets/img/equipa/maria-rodrigues_equipa.jpg' | relative_url }}" alt="Maria Rodrigues"><div><small>Noviço a Dirigente</small><strong>Maria Rodrigues</strong></div></div>
             </div>
             <a class="seccao-equipa-link" href="{{ '/agrupamento/equipa.html' | relative_url }}">Ver a equipa completa do Agrupamento →</a>
         </div>

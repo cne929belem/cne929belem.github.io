@@ -2,6 +2,7 @@
 layout: default
 title: Registos | Escuteiro
 main_class: main-content
+ultima_atualizacao: 25/09/2026
 ---
 <!--
   Página "Registos" — o espaço pessoal do escuteiro para consultar o seu
@@ -31,9 +32,6 @@ main_class: main-content
                 <!-- Espaço onde o resultado vai aparecer -->
                 <div id="resultadoNoites"></div>
 
-                <p style="text-align: right; font-size: 0.7rem; color: #999; margin-top: 15px; font-style: italic;">
-                    Última atualização em 05/09/2026
-                </p>
             </div>
         </div>
 

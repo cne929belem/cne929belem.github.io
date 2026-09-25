@@ -2,6 +2,7 @@
 title: Documentos | Agrupamento 929 - Belém
 main_class: pagina-com-hero
 layout: default
+ultima_atualizacao: 25/09/2026
 pasta_anos_anteriores: "1vM1rY41dj4YzSqs93DNRp_qybFrHgjAz"
 ---
 {% comment %}
@@ -27,6 +28,13 @@ pasta_anos_anteriores: "1vM1rY41dj4YzSqs93DNRp_qybFrHgjAz"
     .documentos-bloco { min-width: 0; }
     .documentos-bloco .section-title { margin: 0 0 15px; font-size: 21px; }
     .documentos-bloco.restantes { grid-column: 1 / -1; }
+    .documentos-bloco.documentos-timeline { grid-column: 1 / -1; margin-top: 8px; }
+    .documentos-linha-tempo { position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; padding-top: 28px; }
+    .documentos-linha-tempo::before { content: ""; position: absolute; top: 8px; right: 0; left: 6px; height: 2px; background: #d9dfe4; }
+    .documentos-marco { position: relative; min-width: 0; }
+    .documentos-marco::before { content: ""; position: absolute; top: -26px; left: 0; width: 12px; height: 12px; border: 3px solid #fff; border-radius: 50%; background: var(--cne-verde); box-shadow: 0 0 0 2px var(--cne-verde); }
+    .documentos-marco time { display: block; color: var(--cne-verde-escuro); font-size: 0.82rem; font-weight: 800; }
+    .documentos-marco h3 { margin: 4px 0 0; color: var(--azul-marinho); font-size: 1rem; }
     .documentos-bloco .jump-nav { margin: 0 0 18px; }
     .arquivo-drive { width: 100%; overflow: hidden; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
     .arquivo-drive iframe { display: block; width: 100%; height: 400px; border: 0; }
@@ -81,6 +89,15 @@ pasta_anos_anteriores: "1vM1rY41dj4YzSqs93DNRp_qybFrHgjAz"
 
         <div class="arquivo-drive">
             <iframe src="https://drive.google.com/embeddedfolderview?id=104yq0vy3hEryOi9k4dfd1n-PSu-xlhZ5#list" title="Arquivo de documentos no Google Drive" loading="lazy"></iframe>
+        </div>
+    </section>
+    <section class="documentos-bloco documentos-timeline">
+        <h2 class="section-title"><span>📅</span> Datas</h2>
+        <div class="documentos-linha-tempo">
+            <div class="documentos-marco">
+                <time datetime="2026-10-23">23 de outubro de 2026</time>
+                <h3>Conselho de Agrupamento</h3>
+            </div>
         </div>
     </section>
 </div>

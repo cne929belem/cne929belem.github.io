@@ -2,11 +2,12 @@
 layout: default
 title: Proteção de Dados | Agrupamento 929 - Belém
 main_class: pagina-com-hero
+ultima_atualizacao: 25/09/2026
 ---
 <style>
     .pagina-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
     .pagina-cabecalho h1 { color: #fff; margin: 0 0 10px; }
-    .pagina-cabecalho p { color: #fff; font-family: 'Fustat', sans-serif; font-weight: 300; font-size: 20px; line-height: 1.5; margin: 0; }
+    .pagina-cabecalho p { color: #fff; font-family: 'Fustat', sans-serif; font-weight: 300; font-size: 17px; line-height: 1.5; margin: 0; }
 
     .protecao-dados-pagina {
         position: relative; z-index: 5; background: #fff;
@@ -17,7 +18,7 @@ main_class: pagina-com-hero
         padding-top: 18px; border-top: 1px solid #eee;
     }
     .protecao-dados-pagina h2:first-of-type { margin-top: 0; padding-top: 0; border-top: 0; }
-    .protecao-dados-pagina p { line-height: 1.5; color: #333; margin: 0 0 14px; }
+    .protecao-dados-pagina p { font-size: 0.95rem; line-height: 1.55; color: #333; margin: 0 0 14px; }
     .protecao-dados-aviso {
         background: #fff3cd; color: #664d03; padding: 15px 18px; border-radius: 6px;
         border: 1px solid #ffe69c; font-size: 0.9rem; line-height: 1.5; margin: 0 0 30px;
@@ -43,7 +44,8 @@ main_class: pagina-com-hero
     <p>O Corpo Nacional de Escutas cumpre o definido no Regulamento Geral de Proteção de Dados (RGPD). Aqui tem toda a informação relevante relativa ao tratamento dos dados pessoais no CNE e no Agrupamento.</p>
 
     <div class="protecao-dados-aviso">
-        <strong>⚠️ Elementos que não autorizam a utilização da sua imagem para a promoção das atividades do Agrupamento não podem participar nas atividades extraordinárias.</strong>
+        <strong>Utilização de imagens</strong>
+        <p>A autorização para utilizar imagens identificáveis em divulgação deve ser livre, específica e separada da inscrição. A recusa ou retirada dessa autorização não impede, por si só, a participação nas atividades. Para registar ou alterar a preferência, contacta a Direção do Agrupamento.</p>
     </div>
 
     <h2>Recolha e tratamento de dados pessoais <small>(art. 13.º, n.º 1, alínea a) do RGPD)</small></h2>
@@ -88,5 +90,5 @@ main_class: pagina-com-hero
     <h2>Política de Privacidade</h2>
     <p>A Política de Privacidade do Corpo Nacional de Escutas está disponível para consulta no endereço <a href="https://siie.escutismo.pt/privacy" target="_blank" rel="noopener noreferrer">siie.escutismo.pt/privacy</a>.</p>
 
-    <p class="protecao-dados-versao">v.1.0 – 26/09/2018</p>
+    <p class="protecao-dados-versao">Texto-base do CNE: v.1.0 – 26/09/2018</p>
 </div>
