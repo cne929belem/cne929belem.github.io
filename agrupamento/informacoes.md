@@ -32,10 +32,14 @@ ultima_atualizacao: 25/09/2026
     @media (max-width: 760px) {
         .quota-layout { grid-template-columns: 1fr; }
     }
-    .info-bloco p, .info-bloco li { overflow-wrap: break-word; }
+    .info-bloco p, .info-bloco li, .info-bloco a { overflow-wrap: anywhere; }
     .info-bloco table { min-width: 520px; }
     @media (max-width: 760px) {
-        .info-pagina { grid-template-columns: 1fr; padding: 24px 20px 48px; }
+        .info-pagina { width: 100%; min-width: 0; grid-template-columns: minmax(0, 1fr); padding: 20px 16px 40px; gap: 22px; }
+        .info-bloco, .info-bloco > *, .info-bloco .info-block, .localizacao { min-width: 0; max-width: 100%; }
+        .info-bloco table { min-width: 0; width: 100%; table-layout: fixed; }
+        .info-bloco th, .info-bloco td { overflow-wrap: anywhere; }
+        .localizacao { padding: 14px; }
         .info-bloco.quota { grid-column: auto; }
         .info-bloco .info-block { height: auto; }
     }

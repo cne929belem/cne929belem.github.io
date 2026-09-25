@@ -23,6 +23,9 @@ ultima_atualizacao: 25/09/2026
   .cartao-atividade h2 { color: #fff; font-size: 19px; margin: 0 0 8px; }
   .cartao-atividade p { font-size: 13.5px; line-height: 1.5; margin: 0; opacity: .92; }
   .cartao-atividade:hover { outline: 2px solid rgba(255,255,255,0.6); outline-offset: -2px; }
+  @media (max-width: 600px) {
+    .cartao-atividade { justify-content: flex-start; min-height: 0; padding: 18px; }
+  }
 </style>
 
 <section class="hero-generico" id="hero">
