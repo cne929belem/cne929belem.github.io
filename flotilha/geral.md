@@ -2,7 +2,7 @@
 layout: default
 title: II - Flotilha | Agrupamento 929 - Belém
 main_class: pagina-com-hero
-ultima_atualizacao: 22/08/2026
+ultima_atualizacao: 05/09/2026
 seccao_slug: flotilha
 seccao_nome: II - Flotilha
 seccao_cor: '#28a745'
