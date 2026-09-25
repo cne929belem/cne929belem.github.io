@@ -2,6 +2,7 @@
 layout: default
 title: Programa | I - Alcateia
 main_class: pagina-com-hero
+ultima_atualizacao: 25/09/2026
 seccao_slug: alcateia
 seccao_nome: I - Alcateia
 seccao_cor: '#ffc107'

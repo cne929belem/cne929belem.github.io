@@ -1,8 +1,8 @@
 ---
 title: Informação sobre eleições para Chefe de Agrupamento
 descricao: Documentação referente ao processo eleitoral
-ficheiro:
+ficheiro: /assets/docs/0929_AerturaProcessoEleitoral.pdf
 ano: "2026"
-estado: brevemente
+estado: disponivel
 ordem: 1
 ---

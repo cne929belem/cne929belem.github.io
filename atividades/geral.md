@@ -2,6 +2,7 @@
 layout: default
 title: Atividades | 929 - Belém
 main_class: pagina-com-hero
+ultima_atualizacao: 25/09/2026
 ---
 <style>
   .pagina-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
@@ -19,7 +20,7 @@ main_class: pagina-com-hero
     background: linear-gradient(160deg, var(--cne-verde) 0%, var(--cne-verde-escuro) 100%);
     color: #fff; text-decoration: none;
   }
-  .cartao-atividade h2 { font-size: 19px; margin: 0 0 8px; }
+  .cartao-atividade h2 { color: #fff; font-size: 19px; margin: 0 0 8px; }
   .cartao-atividade p { font-size: 13.5px; line-height: 1.5; margin: 0; opacity: .92; }
   .cartao-atividade:hover { outline: 2px solid rgba(255,255,255,0.6); outline-offset: -2px; }
 </style>

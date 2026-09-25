@@ -2,11 +2,12 @@
 layout: default
 title: Equipa | Agrupamento 929 - Belém
 main_class: pagina-com-hero
+ultima_atualizacao: 25/09/2026
 ---
 <style>
   .pagina-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
   .pagina-cabecalho h1 { color: #fff; margin: 0 0 10px; }
-  .pagina-cabecalho > p { color: #fff; font-family: 'Fustat', sans-serif; font-weight: 300; font-size: 20px; line-height: 1.5; margin: 0; }
+  .pagina-cabecalho > p { color: #fff; font-family: 'Fustat', sans-serif; font-weight: 300; font-size: 16px; line-height: 1.5; margin: 0; }
 
   .grelha-equipa { position: relative; z-index: 5; max-width: 1200px; margin: 0 auto; background: #fff; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
   @media (max-width: 860px) { .grelha-equipa { grid-template-columns: 1fr; } }
@@ -15,9 +16,9 @@ main_class: pagina-com-hero
   .grelha-equipa + .secao-equipa { max-width: 1200px; }
   .secao-equipa h2 {
     display: flex; align-items: center; gap: 10px;
-    font-size: 21px; margin: 0 0 14px; color: var(--cne-verde-escuro);
+    font-size: 18px; margin: 0 0 14px; color: var(--cne-verde-escuro);
   }
-  .texto-intro p { font-family: 'Fustat', sans-serif; font-weight: 300; font-size: 20px; line-height: 1.5; color: #333; margin: 0 0 10px; }
+  .texto-intro p { font-family: 'Fustat', sans-serif; font-weight: 300; font-size: 16px; line-height: 1.5; color: #333; margin: 0 0 10px; }
   .texto-intro .referencia { font-size: 12.5px; color: #888; font-style: italic; }
 
   /* Insígnia da função ao lado esquerdo da foto (não sobreposta) */
@@ -176,10 +177,10 @@ main_class: pagina-com-hero
       <img class="icone-seccao-chefia" src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt="">
       <div class="chefia-foto-linha">
         <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
-        <img class="foto-pessoa" src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías">
       </div>
       <p class="nome-seccao">Frota</p>
-      <p class="nome">Paulo Duarte<br>(Roaz Criativo)</p>
+      <p class="nome">Ricardo Isaías<br>(Axolote)</p>
     </div>
     <div class="chefia-cartao" style="--cor-seccao:#BD242C">
       <img class="icone-seccao-chefia" src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="">
@@ -196,18 +197,17 @@ main_class: pagina-com-hero
     <span aria-hidden="true">🗳️</span>
     <div>
       <strong>Mandato em Exercício: 2023 — 2026</strong><br>
-      Aviso Eleitoral: Ocorrerão eleições para a nova Chefia de Agrupamento em 2026. <a href="{{ '/agrupamento/documentos.html' | relative_url }}">Consultar Informação sobre eleições para Chefe de Agrupamento</a>.
+      Aviso Eleitoral: Ocorrerão eleições para a nova Chefia de Agrupamento em 2026. <a href="{{ '/assets/docs/0929_AerturaProcessoEleitoral.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">Consultar Informação sobre eleições para Chefe de Agrupamento</a>.
     </div>
   </div>
-  <p class="ultima-atualizacao">Última atualização em 05/09/2026</p>
 </section>
 
 <section class="secao-equipa">
-  <h2>🏕️ Equipas de Animação</h2>
+  <h2>🏕️ Equipa de Animação 2026-2027</h2>
   <div class="texto-intro">
     <p>A ação educativa direta junto das secções é assegurada pelas Equipas de Animação.</p>
     <p>Os <strong>Dirigentes</strong> (Chefes de Unidade e Chefes de Unidade Adjuntos) são adultos que concluíram com sucesso o respetivo percurso formativo, realizaram a sua Promessa de Dirigente e receberam a Insígnia de Madeira. São os principais responsáveis por guiar as crianças e os jovens na aplicação do método escutista.</p>
-    <p>Os <strong>Candidatos a Dirigente</strong> são adultos voluntários que se encontram a realizar o seu percurso de formação inicial. Auxiliam ativamente as Equipas de Animação na preparação e execução das atividades, garantindo o acompanhamento adequado e o cumprimento dos rácios de segurança exigidos.</p>
+    <p>Os <strong>Candidatos e Noviços a Dirigente</strong> são adultos voluntários que se encontram a realizar o seu percurso de formação inicial. Auxiliam ativamente as Equipas de Animação na preparação e execução das atividades, garantindo o acompanhamento adequado e o cumprimento dos rácios de segurança exigidos.</p>
     <p class="referencia">Nos termos do Regulamento Geral e do Sistema de Formação de Adultos do CNE</p>
   </div>
 
@@ -236,14 +236,14 @@ main_class: pagina-com-hero
         <div><p class="funcao">Chefe de Unidade</p><p class="nome">Carolina Mascarenhas (Koala Pensadora)</p></div>
       </div>
       <div class="pessoa-cartao">
-        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="">
-        <img class="foto-pessoa" src="{{ '/assets/img/equipa/maria-rodrigues_equipa.jpg' | relative_url }}" alt="Maria Rodrigues">
-        <div><p class="funcao">Candidato a Dirigente</p><p class="nome">Maria Rodrigues</p></div>
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/instrutor.png' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/eunice-goncalves_equipa.jpg' | relative_url }}" alt="Eunice Gonçalves">
+        <div><p class="funcao">Dirigente</p><p class="nome">Eunice Gonçalves (Salamandra)</p></div>
       </div>
       <div class="pessoa-cartao">
         <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="">
-        <img class="foto-pessoa" src="{{ '/assets/img/equipa/jose-batalha_equipa.jpg' | relative_url }}" alt="José Batalha">
-        <div><p class="funcao">Candidato a Dirigente</p><p class="nome">José Batalha</p></div>
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/maria-rodrigues_equipa.jpg' | relative_url }}" alt="Maria Rodrigues">
+        <div><p class="funcao">Noviço a Dirigente</p><p class="nome">Maria Rodrigues</p></div>
       </div>
     </div>
   </details>
@@ -253,18 +253,13 @@ main_class: pagina-com-hero
     <div class="lista-pessoas">
       <div class="pessoa-cartao">
         <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
-        <img class="foto-pessoa" src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte">
-        <div><p class="funcao">Chefe de Unidade</p><p class="nome">Paulo Duarte (Roaz Criativo)</p></div>
-      </div>
-      <div class="pessoa-cartao">
-        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="">
-        <span class="placeholder-foto foto-pessoa" aria-hidden="true">JD</span>
-        <div><p class="funcao">Candidato a Dirigente</p><p class="nome">João Dragovic (Espadarte)</p></div>
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías">
+        <div><p class="funcao">Chefe de Unidade</p><p class="nome">Ricardo Isaías (Axolote)</p></div>
       </div>
       <div class="pessoa-cartao">
         <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/simao-pereira_equipa.jpg' | relative_url }}" alt="Simão Pereira">
-        <div><p class="funcao">Candidato a Dirigente</p><p class="nome">Simão Pereira (Sapo)</p></div>
+        <div><p class="funcao">Noviço a Dirigente</p><p class="nome">Simão Pereira (Sapo)</p></div>
       </div>
     </div>
   </details>
@@ -277,15 +272,9 @@ main_class: pagina-com-hero
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías">
         <div><p class="funcao">Chefe de Unidade</p><p class="nome">Ricardo Isaías (Axolote)</p></div>
       </div>
-      <div class="pessoa-cartao">
-        <img class="insignia-lado" src="{{ '/assets/img/equipa/instrutor.png' | relative_url }}" alt="">
-        <img class="foto-pessoa" src="{{ '/assets/img/equipa/ruben-rodrigues_equipa.jpg' | relative_url }}" alt="Ruben Rodrigues">
-        <div><p class="funcao">Dirigente</p><p class="nome">Ruben Rodrigues (Tubarão Empenhado)</p></div>
-      </div>
     </div>
   </details>
 
-  <p class="ultima-atualizacao">Última atualização em 05/09/2026</p>
 </section>
 </div>
 
