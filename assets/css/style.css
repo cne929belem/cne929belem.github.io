@@ -1596,8 +1596,20 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
         .nav-topo { height: 60px; padding: 0 16px; }
         .grupo-direita { align-items: center; gap: 8px; margin-left: auto; padding: 0; flex-shrink: 0; }
         .botao-solido { flex: 0 0 auto; padding: 9px 12px; font-size: 11px; }
-        .botao-hamburger { flex: 0 0 42px; }
+        .botao-hamburger {
+            flex: 0 0 auto; width: auto; min-width: 76px; padding: 0 10px;
+            gap: 6px; white-space: nowrap; font-size: 12px; font-weight: 700;
+        }
         .menu-principal { max-height: calc(100vh - 78px); max-height: calc(100dvh - 78px); overflow-y: auto; overscroll-behavior: contain; }
+        .item-menu.aberto {
+            padding: 4px 6px 6px; border: 1px solid var(--vidro-borda);
+            border-radius: 14px; background: rgba(255,255,255,0.09);
+        }
+        .item-menu.aberto > button {
+            background: transparent; border-color: transparent; box-shadow: none;
+            backdrop-filter: none; -webkit-backdrop-filter: none;
+        }
+        .item-menu.aberto .submenu { margin: 0; padding: 0 4px 2px 10px; }
         .botao-area-pessoal {
             position: static; display: flex; width: 100%; min-height: 44px; margin-top: 6px;
             padding: 11px 14px; border-radius: 12px; font-size: 12px; white-space: normal;
@@ -1629,6 +1641,11 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
         .pagina-cabecalho p { font-size: 16px; }
         .data-atualizacao-pagina { padding-right: 18px; padding-left: 18px; }
         .rodape { padding-right: 18px; padding-left: 18px; }
+        .rodape-conteudo { flex-direction: column; justify-content: center; gap: 12px; text-align: center; }
+        .rodape-contactos { display: flex; flex-direction: column; align-items: center; gap: 6px; overflow-wrap: anywhere; }
+        .rodape-ponto { display: none; }
+        .rodape-redes, .rodape-logos { justify-content: center; }
+        .rodape-copyright { padding: 0 8px; line-height: 1.5; overflow-wrap: anywhere; }
     }
 
     @media (max-width: 480px) {
@@ -1639,7 +1656,7 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
         .marca .nome span { font-size: 8px; letter-spacing: 0; }
         .grupo-direita { gap: 5px; }
         .botao-solido { padding: 8px 10px; font-size: 10px; }
-        .botao-hamburger { width: 40px; height: 40px; flex-basis: 40px; }
+        .botao-hamburger { min-width: 72px; height: 40px; flex-basis: auto; padding: 0 9px; gap: 5px; font-size: 10px; }
         .menu-principal { top: 56px; right: 10px; left: 10px; }
         .feed { padding-right: 16px; padding-left: 16px; }
         .foto-noticia { width: 104px; height: 80px; }
