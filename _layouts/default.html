@@ -31,7 +31,7 @@
     
     <div class="menu-principal" id="menuPrincipal">
         <div class="item-menu">
-            <button onclick="alternarSubmenuMovel(this)">Agrupamento</button>
+            <button aria-expanded="false" onclick="alternarSubmenuMovel(this)">Agrupamento</button>
             <div class="submenu">
                 <a href="{{ '/agrupamento/informacoes.html' | relative_url }}">Informações</a>
                 <a href="{{ '/agrupamento/equipa.html' | relative_url }}">Equipa</a>
@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="item-menu">
-            <button onclick="alternarSubmenuMovel(this)">Secções</button>
+            <button aria-expanded="false" onclick="alternarSubmenuMovel(this)">Secções</button>
             <div class="submenu">
                 <a href="{{ '/alcateia/geral.html' | relative_url }}">Secção I · Alcateia</a>
                 <a href="{{ '/flotilha/geral.html' | relative_url }}">Secção II · Flotilha</a>
@@ -50,12 +50,12 @@
         <div class="item-menu">
             <a href="{{ '/atividades/geral.html' | relative_url }}">Atividades</a>
         </div>
+        <a href="{{ '/em-construcao.html' | relative_url }}" class="botao-area-pessoal">Área pessoal</a>
     </div>
 
     <div class="grupo-direita">
         <a href="{{ '/jamboree/geral.html' | relative_url }}" class="botao-solido">Jamboree 2027</a>
-        <a href="{{ '/em-construcao.html' | relative_url }}" class="botao-area-pessoal">Área pessoal</a>
-        <button class="botao-hamburger" aria-label="Abrir menu" onclick="alternarMenuMovel()">☰</button>
+        <button class="botao-hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menuPrincipal" onclick="alternarMenuMovel()">☰</button>
     </div>
 </nav>
 
@@ -131,14 +131,28 @@
 
 <script>
     function alternarMenuMovel() {
-        document.getElementById('menuPrincipal').classList.toggle('mostrar');
+        const menu = document.getElementById('menuPrincipal');
+        const aberto = menu.classList.toggle('mostrar');
+        document.querySelector('.botao-hamburger').setAttribute('aria-expanded', String(aberto));
+        if (!aberto) {
+            document.querySelectorAll('.item-menu.aberto').forEach(item => {
+                item.classList.remove('aberto');
+                item.querySelector(':scope > button')?.setAttribute('aria-expanded', 'false');
+            });
+        }
     }
     function alternarSubmenuMovel(botao) {
         if (window.innerWidth > 860) return; // no desktop o :hover já trata disto
         const item = botao.closest('.item-menu');
         const jaAberto = item.classList.contains('aberto');
-        document.querySelectorAll('.item-menu.aberto').forEach(i => i.classList.remove('aberto'));
-        if (!jaAberto) item.classList.add('aberto');
+        document.querySelectorAll('.item-menu.aberto').forEach(aberto => {
+            aberto.classList.remove('aberto');
+            aberto.querySelector(':scope > button')?.setAttribute('aria-expanded', 'false');
+        });
+        if (!jaAberto) {
+            item.classList.add('aberto');
+            botao.setAttribute('aria-expanded', 'true');
+        }
     }
 
     // Vidro sólido ao rolar — só relevante em páginas com hero (ex: homepage).
