@@ -1167,6 +1167,7 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
      baixo, sem o espaço/padding do resto do cabeçalho por cima dela. */
   .botao-area-pessoal {
     position: absolute; top: 0; right: 0;
+        z-index: 101;
     display: flex; align-items: center; justify-content: center;
     width: 170px; box-sizing: border-box;
     font-weight: 600; font-size: 12.5px; text-transform: uppercase; letter-spacing: .03em;
@@ -1551,10 +1552,10 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
      redesign — texto dentro de blocos com tamanho definido em
      "style=" inline não é afetado por isto (ver nota na resposta). */
     h1 { font-family: 'Geologica', sans-serif; font-weight: 700; font-size: 36px; }
-    h2 { font-family: 'Geologica', sans-serif; font-weight: 600; font-size: 32px; }
-    p { font-family: 'Geologica', sans-serif; font-weight: 400; font-size: 25px; }
-    .assinatura { font-family: 'Geologica', sans-serif; font-weight: 300; font-size: 20px; }
-    .destaque-texto { font-family: 'Geologica', sans-serif; font-weight: 600; font-size: 25px; }
+    h2 { font-family: 'Geologica', sans-serif; font-weight: 600; font-size: 30px; }
+    p { font-family: 'Geologica', sans-serif; font-weight: 400; font-size: 22px; }
+    .assinatura { font-family: 'Geologica', sans-serif; font-weight: 300; font-size: 18px; }
+    .destaque-texto { font-family: 'Geologica', sans-serif; font-weight: 600; font-size: 23px; }
 
   /* Botão de voltar ao topo — centrado ao fundo, aparece a partir de
      algum scroll. O ícone (seta) é provisório, a substituir mais tarde. */
@@ -1644,17 +1645,27 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
 
     @media (max-width: 600px) {
         h1 { font-size: 28px; line-height: 1.15; }
-        h2 { font-size: 23px; line-height: 1.2; }
-        h3 { font-size: 18px; line-height: 1.25; }
-        p { font-size: 16px; line-height: 1.55; }
+        h2 { font-size: 22px; line-height: 1.2; }
+        h3 { font-size: 17px; line-height: 1.25; }
+        p { font-size: 15px; line-height: 1.55; }
         .pagina-cabecalho h1 { font-size: 28px; }
         .pagina-cabecalho p { font-size: 16px; }
         .data-atualizacao-pagina { padding-right: 18px; padding-left: 18px; }
         .rodape { padding-right: 18px; padding-left: 18px; }
-        .rodape-conteudo { flex-direction: column; justify-content: center; gap: 12px; text-align: center; }
-        .rodape-contactos { display: flex; flex-direction: column; align-items: center; gap: 6px; overflow-wrap: anywhere; }
+        .rodape-conteudo {
+            display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+            align-items: center; justify-items: center; gap: 12px 8px; text-align: center;
+        }
+        .rodape-contactos {
+            grid-column: 1 / -1; width: 100%; display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 8px;
+            overflow-wrap: anywhere;
+        }
+        .rodape-contactos a { min-width: 0; text-align: center; overflow-wrap: anywhere; }
         .rodape-ponto { display: none; }
-        .rodape-redes, .rodape-logos { justify-content: center; }
+        .rodape-redes { grid-column: 1; grid-row: 2; justify-content: center; }
+        .rodape-logos { grid-column: 2; grid-row: 2; justify-content: center; flex-wrap: wrap; }
+        .rodape-protecao-dados { grid-column: 1 / -1; grid-row: 3; justify-self: center; text-align: center; }
         .rodape-copyright { padding: 0 8px; line-height: 1.5; overflow-wrap: anywhere; }
     }
 
