@@ -236,9 +236,9 @@ ultima_atualizacao: 25/09/2026
         <div><p class="funcao">Chefe de Unidade</p><p class="nome">Carolina Mascarenhas (Koala Pensadora)</p></div>
       </div>
       <div class="pessoa-cartao">
-        <img class="insignia-lado" src="{{ '/assets/img/equipa/instrutor.png' | relative_url }}" alt="">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_agrupamento.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/eunice-goncalves_equipa.jpg' | relative_url }}" alt="Eunice Gonçalves">
-        <div><p class="funcao">Dirigente</p><p class="nome">Eunice Gonçalves (Salamandra)</p></div>
+        <div><p class="funcao">Chefe Adjunta</p><p class="nome">Eunice Gonçalves (Salamandra)</p></div>
       </div>
       <div class="pessoa-cartao">
         <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="">
