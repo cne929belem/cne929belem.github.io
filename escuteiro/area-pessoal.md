@@ -2,7 +2,7 @@
 layout: default
 title: Área Pessoal | Agrupamento 929 - Belém
 main_class: pagina-com-hero
-ultima_atualizacao: 25/08/2026
+ultima_atualizacao: 05/09/2026
 ---
 <style>
   .pagina-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
@@ -19,8 +19,16 @@ ultima_atualizacao: 25/08/2026
     padding: 14px 18px; font-size: 13.5px; line-height: 1.5; margin-bottom: 26px;
   }
 
-  .percurso-layout { display: grid; grid-template-columns: 280px 1fr; gap: 28px; align-items: start; }
-  @media (max-width: 780px) { .percurso-layout { grid-template-columns: 1fr; } }
+  .percurso-layout { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 28px; align-items: start; }
+  .percurso-layout > div:first-child { grid-column: 1; grid-row: 1 / span 2; }
+  .percurso-layout > div:nth-child(2) { grid-column: 2; grid-row: 1; }
+  @media (max-width: 780px) {
+    .percurso-layout { grid-template-columns: 1fr; }
+    .percurso-layout > div:first-child,
+    .percurso-layout > div:nth-child(2) { grid-column: auto; grid-row: auto; }
+    .percurso-emblemas { grid-column: auto; grid-row: auto; width: auto; padding: 0; gap: 12px; }
+    .emblema-seccao { width: 76px; height: 76px; flex-basis: 76px; }
+  }
 
   .percurso-identidade {
     background: var(--azul-marinho); color: #fff; border-radius: 10px;
@@ -49,8 +57,8 @@ ultima_atualizacao: 25/08/2026
   .barra-valor { position: absolute; top: -22px; font-size: 12px; font-weight: 700; color: var(--azul-marinho); transform: translateX(-50%); }
   .barra-marcas { display: flex; justify-content: space-between; margin-top: 6px; font-size: 11px; color: #888; }
 
-  .percurso-emblemas { display: flex; flex-direction: column; gap: 18px; align-items: center; }
-  .emblema-seccao { width: 76px; height: 76px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+  .percurso-emblemas { grid-column: 2; grid-row: 2; display: flex; flex-direction: row; gap: 24px; align-items: center; justify-content: space-between; width: 100%; padding: 0 24px 24px; }
+  .emblema-seccao { width: 118px; height: 118px; flex: 0 0 118px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 </style>
 
 <section class="hero-generico" id="hero">

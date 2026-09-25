@@ -2,7 +2,7 @@
 layout: default
 title: Vivência | IV - Comunidade
 main_class: pagina-com-hero
-ultima_atualizacao: 23/08/2026
+ultima_atualizacao: 05/09/2026
 seccao_slug: comunidade
 seccao_nome: IV - Comunidade
 seccao_cor: '#CE1126'
@@ -313,7 +313,7 @@ seccao_cor: '#CE1126'
         </div>
 
         <p style="text-align: right; font-size: 0.7rem; color: #888; margin-top: 30px; font-style: italic;">
-            Última atualização em 22/08/2026
+            Última atualização em 05/09/2026
         </p>
     </section>
 </div>

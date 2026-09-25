@@ -13,6 +13,8 @@ main_class: pagina-com-hero
 <section class="hero" id="hero">
   <div class="hero-slide ativo"></div>
   <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
 
   <button class="seta-carrossel seta-esquerda" aria-label="Imagem anterior" onclick="mudarSlide(-1)">‹</button>
   <button class="seta-carrossel seta-direita" aria-label="Imagem seguinte" onclick="mudarSlide(1)">›</button>
@@ -20,6 +22,8 @@ main_class: pagina-com-hero
   <div class="pontos-carrossel">
     <button class="ponto ativo" aria-label="Imagem 1" onclick="irParaSlide(0)"></button>
     <button class="ponto" aria-label="Imagem 2" onclick="irParaSlide(1)"></button>
+    <button class="ponto" aria-label="Imagem 3" onclick="irParaSlide(2)"></button>
+    <button class="ponto" aria-label="Imagem 4" onclick="irParaSlide(3)"></button>
   </div>
 </section>
 

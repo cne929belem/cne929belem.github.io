@@ -143,7 +143,7 @@ main_class: pagina-com-hero
                 <strong>⚠️ Ninguém deixará de participar nas atividades por questões financeiras!</strong>
             </div>
             <p style="text-align: right; font-size: 0.7rem; color: #888; margin-top: 15px; font-style: italic;">
-                Última atualização em 22/08/2026
+                Última atualização em 05/09/2026
             </p>
         </section>
 </div>

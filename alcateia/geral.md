@@ -2,7 +2,7 @@
 layout: default
 title: I - Alcateia | Agrupamento 929 - Belém
 main_class: pagina-com-hero
-ultima_atualizacao: 22/08/2026
+ultima_atualizacao: 05/09/2026
 seccao_slug: alcateia
 seccao_nome: I - Alcateia
 seccao_cor: '#ffc107'

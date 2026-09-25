@@ -2,7 +2,7 @@
 layout: default
 title: III - Frota | Agrupamento 929 - Belém
 main_class: pagina-com-hero
-ultima_atualizacao: 22/08/2026
+ultima_atualizacao: 05/09/2026
 seccao_slug: frota
 seccao_nome: III - Frota
 seccao_cor: '#0056b3'

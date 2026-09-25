@@ -2,7 +2,7 @@
 layout: default
 title: 2026 - Ilha dos Cavalos | ACAGRUP
 main_class: pagina-com-hero
-ultima_atualizacao: 22/08/2026
+ultima_atualizacao: 05/09/2026
 ---
 <section class="hero-generico hero-acagrup" id="hero">
     <div class="pagina-cabecalho">
