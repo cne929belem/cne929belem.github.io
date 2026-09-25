@@ -142,6 +142,11 @@
                 item.querySelector(':scope > button')?.setAttribute('aria-expanded', 'false');
             });
         }
+    }
+
+    function alternarSubmenuMovel(botao) {
+        if (window.innerWidth > 860) return;
+        const item = botao.closest('.item-menu');
         const jaAberto = item.classList.contains('aberto');
         document.querySelectorAll('.item-menu.aberto').forEach(aberto => {
             aberto.classList.remove('aberto');
