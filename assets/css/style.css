@@ -47,7 +47,7 @@
 html, body { height: 100%; }
 
 body { 
-    font-family: 'Fustat', sans-serif; 
+    font-family: 'Geologica', sans-serif;
     background-color: var(--cinza-fundo);
     color: var(--texto);
     display: flex;
@@ -56,7 +56,7 @@ body {
 }
 
 h1, h2, h3, .brand-name {
-    font-family: 'Fustat', sans-serif;
+    font-family: 'Geologica', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
     color: var(--azul-marinho);
@@ -559,7 +559,7 @@ footer {
     background-color: #0b1a4a;
     color: white;
     padding: 15px 20px;
-    font-family: 'Fustat', sans-serif;
+    font-family: 'Geologica', sans-serif;
     font-weight: 900;
     font-size: 1.2rem;
     letter-spacing: 1px;
@@ -642,7 +642,7 @@ footer {
     padding: 22px;
     margin-bottom: 25px;
 }
-.consent-block, .consent-block *, .consent-check { font-family: 'Fustat', sans-serif; font-size: 0.78rem; line-height: 1.45; }
+.consent-block, .consent-block *, .consent-check { font-family: 'Geologica', sans-serif; font-size: 0.78rem; line-height: 1.45; }
 .consent-block h2 { margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
 .consent-box { background: white; padding: 16px; border-radius: 8px; max-height: 260px; overflow-y: auto; border: 1px solid #eee; margin-bottom: 16px; }
 .consent-box h4 { color: var(--azul-marinho); margin: 12px 0 4px; font-weight: 800; }
@@ -679,13 +679,13 @@ footer {
 }
 .form-section legend {
     color: var(--azul-marinho);
-    font-family: 'Fustat', sans-serif;
+    font-family: 'Geologica', sans-serif;
     font-weight: 900;
     text-transform: uppercase;
     font-size: 1.05rem;
     padding: 0 6px;
 }
-.form-section .step-sub { font-size: 0.82rem; color: #666; margin: 2px 0 16px; font-family: 'Fustat', sans-serif; text-transform: none; font-weight: 300; }
+.form-section .step-sub { font-size: 0.82rem; color: #666; margin: 2px 0 16px; font-family: 'Geologica', sans-serif; text-transform: none; font-weight: 300; }
 
 .field { margin-bottom: 18px; min-width: 0; }
 
@@ -703,7 +703,7 @@ footer {
 .field input[type="text"], .field input[type="email"], .field input[type="tel"],
 .field input[type="date"], .field input[type="time"], .field textarea, .field select {
     width: 100%; padding: 10px 12px; border: 1.5px solid #d7dee6; border-radius: 6px;
-    font-family: 'Fustat', sans-serif; font-size: 0.95rem; background: white; color: var(--texto);
+    font-family: 'Geologica', sans-serif; font-size: 0.95rem; background: white; color: var(--texto);
 }
 .field textarea { min-height: 70px; resize: vertical; }
 .field input:focus, .field textarea:focus, .field select:focus { outline: 2px solid var(--azul-claro); outline-offset: 1px; }
@@ -980,7 +980,7 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     margin: 0;
     background: #fff;
     color: #1a1a1a;
-    font-family: 'Fustat', sans-serif;
+    font-family: 'Geologica', sans-serif;
     /* Anula o modelo do body antigo (flex + altura 100% + padding-top fixo
        para a navbar antiga de 65px) — incompatível com o novo cabeçalho,
        que fica sobreposto (position: fixed) em vez de empurrar o conteúdo. */
@@ -1544,17 +1544,17 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     background: linear-gradient(160deg, var(--cne-verde) 0%, var(--cne-verde-escuro) 100%);
   }
 
-  /* ==================== TIPOGRAFIA (Fustat) ==================== */
+    /* ==================== TIPOGRAFIA (Geologica) ==================== */
   /* Escala pedida: Títulos 36/Bold, Subtítulos 32/SemiBold,
      Assinaturas 20/Light, Texto 25/Regular, Destaques 25/SemiBold.
      Aplicada aos elementos-base partilhados por todas as páginas do
      redesign — texto dentro de blocos com tamanho definido em
      "style=" inline não é afetado por isto (ver nota na resposta). */
-  h1 { font-family: 'Fustat', sans-serif; font-weight: 700; font-size: 36px; }
-  h2 { font-family: 'Fustat', sans-serif; font-weight: 600; font-size: 32px; }
-  p { font-family: 'Fustat', sans-serif; font-weight: 400; font-size: 25px; }
-  .assinatura { font-family: 'Fustat', sans-serif; font-weight: 300; font-size: 20px; }
-  .destaque-texto { font-family: 'Fustat', sans-serif; font-weight: 600; font-size: 25px; }
+    h1 { font-family: 'Geologica', sans-serif; font-weight: 700; font-size: 36px; }
+    h2 { font-family: 'Geologica', sans-serif; font-weight: 600; font-size: 32px; }
+    p { font-family: 'Geologica', sans-serif; font-weight: 400; font-size: 25px; }
+    .assinatura { font-family: 'Geologica', sans-serif; font-weight: 300; font-size: 20px; }
+    .destaque-texto { font-family: 'Geologica', sans-serif; font-weight: 600; font-size: 25px; }
 
   /* Botão de voltar ao topo — centrado ao fundo, aparece a partir de
      algum scroll. O ícone (seta) é provisório, a substituir mais tarde. */
@@ -1609,7 +1609,7 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
             background: transparent; border-color: transparent; box-shadow: none;
             backdrop-filter: none; -webkit-backdrop-filter: none;
         }
-        .item-menu.aberto .submenu { margin: 0; padding: 0 4px 2px 10px; }
+        .item-menu.aberto .submenu { width: 100%; margin: 0; padding: 0 4px 2px; }
         .botao-area-pessoal {
             position: static; display: flex; width: 100%; min-height: 44px; margin-top: 6px;
             padding: 11px 14px; border-radius: 12px; font-size: 12px; white-space: normal;

@@ -8,7 +8,7 @@ ultima_atualizacao: 25/09/2026
 <style>
     .pagina-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
     .pagina-cabecalho h1 { color: #fff; margin: 0 0 10px; }
-    .pagina-cabecalho p { color: #fff; font-family: 'Fustat', sans-serif; font-weight: 300; font-size: 20px; line-height: 1.5; margin: 0; }
+    .pagina-cabecalho p { color: #fff; font-family: 'Geologica', sans-serif; font-weight: 300; font-size: 20px; line-height: 1.5; margin: 0; }
     .info-pagina { position: relative; z-index: 5; max-width: 1200px; margin: 0 auto; padding: 28px; background: #fff; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
     .info-bloco { min-width: 0; }
     .info-bloco .section-title { margin: 0 0 15px; font-size: 21px; }
