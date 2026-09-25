@@ -2,7 +2,7 @@
 layout: default
 title: Inscrições em Atividades | Agrupamento 929 - Belém
 main_class: pagina-com-hero
-ultima_atualizacao: 05/09/2026
+ultima_atualizacao: 25/09/2026
 ---
 {% comment %}
   Lista todas as inscrições com "ativo: true", da coleção _inscricoes/.
@@ -38,9 +38,19 @@ ultima_atualizacao: 05/09/2026
         </section>
 
         <section class="atividades-coluna">
-            <h2 class="section-title">🌊 Atividades passadas</h2>
-            <p class="atividades-intro">Um registo das atividades já vividas pelo Agrupamento.</p>
+            <h2 class="section-title">🌊 Atividades</h2>
+            <p class="atividades-intro">Acompanha os próximos encontros e consulta o registo das atividades do Agrupamento.</p>
             <div class="atividades-timeline">
+                <a class="timeline-item timeline-item-jamboree" href="{{ '/assets/docs/Circular 06 CNE.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">
+                    <time datetime="2027-05-22">22 e 23 mai 2027</time>
+                    <h3>Encontro do Contingente Português</h3>
+                    <p>Atividade exclusiva para participantes do Jamboree.</p>
+                </a>
+                <a class="timeline-item timeline-item-jamboree" href="{{ '/assets/docs/Circular 06 CNE.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">
+                    <time datetime="2026-11-21">21 nov 2026</time>
+                    <h3>Encontro Jamboree</h3>
+                    <p>Atividade exclusiva para participantes do Jamboree.</p>
+                </a>
                 <a class="timeline-item" href="{{ '/atividades/acagrup-2026.html' | relative_url }}">
                     <time datetime="2026-08-05">05 ago 2026</time>
                     <h3>ACAGRUP 2026 - Ilha dos Cavalos</h3>

@@ -2,7 +2,7 @@
 layout: default
 title: Geral | IV - Comunidade
 main_class: pagina-com-hero
-ultima_atualizacao: 05/09/2026
+ultima_atualizacao: 25/09/2026
 seccao_slug: comunidade
 seccao_nome: IV - Comunidade
 seccao_cor: '#CE1126'
@@ -35,7 +35,6 @@ seccao_cor: '#CE1126'
             <p class="seccao-geral-intro">A equipa que acompanha a Comunidade e ajuda cada Companheiro a escolher o seu rumo e a viver a vocação do Serviço.</p>
             <div class="equipa-seccao-grelha">
                 <div class="pessoa-seccao"><img src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="Insígnia de Chefe de Unidade"><img src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías"><div><small>Chefe de Unidade</small><strong>Ricardo Isaías (Axolote)</strong></div></div>
-                <div class="pessoa-seccao"><img src="{{ '/assets/img/equipa/instrutor.png' | relative_url }}" alt="Insígnia de Dirigente"><img src="{{ '/assets/img/equipa/ruben-rodrigues_equipa.jpg' | relative_url }}" alt="Ruben Rodrigues"><div><small>Dirigente</small><strong>Ruben Rodrigues (Tubarão Empenhado)</strong></div></div>
             </div>
             <a class="seccao-equipa-link" href="{{ '/agrupamento/equipa.html' | relative_url }}">Ver a equipa completa do Agrupamento →</a>
         </div>

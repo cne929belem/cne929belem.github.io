@@ -2,6 +2,7 @@
 layout: default
 title: 929 - Belém | Corpo Nacional de Escutas
 main_class: pagina-com-hero
+ultima_atualizacao: 25/09/2026
 ---
 {% assign noticias_recentes = site.noticias | sort: "date" | reverse | limit: 5 %}
 {% assign noticia_destaque = noticias_recentes | where: "prioridade", 1 | first %}

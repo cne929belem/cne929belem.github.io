@@ -1,8 +1,9 @@
 ---
 layout: default
 title: Área Pessoal | Agrupamento 929 - Belém
+published: false
 main_class: pagina-com-hero
-ultima_atualizacao: 05/09/2026
+ultima_atualizacao: 25/09/2026
 ---
 <style>
   .pagina-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
