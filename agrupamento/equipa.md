@@ -222,7 +222,7 @@ ultima_atualizacao: 25/09/2026
       <div class="pessoa-cartao">
         <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/madalena-catita_equipa.jpg' | relative_url }}" alt="Madalena Catita">
-        <div><p class="funcao">Candidato a Dirigente</p><p class="nome">Madalena Catita (Raposa Exigente)</p></div>
+        <div><p class="funcao">Aspirante a Dirigente</p><p class="nome">Madalena Catita (Raposa Exigente)</p></div>
       </div>
     </div>
   </details>
