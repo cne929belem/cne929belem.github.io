@@ -24,7 +24,7 @@ seccao_cor: '#ffc107'
             <p class="seccao-geral-intro">A equipa que acompanha a Alcateia e ajuda cada Lobito a descobrir o prazer de aprender, brincar e navegar em conjunto.</p>
             <div class="equipa-seccao-grelha">
             <div class="pessoa-seccao"><img src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="Insígnia de Chefe de Unidade"><img src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte"><div><small>Chefe de Unidade</small><strong>Paulo Duarte (Roaz Criativo)</strong></div></div>
-            <div class="pessoa-seccao"><img src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="Insígnia de Candidato a Dirigente"><img src="{{ '/assets/img/equipa/madalena-catita_equipa.jpg' | relative_url }}" alt="Madalena Catita"><div><small>Candidata a Dirigente</small><strong>Madalena Catita (Raposa Exigente)</strong></div></div>
+            <div class="pessoa-seccao"><img src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="Insígnia de Candidato a Dirigente"><img src="{{ '/assets/img/equipa/madalena-catita_equipa.jpg' | relative_url }}" alt="Madalena Catita"><div><small>Aspirante a Dirigente</small><strong>Madalena Catita (Raposa Exigente)</strong></div></div>
             </div>
             <a class="seccao-equipa-link" href="{{ '/agrupamento/equipa.html' | relative_url }}">Ver a equipa completa do Agrupamento →</a>
         </div>

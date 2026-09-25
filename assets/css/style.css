@@ -1144,7 +1144,7 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
   .item-menu:hover .submenu, .item-menu.aberto .submenu, .item-menu:focus-within .submenu { display: block; }
   .submenu a {
         display: block; padding: 9px 12px; font-size: 13px; font-weight: 500;
-        text-align: center; font-style: italic; text-transform: none; color: #fff; text-decoration: none; border-radius: 10px;
+        text-align: center; text-transform: none; color: #fff; text-decoration: none; border-radius: 10px;
   }
   .submenu a:hover { background: rgba(255,255,255,0.15); }
 
@@ -1618,6 +1618,16 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     }
 
     @media (max-width: 780px) {
+        .hero-generico:not(.hero-jamboree) { position: relative; height: auto; min-height: 0; }
+        .hero-generico:not(.hero-jamboree) .pagina-cabecalho { height: auto; min-height: 0; padding: 72px 18px 24px; }
+        .hero-generico:not(.hero-jamboree) + .espaco-hero-generico { display: none; height: 0; }
+        .hero-generico:not(.hero-jamboree) .pagina-cabecalho h1 {
+            max-width: 100%; margin-bottom: 8px; font-size: 25px; line-height: 1.15;
+            text-wrap: balance; overflow-wrap: anywhere;
+        }
+        .hero-generico:not(.hero-jamboree) .pagina-cabecalho p {
+            max-width: 100%; font-size: 15px; line-height: 1.4; overflow-wrap: anywhere;
+        }
         .hero { position: absolute; height: 36vh; min-height: 220px; max-height: 340px; }
         .espaco-hero { height: 36vh; min-height: 220px; max-height: 340px; }
         .seta-carrossel { width: 44px; height: 44px; font-size: 18px; }
