@@ -1606,7 +1606,8 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     }
 
     @media (max-width: 780px) {
-        .hero, .espaco-hero { height: 36vh; min-height: 220px; max-height: 340px; }
+        .hero { position: absolute; height: 36vh; min-height: 220px; max-height: 340px; }
+        .espaco-hero { height: 36vh; min-height: 220px; max-height: 340px; }
         .seta-carrossel { width: 44px; height: 44px; font-size: 18px; }
         .seta-esquerda { left: 12px; }
         .seta-direita { right: 12px; }
