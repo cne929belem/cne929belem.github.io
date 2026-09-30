@@ -5,7 +5,7 @@ prioridade: 0
 autor: "Paulo Duarte"
 funcao: "Coordenador do processo eleitoral"
 resumo: "Terminou o prazo para apresentação de candidaturas ao processo eleitoral, com uma candidatura apresentada."
-link_externo: /agrupamento/documentos.html
+link: /agrupamento/documentos.html
 imagem: /assets/img/equipa/chefe_agrupamento.png
 ---
 O prazo para apresentação de candidaturas ao processo eleitoral para Chefe de Agrupamento terminou a 25 de setembro. Foi apresentada uma candidatura.

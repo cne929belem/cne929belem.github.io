@@ -89,7 +89,7 @@ seccao_cor: '#39374C'
                 <div class="acordeao-content">
                     <p style="line-height: 1.6;">Na IV Secção, o jovem é desafiado a assumir o seu papel na sociedade, desenvolvendo projetos próprios e vivendo a vocação do Serviço. Ainda a caminho da autonomia plena, o Companheiro já possui liberdade em várias áreas da sua vida — e é dessa liberdade, bem vivida, que depende todo o proveito que o escutismo lhe pode dar.</p>
                     <p style="line-height: 1.6;">A nossa mística inspira-se na vida de São Paulo: um homem de ofício manual (tecelão de tendas), que arriscou tudo por uma convicção, e que transformou uma travessia decisiva — o caminho para Damasco — no ponto de partida de uma vida de anúncio e de ação. Paulo não ficou pelas palavras: foi um exemplo de compromisso levado à prática. É esse espírito de partida, coragem e ação que o nosso patrono nos convida a viver.</p>
-                    <p style="line-height: 1.6; margin-bottom: 0;"><strong>Saber mais:</strong> <a href="https://escutismo.pt/caminheiros-18-aos-22-anos/" target="_blank" style="color: #39374C; font-weight: bold; text-decoration: underline;">Página Oficial da IV Secção no CNE</a></p>
+                    <p style="line-height: 1.6; margin-bottom: 0;"><strong>Saber mais:</strong> <a href="https://escutismo.pt/caminheiros-18-aos-22-anos/" target="_blank" rel="noopener noreferrer" style="color: #39374C; font-weight: bold; text-decoration: underline;">Página Oficial da IV Secção no CNE</a></p>
                 </div>
             </details>
 
@@ -179,7 +179,7 @@ seccao_cor: '#39374C'
                         <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #eee; text-align: center;">
                             <h4 style="margin-bottom: 15px;">🎯 Objetivos Educativos</h4>
                             <p style="margin-bottom: 15px;">Os objetivos educativos da IV Secção organizam-se em 6 dimensões — Física, Afetiva, Carácter, Espiritual, Social e Intelectual. Consulta o guia detalhado para o teu percurso:</p>
-                            <a href="{{ '/assets/docs/PostersFaceis_IV.pdf' | relative_url }}" target="_blank" class="btn" style="background-color: #28a745;">📥 Download: Guia de Objetivos Educativos</a>
+                            <a href="{{ '/assets/docs/PostersFaceis_IV.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #28a745;">📥 Download: Guia de Objetivos Educativos</a>
                         </div>
                     </div>
 
@@ -212,8 +212,8 @@ seccao_cor: '#39374C'
                         </div>
 
                         <div style="text-align: center; margin-top: 20px; display: flex; flex-wrap: nowrap; gap: 8px; justify-content: center;">
-                            <a href="{{ '/assets/docs/PostersFaceis_IV.pdf' | relative_url }}" target="_blank" class="btn" style="background-color: #28a745; flex: 1 1 0; min-width: 0; padding-left: 10px; padding-right: 10px; font-size: 0.85rem;">📥 Guia de Objetivos</a>
-                            <a href="{{ '/assets/docs/Ficha_Modelo_PPV.docx' | relative_url }}" target="_blank" class="btn" style="background-color: #6f42c1; flex: 1 1 0; min-width: 0; padding-left: 10px; padding-right: 10px; font-size: 0.85rem;">📄 Ficha Modelo do PPV</a>
+                            <a href="{{ '/assets/docs/PostersFaceis_IV.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #28a745; flex: 1 1 0; min-width: 0; padding-left: 10px; padding-right: 10px; font-size: 0.85rem;">📥 Guia de Objetivos</a>
+                            <a href="{{ '/assets/docs/Ficha_Modelo_PPV.docx' | relative_url }}" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #6f42c1; flex: 1 1 0; min-width: 0; padding-left: 10px; padding-right: 10px; font-size: 0.85rem;">📄 Ficha Modelo do PPV</a>
                         </div>
                     </div>
                 </div>
@@ -284,22 +284,22 @@ seccao_cor: '#39374C'
                     <p style="line-height: 1.6;">O guião litúrgico e formal para as grandes celebrações de passagem de etapa e compromissos na nossa Comunidade.</p>
 
                     <div class="quick-links-grid" style="margin-top: 15px;">
-                        <a href="{{ '/assets/docs/promessa_Companheiro.pdf' | relative_url }}" target="_blank" class="quick-link-card">
+                        <a href="{{ '/assets/docs/promessa_Companheiro.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="quick-link-card">
                             <span class="quick-link-icon">⚜️</span>
                             <h3>Promessa de Companheiro</h3>
                             <span style="font-size: 0.75rem; color: #888; margin-top: 5px; display: block;">Abrir PDF 📄</span>
                         </a>
-                        <a href="{{ '/assets/docs/investidura_arrais.pdf' | relative_url }}" target="_blank" class="quick-link-card">
+                        <a href="{{ '/assets/docs/investidura_arrais.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="quick-link-card">
                             <span class="quick-link-icon">⚓</span>
                             <h3>Investidura de Arrais</h3>
                             <span style="font-size: 0.75rem; color: #888; margin-top: 5px; display: block;">Abrir PDF 📄</span>
                         </a>
-                        <a href="{{ '/assets/docs/partida_breve.pdf' | relative_url }}" target="_blank" class="quick-link-card">
+                        <a href="{{ '/assets/docs/partida_breve.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="quick-link-card">
                             <span class="quick-link-icon">🌅</span>
                             <h3>Partida (Versão Curta)</h3>
                             <span style="font-size: 0.75rem; color: #888; margin-top: 5px; display: block;">Abrir PDF 📄</span>
                         </a>
-                        <a href="{{ '/assets/docs/partida_longa.pdf' | relative_url }}" target="_blank" class="quick-link-card">
+                        <a href="{{ '/assets/docs/partida_longa.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="quick-link-card">
                             <span class="quick-link-icon">🌅</span>
                             <h3>Partida (Versão Longa)</h3>
                             <span style="font-size: 0.75rem; color: #888; margin-top: 5px; display: block;">Abrir PDF 📄</span>
