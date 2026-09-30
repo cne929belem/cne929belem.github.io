@@ -5,18 +5,14 @@ main_class: pagina-com-hero
 ultima_atualizacao: 25/09/2026
 seccao_slug: alcateia
 seccao_nome: I - Alcateia
-seccao_cor: '#ffc107'
+seccao_cor: '#E9B708'
+seccao_cor_texto: '#17202A'
 ---
-<section class="hero-generico hero-seccao hero-alcateia" id="hero">
-    <div class="pagina-cabecalho">
-        <span class="icone-hero-caixa" aria-hidden="true"><img class="icone-hero-seccao" src="{{ '/assets/img/seccoes/1_lobitos.png' | relative_url }}" alt=""></span>
-        <h1>I - Alcateia</h1>
-        <p>A secção dos Lobitos, dos 6 aos 10 anos.</p>
-    </div>
-</section>
+<section class="hero-generico hero-seccao hero-alcateia" id="hero" aria-hidden="true"></section>
 <div class="espaco-hero-generico" aria-hidden="true"></div>
 
 <div class="comunidade-pagina pagina-seccao">
+    <header class="seccao-cabecalho"><h1>I - Alcateia</h1><p>A secção dos Lobitos, dos 6 aos 10 anos.</p></header>
     {% include seccao-nav.html %}
     <section class="seccao-geral-conteudo" style="--cor-seccao: {{ page.seccao_cor }};">
         <div class="seccao-equipa-bloco">

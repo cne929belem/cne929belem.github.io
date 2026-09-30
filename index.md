@@ -4,10 +4,12 @@ title: 929 - Belém | Corpo Nacional de Escutas
 main_class: pagina-com-hero
 ultima_atualizacao: 25/09/2026
 ---
-{% assign noticias_recentes = site.noticias | sort: "date" | reverse | limit: 5 %}
+{% assign noticias_recentes = site.noticias | sort: "date" | reverse %}
 {% assign noticia_destaque = noticias_recentes | where: "prioridade", 1 | first %}
 {% unless noticia_destaque %}{% assign noticia_destaque = noticias_recentes | first %}{% endunless %}
 {% assign meses = "janeiro,fevereiro,março,abril,maio,junho,julho,agosto,setembro,outubro,novembro,dezembro" | split: "," %}
+{% assign total_noticias = site.noticias | size %}
+{% assign total_noticias_laterais = total_noticias | minus: 1 %}
 
 <h1 class="visualmente-oculto">929 - Belém, Corpo Nacional de Escutas</h1>
 
@@ -47,10 +49,12 @@ ultima_atualizacao: 25/09/2026
   </article>
   {% endif %}
 
-  <div class="lista-noticias">
+  <div class="lista-noticias" id="listaNoticias" aria-live="polite">
+    {% assign indice_noticia_lateral = 0 %}
     {% for noticia in noticias_recentes %}
     {% unless noticia == noticia_destaque %}
-    <a class="noticia-item" href="{{ noticia.link_externo | relative_url }}">
+    {% assign pagina_noticia_lateral = indice_noticia_lateral | divided_by: 5 %}
+    <a class="noticia-item" data-pagina="{{ pagina_noticia_lateral }}"{% if pagina_noticia_lateral > 0 %} hidden{% endif %} href="{{ noticia.link_externo | relative_url }}">
       {% if noticia.imagem %}
         <img class="foto-noticia" src="{{ noticia.imagem | relative_url }}" alt="">
       {% else %}
@@ -62,8 +66,12 @@ ultima_atualizacao: 25/09/2026
         <p class="assinatura">{{ noticia.date | date: "%-d" }} de {{ meses[mes_noticia] }} de {{ noticia.date | date: "%Y" }}{% if noticia.autor %} · {{ noticia.autor }}{% if noticia.funcao %} ({{ noticia.funcao }}){% endif %}{% endif %}</p>
       </div>
     </a>
+    {% assign indice_noticia_lateral = indice_noticia_lateral | plus: 1 %}
     {% endunless %}
     {% endfor %}
+    {% if total_noticias_laterais > 5 %}
+    <button class="btn ver-mais-noticias" id="verMaisNoticias" type="button" aria-controls="listaNoticias">Ver mais notícias</button>
+    {% endif %}
   </div>
 </div>
 
@@ -93,4 +101,36 @@ ultima_atualizacao: 25/09/2026
   function iniciarAutoplay() { temporizador = setInterval(() => avancar(1), 6000); }
   function reiniciarAutoplay() { clearInterval(temporizador); if (!semMovimento) iniciarAutoplay(); }
   if (!semMovimento) iniciarAutoplay();
+
+  const listaNoticias = document.getElementById('listaNoticias');
+  const botaoMaisNoticias = document.getElementById('verMaisNoticias');
+  if (listaNoticias && botaoMaisNoticias) {
+    const noticiasLaterais = Array.from(listaNoticias.querySelectorAll('.noticia-item'));
+    const paginasNoticias = [...new Set(noticiasLaterais.map(noticia => Number(noticia.dataset.pagina)))];
+    let paginaAtual = 0;
+    const duracaoTransicao = semMovimento ? 0 : 200;
+
+    botaoMaisNoticias.addEventListener('click', () => {
+      const proximaPagina = (paginaAtual + 1) % paginasNoticias.length;
+      botaoMaisNoticias.disabled = true;
+      listaNoticias.classList.add('a-sair');
+
+      window.setTimeout(() => {
+        noticiasLaterais.forEach(noticia => {
+          noticia.hidden = Number(noticia.dataset.pagina) !== proximaPagina;
+        });
+        listaNoticias.classList.remove('a-sair');
+        listaNoticias.classList.add('a-entrar');
+        paginaAtual = proximaPagina;
+        botaoMaisNoticias.textContent = paginaAtual === paginasNoticias.length - 1
+          ? 'Ver notícias recentes'
+          : 'Ver mais notícias';
+
+        window.setTimeout(() => {
+          listaNoticias.classList.remove('a-entrar');
+          botaoMaisNoticias.disabled = false;
+        }, duracaoTransicao);
+      }, duracaoTransicao);
+    });
+  }
 </script>

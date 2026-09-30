@@ -5,32 +5,27 @@ main_class: pagina-com-hero
 ultima_atualizacao: 25/09/2026
 seccao_slug: comunidade
 seccao_nome: IV - Comunidade
-seccao_cor: '#CE1126'
+seccao_cor: '#39374C'
 ---
 
 <style>
-    .icone-hero-caixa { position: absolute; top: 50%; left: 50%; width: 176px; height: 132px; transform: translate(-50%, -50%) rotate(-4deg); display: flex; align-items: center; justify-content: center; background: #fff; border-radius: 18px; opacity: .28; }
-    .pagina-cabecalho .icone-hero-seccao { position: relative; z-index: 0; width: auto; height: 92px; object-fit: contain; }
-    .pagina-cabecalho h1, .pagina-cabecalho p { position: relative; z-index: 1; }
     .geral-grelha { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-top: 40px; }
     .geral-grelha > div { min-width: 0; margin-top: 0 !important; }
     .insignia-equipa { width: 34px; height: 34px; object-fit: contain; flex-shrink: 0; }
     @media (max-width: 760px) { .geral-grelha { grid-template-columns: 1fr; } }
 </style>
 
-<section class="hero-generico hero-comunidade" id="hero">
-    <div class="pagina-cabecalho">
-        <span class="icone-hero-caixa" aria-hidden="true"><img class="icone-hero-seccao" src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt=""></span>
-        <h1>IV - Comunidade</h1>
-        <p>Companheiros dos 18 aos 22 anos, com a divisa "Servir".</p>
-    </div>
-</section>
+<section class="hero-generico hero-comunidade" id="hero" aria-hidden="true"></section>
 <div class="espaco-hero-generico" aria-hidden="true"></div>
 
 <div class="comunidade-pagina">
+    <header class="seccao-cabecalho">
+        <h1>IV - Comunidade</h1>
+        <p>Companheiros dos 18 aos 22 anos, com a divisa "Servir".</p>
+    </header>
     {% include seccao-nav.html %}
     <section class="card card-sem-caixa">
-        <div class="seccao-equipa-bloco comunidade-equipa-bloco" style="--cor-seccao: #CE1126;">
+        <div class="seccao-equipa-bloco comunidade-equipa-bloco" style="--cor-seccao: #39374C;">
             <h2 class="section-title vermelho">🏕️ A nossa Equipa de Animação</h2>
             <p class="seccao-geral-intro">A equipa que acompanha a Comunidade e ajuda cada Companheiro a escolher o seu rumo e a viver a vocação do Serviço.</p>
             <div class="equipa-seccao-grelha">
