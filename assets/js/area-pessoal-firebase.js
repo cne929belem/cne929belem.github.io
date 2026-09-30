@@ -64,11 +64,13 @@ if (estadoSessao) {
   const separadores = document.querySelector(".area-pessoal-tabs");
   const painelPercurso = document.querySelector("#painel-percurso");
   const painelDados = document.querySelector("#painel-dados");
+  const dataAtualizacao = document.querySelector("#data-atualizacao-perfil");
 
   function mostrarConteudoAutenticado(visivel) {
     const linkPendente = isSignInWithEmailLink(auth, window.location.href);
     const temSessao = Boolean(auth.currentUser);
     avisoPerfil.hidden = visivel || linkPendente || temSessao;
+    dataAtualizacao.hidden = !visivel;
     estadoSessao.hidden = !visivel && !linkPendente && !temSessao;
     separadores.hidden = !visivel;
     const dadosSelecionados = document.querySelector("#separador-dados").getAttribute("aria-selected") === "true";
