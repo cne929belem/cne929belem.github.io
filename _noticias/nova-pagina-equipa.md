@@ -1,6 +1,6 @@
 ---
 title: "Temos uma nova página no nosso site"
-date: 2026-08-20
+date: 2026-09-24
 prioridade: 0
 autor: "Simão Pereira"
 funcao: "Candidato a Dirigente"

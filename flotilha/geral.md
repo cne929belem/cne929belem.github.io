@@ -5,18 +5,13 @@ main_class: pagina-com-hero
 ultima_atualizacao: 25/09/2026
 seccao_slug: flotilha
 seccao_nome: II - Flotilha
-seccao_cor: '#28a745'
+seccao_cor: '#6678A6'
 ---
-<section class="hero-generico hero-seccao hero-flotilha" id="hero">
-    <div class="pagina-cabecalho">
-        <span class="icone-hero-caixa" aria-hidden="true"><img class="icone-hero-seccao" src="{{ '/assets/img/seccoes/2_mocos.png' | relative_url }}" alt=""></span>
-        <h1>II - Flotilha</h1>
-        <p>A secção dos Moços, dos 10 aos 14 anos.</p>
-    </div>
-</section>
+<section class="hero-generico hero-seccao hero-flotilha" id="hero" aria-hidden="true"></section>
 <div class="espaco-hero-generico" aria-hidden="true"></div>
 
 <div class="comunidade-pagina pagina-seccao">
+    <header class="seccao-cabecalho"><h1>II - Flotilha</h1><p>A secção dos Moços, dos 10 aos 14 anos.</p></header>
     {% include seccao-nav.html %}
     <section class="seccao-geral-conteudo" style="--cor-seccao: {{ page.seccao_cor }};">
         <div class="seccao-equipa-bloco">

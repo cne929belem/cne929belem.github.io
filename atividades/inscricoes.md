@@ -6,10 +6,9 @@ ultima_atualizacao: 25/09/2026
 ---
 {% comment %}
   Lista todas as inscrições com "ativo: true", da coleção _inscricoes/.
-  Para abrir uma inscrição nova: painel /admin/ → "Inscrições" → "Novo
-  Inscricoes", preenche o link do Google Forms e marca "Ativo". Quando a
-  atividade terminar, desmarca "Ativo" (ou apaga a entrada) — desaparece
-  sozinha desta página, não precisas de tocar em mais nada.
+    Para abrir uma inscrição nova, cria um ficheiro em _inscricoes/ com o
+    link do Google Forms e ativo: true. Quando a atividade terminar, muda
+    ativo para false (ou apaga a entrada) — desaparece desta página.
 {% endcomment %}
 {% assign inscricoes_ativas = site.inscricoes | where: "ativo", true %}
 

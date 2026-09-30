@@ -5,18 +5,13 @@ main_class: pagina-com-hero
 ultima_atualizacao: 25/09/2026
 seccao_slug: frota
 seccao_nome: III - Frota
-seccao_cor: '#0056b3'
+seccao_cor: '#39374C'
 ---
-<section class="hero-generico hero-seccao hero-frota" id="hero">
-    <div class="pagina-cabecalho">
-        <span class="icone-hero-caixa" aria-hidden="true"><img class="icone-hero-seccao" src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt=""></span>
-        <h1>III - Frota</h1>
-        <p>A secção dos Marinheiros, dos 14 aos 18 anos.</p>
-    </div>
-</section>
+<section class="hero-generico hero-seccao hero-frota" id="hero" aria-hidden="true"></section>
 <div class="espaco-hero-generico" aria-hidden="true"></div>
 
 <div class="comunidade-pagina pagina-seccao">
+    <header class="seccao-cabecalho"><h1>III - Frota</h1><p>A secção dos Marinheiros, dos 14 aos 18 anos.</p></header>
     {% include seccao-nav.html %}
     <section class="seccao-geral-conteudo" style="--cor-seccao: {{ page.seccao_cor }};">
         <div class="seccao-equipa-bloco">

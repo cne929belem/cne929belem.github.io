@@ -5,21 +5,19 @@ main_class: pagina-com-hero
 ultima_atualizacao: 25/09/2026
 seccao_slug: comunidade
 seccao_nome: IV - Comunidade
-seccao_cor: '#CE1126'
+seccao_cor: '#39374C'
 pasta_documentos: "1dbzKTvBdIoigtzF5DascO4hJfjrT1dQb"
 pasta_imagens: "1SuqsdzNBkOm3D762mdcsWlr2txQ-sj0z"
 ---
 
-<section class="hero-generico hero-comunidade" id="hero">
-    <div class="pagina-cabecalho">
-        <span class="icone-hero-caixa" aria-hidden="true"><img class="icone-hero-seccao" src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt=""></span>
-        <h1>Diário de Bordo</h1>
-        <p>As memórias, relatórios e imagens das nossas navegações.</p>
-    </div>
-</section>
+<section class="hero-generico hero-comunidade" id="hero" aria-hidden="true"></section>
 <div class="espaco-hero-generico" aria-hidden="true"></div>
 
 <div class="comunidade-pagina">
+    <header class="seccao-cabecalho">
+        <h1>Diário de Bordo</h1>
+        <p>As memórias, relatórios e imagens das nossas navegações.</p>
+    </header>
     {% include seccao-nav.html %}
     <section class="card">
         <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
