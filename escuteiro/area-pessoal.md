@@ -26,6 +26,7 @@ ultima_atualizacao: 25/09/2026
   .area-pessoal-sessao button { min-height: 36px; padding: 6px 10px; border: 0; border-radius: 4px; background: var(--azul-marinho); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
   .area-pessoal-sessao button:disabled { opacity: .65; cursor: wait; }
   .area-pessoal-sessao [data-terminar-sessao] { background: #eaf0f3; color: var(--azul-marinho); }
+  .data-atualizacao-perfil { max-width: 760px; margin: 0 auto 10px; color: #657781; font-size: 12px; line-height: 1.4; text-align: right; }
   .area-pessoal-mensagem { position: relative; z-index: 5; margin: 0 auto 12px; padding: 8px 12px; border-left: 3px solid #e7c66a; background: #fffaf0; font-size: 13px; line-height: 1.4; }
   .area-pessoal-mensagem p { margin: 0; font-size: 13px; line-height: 1.4; }
   .area-pessoal-mensagem a { color: var(--azul-marinho); font-weight: 800; white-space: nowrap; }
@@ -114,6 +115,8 @@ ultima_atualizacao: 25/09/2026
     </form>
     <button type="button" data-terminar-sessao hidden>Terminar sessão</button>
   </section>
+
+  <p class="data-atualizacao-perfil" id="data-atualizacao-perfil" hidden>Dados atualizados em <time datetime="2026-10-01">1 de outubro de 2026</time>.</p>
 
   <nav class="area-pessoal-tabs" role="tablist" aria-label="Área pessoal" hidden>
     <button type="button" id="separador-percurso" role="tab" aria-controls="painel-percurso" aria-selected="true">Percurso escutista</button>

@@ -52,12 +52,12 @@ seccao_cor: '#39374C'
             <p style="line-height: 1.6;">Clica nos cartões abaixo para consultares os documentos oficiais detalhados em formato PDF.</p>
 
             <div class="quick-links-grid" style="margin-top: 20px;">
-                <a href="{{ '/assets/docs/uniforme-maritimo_v2024-4.pdf' | relative_url }}" target="_blank" class="quick-link-card">
+                <a href="{{ '/assets/docs/uniforme-maritimo_v2024-4.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="quick-link-card">
                     <span class="quick-link-icon">👔</span>
                     <h3>Uniforme Marítimo</h3>
                     <span style="font-size: 0.75rem; color: #888; margin-top: 5px; display: block;">Abrir PDF 📄</span>
                 </a>
-                <a href="{{ '/assets/docs/insignia_maritimo-1.pdf' | relative_url }}" target="_blank" class="quick-link-card">
+                <a href="{{ '/assets/docs/insignia_maritimo-1.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="quick-link-card">
                     <span class="quick-link-icon">⚓</span>
                     <h3>Insígnia Marítima</h3>
                     <span style="font-size: 0.75rem; color: #888; margin-top: 5px; display: block;">Abrir PDF 📄</span>
