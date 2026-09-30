@@ -907,8 +907,9 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
 .quick-link-card h3 { color: var(--azul-marinho); font-size: 0.95rem; margin: 0; overflow-wrap: break-word; }
 
 @media (max-width: 600px) {
-    /* Em ecrãs muito estreitos, aperta ainda mais para 4 itens continuarem a caber numa linha */
-    .quick-links-grid { gap: 6px; }
+    /* Mantém os cartões legíveis em mobile sem os comprimir numa única linha. */
+    .quick-links-grid { flex-wrap: wrap; gap: 8px; }
+    .quick-links-grid > * { flex: 1 1 calc(50% - 4px); }
     .quick-link-card { padding: 12px 4px; }
     .quick-link-card .quick-link-icon { font-size: 1.4rem; margin-bottom: 4px; }
     .quick-link-card h3 { font-size: 0.75rem; }
@@ -1525,6 +1526,16 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
         .jamboree-geral-grid, .jamboree-boletins { grid-template-columns: 1fr; }
         .jamboree-contador { right: 18px; top: 78px; }
         .hero-jamboree-oficial { left: 8px; top: 50%; width: 78px; height: 108px; }
+        .hero-jamboree { height: 210px; }
+        .hero-jamboree + .espaco-hero-generico { height: 210px; }
+        .hero-jamboree .pagina-cabecalho { padding: 42px 12px 10px; gap: 4px; }
+        .hero-jamboree .hero-jamboree-oficial { top: 8px; left: 10px; width: 36px; height: 42px; transform: none; }
+        .hero-jamboree .hero-jamboree-logo { width: min(146px, 46vw); max-height: 24px; }
+        .hero-jamboree .pagina-cabecalho h1 { margin: 0; font-size: 21px; line-height: 1.15; }
+        .hero-jamboree .jamboree-contador { position: static; width: 100%; justify-content: center; gap: 4px; margin: 0; }
+        .hero-jamboree .jamboree-contador > div { flex: 0 1 56px; min-width: 0; padding: 5px 2px; }
+        .hero-jamboree .jamboree-contador span { font-size: 1.05rem; }
+        .hero-jamboree .jamboree-contador small { font-size: 0.5rem; letter-spacing: 0; }
         .jamboree-insignia-link { flex-basis: auto; }
         .jamboree-insignia-mini { height: 180px; flex-basis: 180px; }
         .seccao-navegacao a { flex: 1 1 calc(50% - 6px); min-width: 0; font-size: 12px; padding: 8px 10px; }
