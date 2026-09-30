@@ -1,7 +1,7 @@
 ---
 title: "Bulletin #4 do Jamboree: novos prazos e o desafio das 120.000 Ações"
 date: 2026-08-23
-prioridade: 0
+prioridade: 1
 autor: "Ricardo Isaías"
 funcao: "Tesoureiro"
 resumo: "Já saiu o Bulletin #4 internacional do WSJ 2027 — novos prazos de pagamento e dados pessoais, e o desafio dos 120 anos do Escutismo."

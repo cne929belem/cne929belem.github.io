@@ -3,12 +3,11 @@ import {
   getAuth,
   isSignInWithEmailLink,
   onAuthStateChanged,
+  sendSignInLinkToEmail,
   signInWithEmailLink,
   signOut
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 import { doc, getDoc, getFirestore } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
-
-const ENDPOINT_LINK_ACESSO = "https://script.google.com/macros/s/AKfycbx0MLn9Oz-_mU5N57n65u4WBHohVdplhjMWYk3z3nVUFx6J2t7hiQi-ReVe1gm0SLf8/exec";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDDSXcn5E1R7839q4gnXhStk1doaBy9YSI",
@@ -24,14 +23,6 @@ const auth = getAuth(app);
 const database = getFirestore(app);
 const emailStorageKey = "cne929-email-link";
 
-function codigoSuporte(erro, codigos, fallback) {
-  return codigos[erro?.code] || fallback;
-}
-
-function mensagemSuporte(resumo, codigo) {
-  return `${resumo} Fala com o teu chefe de unidade e indica-lhe o código: ${codigo}.`;
-}
-
 const formPedido = document.querySelector("#form-pedido-magic-link");
 if (formPedido) {
   const campoEmail = formPedido.querySelector("[name='email']");
@@ -41,57 +32,23 @@ if (formPedido) {
   formPedido.addEventListener("submit", async (evento) => {
     evento.preventDefault();
     const email = campoEmail.value.trim().toLowerCase();
-    const continueUrl = new URL(formPedido.dataset.urlContinuacao, window.location.origin).href;
-
-    if (ENDPOINT_LINK_ACESSO === "COLAR_AQUI_O_URL_DO_APPS_SCRIPT") {
-      console.error("O endpoint de acesso não está configurado.");
-      mensagem.hidden = false;
-      mensagem.textContent = "O serviço de acesso ainda não está configurado.";
-      return;
-    }
+    const caminhoContinuacao = formPedido.dataset.urlContinuacao;
 
     botao.disabled = true;
     mensagem.hidden = false;
     mensagem.textContent = "A enviar o pedido…";
-    const controlador = new AbortController();
-    const temporizador = window.setTimeout(() => controlador.abort(), 20000);
 
     try {
-      const respostaHttp = await fetch(ENDPOINT_LINK_ACESSO, {
-        method: "POST",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify({ email, continueUrl }),
-        redirect: "follow",
-        signal: controlador.signal
+      await sendSignInLinkToEmail(auth, email, {
+        url: new URL(caminhoContinuacao, window.location.origin).href,
+        handleCodeInApp: true
       });
-
-      let resposta;
-      try {
-        resposta = await respostaHttp.json();
-      } catch (erro) {
-        console.error("Resposta inválida do serviço de acesso:", erro);
-        throw new Error("Resposta JSON inválida");
-      }
-
-      if (!respostaHttp.ok || resposta?.ok !== true) {
-        console.error("O serviço de acesso recusou o pedido:", resposta?.erro || respostaHttp.status);
-        if (resposta?.erro === "formato") {
-          mensagem.textContent = "Confirma o endereço de e-mail e tenta novamente.";
-        } else if (resposta?.erro === "limite") {
-          mensagem.textContent = "Já foi pedido um link há instantes. Aguarda um minuto e tenta novamente.";
-        } else {
-          mensagem.textContent = "Não foi possível enviar o link. Tenta novamente dentro de alguns minutos.";
-        }
-        return;
-      }
-
       window.localStorage.setItem(emailStorageKey, email);
       mensagem.textContent = "Se o endereço puder receber acesso, receberás um link para continuar. Abre-o neste navegador.";
     } catch (erro) {
       console.error("Falha ao pedir o link de acesso:", erro);
-      mensagem.textContent = "Não foi possível enviar o link. Tenta novamente dentro de alguns minutos.";
+      mensagem.textContent = "Não foi possível enviar o link. Confirma o endereço e tenta novamente.";
     } finally {
-      window.clearTimeout(temporizador);
       botao.disabled = false;
     }
   });
@@ -107,13 +64,11 @@ if (estadoSessao) {
   const separadores = document.querySelector(".area-pessoal-tabs");
   const painelPercurso = document.querySelector("#painel-percurso");
   const painelDados = document.querySelector("#painel-dados");
-  const dataAtualizacao = document.querySelector("#data-atualizacao-perfil");
 
   function mostrarConteudoAutenticado(visivel) {
     const linkPendente = isSignInWithEmailLink(auth, window.location.href);
     const temSessao = Boolean(auth.currentUser);
     avisoPerfil.hidden = visivel || linkPendente || temSessao;
-    dataAtualizacao.hidden = !visivel;
     estadoSessao.hidden = !visivel && !linkPendente && !temSessao;
     separadores.hidden = !visivel;
     const dadosSelecionados = document.querySelector("#separador-dados").getAttribute("aria-selected") === "true";
@@ -188,14 +143,8 @@ if (estadoSessao) {
       window.localStorage.removeItem(emailStorageKey);
       window.history.replaceState({}, document.title, window.location.pathname);
     } catch (erro) {
-      console.error("Falha ao confirmar o link de acesso:", erro?.code || "unknown");
-      const codigo = codigoSuporte(erro, {
-        "auth/expired-action-code": "CNE-MAGIC-07",
-        "auth/invalid-action-code": "CNE-MAGIC-07",
-        "auth/invalid-email": "CNE-MAGIC-08",
-        "auth/network-request-failed": "CNE-MAGIC-09"
-      }, "CNE-MAGIC-98");
-      mensagemSessao.textContent = mensagemSuporte("Não foi possível confirmar o link.", codigo);
+      console.error("Falha ao confirmar o link de acesso:", erro);
+      mensagemSessao.textContent = "Este link não foi aceite ou já expirou. Pede um novo link de acesso.";
       botao.disabled = false;
     }
   });
@@ -215,14 +164,9 @@ if (estadoSessao) {
   }
 
   botaoSair.addEventListener("click", async () => {
-    try {
-      await signOut(auth);
-      mostrarConteudoAutenticado(false);
-      mensagemSessao.textContent = "Sessão terminada.";
-    } catch (erro) {
-      console.error("Falha ao terminar a sessão:", erro?.code || "unknown");
-      mensagemSessao.textContent = mensagemSuporte("Não foi possível terminar a sessão.", "CNE-SESSAO-01");
-    }
+    await signOut(auth);
+    mostrarConteudoAutenticado(false);
+    mensagemSessao.textContent = "Sessão terminada.";
   });
 
   onAuthStateChanged(auth, async (utilizador) => {
@@ -237,7 +181,7 @@ if (estadoSessao) {
     }
 
     if (!utilizador.email || !utilizador.emailVerified) {
-      mensagemSessao.textContent = mensagemSuporte("Esta sessão não tem um endereço de email confirmado.", "CNE-MAGIC-10");
+      mensagemSessao.textContent = "Esta sessão não tem um endereço de e-mail confirmado.";
       return;
     }
 
@@ -246,20 +190,15 @@ if (estadoSessao) {
       const perfilRef = doc(database, "perfis", utilizador.uid);
       const perfilSnapshot = await getDoc(perfilRef);
       if (!perfilSnapshot.exists()) {
-        mensagemSessao.textContent = mensagemSuporte("Este endereço ainda não tem um perfil autorizado.", "CNE-PERFIL-01");
+        mensagemSessao.textContent = "Este endereço ainda não tem um perfil autorizado.";
         return;
       }
       preencherPerfil(perfilSnapshot.data());
       mensagemSessao.textContent = `Sessão iniciada como ${utilizador.email}.`;
       mostrarConteudoAutenticado(true);
     } catch (erro) {
-      console.error("Falha ao carregar o perfil:", erro?.code || "unknown");
-      const codigo = codigoSuporte(erro, {
-        "permission-denied": "CNE-PERFIL-02",
-        "unavailable": "CNE-PERFIL-03",
-        "unauthenticated": "CNE-PERFIL-04"
-      }, "CNE-PERFIL-99");
-      mensagemSessao.textContent = mensagemSuporte("Não foi possível carregar o perfil.", codigo);
+      console.error("Falha ao carregar o perfil:", erro);
+      mensagemSessao.textContent = "Não foi possível validar o perfil. Confirma as regras do Firestore e tenta novamente.";
     }
   });
 }

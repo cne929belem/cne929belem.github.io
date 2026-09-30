@@ -3,9 +3,7 @@ layout: default
 title: Área Pessoal | Agrupamento 929 - Belém
 published: true
 main_class: pagina-com-hero
-ultima_atualizacao: 01/10/2026
-robots: "noindex, nofollow"
-sitemap: false
+ultima_atualizacao: 25/09/2026
 ---
 <style>
   .pagina-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
@@ -28,7 +26,6 @@ sitemap: false
   .area-pessoal-sessao button { min-height: 36px; padding: 6px 10px; border: 0; border-radius: 4px; background: var(--azul-marinho); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
   .area-pessoal-sessao button:disabled { opacity: .65; cursor: wait; }
   .area-pessoal-sessao [data-terminar-sessao] { background: #eaf0f3; color: var(--azul-marinho); }
-  .data-atualizacao-perfil { max-width: 760px; margin: 0 auto 10px; color: #657781; font-size: 12px; line-height: 1.4; text-align: right; }
   .area-pessoal-mensagem { position: relative; z-index: 5; margin: 0 auto 12px; padding: 8px 12px; border-left: 3px solid #e7c66a; background: #fffaf0; font-size: 13px; line-height: 1.4; }
   .area-pessoal-mensagem p { margin: 0; font-size: 13px; line-height: 1.4; }
   .area-pessoal-mensagem a { color: var(--azul-marinho); font-weight: 800; white-space: nowrap; }
@@ -117,8 +114,6 @@ sitemap: false
     </form>
     <button type="button" data-terminar-sessao hidden>Terminar sessão</button>
   </section>
-
-  <p class="data-atualizacao-perfil" id="data-atualizacao-perfil" hidden>Dados atualizados em <time datetime="2026-10-01">1 de outubro de 2026</time>.</p>
 
   <nav class="area-pessoal-tabs" role="tablist" aria-label="Área pessoal" hidden>
     <button type="button" id="separador-percurso" role="tab" aria-controls="painel-percurso" aria-selected="true">Percurso escutista</button>
@@ -231,7 +226,7 @@ sitemap: false
           <div class="dados-pessoais-campo"><dt>E-mail</dt><dd data-dado="encarregado2_email"></dd></div>
         </dl>
       </section>
-      <details class="dados-pessoais-grupo dados-saude">
+      <details class="dados-pessoais-grupo dados-saude" open>
         <summary>Dados de saúde e restrições</summary>
         <dl class="dados-pessoais-grelha">
           <div class="dados-pessoais-campo"><dt>Número de utente</dt><dd data-dado="número de utente"></dd></div>
