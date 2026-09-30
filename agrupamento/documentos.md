@@ -8,8 +8,8 @@ pasta_anos_anteriores: "1vM1rY41dj4YzSqs93DNRp_qybFrHgjAz"
 {% comment %}
   Esta página lê os documentos da coleção _documentos/ (um ficheiro .md
   por documento) e organiza-os sozinha por ano. Para acrescentar um
-  documento novo: pelo painel /admin/ (mais fácil), ou cria um ficheiro
-  novo em _documentos/, copiando a estrutura de um já existente.
+    documento novo: cria um ficheiro em _documentos/, copiando a estrutura
+    de um já existente.
   "ano" pode ser "Geral" (aparece sempre no topo) ou um ano concreto.
   "estado" pode ser "disponivel" ou "brevemente".
 {% endcomment %}

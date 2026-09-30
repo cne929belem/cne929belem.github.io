@@ -8,7 +8,7 @@ Website oficial do **Agrupamento 929 (Belém)**, do Corpo Nacional de Escutas �
 
 ## Sobre
 
-O Agrupamento 929 é um agrupamento de Escutismo Marítimo, sediado em Belém, Lisboa, com atividade nas quatro secções etárias do CNE — Alcateia, Flotilha, Frota e Comunidade. Este repositório contém o código-fonte completo do website do Agrupamento: páginas informativas, formulários de inscrição, o portal de preparação para o 26.º World Scout Jamboree (Polónia, 2027), e as ferramentas de gestão de conteúdo usadas pela Direção.
+O Agrupamento 929 é um agrupamento de Escutismo Marítimo, sediado em Belém, Lisboa, com atividade nas quatro secções etárias do CNE — Alcateia, Flotilha, Frota e Comunidade. Este repositório contém o código-fonte completo do website do Agrupamento: páginas informativas, formulários de inscrição e o portal de preparação para o 26.º World Scout Jamboree (Polónia, 2027).
 
 ---
 
@@ -17,16 +17,16 @@ O Agrupamento 929 é um agrupamento de Escutismo Marítimo, sediado em Belém, L
 - **[Jekyll](https://jekyllrb.com/)**, compilado automaticamente pelo [GitHub Pages](https://pages.github.com/) a partir deste repositório — sem necessidade de servidor próprio.
 - **Layout partilhado** (`_layouts/default.html`): cabeçalho, navegação, rodapé e data de atualização definidos uma única vez.
 - **Componentes reutilizáveis** (`_includes/`): navegações de Atividades e Jamboree, contador do Jamboree e cartões de conteúdo.
-- **Coleções Jekyll** (`_noticias/`, `_documentos/`, `_inscricoes/`) para conteúdo repetível, geridas através do painel de administração.
-- **[Decap CMS](https://decapcms.org/)**, com autenticação via [DecapBridge](https://decapbridge.com/), disponível em `/admin/` — permite à Direção editar a maior parte do conteúdo sem tocar em código.
-- **HTML e CSS puro sempre que possível.** O site evita JavaScript deliberadamente; as exceções (contador do Jamboree, widget do Instagram, preenchimento automático de campos, motor de pesquisa de registos) estão documentadas nos próprios ficheiros onde ocorrem.
+- **Coleções Jekyll** (`_noticias/`, `_documentos/`, `_inscricoes/`) para conteúdo repetível, mantidas diretamente nos ficheiros deste repositório.
+- **Área pessoal em preparação**: o acesso por email e tótem, os dados de percurso e os pedidos de atualização ainda não estão ligados ao Google Drive. A página não contém dados reais; o GitHub Pages não fornece autenticação nem páginas privadas.
+- **HTML e CSS puro sempre que possível.** O site evita JavaScript deliberadamente; as exceções (contador do Jamboree, widget do Instagram e preenchimento automático de campos) estão documentadas nos próprios ficheiros onde ocorrem.
 - **Design responsivo**, com uma única folha de estilos (`assets/css/style.css`) a cobrir desktop, tablet e telemóvel, incluindo um menu de navegação recolhível em ecrãs pequenos.
 
 ---
 
 ## Estrutura do Repositório
 
-As páginas estão organizadas em pastas que espelham a estrutura do menu do site:
+Os ficheiros fonte estão organizados por área do site e por tipo de conteúdo:
 
 ```text
 /
@@ -38,8 +38,9 @@ As páginas estão organizadas em pastas que espelham a estrutura do menu do sit
 │   ├── equipa.md                   # Organigrama e Equipas de Animação
 │   └── documentos.md               # Documentos oficiais, agrupados por ano
 │
-├── escuteiro/                    # Menu "Escuteiro"
-│   └── registos.md                 # Espaço pessoal — Registo de Noites/Horas (mais registos a virem)
+├── escuteiro/                    # Área pessoal em preparação
+│   ├── acesso.md                   # Preparação do pedido de magic link; envio desativado
+│   ├── area-pessoal.md              # Protótipo de perfil, não publicado
 │
 ├── comunidade/                   # Secção IV — Comunidade
 │   ├── geral.md                    # Equipa de Animação, uniforme, ligação ao CNE
@@ -82,12 +83,9 @@ As páginas estão organizadas em pastas que espelham a estrutura do menu do sit
 ├── _includes/                    # Componentes reutilizáveis (navegação de Atividades, Jamboree e Secções, contador, cartões)
 ├── _noticias/                    # Coleção de notícias (alimenta o feed da página inicial)
 ├── _documentos/                  # Coleção de documentos
-├── _inscricoes/                  # Coleção de inscrições ativas (vazia até à primeira inscrição criada no /admin/)
+├── _inscricoes/                  # Ficheiros de inscrições em atividades
 ├── _data/
-│   ├── registos.yml                # Base de dados de Noites/Horas, gerida pelo CMS
 │   └── links_uteis.yml             # Links externos (CNE nacional, etc.), editado à mão
-│
-├── admin/                        # Painel de administração (Decap CMS)
 │
 └── assets/
     ├── css/style.css               # Estilos e componentes visuais
@@ -106,15 +104,15 @@ As páginas estão organizadas em pastas que espelham a estrutura do menu do sit
 
 ## Gerir Conteúdo
 
-A maior parte do conteúdo do site atualiza-se pelo painel em `/admin/`, sem necessidade de editar código:
+Não existe painel de administração. Para alterar o site, edita os ficheiros fonte neste repositório; para criar uma entrada numa coleção, copia um ficheiro existente da mesma pasta e adapta os campos. As alterações são publicadas pelo GitHub Pages quando chegam ao ramo de publicação.
 
-| Conteúdo | Onde | Notas |
+| Conteúdo | Onde editar | Notas |
 |---|---|---|
-| Notícias | `/admin/` → Notícias | Não geram página própria — ligam sempre a uma página real do site (`link_externo`). As 5 mais recentes aparecem na página inicial. Campos opcionais: `imagem`, `autor`, `funcao` e `prioridade` (força uma notícia a ficar em destaque, independentemente da data). |
-| Documentos | `/admin/` → Documentos | O campo "Ano" organiza automaticamente onde aparecem. |
-| Inscrições em atividades | `/admin/` → Inscrições | Só as marcadas como "Ativo" aparecem na página de Inscrições. |
-| Diário de Bordo da Comunidade | `/admin/` → Páginas do Site | Liga a pastas do Google Drive por ID. |
-| Registo de Noites/Horas | `/admin/` → Bases de Dados | Ver nota de privacidade abaixo. |
+| Notícias | `_noticias/` | Cada ficheiro liga a uma página real do site (`link_externo`). A página inicial mostra uma notícia em destaque e até 5 laterais por vez; o botão permite percorrer os restantes grupos. Campos opcionais: `imagem`, `autor`, `funcao` e `prioridade` (força uma notícia a ficar em destaque, independentemente da data). |
+| Documentos | `_documentos/` | Criar ou editar um ficheiro Markdown. O campo `ano` determina onde aparece. |
+| Inscrições em atividades | `_inscricoes/` | Criar ou editar um ficheiro Markdown; só entradas com `ativo: true` aparecem como inscrições abertas. |
+| Diário de Bordo da Comunidade | `comunidade/diario.md` | Os IDs das pastas do Google Drive são definidos no front matter. |
+As páginas normais são editadas no respetivo ficheiro `.md` ou `.html`. Confirma a compilação local antes de publicar alterações estruturais.
 
 ### Jamboree 2027
 
@@ -160,7 +158,7 @@ Para criar uma página nova com este visual, o mais simples é copiar o topo de 
 
 ## Privacidade dos Dados
 
-O GitHub Pages serve exclusivamente ficheiros estáticos. Isto significa que qualquer informação incluída em `_data/registos.yml` (usado no motor de consulta de Noites de Campo e Horas de Mar, em `escuteiro/registos.md`) é publicamente visível a quem consultar o código-fonte da página, ainda que não apareça diretamente na interface. O acesso por telemóvel e email funciona como um filtro de conveniência, não como autenticação. Recomenda-se cautela na quantidade e sensibilidade dos dados aí incluídos, em particular tratando-se de dados de menores.
+O GitHub Pages serve exclusivamente ficheiros estáticos e não fornece autenticação nem páginas privadas. A página `escuteiro/acesso.md` é apenas uma preparação visual: os campos de email e tótem e o botão estão desativados e não é enviado qualquer email. `escuteiro/area-pessoal.md` contém apenas a interface, sem dados reais; os dados de percurso só devem ser carregados após validação do login no servidor. Para ativar magic links, guardar pedidos de alteração e servir perfis privados será necessário um serviço de backend/autenticação e armazenamento de dados protegido; esconder uma página ou não a ligar ao menu não a torna privada.
 
 ---
 
