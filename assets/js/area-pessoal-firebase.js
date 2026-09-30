@@ -46,8 +46,17 @@ if (formPedido) {
       window.localStorage.setItem(emailStorageKey, email);
       mensagem.textContent = "Se o endereço puder receber acesso, receberás um link para continuar. Abre-o neste navegador.";
     } catch (erro) {
-      console.error("Falha ao pedir o link de acesso:", erro);
-      mensagem.textContent = "Não foi possível enviar o link. Confirma o endereço e tenta novamente.";
+      const codigoErro = typeof erro?.code === "string" ? erro.code : "auth/unknown";
+      console.error("Falha ao pedir o link de acesso:", codigoErro);
+      if (codigoErro === "auth/unauthorized-continue-uri") {
+        mensagem.textContent = "O domínio deste endereço de teste não está autorizado. Adiciona-o em Firebase Authentication > Settings > Authorized domains.";
+      } else if (codigoErro === "auth/operation-not-allowed") {
+        mensagem.textContent = "O acesso por ligação de email não está ativo. Ativa Email link em Firebase Authentication > Sign-in method.";
+      } else if (codigoErro === "auth/invalid-email") {
+        mensagem.textContent = "O endereço de email não parece válido. Confirma-o e tenta novamente.";
+      } else {
+        mensagem.textContent = `Não foi possível enviar o link (${codigoErro}). Confirma a configuração do Firebase.`;
+      }
     } finally {
       botao.disabled = false;
     }
