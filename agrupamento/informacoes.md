@@ -99,7 +99,7 @@ ultima_atualizacao: 25/09/2026
             </h2>
             <div class="quota-layout">
                 <div class="info-block verde">
-                    <p style="line-height: 1.6; margin-bottom: 20px;">Os novos elementos devem pagar a quota com o preenchimento da <a href="{{ '/assets/docs/Proposta_de_Admissao_929.pdf' | relative_url }}" target="_blank" style="color: var(--azul-claro); font-weight: 700;">ficha de inscrição</a>. Antes da entrega da ficha de inscrição e pagamento da quota, os novos elementos não podem participar em atividades extraordinárias.</p>
+                    <p style="line-height: 1.6; margin-bottom: 20px;">Os novos elementos devem pagar a quota com o preenchimento da <a href="{{ '/assets/docs/Proposta_de_Admissao_929.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" style="color: var(--azul-claro); font-weight: 700;">ficha de inscrição</a>. Antes da entrega da ficha de inscrição e pagamento da quota, os novos elementos não podem participar em atividades extraordinárias.</p>
 
                     <h4 style="color: var(--azul-marinho); margin-bottom: 10px;">Valores da quota anual (por agregado familiar)</h4>
                     <div style="overflow-x: auto; margin-bottom: 20px;">

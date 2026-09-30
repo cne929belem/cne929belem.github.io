@@ -5,7 +5,7 @@ prioridade: 0
 autor: "Madalena Catita"
 funcao: "Candidata a Dirigente"
 resumo: "Revive os momentos em que os nossos elementos deram o seu \"Sim\" ao Escutismo."
-link_externo: /atividades/promessas26.html
+link: /atividades/promessas26.html
 imagem: /assets/img/atividades/26promessas.jpg
 ---
 Está disponível a galeria fotográfica das Promessas 2026, com os momentos mais marcantes da cerimónia em que vários dos nossos elementos deram o seu "Sim" ao Escutismo. Entra na página das Promessas para aceder ao álbum completo.
