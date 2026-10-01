@@ -1229,6 +1229,7 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
+        line-clamp: 2;
         overflow: hidden;
         font-size: 14px;
         line-height: 1.35;
@@ -1407,6 +1408,9 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     .galeria-promessas { text-align: center; margin-top: 8px; }
     .galeria-promessas h2 { color: var(--azul-marinho); margin-bottom: 10px; }
     .galeria-promessas p { font-size: 0.95rem; line-height: 1.6; margin-bottom: 22px; }
+    .promessas-introducao { margin: 0 0 24px; color: #495861; }
+    .promessas-introducao h2 { margin: 0 0 12px; color: var(--azul-marinho); font-size: 1.25rem; }
+    .promessas-introducao p { margin: 0 0 12px; font-size: 0.95rem; line-height: 1.65; }
     .hero-jamboree {
         height: 20vh;
         background: linear-gradient(160deg, rgba(90,8,20,0.9), rgba(206,17,38,0.72)), #CE1126;
@@ -1501,6 +1505,7 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     .pessoa-seccao { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 12px; background: #fff; border: 1px solid rgba(0,0,0,.08); border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,.05); }
     .pessoa-seccao > img:first-child { width: 34px; height: 34px; object-fit: contain; flex-shrink: 0; }
     .pessoa-seccao > img:nth-child(2), .pessoa-seccao-foto { width: 48px; height: 48px; object-fit: cover; border-radius: 50%; flex-shrink: 0; }
+    .cargo-foto-placeholder { display: flex; align-items: center; justify-content: center; background: color-mix(in srgb, var(--cor-seccao, var(--azul-claro)) 18%, white); color: var(--cor-seccao, var(--azul-marinho)); font-size: 1.35rem; }
     .pessoa-seccao small, .pessoa-seccao strong { display: block; }
     .pessoa-seccao small { color: #777; font-size: 0.68rem; text-transform: uppercase; }
     .pessoa-seccao strong { color: var(--azul-marinho); font-size: 0.85rem; line-height: 1.25; }
