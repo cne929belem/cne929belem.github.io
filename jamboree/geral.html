@@ -45,19 +45,45 @@ ultima_atualizacao: 25/09/2026
                         <time datetime="2026-10-20">20 outubro 2026</time>
                         <h3>Preenchimento das informações</h3>
                     </a>
+                    <div class="timeline-item timeline-item-jamboree">
+                        <time datetime="2026-11-21">21 novembro 2026</time>
+                        <h3>Encontro APLs e de Guias</h3>
+                        <p>Local a informar brevemente</p>
+                    </div>
+                    <div class="timeline-item timeline-item-jamboree" data-date-fim="2027-05-23">
+                        <time datetime="2027-05-22">22 e 23 maio 2027</time>
+                        <h3>Encontro do Contingente</h3>
+                        <p>Local a informar brevemente</p>
+                    </div>
                     <div class="timeline-item timeline-item-jamboree" data-date-fim="2027-08-08">
                         <time datetime="2027-07-30">30 jul a 8 ago 2027</time>
                         <h3>26.º World Scout Jamboree</h3>
                     </div>
                 </div>
                 </div>
-                <div class="jamboree-insignia-link" role="link" tabindex="0" onclick="if (!event.target.closest('.jamboree-insignia-mini')) window.location.href='informacoes.html#insignia-contingente';" onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); window.location.href='informacoes.html#insignia-contingente'; }">
-                    <a href="#modalInsigniaGeral" class="jamboree-insignia-mini" aria-label="Ampliar a insígnia do Contingente">
-                        <img src="/assets/img/jamboree/Insignia_Contingente_WSJ2027.png" alt="Insígnia do Contingente Português ao WSJ 2027">
-                    </a>
-                    <span class="jamboree-insignia-text"><strong>Insígnia do Contingente</strong><small>Conhece a história e o significado da insígnia.</small></span>
-                    <span aria-hidden="true">→</span>
-                </div>
+                <section class="jamboree-identidade" aria-labelledby="jamboree-identidade-titulo">
+                    <h3 id="jamboree-identidade-titulo">O Contingente Português</h3>
+                    <div class="jamboree-identidade-itens">
+                        <div class="jamboree-identidade-item">
+                            <a class="jamboree-identidade-imagem" href="#modalInsigniaGeral" aria-label="Ampliar a insígnia do Contingente">
+                                <img src="/assets/img/jamboree/Insignia_Contingente_WSJ2027.png" alt="Insígnia do Contingente Português ao WSJ 2027">
+                            </a>
+                            <a href="{{ '/jamboree/informacoes.html#insignia-contingente' | relative_url }}">
+                                <strong>Insígnia do Contingente</strong>
+                                <small>Conhece a história e o significado da insígnia.</small>
+                            </a>
+                        </div>
+                        <div class="jamboree-identidade-item">
+                            <a class="jamboree-identidade-imagem" href="#modalVazGeral" aria-label="Ampliar a imagem de Vaz">
+                                <img src="/assets/img/jamboree/vaz.png" alt="Vaz, herói do Contingente Português para o Jamboree">
+                            </a>
+                            <a href="{{ '/jamboree/informacoes.html#heroi-contingente' | relative_url }}">
+                                <strong>Vaz, o nosso herói</strong>
+                                <small>Conhece a figura que acompanha a nossa aventura.</small>
+                            </a>
+                        </div>
+                    </div>
+                </section>
             </div>
             <div class="jamboree-geral-direita">
                 <div class="info-block">
@@ -82,16 +108,23 @@ ultima_atualizacao: 25/09/2026
                 });
             })();
         </script>
-
-        <a href="https://www.jamboree2027.org/" target="_blank" class="btn jamboree-site-oficial">Visitar site oficial ↗</a>
-    </section>
-</div>
-
-<div id="modalInsigniaGeral" class="css-lightbox">
-    <div class="css-lightbox-box">
-        <div class="css-lightbox-body">
-            <img src="/assets/img/jamboree/Insignia_Contingente_WSJ2027.png" alt="Insígnia do Contingente Português ao WSJ 2027, ampliada">
-            <a href="#" class="btn css-lightbox-close">Fechar</a>
+        <div id="modalInsigniaGeral" class="css-lightbox">
+            <div class="css-lightbox-box">
+                <div class="css-lightbox-body">
+                    <img src="/assets/img/jamboree/Insignia_Contingente_WSJ2027.png" alt="Insígnia do Contingente Português ao WSJ 2027, ampliada">
+                    <a href="#" class="btn css-lightbox-close">Fechar</a>
+                </div>
+            </div>
         </div>
-    </div>
+
+        <div id="modalVazGeral" class="css-lightbox">
+            <div class="css-lightbox-box">
+                <div class="css-lightbox-body">
+                    <img src="/assets/img/jamboree/vaz.png" alt="Vaz, herói do Contingente Português para o Jamboree, ampliado">
+                    <a href="#" class="btn css-lightbox-close">Fechar</a>
+                </div>
+            </div>
+        </div>
+        <a href="https://www.jamboree2027.org/" target="_blank" rel="noopener noreferrer" class="btn jamboree-site-oficial">Visitar site oficial ↗</a>
+    </section>
 </div>
