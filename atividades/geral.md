@@ -15,8 +15,8 @@ ultima_atualizacao: 25/09/2026
     display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px;
   }
   .cartao-atividade {
-    display: flex; flex-direction: column; justify-content: flex-end;
-    min-height: 150px; padding: 26px 22px; border-radius: 16px;
+    display: flex; flex-direction: column; justify-content: flex-start;
+    min-height: 150px; padding: 8px 22px 18px; border-radius: 16px;
     background: linear-gradient(160deg, var(--cne-verde) 0%, var(--cne-verde-escuro) 100%);
     color: #fff; text-decoration: none;
   }
@@ -24,7 +24,7 @@ ultima_atualizacao: 25/09/2026
   .cartao-atividade p { font-size: 13.5px; line-height: 1.5; margin: 0; opacity: .92; }
   .cartao-atividade:hover { outline: 2px solid rgba(255,255,255,0.6); outline-offset: -2px; }
   @media (max-width: 600px) {
-    .cartao-atividade { justify-content: flex-start; min-height: 0; padding: 18px; }
+    .cartao-atividade { justify-content: flex-start; min-height: 0; padding: 8px 18px 18px; }
   }
 </style>
 
