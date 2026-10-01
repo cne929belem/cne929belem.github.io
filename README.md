@@ -8,7 +8,7 @@ Website oficial do **Agrupamento 929 (Belém)**, do Corpo Nacional de Escutas �
 
 ## Sobre
 
-O Agrupamento 929 é um agrupamento de Escutismo Marítimo, sediado em Belém, Lisboa, com atividade nas quatro secções etárias do CNE — Alcateia, Flotilha, Frota e Comunidade. Este repositório contém o código-fonte completo do website do Agrupamento: páginas informativas, formulários de inscrição, o portal de preparação para o 26.º World Scout Jamboree (Polónia, 2027), e as ferramentas de gestão de conteúdo usadas pela Direção.
+O Agrupamento 929 é um agrupamento de Escutismo Marítimo, sediado em Belém, Lisboa, com atividade nas quatro secções etárias do CNE — Alcateia, Flotilha, Frota e Comunidade. Este repositório contém o código-fonte completo do website do Agrupamento: páginas informativas, formulários de inscrição e o portal de preparação para o 26.º World Scout Jamboree (Polónia, 2027).
 
 ---
 
@@ -17,16 +17,16 @@ O Agrupamento 929 é um agrupamento de Escutismo Marítimo, sediado em Belém, L
 - **[Jekyll](https://jekyllrb.com/)**, compilado automaticamente pelo [GitHub Pages](https://pages.github.com/) a partir deste repositório — sem necessidade de servidor próprio.
 - **Layout partilhado** (`_layouts/default.html`): cabeçalho, navegação, rodapé e data de atualização definidos uma única vez.
 - **Componentes reutilizáveis** (`_includes/`): navegações de Atividades e Jamboree, contador do Jamboree e cartões de conteúdo.
-- **Coleções Jekyll** (`_noticias/`, `_documentos/`, `_inscricoes/`) para conteúdo repetível, geridas através do painel de administração.
-- **[Decap CMS](https://decapcms.org/)**, com autenticação via [DecapBridge](https://decapbridge.com/), disponível em `/admin/` — permite à Direção editar a maior parte do conteúdo sem tocar em código.
-- **HTML e CSS puro sempre que possível.** O site evita JavaScript deliberadamente; as exceções (contador do Jamboree, widget do Instagram, preenchimento automático de campos, motor de pesquisa de registos) estão documentadas nos próprios ficheiros onde ocorrem.
+- **Coleções Jekyll** (`_noticias/`, `_documentos/`, `_inscricoes/`) para conteúdo repetível, mantidas diretamente nos ficheiros deste repositório.
+- **Área pessoal**: magic link por Firebase Authentication e leitura do perfil próprio no Firestore. As regras-fonte estão em `firestore.rules`; têm de ser publicadas no projeto Firebase separadamente, porque o GitHub Pages não as aplica.
+- **HTML e CSS como base**, com JavaScript para o menu, a homepage e a integração Firebase da área pessoal.
 - **Design responsivo**, com uma única folha de estilos (`assets/css/style.css`) a cobrir desktop, tablet e telemóvel, incluindo um menu de navegação recolhível em ecrãs pequenos.
 
 ---
 
 ## Estrutura do Repositório
 
-As páginas estão organizadas em pastas que espelham a estrutura do menu do site:
+Os ficheiros fonte estão organizados por área do site e por tipo de conteúdo:
 
 ```text
 /
@@ -36,10 +36,12 @@ As páginas estão organizadas em pastas que espelham a estrutura do menu do sit
 ├── agrupamento/                  # Menu "Agrupamento"
 │   ├── informacoes.md              # Sobre o Agrupamento, contactos, quotas
 │   ├── equipa.md                   # Organigrama e Equipas de Animação
-│   └── documentos.md               # Documentos oficiais, agrupados por ano
+│   ├── documentos.md              # Documentos oficiais, agrupados por ano
+│   └── noticias.md                 # Arquivo cronológico de notícias
 │
-├── escuteiro/                    # Menu "Escuteiro"
-│   └── registos.md                 # Espaço pessoal — Registo de Noites/Horas (mais registos a virem)
+├── escuteiro/                    # Acesso e perfil pessoal
+│   ├── acesso.md                   # Pedido de magic link
+│   └── area-pessoal.md              # Perfil após autenticação e autorização
 │
 ├── comunidade/                   # Secção IV — Comunidade
 │   ├── geral.md                    # Equipa de Animação, uniforme, ligação ao CNE
@@ -80,17 +82,14 @@ As páginas estão organizadas em pastas que espelham a estrutura do menu do sit
 │
 ├── _layouts/                     # Layouts partilhados
 ├── _includes/                    # Componentes reutilizáveis (navegação de Atividades, Jamboree e Secções, contador, cartões)
-├── _noticias/                    # Coleção de notícias (alimenta o feed da página inicial)
+├── _noticias/                    # Notícias que alimentam o feed da página inicial
 ├── _documentos/                  # Coleção de documentos
-├── _inscricoes/                  # Coleção de inscrições ativas (vazia até à primeira inscrição criada no /admin/)
-├── _data/
-│   ├── registos.yml                # Base de dados de Noites/Horas, gerida pelo CMS
-│   └── links_uteis.yml             # Links externos (CNE nacional, etc.), editado à mão
-│
-├── admin/                        # Painel de administração (Decap CMS)
+├── _inscricoes/                  # Entradas opcionais para inscrições abertas
+├── firestore.rules               # Regras-fonte da base Firestore
 │
 └── assets/
     ├── css/style.css               # Estilos e componentes visuais
+    ├── js/area-pessoal-firebase.js # Magic link e leitura do perfil autenticado
     ├── docs/                       # PDFs (documentos, boletins, cerimoniais)
     └── img/
         ├── marca/                   # Logótipos do Agrupamento e do CNE
@@ -106,19 +105,48 @@ As páginas estão organizadas em pastas que espelham a estrutura do menu do sit
 
 ## Gerir Conteúdo
 
-A maior parte do conteúdo do site atualiza-se pelo painel em `/admin/`, sem necessidade de editar código:
+Não existe painel de administração. Para alterar o site, edita os ficheiros fonte neste repositório; para criar uma entrada numa coleção, copia um ficheiro existente da mesma pasta e adapta os campos. As alterações são publicadas pelo GitHub Pages quando chegam ao ramo de publicação.
 
-| Conteúdo | Onde | Notas |
+| Conteúdo | Onde editar | Notas |
 |---|---|---|
-| Notícias | `/admin/` → Notícias | Não geram página própria — ligam sempre a uma página real do site (`link_externo`). As 5 mais recentes aparecem na página inicial. Campos opcionais: `imagem`, `autor`, `funcao` e `prioridade` (força uma notícia a ficar em destaque, independentemente da data). |
-| Documentos | `/admin/` → Documentos | O campo "Ano" organiza automaticamente onde aparecem. |
-| Inscrições em atividades | `/admin/` → Inscrições | Só as marcadas como "Ativo" aparecem na página de Inscrições. |
-| Diário de Bordo da Comunidade | `/admin/` → Páginas do Site | Liga a pastas do Google Drive por ID. |
-| Registo de Noites/Horas | `/admin/` → Bases de Dados | Ver nota de privacidade abaixo. |
+| Notícias | `_noticias/` | Um Markdown por notícia. A homepage mostra uma notícia em destaque e grupos fixos de 3 laterais; depois do segundo grupo, o link abre `/agrupamento/noticias.html`, que contém o arquivo completo por data. |
+| Documentos | `_documentos/` | Criar ou editar um ficheiro Markdown. O campo `ano` determina onde aparece. |
+| Inscrições em atividades | `_inscricoes/` | Só entradas com `ativo: true` aparecem como inscrições abertas; cria a pasta quando adicionar a primeira entrada. |
+| Diário de Bordo da Comunidade | `comunidade/diario.md` | Os IDs das pastas do Google Drive são definidos no front matter. |
+
+As páginas normais são editadas no respetivo ficheiro `.md` ou `.html`. Para pré-visualizar e compilar localmente:
+
+```sh
+bundle install
+bundle exec jekyll serve
+bundle exec jekyll build
+```
+
+### Publicar uma notícia
+
+Cria `_noticias/AAAA-MM-DD-titulo-curto.md` com front matter semelhante a este:
+
+```yaml
+---
+title: "Título da notícia"
+date: 2026-09-30
+resumo: "Uma frase curta para o cartão da homepage."
+link: /atividades/geral.html
+imagem: /assets/img/atividades/fotografia.jpg
+autor: "Nome"
+funcao: "Dirigente"
+prioridade: 0
+---
+Texto de apoio para o registo editorial.
+```
+
+`title`, `date`, `resumo` e `link` são necessários para o feed. `imagem`, `autor`, `funcao` e `prioridade` são opcionais. Usa `prioridade: 1` para marcar a notícia no arquivo e na homepage; se houver várias, a mais recente fica no destaque principal e as restantes mantêm o selo. Sem prioridade, o destaque principal é a notícia mais recente. Otimiza as imagens e guarda-as em `assets/img/`. Links internos começam por `/`; links externos devem usar HTTPS e abrem num novo separador.
+
+O corpo Markdown de cada notícia aparece no arquivo. O campo `link` aponta para a página relacionada, interna ou externa. Recomenda-se editar numa branch, pré-visualizar e abrir pull request para revisão; depois integra-se na branch configurada para publicação. Não é necessário CMS para este fluxo.
 
 ### Jamboree 2027
 
-As páginas do Jamboree partilham uma navegação própria e um hero com a identidade oficial do evento e contador decrescente. O **Portal de Respostas** não aparece nessa navegação: o acesso é feito exclusivamente através do botão existente na página Geral, para evitar que o formulário nominal seja exposto a visitantes ocasionais.
+As páginas do Jamboree partilham uma navegação própria e um hero com a identidade oficial do evento e contador decrescente. O **Portal de Respostas** não aparece nessa navegação; o acesso é feito pela página Geral. A página tem `noindex` para reduzir indexação, mas continua pública: não estar no menu nem nos resultados de pesquisa não é controlo de acesso. A validação e as permissões dos dados submetidos têm de existir no Apps Script/Google Sheet.
 
 Na página Geral, as datas e os acessos principais ficam à esquerda e o local, com mapa da Ilha de Sobieszewo em Gdańsk, à direita. A página de Newsletters separa os boletins nacionais dos internacionais em duas colunas, adaptando-se a ecrãs pequenos.
 
@@ -128,7 +156,7 @@ Cada secção tem uma barra de navegação própria entre Geral, Vivência, Prog
 
 ### Padrão de página (hero + cabeçalho em vidro)
 
-Todas as páginas do redesign — página inicial, secções, Equipa, Atividades, Em Construção — seguem a mesma estrutura:
+As páginas internas com hero — página inicial, secções, Equipa, Atividades, Área Pessoal, Jamboree e Em Construção — seguem a mesma estrutura:
 
 - `main_class: pagina-com-hero` no front matter, para o `<main>` não herdar o espaçamento das páginas antigas.
 - Uma secção com `id="hero"` logo no topo do conteúdo (a página inicial usa um carrossel de fotos; as restantes usam `hero-generico`, um gradiente com o título e subtítulo lá dentro — algumas, como a Comunidade, têm ainda uma variante com a cor e o ícone da própria secção).
@@ -160,7 +188,9 @@ Para criar uma página nova com este visual, o mais simples é copiar o topo de 
 
 ## Privacidade dos Dados
 
-O GitHub Pages serve exclusivamente ficheiros estáticos. Isto significa que qualquer informação incluída em `_data/registos.yml` (usado no motor de consulta de Noites de Campo e Horas de Mar, em `escuteiro/registos.md`) é publicamente visível a quem consultar o código-fonte da página, ainda que não apareça diretamente na interface. O acesso por telemóvel e email funciona como um filtro de conveniência, não como autenticação. Recomenda-se cautela na quantidade e sensibilidade dos dados aí incluídos, em particular tratando-se de dados de menores.
+O GitHub Pages publica HTML, CSS e JavaScript; não protege páginas. A área pessoal usa Firebase Authentication para confirmar o email e Firestore para carregar `perfis/{uid}`. As regras atuais só permitem a leitura do documento com o UID da sessão autenticada e bloqueiam listagem e escrita. Um perfil só fica disponível depois de o administrador criar o documento correspondente no Firebase. A configuração Web no JavaScript é pública; a segurança depende das regras Firestore, nunca de esconder essa configuração.
+
+As regras em `firestore.rules` são fonte de referência e não são publicadas automaticamente pelo Jekyll. Confirma que as mesmas regras estão publicadas no projeto Firebase. O formulário permite pedir links para qualquer email, mas uma conta sem documento de perfil não lê dados; antes de abrir a todos, testa a autorização com contas aprovadas. A página do Portal de Respostas também é pública, e o backend Apps Script não está versionado aqui, pelo que a validação e o controlo de acesso desse formulário não puderam ser auditados neste repositório.
 
 ---
 
