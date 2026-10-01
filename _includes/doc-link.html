@@ -5,7 +5,7 @@
 {% endcomment %}
 {% assign doc = include.doc %}
 {% if doc.estado == "disponivel" and doc.ficheiro %}
-<a href="{{ doc.ficheiro | relative_url }}" target="_blank" class="doc-link">
+<a href="{{ doc.ficheiro | relative_url }}" target="_blank" rel="noopener noreferrer" class="doc-link">
     <div>
         <h3>{{ doc.title }}</h3>
         <small>{{ doc.descricao }}</small>
