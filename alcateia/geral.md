@@ -5,18 +5,14 @@ main_class: pagina-com-hero
 ultima_atualizacao: 25/09/2026
 seccao_slug: alcateia
 seccao_nome: I - Alcateia
-seccao_cor: '#ffc107'
+seccao_cor: '#E9B708'
+seccao_cor_texto: '#17202A'
 ---
-<section class="hero-generico hero-seccao hero-alcateia" id="hero">
-    <div class="pagina-cabecalho">
-        <span class="icone-hero-caixa" aria-hidden="true"><img class="icone-hero-seccao" src="{{ '/assets/img/seccoes/1_lobitos.png' | relative_url }}" alt=""></span>
-        <h1>I - Alcateia</h1>
-        <p>A secção dos Lobitos, dos 6 aos 10 anos.</p>
-    </div>
-</section>
+<section class="hero-generico hero-seccao hero-alcateia" id="hero" aria-hidden="true"></section>
 <div class="espaco-hero-generico" aria-hidden="true"></div>
 
 <div class="comunidade-pagina pagina-seccao">
+    <header class="seccao-cabecalho"><h1>I - Alcateia</h1><p>A secção dos Lobitos, dos 6 aos 10 anos.</p></header>
     {% include seccao-nav.html %}
     <section class="seccao-geral-conteudo" style="--cor-seccao: {{ page.seccao_cor }};">
         <div class="seccao-equipa-bloco">
@@ -30,7 +26,7 @@ seccao_cor: '#ffc107'
         </div>
         <div class="geral-grelha">
             <div><h3 class="section-title" style="color: var(--cor-seccao);">🌐 A Alcateia no CNE</h3><p class="seccao-geral-texto">Para além do que partilhamos aqui sobre a nossa Alcateia marítima, o Corpo Nacional de Escutas tem informação nacional dedicada à I Secção (Lobitos), com mais informação sobre o método, o percurso e o Sistema de Progresso.</p><a href="https://escutismo.pt/lobitos-6-aos-10-anos/" target="_blank" rel="noopener noreferrer" class="quick-link-card"><span class="quick-link-icon">🧭</span><h3>Página Oficial da Alcateia — CNE</h3><span class="seccao-link-legenda">escutismo.pt ↗</span></a></div>
-            <div><h3 class="section-title" style="color: var(--cor-seccao);">👕 O nosso Uniforme e Insígnias</h3><p class="seccao-geral-texto">Clica nos cartões abaixo para consultares os documentos oficiais e recursos detalhados da secção.</p><div class="quick-links-grid"><a href="{{ '/assets/docs/uniforme-maritimo_v2024-1.pdf' | relative_url }}" target="_blank" class="quick-link-card"><span class="quick-link-icon">👔</span><h3>Uniforme de Lobitos</h3><span class="seccao-link-legenda">Abrir PDF 📄</span></a><a href="{{ '/assets/docs/insignia_maritimo-1.pdf' | relative_url }}" target="_blank" class="quick-link-card"><span class="quick-link-icon">⚓</span><h3>Insígnias da Alcateia</h3><span class="seccao-link-legenda">Abrir PDF 📄</span></a></div></div>
+            <div><h3 class="section-title" style="color: var(--cor-seccao);">👕 O nosso Uniforme e Insígnias</h3><p class="seccao-geral-texto">Clica nos cartões abaixo para consultares os documentos oficiais e recursos detalhados da secção.</p><div class="quick-links-grid"><a href="{{ '/assets/docs/uniforme-maritimo_v2024-1.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="quick-link-card"><span class="quick-link-icon">👔</span><h3>Uniforme de Lobitos</h3><span class="seccao-link-legenda">Abrir PDF 📄</span></a><a href="{{ '/assets/docs/insignia_maritimo-1.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="quick-link-card"><span class="quick-link-icon">⚓</span><h3>Insígnias da Alcateia</h3><span class="seccao-link-legenda">Abrir PDF 📄</span></a></div></div>
         </div>
     </section>
 </div>

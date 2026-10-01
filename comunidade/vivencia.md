@@ -5,7 +5,7 @@ main_class: pagina-com-hero
 ultima_atualizacao: 25/09/2026
 seccao_slug: comunidade
 seccao_nome: IV - Comunidade
-seccao_cor: '#CE1126'
+seccao_cor: '#39374C'
 ---
 <!--
   Página "Vivência" da IV Secção — Comunidade. Reestruturada a pedido do
@@ -17,7 +17,7 @@ seccao_cor: '#CE1126'
     /* Estilos para as caixas expansíveis (Acordeão) */
     .acordeao {
         background: var(--cinza-fundo);
-        border-left: 5px solid #CE1126;
+        border-left: 5px solid #39374C;
         border-radius: 6px;
         margin-bottom: 15px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -55,21 +55,19 @@ seccao_cor: '#CE1126'
     .acordeao.verde { border-left-color: #28a745; }
 </style>
 
-<section class="hero-generico hero-comunidade" id="hero">
-    <div class="pagina-cabecalho">
-        <span class="icone-hero-caixa" aria-hidden="true"><img class="icone-hero-seccao" src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt=""></span>
-        <h1>Vivência</h1>
-        <p>A nossa mística, os nossos símbolos e o rumo da Comunidade.</p>
-    </div>
-</section>
+<section class="hero-generico hero-comunidade" id="hero" aria-hidden="true"></section>
 <div class="espaco-hero-generico" aria-hidden="true"></div>
 
 <div class="comunidade-pagina">
+    <header class="seccao-cabecalho">
+        <h1>Vivência</h1>
+        <p>A nossa mística, os nossos símbolos e o rumo da Comunidade.</p>
+    </header>
     {% include seccao-nav.html %}
     <section class="card">
         <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
             <span style="font-size: 2.5rem;">📄</span>
-            <h2 style="margin: 0; color: #CE1126;">Vivência</h2>
+            <h2 style="margin: 0; color: #39374C;">Vivência</h2>
         </div>
 
         <p style="line-height: 1.6; margin-bottom: 30px;">O que significa ser Companheiro, a nossa mística, os nossos símbolos, e o caminho (ou melhor, o rumo) que se percorre na Comunidade.</p>
@@ -91,7 +89,7 @@ seccao_cor: '#CE1126'
                 <div class="acordeao-content">
                     <p style="line-height: 1.6;">Na IV Secção, o jovem é desafiado a assumir o seu papel na sociedade, desenvolvendo projetos próprios e vivendo a vocação do Serviço. Ainda a caminho da autonomia plena, o Companheiro já possui liberdade em várias áreas da sua vida — e é dessa liberdade, bem vivida, que depende todo o proveito que o escutismo lhe pode dar.</p>
                     <p style="line-height: 1.6;">A nossa mística inspira-se na vida de São Paulo: um homem de ofício manual (tecelão de tendas), que arriscou tudo por uma convicção, e que transformou uma travessia decisiva — o caminho para Damasco — no ponto de partida de uma vida de anúncio e de ação. Paulo não ficou pelas palavras: foi um exemplo de compromisso levado à prática. É esse espírito de partida, coragem e ação que o nosso patrono nos convida a viver.</p>
-                    <p style="line-height: 1.6; margin-bottom: 0;"><strong>Saber mais:</strong> <a href="https://escutismo.pt/caminheiros-18-aos-22-anos/" target="_blank" style="color: #CE1126; font-weight: bold; text-decoration: underline;">Página Oficial da IV Secção no CNE</a></p>
+                    <p style="line-height: 1.6; margin-bottom: 0;"><strong>Saber mais:</strong> <a href="https://escutismo.pt/caminheiros-18-aos-22-anos/" target="_blank" rel="noopener noreferrer" style="color: #39374C; font-weight: bold; text-decoration: underline;">Página Oficial da IV Secção no CNE</a></p>
                 </div>
             </details>
 
@@ -135,13 +133,13 @@ seccao_cor: '#CE1126'
                 <summary>📖 Progresso e PPV</summary>
                 <div class="acordeao-content" style="text-align: center;">
                     <div style="display: flex; gap: 15px; justify-content: center; margin-bottom: 25px; flex-wrap: wrap;">
-                        <button onclick="mostrarProgresso('etapas')" class="btn" style="background-color: #CE1126;">Etapas e Objetivos</button>
+                        <button onclick="mostrarProgresso('etapas')" class="btn" style="background-color: #39374C;">Etapas e Objetivos</button>
                         <button onclick="mostrarProgresso('ppv')" class="btn" style="background-color: var(--azul-marinho);">Preparar o PPV</button>
                     </div>
 
                     <!-- Etapas e Objetivos -->
                     <div id="progresso-etapas" style="display: block; text-align: left;">
-                        <h3 style="color: #CE1126; margin-bottom: 15px; text-align: center;">O Sistema de Progresso</h3>
+                        <h3 style="color: #39374C; margin-bottom: 15px; text-align: center;">O Sistema de Progresso</h3>
                         <p style="margin-bottom: 20px; line-height: 1.6;">A progressão do Companheiro mede-se pelo grau de maturação enquanto se transforma no <strong>Homem Novo</strong>, capaz de servir a sua comunidade. O Sistema de Progresso e as Dimensões do Companheirismo fundem-se num percurso de 4 etapas:</p>
 
                         <div style="display: flex; flex-direction: column; gap: 15px;">
@@ -181,7 +179,7 @@ seccao_cor: '#CE1126'
                         <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid #eee; text-align: center;">
                             <h4 style="margin-bottom: 15px;">🎯 Objetivos Educativos</h4>
                             <p style="margin-bottom: 15px;">Os objetivos educativos da IV Secção organizam-se em 6 dimensões — Física, Afetiva, Carácter, Espiritual, Social e Intelectual. Consulta o guia detalhado para o teu percurso:</p>
-                            <a href="{{ '/assets/docs/PostersFaceis_IV.pdf' | relative_url }}" target="_blank" class="btn" style="background-color: #28a745;">📥 Download: Guia de Objetivos Educativos</a>
+                            <a href="{{ '/assets/docs/PostersFaceis_IV.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #28a745;">📥 Download: Guia de Objetivos Educativos</a>
                         </div>
                     </div>
 
@@ -207,15 +205,15 @@ seccao_cor: '#CE1126'
                                 <h4 style="margin: 0 0 6px 0; color: var(--azul-marinho);">4. Entrega-o a quem te acompanha</h4>
                                 <p style="font-size: 0.85rem; color: #555; margin: 0;">O PPV fica guardado pelo Chefe de Comunidade (ou pelo Chefe de Agrupamento, se ainda não houver Chefe de Comunidade) e por ti próprio.</p>
                             </div>
-                            <div style="background: var(--cinza-fundo); border-left: 4px solid #CE1126; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                            <div style="background: var(--cinza-fundo); border-left: 4px solid #39374C; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                 <h4 style="margin: 0 0 6px 0; color: var(--azul-marinho);">5. Revê-o quando fizer sentido</h4>
                                 <p style="font-size: 0.85rem; color: #555; margin: 0;">Podes rever o teu PPV no fim de uma Campanha, de uma Etapa de Progresso, ou noutro momento que faça sentido para ti — a iniciativa de o rever é sempre tua.</p>
                             </div>
                         </div>
 
                         <div style="text-align: center; margin-top: 20px; display: flex; flex-wrap: nowrap; gap: 8px; justify-content: center;">
-                            <a href="{{ '/assets/docs/PostersFaceis_IV.pdf' | relative_url }}" target="_blank" class="btn" style="background-color: #28a745; flex: 1 1 0; min-width: 0; padding-left: 10px; padding-right: 10px; font-size: 0.85rem;">📥 Guia de Objetivos</a>
-                            <a href="{{ '/assets/docs/Ficha_Modelo_PPV.docx' | relative_url }}" target="_blank" class="btn" style="background-color: #6f42c1; flex: 1 1 0; min-width: 0; padding-left: 10px; padding-right: 10px; font-size: 0.85rem;">📄 Ficha Modelo do PPV</a>
+                            <a href="{{ '/assets/docs/PostersFaceis_IV.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #28a745; flex: 1 1 0; min-width: 0; padding-left: 10px; padding-right: 10px; font-size: 0.85rem;">📥 Guia de Objetivos</a>
+                            <a href="{{ '/assets/docs/Ficha_Modelo_PPV.docx' | relative_url }}" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #6f42c1; flex: 1 1 0; min-width: 0; padding-left: 10px; padding-right: 10px; font-size: 0.85rem;">📄 Ficha Modelo do PPV</a>
                         </div>
                     </div>
                 </div>
@@ -257,7 +255,7 @@ seccao_cor: '#CE1126'
                     
                     <div id="estudo-intro" style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                         <button onclick="iniciarEstudoPromessas('movimento')" class="btn" style="background-color: var(--azul-marinho); padding: 12px 25px;">Adesão ao Movimento</button>
-                        <button onclick="iniciarEstudoPromessas('seccao')" class="btn" style="background-color: #CE1126; padding: 12px 25px;">Adesão à Secção</button>
+                        <button onclick="iniciarEstudoPromessas('seccao')" class="btn" style="background-color: #39374C; padding: 12px 25px;">Adesão à Secção</button>
                     </div>
 
                     <div id="estudo-flashcard" style="display: none; text-align: left; background: var(--cinza-fundo); border: 1px solid #ddd; padding: 25px; border-radius: 8px; margin-top: 15px;">
@@ -286,22 +284,22 @@ seccao_cor: '#CE1126'
                     <p style="line-height: 1.6;">O guião litúrgico e formal para as grandes celebrações de passagem de etapa e compromissos na nossa Comunidade.</p>
 
                     <div class="quick-links-grid" style="margin-top: 15px;">
-                        <a href="{{ '/assets/docs/promessa_Companheiro.pdf' | relative_url }}" target="_blank" class="quick-link-card">
+                        <a href="{{ '/assets/docs/promessa_Companheiro.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="quick-link-card">
                             <span class="quick-link-icon">⚜️</span>
                             <h3>Promessa de Companheiro</h3>
                             <span style="font-size: 0.75rem; color: #888; margin-top: 5px; display: block;">Abrir PDF 📄</span>
                         </a>
-                        <a href="{{ '/assets/docs/investidura_arrais.pdf' | relative_url }}" target="_blank" class="quick-link-card">
+                        <a href="{{ '/assets/docs/investidura_arrais.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="quick-link-card">
                             <span class="quick-link-icon">⚓</span>
                             <h3>Investidura de Arrais</h3>
                             <span style="font-size: 0.75rem; color: #888; margin-top: 5px; display: block;">Abrir PDF 📄</span>
                         </a>
-                        <a href="{{ '/assets/docs/partida_breve.pdf' | relative_url }}" target="_blank" class="quick-link-card">
+                        <a href="{{ '/assets/docs/partida_breve.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="quick-link-card">
                             <span class="quick-link-icon">🌅</span>
                             <h3>Partida (Versão Curta)</h3>
                             <span style="font-size: 0.75rem; color: #888; margin-top: 5px; display: block;">Abrir PDF 📄</span>
                         </a>
-                        <a href="{{ '/assets/docs/partida_longa.pdf' | relative_url }}" target="_blank" class="quick-link-card">
+                        <a href="{{ '/assets/docs/partida_longa.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="quick-link-card">
                             <span class="quick-link-icon">🌅</span>
                             <h3>Partida (Versão Longa)</h3>
                             <span style="font-size: 0.75rem; color: #888; margin-top: 5px; display: block;">Abrir PDF 📄</span>

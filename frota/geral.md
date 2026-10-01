@@ -5,18 +5,13 @@ main_class: pagina-com-hero
 ultima_atualizacao: 25/09/2026
 seccao_slug: frota
 seccao_nome: III - Frota
-seccao_cor: '#0056b3'
+seccao_cor: '#39374C'
 ---
-<section class="hero-generico hero-seccao hero-frota" id="hero">
-    <div class="pagina-cabecalho">
-        <span class="icone-hero-caixa" aria-hidden="true"><img class="icone-hero-seccao" src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt=""></span>
-        <h1>III - Frota</h1>
-        <p>A secção dos Marinheiros, dos 14 aos 18 anos.</p>
-    </div>
-</section>
+<section class="hero-generico hero-seccao hero-frota" id="hero" aria-hidden="true"></section>
 <div class="espaco-hero-generico" aria-hidden="true"></div>
 
 <div class="comunidade-pagina pagina-seccao">
+    <header class="seccao-cabecalho"><h1>III - Frota</h1><p>A secção dos Marinheiros, dos 14 aos 18 anos.</p></header>
     {% include seccao-nav.html %}
     <section class="seccao-geral-conteudo" style="--cor-seccao: {{ page.seccao_cor }};">
         <div class="seccao-equipa-bloco">
@@ -30,7 +25,7 @@ seccao_cor: '#0056b3'
         </div>
         <div class="geral-grelha">
             <div><h3 class="section-title" style="color: var(--cor-seccao);">🌐 A Frota no CNE</h3><p class="seccao-geral-texto">Para além do que partilhamos aqui sobre a nossa Frota marítima, o Corpo Nacional de Escutas tem informação nacional dedicada à III Secção (Marinheiros) com mais informação sobre o método, o percurso e o Sistema de Progresso.</p><a href="https://escutismo.pt/pioneiros-14-aos-18-anos/" target="_blank" rel="noopener noreferrer" class="quick-link-card"><span class="quick-link-icon">🧭</span><h3>Página Oficial da Frota — CNE</h3><span class="seccao-link-legenda">escutismo.pt ↗</span></a></div>
-            <div><h3 class="section-title" style="color: var(--cor-seccao);">👕 O nosso Uniforme e Insígnias</h3><p class="seccao-geral-texto">Clica nos cartões abaixo para consultares os documentos oficiais e recursos detalhados da secção.</p><div class="quick-links-grid"><a href="{{ '/assets/docs/uniforme-maritimo_v2024-3.pdf' | relative_url }}" target="_blank" class="quick-link-card"><span class="quick-link-icon">👔</span><h3>Uniforme de Marinheiros</h3><span class="seccao-link-legenda">Abrir PDF 📄</span></a><a href="{{ '/assets/docs/insignia_maritimo-1.pdf' | relative_url }}" target="_blank" class="quick-link-card"><span class="quick-link-icon">⚓</span><h3>Insígnias da Frota</h3><span class="seccao-link-legenda">Abrir PDF 📄</span></a></div></div>
+            <div><h3 class="section-title" style="color: var(--cor-seccao);">👕 O nosso Uniforme e Insígnias</h3><p class="seccao-geral-texto">Clica nos cartões abaixo para consultares os documentos oficiais e recursos detalhados da secção.</p><div class="quick-links-grid"><a href="{{ '/assets/docs/uniforme-maritimo_v2024-3.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="quick-link-card"><span class="quick-link-icon">👔</span><h3>Uniforme de Marinheiros</h3><span class="seccao-link-legenda">Abrir PDF 📄</span></a><a href="{{ '/assets/docs/insignia_maritimo-1.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="quick-link-card"><span class="quick-link-icon">⚓</span><h3>Insígnias da Frota</h3><span class="seccao-link-legenda">Abrir PDF 📄</span></a></div></div>
         </div>
     </section>
 </div>
