@@ -39,7 +39,7 @@ ultima_atualizacao: 25/09/2026
   {% if noticia_destaque %}
   <article class="destaque">
     <a class="cartao-link" href="{{ link_destaque }}"{% if destaque_externo %} target="_blank" rel="noopener noreferrer"{% endif %}>
-      <img class="foto-destaque{% unless noticia_destaque.imagem %} noticia-imagem-padrao{% endunless %}" src="{{ noticia_destaque.imagem | default: '/assets/img/marca/Logo929.jpg' | relative_url }}" alt="">
+      <img class="foto-destaque{% unless noticia_destaque.imagem %} noticia-imagem-padrao{% endunless %}{% if noticia_destaque.imagem_posicao == 'top' %} noticia-imagem-topo{% endif %}{% if noticia_destaque.imagem_ajuste == 'contain' %} noticia-imagem-conter{% endif %}" src="{{ noticia_destaque.imagem | default: '/assets/img/marca/Logo929.jpg' | relative_url }}" alt="">
       <h2>{{ noticia_destaque.title }}</h2>
       {% if noticia_destaque.prioridade == 1 %}<span class="noticia-selo-prioridade">Prioridade</span>{% endif %}
       {% assign mes_destaque = noticia_destaque.date | date: "%-m" | minus: 1 %}
@@ -59,7 +59,7 @@ ultima_atualizacao: 25/09/2026
     {% assign noticia_externa = false %}
     {% if link_noticia contains "://" %}{% assign noticia_externa = true %}{% else %}{% assign link_noticia = link_noticia | relative_url %}{% endif %}
     <a class="noticia-item" data-pagina="{{ pagina_noticia_lateral }}"{% if pagina_noticia_lateral > 0 %} hidden{% endif %} href="{{ link_noticia }}"{% if noticia_externa %} target="_blank" rel="noopener noreferrer"{% endif %}>
-      <img class="foto-noticia{% unless noticia.imagem %} noticia-imagem-padrao{% endunless %}" src="{{ noticia.imagem | default: '/assets/img/marca/Logo929.jpg' | relative_url }}" alt="">
+      <img class="foto-noticia{% unless noticia.imagem %} noticia-imagem-padrao{% endunless %}{% if noticia.imagem_posicao == 'top' %} noticia-imagem-topo{% endif %}{% if noticia.imagem_ajuste == 'contain' %} noticia-imagem-conter{% endif %}" src="{{ noticia.imagem | default: '/assets/img/marca/Logo929.jpg' | relative_url }}" alt="">
       <div>
         <h3>{{ noticia.title }}</h3>
         {% if noticia.prioridade == 1 %}<span class="noticia-selo-prioridade">Prioridade</span>{% endif %}
