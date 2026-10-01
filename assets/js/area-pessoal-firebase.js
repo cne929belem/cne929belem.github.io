@@ -8,7 +8,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 import { doc, getDoc, getFirestore } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
-const ENDPOINT_LINK_ACESSO = "COLAR_AQUI_O_URL_DO_APPS_SCRIPT";
+const ENDPOINT_LINK_ACESSO = "https://script.google.com/macros/s/AKfycbx0MLn9Oz-_mU5N57n65u4WBHohVdplhjMWYk3z3nVUFx6J2t7hiQi-ReVe1gm0SLf8/exec";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDDSXcn5E1R7839q4gnXhStk1doaBy9YSI",

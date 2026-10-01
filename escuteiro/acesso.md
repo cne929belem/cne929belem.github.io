@@ -2,6 +2,8 @@
 layout: default
 title: Acesso à Área Pessoal | Agrupamento 929 - Belém
 main_class: pagina-com-hero
+robots: "noindex, nofollow"
+sitemap: false
 ---
 <style>
   .acesso-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
@@ -36,7 +38,7 @@ main_class: pagina-com-hero
 
 <section class="acesso-conteudo" aria-labelledby="titulo-pedido-acesso">
   <h2 id="titulo-pedido-acesso">Pedir link de acesso</h2>
-  <p>Indica o email associado ao teu perfil. Só perfis autorizados pelo Agrupamento conseguem consultar dados.</p>
+  <p>Só perfis autorizados pelo Agrupamento conseguem consultar dados.</p>
 
   <p class="acesso-estado" id="estado-pedido-magic-link" role="status" aria-live="polite" hidden></p>
 
