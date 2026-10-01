@@ -47,7 +47,7 @@ ultima_atualizacao: 25/09/2026
                 </a>
                 <a class="timeline-item timeline-item-jamboree" href="{{ '/assets/docs/Circular 06 CNE.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">
                     <time datetime="2026-11-21">21 nov 2026</time>
-                    <h3>Encontro Jamboree</h3>
+                    <h3>Encontro APLs e Guias de Patrulha Jamboree</h3>
                     <p>Atividade exclusiva para participantes do Jamboree.</p>
                 </a>
                 <a class="timeline-item" href="{{ '/atividades/acagrup-2026.html' | relative_url }}">
