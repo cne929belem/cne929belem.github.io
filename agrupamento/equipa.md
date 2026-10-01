@@ -9,7 +9,7 @@ ultima_atualizacao: 25/09/2026
   .pagina-cabecalho h1 { color: #fff; margin: 0 0 10px; }
   .pagina-cabecalho > p { color: #fff; font-family: 'Geologica', sans-serif; font-weight: 300; font-size: 16px; line-height: 1.5; margin: 0; }
 
-  .grelha-equipa { position: relative; z-index: 5; max-width: 1200px; margin: 0 auto; background: #fff; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
+  .grelha-equipa { --cor-alcateia: #E9B708; --cor-flotilha: #6678A6; --cor-frota: #39374C; --cor-comunidade: #39374C; position: relative; z-index: 5; max-width: 1200px; margin: 0 auto; background: #fff; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: start; }
   @media (max-width: 860px) { .grelha-equipa { grid-template-columns: 1fr; } }
   .secao-equipa { max-width: 900px; margin: 0 auto; padding: 34px 28px 0; }
   .grelha-equipa > .secao-equipa { max-width: none; min-width: 0; margin: 0; }
@@ -72,6 +72,17 @@ ultima_atualizacao: 25/09/2026
     border-left: 5px solid var(--cor-seccao, var(--cne-verde));
     background: #f7f7f5;
     background: color-mix(in srgb, var(--cor-seccao, var(--cne-verde)) 10%, white);
+  }
+  .grupo-seccao:not([open]) {
+    background-image: var(--imagem-seccao);
+    background-position: center;
+    background-size: cover;
+  }
+  .grupo-seccao:not([open]) .grupo-titulo,
+  .grupo-seccao:not([open]) .descricao-unidade,
+  .grupo-seccao:not([open]) summary::after {
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,.95), 0 0 7px rgba(0,0,0,.65);
   }
   .grupo-seccao summary { position: relative; list-style: none; cursor: pointer; padding-right: 28px; }
   .grupo-seccao summary::-webkit-details-marker { display: none; }
@@ -155,7 +166,7 @@ ultima_atualizacao: 25/09/2026
   </div>
 
   <div class="grelha-chefias">
-    <div class="chefia-cartao" style="--cor-seccao:#ffc107">
+    <div class="chefia-cartao" style="--cor-seccao:var(--cor-alcateia)">
       <img class="icone-seccao-chefia" src="{{ '/assets/img/seccoes/1_lobitos.png' | relative_url }}" alt="">
       <div class="chefia-foto-linha">
         <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
@@ -164,7 +175,7 @@ ultima_atualizacao: 25/09/2026
       <p class="nome-seccao">Alcateia</p>
       <p class="nome">Paulo Duarte<br>(Roaz Criativo)</p>
     </div>
-    <div class="chefia-cartao" style="--cor-seccao:#28a745">
+    <div class="chefia-cartao" style="--cor-seccao:var(--cor-flotilha)">
       <img class="icone-seccao-chefia" src="{{ '/assets/img/seccoes/2_mocos.png' | relative_url }}" alt="">
       <div class="chefia-foto-linha">
         <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
@@ -173,7 +184,7 @@ ultima_atualizacao: 25/09/2026
       <p class="nome-seccao">Flotilha</p>
       <p class="nome">Carolina Mascarenhas<br>(Koala Pensadora)</p>
     </div>
-    <div class="chefia-cartao" style="--cor-seccao:#0056b3">
+    <div class="chefia-cartao" style="--cor-seccao:var(--cor-frota)">
       <img class="icone-seccao-chefia" src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt="">
       <div class="chefia-foto-linha">
         <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
@@ -182,7 +193,7 @@ ultima_atualizacao: 25/09/2026
       <p class="nome-seccao">Frota</p>
       <p class="nome">Ricardo Isaías<br>(Axolote)</p>
     </div>
-    <div class="chefia-cartao" style="--cor-seccao:#BD242C">
+    <div class="chefia-cartao" style="--cor-seccao:var(--cor-comunidade)">
       <img class="icone-seccao-chefia" src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="">
       <div class="chefia-foto-linha">
         <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
@@ -211,7 +222,7 @@ ultima_atualizacao: 25/09/2026
     <p class="referencia">Nos termos do Regulamento Geral e do Sistema de Formação de Adultos do CNE</p>
   </div>
 
-  <details class="grupo-seccao" style="--cor-seccao:#ffc107">
+  <details class="grupo-seccao" style="--cor-seccao:var(--cor-alcateia); --imagem-seccao: url('{{ '/assets/img/seccoes/banner_i.jpg' | relative_url }}')">
     <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/1_lobitos.png' | relative_url }}" alt="">Alcateia (Lobitos)</span><span class="descricao-unidade">A primeira secção, dedicada aos Lobitos.</span></summary>
     <div class="lista-pessoas">
       <div class="pessoa-cartao">
@@ -227,7 +238,7 @@ ultima_atualizacao: 25/09/2026
     </div>
   </details>
 
-  <details class="grupo-seccao" style="--cor-seccao:#28a745">
+  <details class="grupo-seccao" style="--cor-seccao:var(--cor-flotilha); --imagem-seccao: url('{{ '/assets/img/seccoes/banner_ii.jpg' | relative_url }}')">
     <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/2_mocos.png' | relative_url }}" alt="">Flotilha (Moços)</span><span class="descricao-unidade">A segunda secção, dedicada aos Moços.</span></summary>
     <div class="lista-pessoas">
       <div class="pessoa-cartao">
@@ -248,7 +259,7 @@ ultima_atualizacao: 25/09/2026
     </div>
   </details>
 
-  <details class="grupo-seccao" style="--cor-seccao:#0056b3">
+  <details class="grupo-seccao" style="--cor-seccao:var(--cor-frota); --imagem-seccao: url('{{ '/assets/img/seccoes/banner_iii.jpg' | relative_url }}')">
     <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt="">Frota (Marinheiros)</span><span class="descricao-unidade">A terceira secção, dedicada aos Marinheiros.</span></summary>
     <div class="lista-pessoas">
       <div class="pessoa-cartao">
@@ -264,7 +275,7 @@ ultima_atualizacao: 25/09/2026
     </div>
   </details>
 
-  <details class="grupo-seccao" style="--cor-seccao:#BD242C">
+  <details class="grupo-seccao" style="--cor-seccao:var(--cor-comunidade); --imagem-seccao: url('{{ '/assets/img/seccoes/banner_iv.jpg' | relative_url }}')">
     <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="">Comunidade (Companheiros)</span><span class="descricao-unidade">A quarta secção, dedicada aos Companheiros.</span></summary>
     <div class="lista-pessoas">
       <div class="pessoa-cartao">
