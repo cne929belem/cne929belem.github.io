@@ -160,6 +160,38 @@ if (estadoSessao) {
       elemento.textContent = valor === undefined || valor === null || valor === "" ? "—" : String(valor);
     });
 
+    const listaCondecoracoes = document.querySelector("[data-lista-condecoracoes]");
+    listaCondecoracoes.replaceChildren();
+    if (!Array.isArray(perfil.condecoracoes) || perfil.condecoracoes.length === 0) {
+      const linha = document.createElement("tr");
+      const vazio = document.createElement("td");
+      vazio.className = "condecoracoes-vazio";
+      vazio.colSpan = 3;
+      vazio.textContent = "Sem condecorações registadas.";
+      linha.append(vazio);
+      listaCondecoracoes.append(linha);
+    } else {
+      perfil.condecoracoes.forEach((condecoracao) => {
+        const linha = document.createElement("tr");
+        const nome = document.createElement("td");
+        nome.textContent = String(condecoracao.nome || "—");
+        const osa = document.createElement("td");
+        osa.textContent = String(condecoracao.osa || "—");
+        const data = document.createElement("td");
+        const dataTexto = String(condecoracao.data || "");
+        if (dataTexto && /^\d{4}-\d{2}-\d{2}$/.test(dataTexto)) {
+          const dataElemento = document.createElement("time");
+          dataElemento.dateTime = dataTexto;
+          dataElemento.textContent = dataTexto;
+          data.append(dataElemento);
+        } else {
+          data.textContent = dataTexto || "—";
+        }
+        linha.append(nome, osa, data);
+        listaCondecoracoes.append(linha);
+      });
+    }
+
     const listaAtividades = document.querySelector("[data-lista-atividades]");
     listaAtividades.replaceChildren();
     if (!Array.isArray(perfil.atividades) || perfil.atividades.length === 0) {
@@ -234,6 +266,16 @@ if (estadoSessao) {
     document.querySelectorAll("[data-dado], [data-campo-perfil]").forEach((elemento) => {
       elemento.textContent = "";
     });
+
+    const listaCondecoracoes = document.querySelector("[data-lista-condecoracoes]");
+    listaCondecoracoes.replaceChildren();
+    const linhaCondecoracoesVazia = document.createElement("tr");
+    const mensagemCondecoracoesVazia = document.createElement("td");
+    mensagemCondecoracoesVazia.className = "condecoracoes-vazio";
+    mensagemCondecoracoesVazia.colSpan = 3;
+    mensagemCondecoracoesVazia.textContent = "As condecorações aparecerão depois do login.";
+    linhaCondecoracoesVazia.append(mensagemCondecoracoesVazia);
+    listaCondecoracoes.append(linhaCondecoracoesVazia);
 
     const listaAtividades = document.querySelector("[data-lista-atividades]");
     listaAtividades.replaceChildren();

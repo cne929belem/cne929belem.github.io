@@ -68,9 +68,20 @@ sitemap: false
   .etapa-numero:nth-child(3) { bottom: 18px; left: 22px; }
   .etapa-numero:nth-child(4) { top: 18px; left: 18px; }
   .etapas-legenda { display: grid; gap: 3px; margin: 0; padding: 0; color: #657781; font-size: 11px; list-style: none; }
+  .condecoracoes-percurso { padding-top: 4px; }
+  .condecoracoes-percurso h2 { margin: 0 0 12px; color: var(--azul-marinho); font-size: 20px; }
+  .condecoracoes-tabela-wrapper { overflow-x: auto; }
+  .condecoracoes-tabela { width: 100%; border-collapse: collapse; text-align: left; }
+  .condecoracoes-tabela th, .condecoracoes-tabela td { padding: 10px 12px; border-bottom: 1px solid #dce4e9; }
+  .condecoracoes-tabela th { color: #657781; font-size: 12px; font-weight: 700; }
+  .condecoracoes-tabela td { color: var(--azul-marinho); font-size: 14px; }
+  .condecoracoes-tabela .condecoracoes-vazio { color: #657781; text-align: center; }
   .dados-pessoais-conteudo { display: grid; gap: 22px; }
   .dados-pessoais-grupo h3 { margin: 0 0 12px; color: var(--azul-marinho); font-size: 17px; }
   .dados-pessoais-grelha { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 0; }
+  .dados-encarregado-linha { overflow-x: auto; }
+  .dados-encarregado-linha h4 { margin: 0 0 8px; color: #657781; font-size: 13px; }
+  .dados-encarregado-grelha { grid-template-columns: repeat(4, minmax(120px, 1fr)); }
   .dados-pessoais-campo { min-width: 0; padding: 12px; border-bottom: 1px solid #dce4e9; }
   .dados-pessoais-campo dt { margin-bottom: 4px; color: #657781; font-size: 12px; }
   .dados-pessoais-campo dd { min-height: 1.4em; margin: 0; color: var(--azul-marinho); font-size: 14px; font-weight: 700; overflow-wrap: anywhere; }
@@ -141,11 +152,11 @@ sitemap: false
         </section>
         <aside class="percurso-indicadores" aria-label="Totais do percurso">
           <article class="percurso-indicador">
-            <h3>Noites de Campo</h3>
+            <h3>🏕️ NOITES DE CAMPO</h3>
             <p><span data-campo-perfil="noites-campo">—</span></p>
           </article>
           <article class="percurso-indicador">
-            <h3>Horas de Mar</h3>
+            <h3>⛵ HORAS DE MAR</h3>
             <p><span data-campo-perfil="horas-mar">—</span></p>
           </article>
         </aside>
@@ -185,6 +196,15 @@ sitemap: false
             </div>
             <ol class="etapas-legenda"><li data-etapa="1">A Rota / O Caminho</li><li data-etapa="2">A Tripulação / A Comunidade</li><li data-etapa="3">O Serviço</li><li data-etapa="4">A Partida</li></ol>
           </article>
+        </div>
+      </section>
+      <section class="condecoracoes-percurso" aria-labelledby="titulo-condecoracoes">
+        <h2 id="titulo-condecoracoes">Condecorações</h2>
+        <div class="condecoracoes-tabela-wrapper">
+          <table class="condecoracoes-tabela">
+            <thead><tr><th scope="col">Nome</th><th scope="col">OSA</th><th scope="col">Data</th></tr></thead>
+            <tbody data-lista-condecoracoes><tr><td class="condecoracoes-vazio" colspan="3">As condecorações aparecerão depois do login.</td></tr></tbody>
+          </table>
         </div>
       </section>
     </div>
@@ -227,16 +247,24 @@ sitemap: false
       </section>
       <section class="dados-pessoais-grupo" aria-labelledby="titulo-encarregados">
         <h3 id="titulo-encarregados">Pais e encarregados de educação</h3>
-        <dl class="dados-pessoais-grelha">
-          <div class="dados-pessoais-campo"><dt>Encarregado/a 1</dt><dd data-dado="encarregado1_nome"></dd></div>
-          <div class="dados-pessoais-campo"><dt>Relação com o elemento</dt><dd data-dado="encarregado1_relacao"></dd></div>
-          <div class="dados-pessoais-campo"><dt>Telemóvel</dt><dd data-dado="encarregado1_telemovel"></dd></div>
-          <div class="dados-pessoais-campo"><dt>E-mail</dt><dd data-dado="encarregado1_email"></dd></div>
-          <div class="dados-pessoais-campo"><dt>Encarregado/a 2</dt><dd data-dado="encarregado2_nome"></dd></div>
-          <div class="dados-pessoais-campo"><dt>Relação com o elemento</dt><dd data-dado="encarregado2_relacao"></dd></div>
-          <div class="dados-pessoais-campo"><dt>Telemóvel</dt><dd data-dado="encarregado2_telemovel"></dd></div>
-          <div class="dados-pessoais-campo"><dt>E-mail</dt><dd data-dado="encarregado2_email"></dd></div>
-        </dl>
+        <div class="dados-encarregado-linha">
+          <h4>Encarregado/a 1</h4>
+          <dl class="dados-pessoais-grelha dados-encarregado-grelha">
+            <div class="dados-pessoais-campo"><dt>Nome</dt><dd data-dado="encarregado1_nome"></dd></div>
+            <div class="dados-pessoais-campo"><dt>Relação com o elemento</dt><dd data-dado="encarregado1_relacao"></dd></div>
+            <div class="dados-pessoais-campo"><dt>Telemóvel</dt><dd data-dado="encarregado1_telemovel"></dd></div>
+            <div class="dados-pessoais-campo"><dt>Email</dt><dd data-dado="encarregado1_email"></dd></div>
+          </dl>
+        </div>
+        <div class="dados-encarregado-linha">
+          <h4>Encarregado/a 2</h4>
+          <dl class="dados-pessoais-grelha dados-encarregado-grelha">
+            <div class="dados-pessoais-campo"><dt>Nome</dt><dd data-dado="encarregado2_nome"></dd></div>
+            <div class="dados-pessoais-campo"><dt>Relação com o elemento</dt><dd data-dado="encarregado2_relacao"></dd></div>
+            <div class="dados-pessoais-campo"><dt>Telemóvel</dt><dd data-dado="encarregado2_telemovel"></dd></div>
+            <div class="dados-pessoais-campo"><dt>Email</dt><dd data-dado="encarregado2_email"></dd></div>
+          </dl>
+        </div>
       </section>
       <details class="dados-pessoais-grupo dados-saude">
         <summary>Dados de saúde e restrições</summary>
@@ -273,7 +301,7 @@ sitemap: false
         <button type="button" aria-disabled="true">Gravar pedido</button>
       </fieldset>
     </form>
-    <p class="dados-pessoais-nota">O formulário permanece desativado até existir autenticação e ficar definido o email que recebe os pedidos. Nesta versão nada é guardado nem enviado.</p>
+    <p class="dados-pessoais-nota">Os dados serão corrigidos brevemente. Confirma antes de enviar. O registo e envio via Google Apps Script e Google Sheets serão ativados quando a integração estiver disponível.</p>
   </section>
 </div>
 
