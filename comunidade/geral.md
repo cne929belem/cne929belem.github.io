@@ -33,6 +33,7 @@ seccao_cor: '#39374C'
             </div>
             <a class="seccao-equipa-link" href="{{ '/agrupamento/equipa.html' | relative_url }}">Ver a equipa completa do Agrupamento →</a>
         </div>
+        {% include seccao-cargos.html guia="Arrais" sub_guia="2.º Arrais" %}
 
         <div class="geral-grelha">
         <!-- TEMA 2: INFORMAÇÃO DA PÁGINA GERAL ESCUTISTA -->

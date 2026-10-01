@@ -1,0 +1,14 @@
+<div class="seccao-equipa-bloco seccao-cargos-bloco" style="--cor-seccao: {{ page.seccao_cor }};">
+    <h2 class="section-title{% if page.seccao_slug == 'comunidade' %} vermelho{% endif %}">🧭 Cargos da Secção</h2>
+    <div class="equipa-seccao-grelha">
+        <div class="pessoa-seccao">
+            <span class="pessoa-seccao-foto cargo-foto-placeholder" aria-hidden="true">👤</span>
+            <div><small>{{ include.guia }}</small><strong>A eleger</strong></div>
+        </div>
+        <div class="pessoa-seccao">
+            <span class="pessoa-seccao-foto cargo-foto-placeholder" aria-hidden="true">👤</span>
+            <div><small>{{ include.sub_guia }}</small><strong>A eleger</strong></div>
+        </div>
+    </div>
+    <p class="seccao-geral-intro">Aguarda o início das atividades para as eleições dos respetivos cargos.</p>
+</div>
