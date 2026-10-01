@@ -1243,6 +1243,8 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     width: 100%; aspect-ratio: 16 / 9; object-fit: cover;
     border-radius: 16px; margin-bottom: 18px; display: block;
   }
+    .noticia-imagem-topo { object-position: center top; }
+    .foto-destaque.noticia-imagem-conter, .foto-noticia.noticia-imagem-conter { object-fit: contain; object-position: center; background: #fff; }
   .destaque h2 { font-size: 26px; margin: 0 0 6px; line-height: 1.2; }
     .noticia-selo-prioridade { display: inline-block; margin: 0 0 8px; padding: 3px 8px; border-left: 3px solid #d4a900; background: #fff6d4; color: #55420d; font-size: 11px; font-weight: 800; line-height: 1.3; }
   .assinatura { font-size: 13px; color: #6b6b6b; margin: 0 0 14px; }
@@ -1434,19 +1436,21 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     .jamboree-geral-direita .info-block { height: 100%; display: flex; flex-direction: column; }
     .jamboree-geral-direita .jamboree-mapa { flex: 1; }
     .jamboree-intro { color: #555; font-size: 0.95rem; line-height: 1.6; margin: 0 0 20px; text-align: center; }
-    .jamboree-insignia-link {
-        position: relative; flex: 0 0 280px; display: flex; flex-direction: column; align-items: stretch; gap: 8px; margin-top: 10px; padding: 16px 18px;
-        border-left: 5px solid var(--amarelo); border-radius: 8px; background: var(--cinza-fundo); cursor: pointer;
-        color: var(--azul-marinho); text-decoration: none; font-size: 0.95rem;
+    .jamboree-identidade {
+        flex: 0 0 auto; margin-top: 10px; padding: 16px 18px;
+        border-left: 5px solid var(--amarelo); border-radius: 8px; background: var(--cinza-fundo);
     }
-    .jamboree-insignia-link:hover { background: var(--cinza-hover); }
-    .jamboree-insignia-link:focus-visible { outline: 3px solid var(--azul-claro); outline-offset: 3px; }
-    .jamboree-insignia-text { order: 1; color: var(--azul-marinho); text-decoration: none; padding-right: 28px; }
-    .jamboree-insignia-link strong, .jamboree-insignia-link small { display: block; }
-    .jamboree-insignia-link small { margin-top: 4px; color: #666; font-size: 0.8rem; line-height: 1.4; }
-    .jamboree-insignia-link > span:last-child { position: absolute; top: 18px; right: 18px; }
-    .jamboree-insignia-mini { order: 2; width: 100%; height: 210px; flex: 0 0 210px; display: block; }
-    .jamboree-insignia-mini img { width: 100%; height: 100%; object-fit: contain; border-radius: 6px; }
+    .jamboree-identidade > h3 { margin-bottom: 12px; color: var(--azul-marinho); font-size: 1rem; }
+    .jamboree-identidade-itens { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .jamboree-identidade-item { min-width: 0; }
+    .jamboree-identidade-item > a { color: var(--azul-marinho); text-decoration: none; }
+    .jamboree-identidade-item > a:hover strong { text-decoration: underline; }
+    .jamboree-identidade-item > a:focus-visible { outline: 3px solid var(--azul-claro); outline-offset: 3px; }
+    .jamboree-identidade-imagem { display: block; }
+    .jamboree-identidade-item img { width: 100%; height: 155px; object-fit: contain; border-radius: 6px; }
+    .jamboree-identidade-item strong, .jamboree-identidade-item small { display: block; }
+    .jamboree-identidade-item strong { margin-top: 8px; font-size: 0.85rem; line-height: 1.3; }
+    .jamboree-identidade-item small { margin-top: 4px; color: #666; font-size: 0.75rem; line-height: 1.4; }
     .jamboree-mapa { width: 100%; min-height: 280px; border: 0; border-radius: 10px; display: block; margin-top: 14px; }
     .jamboree-boletins { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
     .jamboree-boletins > div { min-width: 0; }
@@ -1454,6 +1458,19 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
     .newsletter-intro { margin: 0 0 30px; color: #555; font-size: 0.95rem; line-height: 1.6; }
     .jamboree-info-blocos { display: flex; flex-direction: column; gap: 10px; text-align: left; margin-top: 10px; }
     .jamboree-info-blocos .info-block { margin: 0; }
+    .epopeia-capitulos { display: flex; flex-direction: column; gap: 16px; margin-top: 22px; }
+    .epopeia-capitulo { padding: 20px; }
+    .epopeia-capitulo-cabecalho { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+    .epopeia-etiqueta { color: #7d1b24; font-size: 0.78rem; font-weight: 900; text-transform: uppercase; }
+    .epopeia-selo-novo { padding: 4px 9px; border-radius: 4px; background: #CE1126; color: white; font-size: 0.7rem; font-weight: 900; text-transform: uppercase; }
+    .epopeia-capitulo h2 { margin: 0 0 10px; color: var(--azul-marinho); font-size: 1.25rem; }
+    .epopeia-resumo { margin-bottom: 14px; }
+    .epopeia-pdf { display: inline-block; margin: 0 0 14px; }
+    .epopeia-expansivel { border-top: 1px solid #e2e7eb; padding: 12px 0; }
+    .epopeia-expansivel summary { color: var(--azul-marinho); cursor: pointer; font-weight: 800; }
+    .epopeia-expansivel ul { margin: 10px 0 0 20px; line-height: 1.65; }
+    .epopeia-expansivel li + li { margin-top: 6px; }
+    .epopeia-expansivel a { overflow-wrap: anywhere; }
     .seccao-navegacao {
         display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
         margin: 0 auto 14px; padding-bottom: 14px; border-bottom: 2px solid #e6eef3;
@@ -1536,8 +1553,9 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
         .hero-jamboree .jamboree-contador > div { flex: 0 1 56px; min-width: 0; padding: 5px 2px; }
         .hero-jamboree .jamboree-contador span { font-size: 1.05rem; }
         .hero-jamboree .jamboree-contador small { font-size: 0.5rem; letter-spacing: 0; }
-        .jamboree-insignia-link { flex-basis: auto; }
-        .jamboree-insignia-mini { height: 180px; flex-basis: 180px; }
+        .jamboree-identidade { padding: 14px; }
+        .jamboree-identidade-itens { gap: 8px; }
+        .jamboree-identidade-itens img { height: 130px; }
         .seccao-navegacao a { flex: 1 1 calc(50% - 6px); min-width: 0; font-size: 12px; padding: 8px 10px; }
         .seccao-geral-grelha { grid-template-columns: 1fr; }
         .seccao-geral-conteudo .geral-grelha { grid-template-columns: 1fr; gap: 24px; }
