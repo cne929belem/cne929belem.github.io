@@ -3,7 +3,9 @@ layout: default
 title: Área Pessoal | Agrupamento 929 - Belém
 published: true
 main_class: pagina-com-hero
-ultima_atualizacao: 25/09/2026
+ultima_atualizacao: 01/10/2026
+robots: "noindex, nofollow"
+sitemap: false
 ---
 <style>
   .pagina-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
@@ -229,7 +231,7 @@ ultima_atualizacao: 25/09/2026
           <div class="dados-pessoais-campo"><dt>E-mail</dt><dd data-dado="encarregado2_email"></dd></div>
         </dl>
       </section>
-      <details class="dados-pessoais-grupo dados-saude" open>
+      <details class="dados-pessoais-grupo dados-saude">
         <summary>Dados de saúde e restrições</summary>
         <dl class="dados-pessoais-grelha">
           <div class="dados-pessoais-campo"><dt>Número de utente</dt><dd data-dado="número de utente"></dd></div>
