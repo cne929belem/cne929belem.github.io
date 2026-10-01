@@ -38,13 +38,20 @@ sitemap: false
   .percurso-identidade [data-campo-perfil="nome"] { font-size: 18px; font-weight: 700; }
   .percurso-principal { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(240px, .7fr); gap: 36px; align-items: start; }
   .percurso-principal h2, .progresso-seccoes h2 { margin: 0 0 18px; color: var(--azul-marinho); font-size: 20px; }
-  .percurso-timeline { position: relative; display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
-  .percurso-timeline::before { position: absolute; top: 8px; bottom: 16px; left: 7px; width: 2px; background: #c9d7df; content: ""; }
-  .percurso-timeline li { position: relative; min-height: 48px; padding: 0 0 22px 30px; color: #495861; }
-  .percurso-timeline li::before { position: absolute; top: 3px; left: 0; width: 12px; height: 12px; border: 2px solid #fff; border-radius: 50%; background: var(--azul-marinho); box-shadow: 0 0 0 1px var(--azul-marinho); content: ""; }
-  .percurso-timeline time { display: block; margin-bottom: 3px; color: #657781; font-size: 12px; font-weight: 700; }
-  .percurso-timeline strong { display: block; color: var(--azul-marinho); }
-  .percurso-timeline span { display: block; font-size: 13px; }
+  .percurso-timeline { margin: 0; }
+  .percurso-ano > summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; list-style: none; }
+  .percurso-ano > summary::-webkit-details-marker { display: none; }
+  .percurso-ano > summary::after { content: "+"; color: var(--azul-marinho); font-size: 18px; font-weight: 700; }
+  .percurso-ano[open] > summary::after { content: "−"; }
+  .percurso-ano-total { color: #657781; font-size: 12px; }
+  .percurso-atividades { display: grid; gap: 0; margin: 12px 0 0; padding: 0 0 0 16px; border-left: 2px solid #c9d7df; list-style: none; }
+  .percurso-atividade { position: relative; padding: 0 0 16px 12px; color: #495861; }
+  .percurso-atividade:last-child { padding-bottom: 0; }
+  .percurso-atividade::before { position: absolute; top: 4px; left: -21px; width: 8px; height: 8px; border: 2px solid #fff; border-radius: 50%; background: var(--azul-claro); box-shadow: 0 0 0 1px var(--azul-claro); content: ""; }
+  .percurso-atividade time { display: block; margin-bottom: 3px; color: #657781; font-size: 12px; font-weight: 700; }
+  .percurso-atividade h3 { margin: 0 0 3px; color: var(--azul-marinho); font-size: 14px; text-transform: none; }
+  .percurso-atividade p { margin: 0; color: #495861; font-size: 13px; line-height: 1.5; }
+  .percurso-vazio { color: #657781; font-size: 14px; }
   .percurso-indicadores { display: grid; gap: 14px; }
   .percurso-indicador { padding: 16px; border: 1px solid #dce4e9; border-radius: 6px; background: #f6f8f9; }
   .percurso-indicador h3 { margin: 0 0 8px; color: var(--azul-marinho); font-size: 15px; }
@@ -130,7 +137,7 @@ sitemap: false
       <div class="percurso-principal">
         <section aria-labelledby="titulo-timeline">
           <h2 id="titulo-timeline">Atividades</h2>
-          <ol class="percurso-timeline" data-lista-atividades><li class="percurso-vazio">As atividades aparecerão depois do login.</li></ol>
+          <div class="atividades-timeline percurso-timeline" data-lista-atividades><p class="percurso-vazio">As atividades aparecerão depois do login.</p></div>
         </section>
         <aside class="percurso-indicadores" aria-label="Totais do percurso">
           <article class="percurso-indicador">

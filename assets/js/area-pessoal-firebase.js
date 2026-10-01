@@ -123,43 +123,110 @@ if (estadoSessao) {
     botaoSair.hidden = !temSessao;
   }
 
+  function ordenarEncarregados(perfil) {
+    const campos = ["nome", "relacao", "telemovel", "email"];
+    const encarregados = [1, 2].map((numero, indice) => {
+      const dados = Object.fromEntries(campos.map((campo) => [
+        campo,
+        perfil[`encarregado${numero}_${campo}`]
+      ]));
+      const relacao = String(dados.relacao || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim()
+        .toLocaleLowerCase("pt-PT");
+      const prioridade = relacao === "mae" ? 0 : relacao === "pai" ? 1 : 2;
+      return { dados, indice, prioridade };
+    }).sort((a, b) => a.prioridade - b.prioridade || a.indice - b.indice);
+
+    const perfilOrdenado = { ...perfil };
+    encarregados.forEach(({ dados }, indice) => {
+      campos.forEach((campo) => {
+        perfilOrdenado[`encarregado${indice + 1}_${campo}`] = dados[campo];
+      });
+    });
+    return perfilOrdenado;
+  }
+
   function preencherPerfil(perfil) {
+    const perfilOrdenado = ordenarEncarregados(perfil);
     document.querySelectorAll("[data-dado]").forEach((elemento) => {
-      const valor = perfil[elemento.dataset.dado];
+      const valor = perfilOrdenado[elemento.dataset.dado];
       elemento.textContent = valor === undefined || valor === null || valor === "" ? "—" : String(valor);
     });
 
     document.querySelectorAll("[data-campo-perfil]").forEach((elemento) => {
-      const valor = perfil[elemento.dataset.campoPerfil];
+      const valor = perfilOrdenado[elemento.dataset.campoPerfil];
       elemento.textContent = valor === undefined || valor === null || valor === "" ? "—" : String(valor);
     });
 
     const listaAtividades = document.querySelector("[data-lista-atividades]");
     listaAtividades.replaceChildren();
     if (!Array.isArray(perfil.atividades) || perfil.atividades.length === 0) {
-      const vazio = document.createElement("li");
+      const vazio = document.createElement("p");
       vazio.className = "percurso-vazio";
       vazio.textContent = "Sem atividades registadas.";
       listaAtividades.append(vazio);
       return;
     }
 
+    const atividadesPorAno = new Map();
     perfil.atividades.forEach((atividade) => {
-      const item = document.createElement("li");
-      if (atividade.data) {
-        const data = document.createElement("time");
-        data.textContent = String(atividade.data);
-        item.append(data);
-      }
-      const titulo = document.createElement("strong");
-      titulo.textContent = String(atividade.titulo || "Atividade");
-      item.append(titulo);
-      if (atividade.descricao) {
-        const descricao = document.createElement("span");
-        descricao.textContent = String(atividade.descricao);
-        item.append(descricao);
-      }
-      listaAtividades.append(item);
+      const data = String(atividade.data || "");
+      const ano = data.match(/\b(?:19|20)\d{2}\b/)?.[0] || "Sem data";
+      if (!atividadesPorAno.has(ano)) atividadesPorAno.set(ano, []);
+      atividadesPorAno.get(ano).push(atividade);
+    });
+
+    const anos = Array.from(atividadesPorAno.keys()).sort((a, b) => {
+      if (a === "Sem data") return 1;
+      if (b === "Sem data") return -1;
+      return Number(b) - Number(a);
+    });
+
+    anos.forEach((ano, indice) => {
+      const grupo = document.createElement("details");
+      grupo.className = "timeline-item percurso-ano";
+      grupo.open = indice === 0;
+
+      const cabecalho = document.createElement("summary");
+      const rotuloAno = document.createElement("time");
+      if (ano !== "Sem data") rotuloAno.dateTime = ano;
+      rotuloAno.textContent = ano;
+      cabecalho.append(rotuloAno);
+
+      const total = atividadesPorAno.get(ano).length;
+      const quantidade = document.createElement("span");
+      quantidade.className = "percurso-ano-total";
+      quantidade.textContent = `${total} ${total === 1 ? "atividade" : "atividades"}`;
+      cabecalho.append(quantidade);
+      grupo.append(cabecalho);
+
+      const lista = document.createElement("ol");
+      lista.className = "percurso-atividades";
+      atividadesPorAno.get(ano).forEach((atividade) => {
+        const item = document.createElement("li");
+        item.className = "percurso-atividade";
+        const data = String(atividade.data || "");
+        if (data) {
+          const dataElemento = document.createElement("time");
+          if (/^\d{4}-\d{2}-\d{2}/.test(data)) dataElemento.dateTime = data;
+          dataElemento.textContent = data;
+          item.append(dataElemento);
+        }
+
+        const titulo = document.createElement("h3");
+        titulo.textContent = String(atividade.titulo || "Atividade");
+        item.append(titulo);
+        if (atividade.descricao) {
+          const descricao = document.createElement("p");
+          descricao.textContent = String(atividade.descricao);
+          item.append(descricao);
+        }
+        lista.append(item);
+      });
+      grupo.append(lista);
+      listaAtividades.append(grupo);
     });
   }
 
@@ -170,7 +237,7 @@ if (estadoSessao) {
 
     const listaAtividades = document.querySelector("[data-lista-atividades]");
     listaAtividades.replaceChildren();
-    const vazio = document.createElement("li");
+    const vazio = document.createElement("p");
     vazio.className = "percurso-vazio";
     vazio.textContent = "As atividades aparecerão depois do login.";
     listaAtividades.append(vazio);

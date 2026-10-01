@@ -20,7 +20,8 @@ ultima_atualizacao: 30/09/2026
   .noticia-arquivo-meta { display: flex; flex-wrap: wrap; gap: 4px 10px; margin: 0 0 10px; color: #657781; font-size: 0.875rem; }
   .noticia-arquivo h2 { margin: 0 0 10px; color: var(--azul-marinho); font-size: 1.5rem; line-height: 1.3; }
   .noticia-arquivo-resumo { margin: 0 0 12px; color: #34434b; font-size: 1rem; font-weight: 700; line-height: 1.55; }
-  .noticia-arquivo-texto { color: #495861; font-size: 1rem; line-height: 1.7; overflow-wrap: anywhere; }
+  .noticia-arquivo-texto { color: #495861; font-size: 0.9rem; line-height: 1.65; overflow-wrap: anywhere; }
+  .noticia-arquivo-texto p, .noticia-arquivo-texto li { font-size: 0.9rem; line-height: 1.65; }
   .noticia-arquivo-texto > :last-child { margin-bottom: 0; }
   .noticia-arquivo-link { display: inline-block; margin-top: 10px; color: var(--azul-marinho); font-size: 0.9375rem; font-weight: 800; }
   .noticias-arquivo-vazio { padding: 18px 0; border-top: 1px solid #dce4e9; color: #52616a; }
