@@ -9,7 +9,6 @@ import {
 import { doc, getDoc, getFirestore } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 const ENDPOINT_LINK_ACESSO = "https://script.google.com/macros/s/AKfycbx0MLn9Oz-_mU5N57n65u4WBHohVdplhjMWYk3z3nVUFx6J2t7hiQi-ReVe1gm0SLf8/exec";
-const EMAIL_SECRETARIA_PEDIDOS = "secretaria929.grupo@escutismo.pt";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDDSXcn5E1R7839q4gnXhStk1doaBy9YSI",
@@ -31,177 +30,6 @@ function codigoSuporte(erro, codigos, fallback) {
 
 function mensagemSuporte(resumo, codigo) {
   return `${resumo} Fala com o teu chefe de unidade e indica-lhe o código: ${codigo}.`;
-}
-
-function converterData(valor) {
-  if (!valor) return null;
-  if (typeof valor.toDate === "function") return converterData(valor.toDate());
-  if (typeof valor.seconds === "number") return new Date(valor.seconds * 1000);
-  if (valor instanceof Date) return Number.isNaN(valor.getTime()) ? null : valor;
-
-  const texto = String(valor).trim();
-  let correspondencia = texto.match(/^(\d{4})[-/](\d{1,2})[-/](\d{1,2})/);
-  if (correspondencia) {
-    const [, ano, mes, dia] = correspondencia;
-    const data = new Date(Date.UTC(Number(ano), Number(mes) - 1, Number(dia)));
-    return data.getUTCFullYear() === Number(ano) && data.getUTCMonth() === Number(mes) - 1 && data.getUTCDate() === Number(dia) ? data : null;
-  }
-
-  correspondencia = texto.match(/^(\d{1,2})[/. -](\d{1,2})[/. -](\d{4})$/);
-  if (correspondencia) {
-    const [, dia, mes, ano] = correspondencia;
-    const data = new Date(Date.UTC(Number(ano), Number(mes) - 1, Number(dia)));
-    return data.getUTCFullYear() === Number(ano) && data.getUTCMonth() === Number(mes) - 1 && data.getUTCDate() === Number(dia) ? data : null;
-  }
-
-  const data = new Date(texto);
-  return Number.isNaN(data.getTime()) ? null : data;
-}
-
-function formatarData(valor) {
-  const data = converterData(valor);
-  return data ? data.toLocaleDateString("pt-PT", { timeZone: "UTC" }) : String(valor || "");
-}
-
-function preencherAtividades(atividades, mensagemVazia = "Sem atividades registadas.") {
-  const listaAtividades = document.querySelector("[data-lista-atividades]");
-  listaAtividades.replaceChildren();
-
-  if (!Array.isArray(atividades) || atividades.length === 0) {
-    const vazio = document.createElement("p");
-    vazio.className = "percurso-vazio";
-    vazio.textContent = mensagemVazia;
-    listaAtividades.append(vazio);
-    return;
-  }
-
-  const grupos = new Map();
-  atividades.forEach((atividade) => {
-    const data = converterData(atividade.data);
-    const anoInicio = data ? data.getUTCFullYear() - (data.getUTCMonth() < 9 ? 1 : 0) : null;
-    const chave = anoInicio === null ? "sem-data" : String(anoInicio);
-    if (!grupos.has(chave)) grupos.set(chave, []);
-    grupos.get(chave).push({ atividade, data });
-  });
-
-  const gruposOrdenados = [...grupos.entries()].sort(([anoA], [anoB]) => {
-    if (anoA === "sem-data") return 1;
-    if (anoB === "sem-data") return -1;
-    return Number(anoB) - Number(anoA);
-  });
-
-  gruposOrdenados.forEach(([anoInicio, itens], indice) => {
-    const grupo = document.createElement("details");
-    grupo.className = "percurso-ano";
-    grupo.open = indice === 0;
-
-    const resumo = document.createElement("summary");
-    resumo.textContent = anoInicio === "sem-data"
-      ? `Sem data (${itens.length})`
-      : `Ano escutista ${anoInicio}-${Number(anoInicio) + 1} (${itens.length})`;
-    grupo.append(resumo);
-
-    const linhaTempo = document.createElement("ol");
-    linhaTempo.className = "percurso-timeline";
-    itens.sort((itemA, itemB) => (itemB.data?.getTime() || 0) - (itemA.data?.getTime() || 0));
-    itens.forEach(({ atividade, data }) => {
-      const item = document.createElement("li");
-      if (atividade.data) {
-        const elementoData = document.createElement("time");
-        if (data) elementoData.dateTime = data.toISOString().slice(0, 10);
-        elementoData.textContent = formatarData(atividade.data);
-        item.append(elementoData);
-      }
-      const titulo = document.createElement("strong");
-      titulo.textContent = String(atividade.titulo || "Atividade");
-      item.append(titulo);
-      if (atividade.descricao) {
-        const descricao = document.createElement("span");
-        descricao.textContent = String(atividade.descricao);
-        item.append(descricao);
-      }
-      linhaTempo.append(item);
-    });
-    grupo.append(linhaTempo);
-    listaAtividades.append(grupo);
-  });
-}
-
-function obterEtapa(perfil, secao, numero) {
-  const dadosEtapas = perfil.etapas || perfil.Etapas || {};
-  const nomeSecao = secao[0].toUpperCase() + secao.slice(1);
-  const dadosSecao = dadosEtapas[secao] || dadosEtapas[nomeSecao] || {};
-  let etapa = Array.isArray(dadosSecao)
-    ? dadosSecao[numero - 1]
-    : dadosSecao[numero] ?? dadosSecao[`etapa${numero}`] ?? dadosSecao[`Etapa ${numero}`];
-
-  if (etapa === undefined) {
-    const chavesPossiveis = [
-      `${secao}_etapa_${numero}`,
-      `etapa_${secao}_${numero}`,
-      `etapa${numero}_${secao}`,
-      `Etapa ${numero} - ${nomeSecao}`
-    ];
-    const chaveEncontrada = chavesPossiveis.find((chave) => perfil[chave] !== undefined);
-    if (chaveEncontrada) etapa = perfil[chaveEncontrada];
-  }
-
-  if (etapa && (typeof etapa.toDate === "function" || typeof etapa.seconds === "number" || etapa instanceof Date)) {
-    return { nome: "", data: etapa };
-  }
-
-  if (etapa && typeof etapa === "object") {
-    return {
-      nome: String(etapa.nome || etapa.etapa || ""),
-      data: etapa.data || etapa.date || etapa.concluidaEm || etapa.concluida_em || ""
-    };
-  }
-  return { nome: "", data: etapa || "" };
-}
-
-function preencherEtapas(perfil) {
-  document.querySelectorAll("[data-seccao-etapas]").forEach((grupo) => {
-    const secao = grupo.dataset.seccaoEtapas;
-    grupo.querySelectorAll("[data-etapa]").forEach((elemento) => {
-      const etapa = obterEtapa(perfil, secao, Number(elemento.dataset.etapa));
-      const nome = etapa.nome || elemento.dataset.etapaNome;
-      elemento.replaceChildren();
-      if (!etapa.data) {
-        elemento.textContent = `${nome} - não concluído`;
-        return;
-      }
-      elemento.append(document.createTextNode(nome));
-      const data = document.createElement("span");
-      data.className = "etapa-data";
-      data.textContent = formatarData(etapa.data);
-      elemento.append(data);
-    });
-  });
-}
-
-function preencherDistincoes(distincoes) {
-  const listaDistincoes = document.querySelector("[data-lista-distincoes]");
-  listaDistincoes.replaceChildren();
-  const registos = Array.isArray(distincoes) ? distincoes : [];
-  if (!registos.length) {
-    const linha = document.createElement("tr");
-    const celula = document.createElement("td");
-    celula.colSpan = 3;
-    celula.textContent = "Sem distinções registadas.";
-    linha.append(celula);
-    listaDistincoes.append(linha);
-    return;
-  }
-
-  registos.forEach((registo) => {
-    const linha = document.createElement("tr");
-    [registo.nome || registo.distincao || registo.distinção || "—", registo.osa || "—", formatarData(registo.data) || "—"].forEach((valor) => {
-      const celula = document.createElement("td");
-      celula.textContent = String(valor);
-      linha.append(celula);
-    });
-    listaDistincoes.append(linha);
-  });
 }
 
 const formPedido = document.querySelector("#form-pedido-magic-link");
@@ -275,54 +103,11 @@ if (estadoSessao) {
   const campoConclusaoEmail = formularioConclusao.querySelector("[name='email']");
   const mensagemSessao = estadoSessao.querySelector("[data-mensagem-sessao]");
   const botaoSair = estadoSessao.querySelector("[data-terminar-sessao]");
-  const formularioPedidoDados = document.querySelector("#form-pedido-alteracao-dados");
-  const estadoPedidoDados = document.querySelector("#estado-pedido-alteracao");
   const avisoPerfil = document.querySelector("#aviso-perfil-privado");
   const separadores = document.querySelector(".area-pessoal-tabs");
   const painelPercurso = document.querySelector("#painel-percurso");
   const painelDados = document.querySelector("#painel-dados");
   const dataAtualizacao = document.querySelector("#data-atualizacao-perfil");
-
-  formularioPedidoDados.addEventListener("submit", (evento) => {
-    evento.preventDefault();
-    const utilizador = auth.currentUser;
-    if (!utilizador?.email || !utilizador.emailVerified) {
-      estadoPedidoDados.textContent = "Inicia sessão novamente para enviar um pedido de alteração.";
-      return;
-    }
-
-    const dados = new FormData(formularioPedidoDados);
-    const alteracoes = [
-      ["Novo email", dados.get("novo-email")],
-      ["Novo telemóvel", dados.get("novo-telemovel")],
-      ["Outro dado a corrigir", dados.get("outros-dados")]
-    ].filter(([, valor]) => String(valor || "").trim());
-
-    if (!alteracoes.length) {
-      estadoPedidoDados.textContent = "Indica pelo menos uma alteração a pedir.";
-      formularioPedidoDados.querySelector("[name='outros-dados']").focus();
-      return;
-    }
-
-    const dataHora = new Intl.DateTimeFormat("pt-PT", {
-      dateStyle: "full",
-      timeStyle: "short",
-      timeZone: "Europe/Lisbon"
-    }).format(new Date());
-    const corpo = [
-      "Pedido de alteração de dados pessoais",
-      "",
-      `Email de quem pede: ${utilizador.email}`,
-      `Data e hora do pedido: ${dataHora} (hora de Lisboa)`,
-      "Origem: site do Agrupamento 929 - Belém / Área Pessoal",
-      "",
-      "Alterações pedidas:",
-      ...alteracoes.map(([campo, valor]) => `- ${campo}: ${String(valor).trim()}`)
-    ].join("\n");
-    const assunto = `Pedido de alteração de dados - ${utilizador.email}`;
-    window.location.href = `mailto:${EMAIL_SECRETARIA_PEDIDOS}?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
-    estadoPedidoDados.textContent = `Mensagem preparada para ${EMAIL_SECRETARIA_PEDIDOS}. Revê-a e envia-a no teu programa de email para concluir o pedido.`;
-  });
 
   function mostrarConteudoAutenticado(visivel) {
     const linkPendente = isSignInWithEmailLink(auth, window.location.href);
@@ -338,20 +123,111 @@ if (estadoSessao) {
     botaoSair.hidden = !temSessao;
   }
 
+  function ordenarEncarregados(perfil) {
+    const campos = ["nome", "relacao", "telemovel", "email"];
+    const encarregados = [1, 2].map((numero, indice) => {
+      const dados = Object.fromEntries(campos.map((campo) => [
+        campo,
+        perfil[`encarregado${numero}_${campo}`]
+      ]));
+      const relacao = String(dados.relacao || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .trim()
+        .toLocaleLowerCase("pt-PT");
+      const prioridade = relacao === "mae" ? 0 : relacao === "pai" ? 1 : 2;
+      return { dados, indice, prioridade };
+    }).sort((a, b) => a.prioridade - b.prioridade || a.indice - b.indice);
+
+    const perfilOrdenado = { ...perfil };
+    encarregados.forEach(({ dados }, indice) => {
+      campos.forEach((campo) => {
+        perfilOrdenado[`encarregado${indice + 1}_${campo}`] = dados[campo];
+      });
+    });
+    return perfilOrdenado;
+  }
+
   function preencherPerfil(perfil) {
+    const perfilOrdenado = ordenarEncarregados(perfil);
     document.querySelectorAll("[data-dado]").forEach((elemento) => {
-      const valor = perfil[elemento.dataset.dado];
+      const valor = perfilOrdenado[elemento.dataset.dado];
       elemento.textContent = valor === undefined || valor === null || valor === "" ? "—" : String(valor);
     });
 
     document.querySelectorAll("[data-campo-perfil]").forEach((elemento) => {
-      const valor = perfil[elemento.dataset.campoPerfil];
+      const valor = perfilOrdenado[elemento.dataset.campoPerfil];
       elemento.textContent = valor === undefined || valor === null || valor === "" ? "—" : String(valor);
     });
 
-    preencherAtividades(perfil.atividades);
-    preencherEtapas(perfil);
-    preencherDistincoes(perfil.distincoes || perfil.distinctions);
+    const listaAtividades = document.querySelector("[data-lista-atividades]");
+    listaAtividades.replaceChildren();
+    if (!Array.isArray(perfil.atividades) || perfil.atividades.length === 0) {
+      const vazio = document.createElement("p");
+      vazio.className = "percurso-vazio";
+      vazio.textContent = "Sem atividades registadas.";
+      listaAtividades.append(vazio);
+      return;
+    }
+
+    const atividadesPorAno = new Map();
+    perfil.atividades.forEach((atividade) => {
+      const data = String(atividade.data || "");
+      const ano = data.match(/\b(?:19|20)\d{2}\b/)?.[0] || "Sem data";
+      if (!atividadesPorAno.has(ano)) atividadesPorAno.set(ano, []);
+      atividadesPorAno.get(ano).push(atividade);
+    });
+
+    const anos = Array.from(atividadesPorAno.keys()).sort((a, b) => {
+      if (a === "Sem data") return 1;
+      if (b === "Sem data") return -1;
+      return Number(b) - Number(a);
+    });
+
+    anos.forEach((ano, indice) => {
+      const grupo = document.createElement("details");
+      grupo.className = "timeline-item percurso-ano";
+      grupo.open = indice === 0;
+
+      const cabecalho = document.createElement("summary");
+      const rotuloAno = document.createElement("time");
+      if (ano !== "Sem data") rotuloAno.dateTime = ano;
+      rotuloAno.textContent = ano;
+      cabecalho.append(rotuloAno);
+
+      const total = atividadesPorAno.get(ano).length;
+      const quantidade = document.createElement("span");
+      quantidade.className = "percurso-ano-total";
+      quantidade.textContent = `${total} ${total === 1 ? "atividade" : "atividades"}`;
+      cabecalho.append(quantidade);
+      grupo.append(cabecalho);
+
+      const lista = document.createElement("ol");
+      lista.className = "percurso-atividades";
+      atividadesPorAno.get(ano).forEach((atividade) => {
+        const item = document.createElement("li");
+        item.className = "percurso-atividade";
+        const data = String(atividade.data || "");
+        if (data) {
+          const dataElemento = document.createElement("time");
+          if (/^\d{4}-\d{2}-\d{2}/.test(data)) dataElemento.dateTime = data;
+          dataElemento.textContent = data;
+          item.append(dataElemento);
+        }
+
+        const titulo = document.createElement("h3");
+        titulo.textContent = String(atividade.titulo || "Atividade");
+        item.append(titulo);
+        if (atividade.descricao) {
+          const descricao = document.createElement("p");
+          descricao.textContent = String(atividade.descricao);
+          item.append(descricao);
+        }
+        lista.append(item);
+      });
+      grupo.append(lista);
+      listaAtividades.append(grupo);
+    });
   }
 
   function limparPerfil() {
@@ -359,9 +235,12 @@ if (estadoSessao) {
       elemento.textContent = "";
     });
 
-    preencherAtividades([], "As atividades aparecerão depois do login.");
-    preencherEtapas({});
-    preencherDistincoes([]);
+    const listaAtividades = document.querySelector("[data-lista-atividades]");
+    listaAtividades.replaceChildren();
+    const vazio = document.createElement("p");
+    vazio.className = "percurso-vazio";
+    vazio.textContent = "As atividades aparecerão depois do login.";
+    listaAtividades.append(vazio);
   }
 
   formularioConclusao.addEventListener("submit", async (evento) => {
