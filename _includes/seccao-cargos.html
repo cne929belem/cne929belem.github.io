@@ -2,13 +2,23 @@
     <h2 class="section-title{% if page.seccao_slug == 'comunidade' %} vermelho{% endif %}">🧭 Cargos da Secção</h2>
     <div class="equipa-seccao-grelha">
         <div class="pessoa-seccao">
+            {% if include.guia_foto %}
+            <img class="pessoa-seccao-foto" src="{{ include.guia_foto | relative_url }}" alt="{{ include.guia_nome }}">
+            {% else %}
             <span class="pessoa-seccao-foto cargo-foto-placeholder" aria-hidden="true">👤</span>
-            <div><small>{{ include.guia }}</small><strong>A eleger</strong></div>
+            {% endif %}
+            <div><small>{{ include.guia }}</small><strong>{{ include.guia_nome | default: "A eleger" }}</strong></div>
         </div>
         <div class="pessoa-seccao">
+            {% if include.sub_guia_foto %}
+            <img class="pessoa-seccao-foto" src="{{ include.sub_guia_foto | relative_url }}" alt="{{ include.sub_guia_nome }}">
+            {% else %}
             <span class="pessoa-seccao-foto cargo-foto-placeholder" aria-hidden="true">👤</span>
-            <div><small>{{ include.sub_guia }}</small><strong>A eleger</strong></div>
+            {% endif %}
+            <div><small>{{ include.sub_guia }}</small><strong>{{ include.sub_guia_nome | default: "A eleger" }}</strong></div>
         </div>
     </div>
+    {% unless include.guia_nome or include.sub_guia_nome %}
     <p class="seccao-geral-intro">Aguarda o início das atividades para as eleições dos respetivos cargos.</p>
+    {% endunless %}
 </div>

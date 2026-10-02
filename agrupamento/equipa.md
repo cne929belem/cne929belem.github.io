@@ -190,7 +190,7 @@ ultima_atualizacao: 25/09/2026
         <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías">
       </div>
-      <p class="nome-seccao">Frota</p>
+      <p class="nome-seccao">Frota 98</p>
       <p class="nome">Ricardo Isaías<br>(Axolote)</p>
     </div>
     <div class="chefia-cartao" style="--cor-seccao:var(--cor-comunidade)">
@@ -199,7 +199,7 @@ ultima_atualizacao: 25/09/2026
         <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías">
       </div>
-      <p class="nome-seccao">Comunidade</p>
+      <p class="nome-seccao">Comunidade 88</p>
       <p class="nome">Ricardo Isaías<br>(Axolote)</p>
     </div>
   </div>
@@ -260,7 +260,7 @@ ultima_atualizacao: 25/09/2026
   </details>
 
   <details class="grupo-seccao" style="--cor-seccao:var(--cor-frota); --imagem-seccao: url('{{ '/assets/img/seccoes/banner_iii.jpg' | relative_url }}')">
-    <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt="">Frota (Marinheiros)</span><span class="descricao-unidade">A terceira secção, dedicada aos Marinheiros.</span></summary>
+    <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt="">Frota 98 (Marinheiros)</span><span class="descricao-unidade">A terceira secção, dedicada aos Marinheiros.</span></summary>
     <div class="lista-pessoas">
       <div class="pessoa-cartao">
         <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
@@ -276,7 +276,7 @@ ultima_atualizacao: 25/09/2026
   </details>
 
   <details class="grupo-seccao" style="--cor-seccao:var(--cor-comunidade); --imagem-seccao: url('{{ '/assets/img/seccoes/banner_iv.jpg' | relative_url }}')">
-    <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="">Comunidade (Companheiros)</span><span class="descricao-unidade">A quarta secção, dedicada aos Companheiros.</span></summary>
+    <summary><span class="grupo-titulo"><img class="icone-seccao" src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="">Comunidade 88 (Companheiros)</span><span class="descricao-unidade">A quarta secção, dedicada aos Companheiros.</span></summary>
     <div class="lista-pessoas">
       <div class="pessoa-cartao">
         <img class="insignia-lado" src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="">
