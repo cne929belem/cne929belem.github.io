@@ -1,14 +1,14 @@
 ---
 layout: default
-title: Vivência | IV - Comunidade
+title: Vivência | IV - Comunidade 88
 main_class: pagina-com-hero
 ultima_atualizacao: 25/09/2026
 seccao_slug: comunidade
-seccao_nome: IV - Comunidade
+seccao_nome: IV - Comunidade 88
 seccao_cor: '#39374C'
 ---
 <!--
-  Página "Vivência" da IV Secção — Comunidade. Reestruturada a pedido do
+  Página "Vivência" da IV Secção — Comunidade 88. Reestruturada a pedido do
   Chefe de Agrupamento a partir de conteúdo de referência de outros
   Agrupamentos/Regiões do CNE.
 -->
@@ -61,7 +61,7 @@ seccao_cor: '#39374C'
 <div class="comunidade-pagina">
     <header class="seccao-cabecalho">
         <h1>Vivência</h1>
-        <p>A nossa mística, os nossos símbolos e o rumo da Comunidade.</p>
+        <p>A nossa mística, os nossos símbolos e o rumo da Comunidade 88.</p>
     </header>
     {% include seccao-nav.html %}
     <section class="card">
@@ -70,7 +70,7 @@ seccao_cor: '#39374C'
             <h2 style="margin: 0; color: #39374C;">Vivência</h2>
         </div>
 
-        <p style="line-height: 1.6; margin-bottom: 30px;">O que significa ser Companheiro, a nossa mística, os nossos símbolos, e o caminho (ou melhor, o rumo) que se percorre na Comunidade.</p>
+        <p style="line-height: 1.6; margin-bottom: 30px;">O que significa ser Companheiro, a nossa mística, os nossos símbolos, e o caminho (ou melhor, o rumo) que se percorre na Comunidade 88.</p>
 
         <div style="margin-top: 40px; text-align: left;">
 
@@ -79,7 +79,7 @@ seccao_cor: '#39374C'
                 <summary>🌊 Imaginário</summary>
                 <div class="acordeao-content">
                     <p style="line-height: 1.6;">A vivência da IV Secção não é uma aventura com enredo fechado, como acontece nas secções mais novas — é a própria vida a tornar-se aventura. O Companheiro é chamado a viver em plenitude aquilo que é, em todas as dimensões do seu ser, tal como um marinheiro que já conhece o seu barco e se atreve a singrar mar alto.</p>
-                    <p style="line-height: 1.6; margin-bottom: 0;">Se nas secções anteriores se navegava perto da costa, acompanhado de perto, a Comunidade é o momento de assumir o leme: escolher o rumo, enfrentar as tempestades que surgirem, e comprometer-se com a travessia até ao fim.</p>
+                    <p style="line-height: 1.6; margin-bottom: 0;">Se nas secções anteriores se navegava perto da costa, acompanhado de perto, na Comunidade 88 é o momento de assumir o leme: escolher o rumo, enfrentar as tempestades que surgirem, e comprometer-se com a travessia até ao fim.</p>
                 </div>
             </details>
 
@@ -97,7 +97,7 @@ seccao_cor: '#39374C'
             <details class="acordeao">
                 <summary>⚜️ Simbologia</summary>
                 <div class="acordeao-content">
-                    <p style="line-height: 1.6;">Tal como nas restantes secções, também a Comunidade tem os seus próprios símbolos — adaptados, na versão marítima, à linguagem do mar:</p>
+                    <p style="line-height: 1.6;">Tal como nas restantes secções, também a Comunidade 88 tem os seus próprios símbolos — adaptados, na versão marítima, à linguagem do mar:</p>
 
                     <div class="quick-links-grid" style="margin-top: 15px;">
                         <div style="background: var(--cinza-fundo); border: 1px solid #eee; border-radius: 6px; padding: 15px; text-align: center;">
@@ -153,7 +153,7 @@ seccao_cor: '#39374C'
                             
                             <div style="background: var(--cinza-fundo); border-left: 4px solid #cd7f32; padding: 15px; border-radius: 6px; border-top: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
                                 <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
-                                    <img src="{{ '/assets/img/seccoes/comunidade.png' | relative_url }}" alt="A Comunidade" style="width: 45px; height: 45px;">
+                                    <img src="{{ '/assets/img/seccoes/comunidade.png' | relative_url }}" alt="Comunidade 88" style="width: 45px; height: 45px;">
                                     <h4 style="margin: 0; color: var(--azul-marinho);">2. A Tripulação / A Comunidade</h4>
                                 </div>
                                 <p style="font-size: 0.85rem; color: #555; margin: 0;">Quando a Rota estiver clara, estarás pronto para a Promessa e vinculação à Comunidade (Companhia). Nenhuma travessia se faz sozinho. Navegar ao lado dos outros é aprender a acolher, a ajudar e a deixar-se ajudar — a partilhar tanto a bonança como o mau tempo. A união vivenciada é a tua maior força.</p>
@@ -281,7 +281,7 @@ seccao_cor: '#39374C'
             <details class="acordeao">
                 <summary>📜 Celebrações e Cerimoniais</summary>
                 <div class="acordeao-content">
-                    <p style="line-height: 1.6;">O guião litúrgico e formal para as grandes celebrações de passagem de etapa e compromissos na nossa Comunidade.</p>
+                    <p style="line-height: 1.6;">O guião litúrgico e formal para as grandes celebrações de passagem de etapa e compromissos na Comunidade 88.</p>
 
                     <div class="quick-links-grid" style="margin-top: 15px;">
                         <a href="{{ '/assets/docs/promessa_Companheiro.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="quick-link-card">
@@ -374,9 +374,9 @@ seccao_cor: '#39374C'
     ];
 
     const perguntasSeccao = [
-        { pergunta: "1. Organização da IV Secção?", resposta: "A IV Secção é a 'Comunidade', composta por Companheiros (18-22 anos). É o último passo formativo do CNE." },
+        { pergunta: "1. Organização da IV Secção?", resposta: "A IV Secção do Agrupamento 929 é a Comunidade 88, composta por Companheiros (18-22 anos). É o último passo formativo do CNE." },
         { pergunta: "2. Mística e Simbologia da Secção?", resposta: "Mística: 'Homem Novo' (conversão de São Paulo). Simbologia marítima: Leme (rumo), Barca (desprendimento), Vento/Vela (presença de Deus), Rede (partilha), Pão (comunhão), Evangelho (Boa Nova)." },
-        { pergunta: "3. Vivência em Equipa?", resposta: "Integração na Tripulação e na Comunidade há pelo menos 3 meses, com assiduidade e serviço." },
+        { pergunta: "3. Vivência em Equipa?", resposta: "Integração na Tripulação e na Comunidade 88 há pelo menos 3 meses, com assiduidade e serviço." },
         { pergunta: "4. As quatro etapas do Companheirismo?", resposta: "A Rota / O Caminho (Adesão), A Tripulação / A Comunidade, O Serviço e a Partida." },
         { pergunta: "5. Atividade típica?", resposta: "O Empreendimento: projeto idealizado, preparado e executado inteiramente pelos Companheiros." },
         { pergunta: "6. Conversão de São Paulo?", resposta: "O Patrono: Saulo tornou-se Paulo no caminho de Damasco. Simboliza a mudança radical de vida ao serviço de um ideal." },

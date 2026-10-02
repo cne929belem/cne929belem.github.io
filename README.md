@@ -43,11 +43,11 @@ Os ficheiros fonte estão organizados por área do site e por tipo de conteúdo:
 │   ├── acesso.md                   # Pedido de magic link
 │   └── area-pessoal.md              # Perfil após autenticação e autorização
 │
-├── comunidade/                   # Secção IV — Comunidade
+├── comunidade/                   # Secção IV — Comunidade 88
 │   ├── geral.md                    # Equipa de Animação, uniforme, ligação ao CNE
 │   ├── vivencia.md                 # Imaginário, mística, simbologia, progresso e PPV
 │   ├── programa.md                 # Programa de atividades da secção
-│   └── diario.md                   # Diário de Bordo da Comunidade — arquivo e galeria
+│   └── diario.md                 # Diário de Bordo da Comunidade 88 — arquivo e galeria
 │
 ├── alcateia/                     # Secção I — Lobitos
 │   ├── geral.md
@@ -59,7 +59,7 @@ Os ficheiros fonte estão organizados por área do site e por tipo de conteúdo:
 │   ├── vivencia.md
 │   ├── programa.md
 │   └── diario.md
-├── frota/                        # Secção III — Marinheiros
+├── frota/                        # Secção III — Frota 98 (Marinheiros)
 │   ├── geral.md
 │   ├── vivencia.md
 │   ├── programa.md
@@ -112,7 +112,7 @@ Não existe painel de administração. Para alterar o site, edita os ficheiros f
 | Notícias | `_noticias/` | Um Markdown por notícia. A homepage mostra uma notícia em destaque e grupos fixos de 3 laterais; depois do segundo grupo, o link abre `/agrupamento/noticias.html`, que contém o arquivo completo por data. |
 | Documentos | `_documentos/` | Criar ou editar um ficheiro Markdown. O campo `ano` determina onde aparece. |
 | Inscrições em atividades | `_inscricoes/` | Só entradas com `ativo: true` aparecem como inscrições abertas; cria a pasta quando adicionar a primeira entrada. |
-| Diário de Bordo da Comunidade | `comunidade/diario.md` | Os IDs das pastas do Google Drive são definidos no front matter. |
+| Diário de Bordo da Comunidade 88 | `comunidade/diario.md` | Os IDs das pastas do Google Drive são definidos no front matter. |
 
 As páginas normais são editadas no respetivo ficheiro `.md` ou `.html`. Para pré-visualizar e compilar localmente:
 

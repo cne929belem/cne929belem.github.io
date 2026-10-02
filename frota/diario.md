@@ -1,23 +1,23 @@
 ---
 layout: default
-title: Diário de Bordo | III - Frota
+title: Diário de Bordo | III - Frota 98
 main_class: pagina-com-hero
 ultima_atualizacao: 25/09/2026
 seccao_slug: frota
-seccao_nome: III - Frota
+seccao_nome: III - Frota 98
 seccao_cor: '#39374C'
 ---
 <section class="hero-generico hero-seccao hero-frota" id="hero" aria-hidden="true"></section>
 <div class="espaco-hero-generico" aria-hidden="true"></div>
 <div class="comunidade-pagina">
-	<header class="seccao-cabecalho"><h1>Diário de Bordo</h1><p>As memórias das navegações da Frota.</p></header>
+	<header class="seccao-cabecalho"><h1>Diário de Bordo</h1><p>As memórias das navegações da Frota 98.</p></header>
 	{% include seccao-nav.html %}
 	<section class="card">
 		<div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
 			<span style="font-size: 2.5rem;">📄</span>
 			<h2 style="margin: 0; color: var(--azul-marinho); border-left: 5px solid {{ page.seccao_cor }}; padding-left: 12px;">Diário de Bordo</h2>
 		</div>
-		<p style="line-height: 1.6; margin-bottom: 30px;">O arquivo vivo da nossa Frota, onde reunimos memórias, relatórios e imagens das atividades.</p>
+		<p style="line-height: 1.6; margin-bottom: 30px;">O arquivo vivo da Frota 98, onde reunimos memórias, relatórios e imagens das atividades.</p>
 		<div style="margin-top: 40px; text-align: left;">
 			<div class="doc-link pendente">
 				<div>

@@ -160,6 +160,27 @@ if (estadoSessao) {
       elemento.textContent = valor === undefined || valor === null || valor === "" ? "—" : String(valor);
     });
 
+    const rotuloGrupo = document.querySelector("[data-rotulo-grupo]");
+    const valorGrupo = document.querySelector("[data-grupo-elemento]");
+    const seccao = String(perfil["Secção"] || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLocaleLowerCase("pt-PT");
+    let rotulo = "Grupo / equipa";
+    let camposGrupo = ["Grupo", "Equipa"];
+    if (seccao.includes("alcateia") || seccao.includes("lobito")) {
+      rotulo = "Bando";
+      camposGrupo = ["Bando"];
+    } else if (seccao.includes("flotilha") || seccao.includes("moco")) {
+      rotulo = "Tripulação";
+      camposGrupo = ["Tripulação", "Tripulacao"];
+    }
+    const grupo = camposGrupo
+      .map((campo) => perfil[campo])
+      .find((valor) => valor !== undefined && valor !== null && String(valor).trim() !== "");
+    rotuloGrupo.textContent = rotulo;
+    valorGrupo.textContent = grupo === undefined ? "—" : String(grupo);
+
     const listaCondecoracoes = document.querySelector("[data-lista-condecoracoes]");
     listaCondecoracoes.replaceChildren();
     if (!Array.isArray(perfil.condecoracoes) || perfil.condecoracoes.length === 0) {

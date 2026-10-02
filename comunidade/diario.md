@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Diário de Bordo | IV - Comunidade
+title: Diário de Bordo | IV - Comunidade 88
 main_class: pagina-com-hero
 ultima_atualizacao: 25/09/2026
 seccao_slug: comunidade
-seccao_nome: IV - Comunidade
+seccao_nome: IV - Comunidade 88
 seccao_cor: '#39374C'
 pasta_documentos: "1dbzKTvBdIoigtzF5DascO4hJfjrT1dQb"
 pasta_imagens: "1SuqsdzNBkOm3D762mdcsWlr2txQ-sj0z"
@@ -25,7 +25,7 @@ pasta_imagens: "1SuqsdzNBkOm3D762mdcsWlr2txQ-sj0z"
             <h2 style="margin: 0; color: var(--azul-marinho); border-left: 5px solid {{ page.seccao_cor }}; padding-left: 12px;">Diário de Bordo</h2>
         </div>
 
-        <p style="line-height: 1.6; margin-bottom: 30px;">O arquivo vivo da nossa Comunidade, onde guardamos as memórias das nossas navegações, os relatórios de atividade e as imagens que nos marcaram.</p>
+        <p style="line-height: 1.6; margin-bottom: 30px;">O arquivo vivo da Comunidade 88, onde guardamos as memórias das nossas navegações, os relatórios de atividade e as imagens que nos marcaram.</p>
 
         <div style="margin-top: 40px; text-align: left;">
             <div class="doc-link pendente">

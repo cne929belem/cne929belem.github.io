@@ -181,16 +181,16 @@ sitemap: false
             <ol class="etapas-legenda"><li data-etapa="1">Etapa 1</li><li data-etapa="2">Etapa 2</li><li data-etapa="3">Etapa 3</li><li data-etapa="4">Etapa 4</li></ol>
           </article>
           <article class="progresso-seccao" style="--etapa-cor: #315c8b;">
-            <h3>III · Frota</h3>
-            <div class="etapas-circulo" role="img" aria-label="Frota, quatro etapas">
+            <h3>III · Frota 98</h3>
+            <div class="etapas-circulo" role="img" aria-label="Frota 98, quatro etapas">
               <span class="etapa-numero">1</span><span class="etapa-numero">2</span><span class="etapa-numero">3</span><span class="etapa-numero">4</span>
               <img src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt="">
             </div>
             <ol class="etapas-legenda"><li data-etapa="1">Etapa 1</li><li data-etapa="2">Etapa 2</li><li data-etapa="3">Etapa 3</li><li data-etapa="4">Etapa 4</li></ol>
           </article>
           <article class="progresso-seccao" style="--etapa-cor: #bd242c;">
-            <h3>IV · Comunidade</h3>
-            <div class="etapas-circulo" role="img" aria-label="Comunidade, quatro etapas">
+            <h3>IV · Comunidade 88</h3>
+            <div class="etapas-circulo" role="img" aria-label="Comunidade 88, quatro etapas">
               <span class="etapa-numero">1</span><span class="etapa-numero">2</span><span class="etapa-numero">3</span><span class="etapa-numero">4</span>
               <img src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="">
             </div>
@@ -227,6 +227,8 @@ sitemap: false
           <div class="dados-pessoais-campo"><dt>Situação</dt><dd data-dado="Situação"></dd></div>
           <div class="dados-pessoais-campo"><dt>Categoria</dt><dd data-dado="Categoria"></dd></div>
           <div class="dados-pessoais-campo"><dt>Secção</dt><dd data-dado="Secção"></dd></div>
+          <div class="dados-pessoais-campo"><dt>Cargo</dt><dd data-dado="Cargo"></dd></div>
+          <div class="dados-pessoais-campo"><dt data-rotulo-grupo>Grupo / equipa</dt><dd data-grupo-elemento></dd></div>
           <div class="dados-pessoais-campo"><dt>Agrupamento</dt><dd data-dado="Agrupamento"></dd></div>
           <div class="dados-pessoais-campo"><dt>Núcleo</dt><dd data-dado="Núcleo"></dd></div>
           <div class="dados-pessoais-campo"><dt>Região</dt><dd data-dado="Região"></dd></div>
