@@ -2,7 +2,7 @@
 layout: default
 title: Diário de Bordo | IV - Comunidade 88
 main_class: pagina-com-hero
-ultima_atualizacao: 25/09/2026
+ultima_atualizacao: 10/10/2026
 seccao_slug: comunidade
 seccao_nome: IV - Comunidade 88
 seccao_cor: '#39374C'
