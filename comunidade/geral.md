@@ -2,7 +2,7 @@
 layout: default
 title: Geral | IV - Comunidade 88
 main_class: pagina-com-hero
-ultima_atualizacao: 25/09/2026
+ultima_atualizacao: 10/10/2026
 seccao_slug: comunidade
 seccao_nome: IV - Comunidade 88
 seccao_cor: '#39374C'
@@ -14,7 +14,7 @@ seccao_cor: '#39374C'
     .insignia-equipa { width: 34px; height: 34px; object-fit: contain; flex-shrink: 0; }
     .comunidade-equipa-bloco .seccao-geral-intro { margin-bottom: 16px; }
     .comunidade-equipa-bloco .equipa-seccao-grelha { grid-template-columns: 1fr; }
-    .comunidade-equipa-bloco .comunidade-arrais-grelha { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 8px; }
+    .comunidade-equipa-bloco .comunidade-arrais-grelha { grid-template-columns: 1fr; margin-top: 8px; }
     .comunidade-equipa-contactos { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; margin: 16px 0 8px; }
     .comunidade-equipa-contactos a { color: var(--azul-claro); font-size: 0.85rem; font-weight: 800; }
     @media (max-width: 760px) { .geral-grelha { grid-template-columns: 1fr; } }
@@ -32,16 +32,17 @@ seccao_cor: '#39374C'
     <section class="card card-sem-caixa">
         <div class="seccao-equipa-bloco comunidade-equipa-bloco" style="--cor-seccao: #39374C;">
             <h2 class="section-title vermelho">🏕️ A equipa da Comunidade 88</h2>
-            <p class="seccao-geral-intro">A Equipa de Animação acompanha o percurso dos Companheiros; os Arrais, eleitos pelos Companheiros no início das atividades, apoiam a organização e a coordenação da vida da Comunidade 88.</p>
+            <p class="seccao-geral-intro">A Equipa de Animação acompanha o percurso dos Companheiros; o Arrais, eleito pelos Companheiros no início das atividades, apoia a organização e a coordenação da vida da Comunidade 88.</p>
             <h3 class="section-title vermelho">Equipa de Animação</h3>
             <div class="equipa-seccao-grelha">
                 <div class="pessoa-seccao"><img src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="Insígnia de Chefe de Unidade"><img src="{{ '/assets/img/equipa/ricardo-isaias_equipa.jpg' | relative_url }}" alt="Ricardo Isaías"><div><small>Chefe de Unidade</small><strong>Ricardo Isaías (Axolote)</strong></div></div>
             </div>
-            <h3 class="section-title vermelho" style="margin-top: 18px;">Arrais</h3>
+            <h3 class="section-title vermelho" style="margin-top: 18px;">Arrais (eleição 10/10/2026)</h3>
             <div class="equipa-seccao-grelha comunidade-arrais-grelha">
                 <div class="pessoa-seccao"><img class="pessoa-seccao-foto" src="{{ '/assets/img/seccoes/arrais.jpg' | relative_url }}" alt="Guilherme Fernandes"><div><small>Arrais</small><strong>Guilherme Fernandes (Lavagante)</strong></div></div>
-                <div class="pessoa-seccao"><img class="pessoa-seccao-foto" src="{{ '/assets/img/seccoes/2arrais.jpg' | relative_url }}" alt="Afonso Carpinteiro"><div><small>2.º Arrais</small><strong>Afonso Carpinteiro (Napoleão)</strong></div></div>
             </div>
+            <a class="btn seccao-grupo-trigger" href="#modal-elementos-comunidade" aria-haspopup="dialog">⚓ Ver elementos da Comunidade 88</a>
+            {% include seccao-elementos-modal.html id="modal-elementos-comunidade" nome="Elementos da Comunidade 88" %}
             <div class="comunidade-equipa-contactos">
                 <a href="{{ '/agrupamento/equipa.html' | relative_url }}">Ver as equipas do Agrupamento</a>
                 <a href="mailto:companheiros.929@escutismo.pt">✉️ Enviar email à Comunidade 88</a>

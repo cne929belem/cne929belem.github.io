@@ -3,7 +3,7 @@ layout: default
 title: Área Pessoal | Agrupamento 929 - Belém
 published: true
 main_class: pagina-com-hero
-ultima_atualizacao: 01/10/2026
+ultima_atualizacao: 10/10/2026
 robots: "noindex, nofollow"
 sitemap: false
 ---
@@ -85,9 +85,6 @@ sitemap: false
   .dados-pessoais-campo { min-width: 0; padding: 12px; border-bottom: 1px solid #dce4e9; }
   .dados-pessoais-campo dt { margin-bottom: 4px; color: #657781; font-size: 12px; }
   .dados-pessoais-campo dd { min-height: 1.4em; margin: 0; color: var(--azul-marinho); font-size: 14px; font-weight: 700; overflow-wrap: anywhere; }
-  .dados-saude { border-top: 1px solid #dce4e9; padding-top: 18px; }
-  .dados-saude summary { color: var(--azul-marinho); font-weight: 800; cursor: pointer; }
-  .dados-saude .dados-pessoais-grelha { margin-top: 12px; }
   .dados-pessoais-form { display: grid; gap: 10px; max-width: 760px; }
   .dados-pessoais-form fieldset { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 12px; border: 1px solid #dce4e9; border-radius: 6px; }
   .dados-pessoais-form legend { grid-column: 1 / -1; padding: 0 6px; color: var(--azul-marinho); font-size: 14px; font-weight: 800; }
@@ -268,21 +265,6 @@ sitemap: false
           </dl>
         </div>
       </section>
-      <details class="dados-pessoais-grupo dados-saude">
-        <summary>Dados de saúde e restrições</summary>
-        <dl class="dados-pessoais-grelha">
-          <div class="dados-pessoais-campo"><dt>Número de utente</dt><dd data-dado="número de utente"></dd></div>
-          <div class="dados-pessoais-campo"><dt>Asma</dt><dd data-dado="asma"></dd></div>
-          <div class="dados-pessoais-campo"><dt>Epilepsia</dt><dd data-dado="epilepsia"></dd></div>
-          <div class="dados-pessoais-campo"><dt>Diabetes</dt><dd data-dado="diabetes"></dd></div>
-          <div class="dados-pessoais-campo"><dt>Alergias</dt><dd data-dado="alergias"></dd></div>
-          <div class="dados-pessoais-campo"><dt>Descrição de alergias</dt><dd data-dado="descalergias"></dd></div>
-          <div class="dados-pessoais-campo"><dt>Outros problemas</dt><dd data-dado="outroprob"></dd></div>
-          <div class="dados-pessoais-campo"><dt>Medicação</dt><dd data-dado="medicacao"></dd></div>
-          <div class="dados-pessoais-campo"><dt>Restrições</dt><dd data-dado="restricoes"></dd></div>
-          <div class="dados-pessoais-campo"><dt>Descrição de restrições</dt><dd data-dado="descrestricoes"></dd></div>
-        </dl>
-      </details>
       <section class="dados-pessoais-grupo" aria-labelledby="titulo-consentimentos">
         <h3 id="titulo-consentimentos">Autorizações</h3>
         <dl class="dados-pessoais-grelha">

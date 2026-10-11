@@ -2,7 +2,7 @@
 layout: default
 title: Notícias | Agrupamento 929 - Belém
 main_class: pagina-com-hero
-ultima_atualizacao: 30/09/2026
+ultima_atualizacao: 10/10/2026
 ---
 {% assign noticias_ordenadas = site.noticias | sort: "date" | reverse %}
 {% assign meses = "janeiro,fevereiro,março,abril,maio,junho,julho,agosto,setembro,outubro,novembro,dezembro" | split: "," %}
@@ -11,6 +11,7 @@ ultima_atualizacao: 30/09/2026
   .noticias-arquivo { position: relative; z-index: 5; max-width: 1100px; margin: 0 auto; padding: 28px; background: #fff; }
   .noticias-arquivo-intro { margin: 0 0 18px; color: #52616a; font-size: 1rem; line-height: 1.5; }
   .noticia-arquivo { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; padding: 22px 0; border-top: 1px solid #dce4e9; }
+  .noticia-arquivo[id] { scroll-margin-top: 76px; }
   .noticia-arquivo-com-imagem { grid-template-columns: minmax(180px, 280px) minmax(0, 1fr); }
   .noticia-arquivo-imagem { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 6px; }
   .noticia-arquivo-imagem-padrao { object-fit: contain; background: #fff; padding: 10px; }
@@ -45,7 +46,7 @@ ultima_atualizacao: 30/09/2026
   <p class="noticias-arquivo-intro">Notícias do Agrupamento, da mais recente à mais antiga.</p>
   {% for noticia in noticias_ordenadas %}
   {% assign mes_noticia = noticia.date | date: "%-m" | minus: 1 %}
-  <article class="noticia-arquivo noticia-arquivo-com-imagem">
+  <article class="noticia-arquivo noticia-arquivo-com-imagem"{% if noticia.ancora %} id="{{ noticia.ancora }}"{% endif %}>
     <img class="noticia-arquivo-imagem{% unless noticia.imagem %} noticia-arquivo-imagem-padrao{% endunless %}{% if noticia.imagem_ajuste == 'contain' %} noticia-arquivo-imagem-conter{% endif %}{% if noticia.imagem_posicao == 'top' %} noticia-arquivo-imagem-topo{% endif %}" src="{{ noticia.imagem | default: '/assets/img/marca/Logo929.jpg' | relative_url }}" alt="">
     <div class="noticia-arquivo-conteudo">
       <p class="noticia-arquivo-meta">
