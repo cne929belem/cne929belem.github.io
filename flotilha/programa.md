@@ -2,7 +2,7 @@
 layout: default
 title: Programa | II - Flotilha
 main_class: pagina-com-hero
-ultima_atualizacao: 25/09/2026
+ultima_atualizacao: 10/10/2026
 seccao_slug: flotilha
 seccao_nome: II - Flotilha
 seccao_cor: '#6678A6'

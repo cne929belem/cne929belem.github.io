@@ -2,7 +2,7 @@
 layout: default
 title: Informações Gerais | Agrupamento 929 - Belém
 main_class: pagina-com-hero
-ultima_atualizacao: 25/09/2026
+ultima_atualizacao: 10/10/2026
 ---
 
 <style>
@@ -137,7 +137,7 @@ ultima_atualizacao: 25/09/2026
                         </div>
                         <div class="timeline-item">
                             <time datetime="2026-10-10">10 de outubro</time>
-                            <h3>Início do Ano Escutista</h3>
+                            <h3><a href="{{ '/agrupamento/noticias.html#inicio-ano-escutista' | relative_url }}">Início do Ano Escutista</a></h3>
                             <p>Começa às 10h, na Base.</p>
                         </div>
                     </div>

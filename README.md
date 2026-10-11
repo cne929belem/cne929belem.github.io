@@ -35,6 +35,7 @@ Os ficheiros fonte estão organizados por área do site e por tipo de conteúdo:
 │
 ├── agrupamento/                  # Menu "Agrupamento"
 │   ├── informacoes.md              # Sobre o Agrupamento, contactos, quotas
+│   ├── historia.md                  # A nossa história (em construção)
 │   ├── equipa.md                   # Organigrama e Equipas de Animação
 │   ├── documentos.md              # Documentos oficiais, agrupados por ano
 │   └── noticias.md                 # Arquivo cronológico de notícias

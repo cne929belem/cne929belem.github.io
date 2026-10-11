@@ -2,7 +2,7 @@
 layout: default
 title: Equipa | Agrupamento 929 - Belém
 main_class: pagina-com-hero
-ultima_atualizacao: 25/09/2026
+ultima_atualizacao: 10/10/2026
 ---
 <style>
   .pagina-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
@@ -149,10 +149,10 @@ ultima_atualizacao: 25/09/2026
     </div>
     <div class="pessoa-cartao-grande">
       <img class="insignia-lado" src="{{ '/assets/img/equipa/secretario_tesoureiro.png' | relative_url }}" alt="">
-        <img class="foto-pessoa" src="{{ '/assets/img/equipa/carolina-mascarenhas_equipa.jpg' | relative_url }}" alt="Carolina Mascarenhas">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte">
       <div>
-        <p class="cargo">Secretário</p>
-        <p class="nome">Carolina Mascarenhas (Koala Pensadora)</p>
+        <p class="cargo">Secretário de Agrupamento</p>
+        <p class="nome">Paulo Duarte (Roaz Criativo)</p>
       </div>
     </div>
     <div class="pessoa-cartao-grande">

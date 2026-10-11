@@ -2,7 +2,7 @@
 layout: default
 title: I - Alcateia | Agrupamento 929 - Belém
 main_class: pagina-com-hero
-ultima_atualizacao: 25/09/2026
+ultima_atualizacao: 10/10/2026
 seccao_slug: alcateia
 seccao_nome: I - Alcateia
 seccao_cor: '#E9B708'
@@ -35,6 +35,8 @@ seccao_cor_texto: '#17202A'
                 <div class="pessoa-seccao"><span class="pessoa-seccao-foto cargo-foto-placeholder" aria-hidden="true">👤</span><div><small>Guia de Bando</small><strong>A eleger</strong></div></div>
                 <div class="pessoa-seccao"><span class="pessoa-seccao-foto cargo-foto-placeholder" aria-hidden="true">👤</span><div><small>Sub-Guia de Bando</small><strong>A eleger</strong></div></div>
             </div>
+            <a class="btn seccao-grupo-trigger" href="#modal-elementos-alcateia" aria-haspopup="dialog">🐺 Ver elementos do Bando</a>
+            {% include seccao-elementos-modal.html id="modal-elementos-alcateia" nome="Elementos do Bando" %}
             <div class="alcateia-equipa-contactos">
                 <a href="{{ '/agrupamento/equipa.html' | relative_url }}">Ver as equipas do Agrupamento</a>
                 <a href="mailto:lobitos.929@escutismo.pt">✉️ Enviar email à Alcateia</a>
