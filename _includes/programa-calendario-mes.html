@@ -1,0 +1,68 @@
+{% assign offset = include.offset | plus: 0 %}
+{% assign dias = include.dias | plus: 0 %}
+{% assign fim_dias = offset | plus: dias %}
+{% assign celulas = 35 %}
+{% if fim_dias > 35 %}
+    {% assign celulas = 42 %}
+{% endif %}
+{% assign ultimo_indice = celulas | minus: 1 %}
+{% assign mes_formatado = include.mes_num | prepend: "0" | slice: -2, 2 %}
+<article class="programa-mes" aria-label="Calendário de {{ include.nome }} de 2026">
+    <h3>{{ include.nome }} 2026</h3>
+    <div class="programa-calendario" role="grid" aria-label="{{ include.nome }} de 2026">
+        <span class="programa-dia-semana" role="columnheader">Seg</span>
+        <span class="programa-dia-semana" role="columnheader">Ter</span>
+        <span class="programa-dia-semana" role="columnheader">Qua</span>
+        <span class="programa-dia-semana" role="columnheader">Qui</span>
+        <span class="programa-dia-semana" role="columnheader">Sex</span>
+        <span class="programa-dia-semana" role="columnheader">Sáb</span>
+        <span class="programa-dia-semana" role="columnheader">Dom</span>
+        {% for celula in (0..ultimo_indice) %}
+            {% if celula >= offset and celula < fim_dias %}
+                {% assign dia = celula | minus: offset | plus: 1 %}
+                {% assign dia_formatado = dia | prepend: "0" | slice: -2, 2 %}
+                {% assign data_calendario = include.ano | append: "-" | append: mes_formatado | append: "-" | append: dia_formatado %}
+                {% assign evento_dia = nil %}
+                {% for evento in page.programa_eventos %}
+                    {% if evento.data == data_calendario or evento.data_inicio <= data_calendario and evento.data_fim >= data_calendario %}
+                        {% assign evento_dia = evento %}
+                    {% endif %}
+                {% endfor %}
+                {% assign dia_livre = false %}
+                {% if page.programa_dias_livres contains data_calendario %}
+                    {% assign dia_livre = true %}
+                {% endif %}
+                <div class="programa-dia{% if evento_dia %} programa-dia-atividade{% elsif dia_livre %} programa-dia-livre{% endif %}" role="gridcell" aria-label="{{ dia }} de {{ include.nome | downcase }} de 2026{% if evento_dia %}: atividade{% if evento_dia.titulo %} · {{ evento_dia.titulo }}{% endif %}{% elsif dia_livre %}: data livre de atividade{% endif %}">
+                    <span class="programa-dia-numero">{{ dia }}</span>
+                </div>
+            {% else %}
+                <span class="programa-dia programa-dia-vazio" aria-hidden="true"></span>
+            {% endif %}
+        {% endfor %}
+    </div>
+    {% if page.programa_eventos or page.programa_dias_livres %}
+    <ul class="programa-eventos-lista" aria-label="Atividades de {{ include.nome }}">
+        {% for evento in page.programa_eventos %}
+            {% assign data_inicio_evento = evento.data | default: evento.data_inicio %}
+            {% assign evento_mes = data_inicio_evento | slice: 5, 2 %}
+            {% if evento_mes == mes_formatado %}
+            <li>
+                {% if evento.periodo %}
+                    <time datetime="{{ data_inicio_evento }}">{{ evento.periodo }}</time> ·
+                {% else %}
+                    <time datetime="{{ evento.data }}">{{ evento.data | date: "%-d" }} {{ include.nome | downcase }}</time> ·
+                {% endif %}
+                {% if evento.link %}<a class="programa-evento-link" href="{{ evento.link | relative_url }}">{{ evento.titulo }}</a>{% else %}{{ evento.titulo }}{% endif %}
+            </li>
+            {% endif %}
+        {% endfor %}
+        {% for data_livre in page.programa_dias_livres %}
+            {% assign data_livre_mes = data_livre | slice: 5, 2 %}
+            {% if data_livre_mes == mes_formatado %}
+                {% assign dia_livre_numero = data_livre | slice: 8, 2 | plus: 0 %}
+                <li class="programa-evento-livre"><time datetime="{{ data_livre }}">{{ dia_livre_numero }} {{ include.nome | downcase }}</time> · Data livre de atividade</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+</article>

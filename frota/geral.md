@@ -38,20 +38,113 @@ seccao_cor: '#39374C'
                 <a class="frota-equipa seccao-grupo-trigger" href="#modal-equipagem-luis-camoes" aria-haspopup="dialog" aria-label="Abrir elementos da Equipagem Luís de Camões">
                     <h4 id="equipagem-luis-camoes">Equipagem Luís de Camões</h4>
                     <div class="equipa-seccao-grelha frota-equipa-cargos-grelha">
-                        <div class="pessoa-seccao"><span class="pessoa-seccao-foto cargo-foto-placeholder" aria-hidden="true">👤</span><div><small>Mestre</small><strong>A eleger</strong></div></div>
-                        <div class="pessoa-seccao"><span class="pessoa-seccao-foto cargo-foto-placeholder" aria-hidden="true">👤</span><div><small>Contramestre</small><strong>A eleger</strong></div></div>
+                        <div class="pessoa-seccao"><span class="pessoa-seccao-foto cargo-foto-placeholder" aria-hidden="true">👤</span><div><small>Mestre</small><strong>Petinga</strong></div></div>
+                        <div class="pessoa-seccao"><span class="pessoa-seccao-foto cargo-foto-placeholder" aria-hidden="true">👤</span><div><small>Contramestre</small><strong>Albatroz</strong></div></div>
                     </div>
                 </a>
                 <a class="frota-equipa seccao-grupo-trigger" href="#modal-equipagem-diogo-cao" aria-haspopup="dialog" aria-label="Abrir elementos da Equipagem Diogo Cão">
                     <h4 id="equipagem-diogo-cao">Equipagem Diogo Cão</h4>
                     <div class="equipa-seccao-grelha frota-equipa-cargos-grelha">
-                        <div class="pessoa-seccao"><span class="pessoa-seccao-foto cargo-foto-placeholder" aria-hidden="true">👤</span><div><small>Mestre</small><strong>A eleger</strong></div></div>
-                        <div class="pessoa-seccao"><span class="pessoa-seccao-foto cargo-foto-placeholder" aria-hidden="true">👤</span><div><small>Contramestre</small><strong>A eleger</strong></div></div>
+                        <div class="pessoa-seccao"><span class="pessoa-seccao-foto cargo-foto-placeholder" aria-hidden="true">👤</span><div><small>Mestre</small><strong>Espadinha VI</strong></div></div>
+                        <div class="pessoa-seccao"><span class="pessoa-seccao-foto cargo-foto-placeholder" aria-hidden="true">👤</span><div><small>Contramestre</small><strong>Lanterna</strong></div></div>
                     </div>
                 </a>
             </div>
-            {% include seccao-elementos-modal.html id="modal-equipagem-luis-camoes" nome="Elementos da Equipagem Luís de Camões" %}
-            {% include seccao-elementos-modal.html id="modal-equipagem-diogo-cao" nome="Elementos da Equipagem Diogo Cão" %}
+            <div id="modal-equipagem-luis-camoes" class="css-lightbox seccao-elementos-modal" style="--cor-seccao: {{ page.seccao_cor }};" role="dialog" aria-modal="true" aria-labelledby="modal-equipagem-luis-camoes-titulo">
+                <div class="css-lightbox-box">
+                    <div class="css-lightbox-header" id="modal-equipagem-luis-camoes-titulo">Elementos da Equipagem Luís de Camões</div>
+                    <div class="css-lightbox-body">
+                        <div class="seccao-elementos-grelha">
+                            <div class="seccao-elemento">
+                                <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                                <span class="seccao-elemento-nome">Mestre</span>
+                                <span class="seccao-elemento-totem">Petinga</span>
+                            </div>
+                            <div class="seccao-elemento">
+                                <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                                <span class="seccao-elemento-nome">Contramestre</span>
+                                <span class="seccao-elemento-totem">Albatroz</span>
+                            </div>
+                            <div class="seccao-elemento">
+                                <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                                <span class="seccao-elemento-nome">Escrivã</span>
+                                <span class="seccao-elemento-totem">Puffin</span>
+                            </div>
+                            <div class="seccao-elemento">
+                                <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                                <span class="seccao-elemento-nome">Tesoureiro</span>
+                                <span class="seccao-elemento-totem">Carpa</span>
+                            </div>
+                            <div class="seccao-elemento">
+                                <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                                <span class="seccao-elemento-nome">Socorrista</span>
+                                <span class="seccao-elemento-totem">Palhaço</span>
+                            </div>
+                            <div class="seccao-elemento">
+                                <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                                <span class="seccao-elemento-nome">Taifa</span>
+                                <span class="seccao-elemento-totem">Albatroz</span>
+                            </div>
+                            <div class="seccao-elemento">
+                                <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                                <span class="seccao-elemento-nome">Guarda Paiol</span>
+                                <span class="seccao-elemento-totem">Espadinha VII</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn css-lightbox-close">Fechar</a>
+                    </div>
+                </div>
+            </div>
+            <div id="modal-equipagem-diogo-cao" class="css-lightbox seccao-elementos-modal" style="--cor-seccao: {{ page.seccao_cor }};" role="dialog" aria-modal="true" aria-labelledby="modal-equipagem-diogo-cao-titulo">
+                <div class="css-lightbox-box">
+                    <div class="css-lightbox-header" id="modal-equipagem-diogo-cao-titulo">Elementos da Equipagem Diogo Cão</div>
+                    <div class="css-lightbox-body">
+                        <div class="seccao-elementos-grelha">
+                            <div class="seccao-elemento">
+                                <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                                <span class="seccao-elemento-nome">Mestre</span>
+                                <span class="seccao-elemento-totem">Espadinha VI</span>
+                            </div>
+                            <div class="seccao-elemento">
+                                <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                                <span class="seccao-elemento-nome">Contramestre</span>
+                                <span class="seccao-elemento-totem">Lanterna</span>
+                            </div>
+                            <div class="seccao-elemento">
+                                <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                                <span class="seccao-elemento-nome">Escrivã</span>
+                                <span class="seccao-elemento-totem">Manafim</span>
+                            </div>
+                            <div class="seccao-elemento">
+                                <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                                <span class="seccao-elemento-nome">Tesoureiro</span>
+                                <span class="seccao-elemento-totem">Manta</span>
+                            </div>
+                            <div class="seccao-elemento">
+                                <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                                <span class="seccao-elemento-nome">Socorrista</span>
+                                <span class="seccao-elemento-totem">Lanterna</span>
+                            </div>
+                            <div class="seccao-elemento">
+                                <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                                <span class="seccao-elemento-nome">Taifa</span>
+                                <span class="seccao-elemento-totem">Raia</span>
+                            </div>
+                            <div class="seccao-elemento">
+                                <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                                <span class="seccao-elemento-nome">Guarda Paiol</span>
+                                <span class="seccao-elemento-totem">Arqueiro</span>
+                            </div>
+                            <div class="seccao-elemento">
+                                <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                                <span class="seccao-elemento-nome">Animador</span>
+                                <span class="seccao-elemento-totem">Polvo</span>
+                            </div>
+                        </div>
+                        <a href="#" class="btn css-lightbox-close">Fechar</a>
+                    </div>
+                </div>
+            </div>
             <div class="frota-equipa-contactos">
                 <a href="{{ '/agrupamento/equipa.html' | relative_url }}">Ver as equipas do Agrupamento</a>
                 <a href="mailto:marinheiros.929@escutismo.pt">✉️ Enviar email à Frota 98</a>
