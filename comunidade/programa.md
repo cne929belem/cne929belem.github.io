@@ -11,7 +11,7 @@ seccao_cor: '#39374C'
 <div class="espaco-hero-generico" aria-hidden="true"></div>
 
 <div class="comunidade-pagina pagina-seccao">
-  <header class="seccao-cabecalho"><h1>Programa</h1><p>O programa da Comunidade 88 está a ganhar forma.</p></header>
+  <header class="seccao-cabecalho"><h1>Programa</h1><p>Calendário de atividades da Comunidade 88.</p></header>
   {% include seccao-nav.html %}
-  <section class="card seccao-construcao"><span class="seccao-construcao-icone" aria-hidden="true">⚓🧭</span><h2>Em construção</h2><p>Em breve poderás consultar o programa e as próximas atividades da Comunidade 88.</p></section>
+  {% include programa-calendarios.html %}
 </div>
