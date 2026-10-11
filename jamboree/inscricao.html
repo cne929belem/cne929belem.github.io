@@ -127,7 +127,8 @@ robots: "noindex, nofollow"
                 <p class="step-sub">Secção 1 de 8 · Campos com * são obrigatórios</p>
                 <div class="field field-full">
                     <label class="field-label" for="s1_nome">Nome completo *</label>
-                                        <input type="text" id="s1_nome" name="s1_nome" autocomplete="name" required>
+                    <input type="text" id="s1_nome" name="s1_nome" autocomplete="off" list="s1_nome_list" required>
+                    <datalist id="s1_nome_list"></datalist>
                 </div>
                 <div class="field">
                                         <label class="field-label" for="s1_nin">NIN *</label>
@@ -335,7 +336,7 @@ robots: "noindex, nofollow"
                 </div>
                 <div class="field options-field">
                     <span class="field-label">Vacinado(a) contra o Tétano?</span>
-                    <input type="radio" id="s5_vacina_tetano__sim" name="s5_vacina_tetano" value="Sim" class="trigger-yes"><label for="s5_vacina_tetano__sim">Sim</label><input type="radio" id="s5_vacina_tetano__nao" name="s5_vacina_tetano" value="Não"><label for="s5_vacina_tetano__nao">Não</label>
+                    <input type="radio" id="s5_vacina_tetano__sim" name="s5_vacina_tetano" value="Sim" class="trigger-yes" required><label for="s5_vacina_tetano__sim">Sim</label><input type="radio" id="s5_vacina_tetano__nao" name="s5_vacina_tetano" value="Não" required><label for="s5_vacina_tetano__nao">Não</label>
                     <div class="conditional-field">
                         <div class="field">
                             <label class="field-label" for="s5_vacina_tetano_data">Data da vacinação (Tétano)</label>
@@ -345,7 +346,7 @@ robots: "noindex, nofollow"
                 </div>
                 <div class="field options-field">
                     <span class="field-label">Vacinado(a) contra a Difteria?</span>
-                    <input type="radio" id="s5_vacina_difteria__sim" name="s5_vacina_difteria" value="Sim" class="trigger-yes"><label for="s5_vacina_difteria__sim">Sim</label><input type="radio" id="s5_vacina_difteria__nao" name="s5_vacina_difteria" value="Não"><label for="s5_vacina_difteria__nao">Não</label>
+                    <input type="radio" id="s5_vacina_difteria__sim" name="s5_vacina_difteria" value="Sim" class="trigger-yes" required><label for="s5_vacina_difteria__sim">Sim</label><input type="radio" id="s5_vacina_difteria__nao" name="s5_vacina_difteria" value="Não" required><label for="s5_vacina_difteria__nao">Não</label>
                     <div class="conditional-field">
                         <div class="field">
                             <label class="field-label" for="s5_vacina_difteria_data">Data da vacinação (Difteria)</label>
@@ -355,7 +356,7 @@ robots: "noindex, nofollow"
                 </div>
                 <div class="field options-field">
                     <span class="field-label">Tipo sanguíneo</span>
-                    <input type="radio" id="s5_tipo_sanguineo__a-rh" name="s5_tipo_sanguineo" value="1 - A Rh+"><label for="s5_tipo_sanguineo__a-rh">A Rh+</label><input type="radio" id="s5_tipo_sanguineo__b-rh" name="s5_tipo_sanguineo" value="2 - B Rh+"><label for="s5_tipo_sanguineo__b-rh">B Rh+</label><input type="radio" id="s5_tipo_sanguineo__o-rh" name="s5_tipo_sanguineo" value="3 - O Rh+"><label for="s5_tipo_sanguineo__o-rh">O Rh+</label><input type="radio" id="s5_tipo_sanguineo__ab-rh" name="s5_tipo_sanguineo" value="4 - AB Rh+"><label for="s5_tipo_sanguineo__ab-rh">AB Rh+</label><input type="radio" id="s5_tipo_sanguineo__a-rh_neg" name="s5_tipo_sanguineo" value="5 - A Rh-"><label for="s5_tipo_sanguineo__a-rh_neg">A Rh-</label><input type="radio" id="s5_tipo_sanguineo__b-rh_neg" name="s5_tipo_sanguineo" value="6 - B Rh-"><label for="s5_tipo_sanguineo__b-rh_neg">B Rh-</label><input type="radio" id="s5_tipo_sanguineo__o-rh_neg" name="s5_tipo_sanguineo" value="7 - O Rh-"><label for="s5_tipo_sanguineo__o-rh_neg">O Rh-</label><input type="radio" id="s5_tipo_sanguineo__ab-rh_neg" name="s5_tipo_sanguineo" value="8 - AB Rh-"><label for="s5_tipo_sanguineo__ab-rh_neg">AB Rh-</label><input type="radio" id="s5_tipo_sanguineo__outro-nao-sei" name="s5_tipo_sanguineo" value="ETC - Other"><label for="s5_tipo_sanguineo__outro-nao-sei">Outro / Não sei</label>
+                    <input type="radio" id="s5_tipo_sanguineo__a-rh" name="s5_tipo_sanguineo" value="1 - A Rh+" required><label for="s5_tipo_sanguineo__a-rh">A Rh+</label><input type="radio" id="s5_tipo_sanguineo__b-rh" name="s5_tipo_sanguineo" value="2 - B Rh+" required><label for="s5_tipo_sanguineo__b-rh">B Rh+</label><input type="radio" id="s5_tipo_sanguineo__o-rh" name="s5_tipo_sanguineo" value="3 - O Rh+" required><label for="s5_tipo_sanguineo__o-rh">O Rh+</label><input type="radio" id="s5_tipo_sanguineo__ab-rh" name="s5_tipo_sanguineo" value="4 - AB Rh+" required><label for="s5_tipo_sanguineo__ab-rh">AB Rh+</label><input type="radio" id="s5_tipo_sanguineo__a-rh_neg" name="s5_tipo_sanguineo" value="5 - A Rh-" required><label for="s5_tipo_sanguineo__a-rh_neg">A Rh-</label><input type="radio" id="s5_tipo_sanguineo__b-rh_neg" name="s5_tipo_sanguineo" value="6 - B Rh-" required><label for="s5_tipo_sanguineo__b-rh_neg">B Rh-</label><input type="radio" id="s5_tipo_sanguineo__o-rh_neg" name="s5_tipo_sanguineo" value="7 - O Rh-" required><label for="s5_tipo_sanguineo__o-rh_neg">O Rh-</label><input type="radio" id="s5_tipo_sanguineo__ab-rh_neg" name="s5_tipo_sanguineo" value="8 - AB Rh-" required><label for="s5_tipo_sanguineo__ab-rh_neg">AB Rh-</label><input type="radio" id="s5_tipo_sanguineo__outro-nao-sei" name="s5_tipo_sanguineo" value="ETC - Other" required><label for="s5_tipo_sanguineo__outro-nao-sei">Outro / Não sei</label>
                 </div>
                 <div class="field">
                     <label class="field-label" for="s5_tipo_sanguineo_outro">Tipo sanguíneo — notas adicionais</label>
@@ -513,5 +514,101 @@ robots: "noindex, nofollow"
         </div>
     </form>
 
+
+<script>
+  const nameLookupEntries = [
+    ['Maria Isabel Vilhena de Almeida', '2612040929001'],
+    ['João Ferreira Gonçalves', '1812040929007'],
+    ['Maria Morais Ventura Lopes Cintra', '2212040929003'],
+    ['Leonor Fonseca Santos da Costa Mouro', '2112040929009'],
+    ['Manuel Caixeiro Bustorff Silva', '1812040929006'],
+    ['Dinis Vicente Pena Carpinteiro', '1812040929005'],
+    ['Maria do Carmo Cabral Ogando de Mello Campello', '1812040929001'],
+    ['Marta Leal da Silva Neves', '1616000044015'],
+    ['Maria Joana Callado de Mendia', '1612040929039'],
+    ['Filipe Pinto Neto da Palma Nunes', '2612040929002']
+  ];
+
+  window.NIN_LOOKUP = Object.fromEntries(nameLookupEntries.map(([name, nin]) => [name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' '), nin]));
+
+  const initializeJamboreeForm = () => {
+    const conditionalGroups = [
+      { name: 's5_vacina_tetano', target: 's5_vacina_tetano_data' },
+      { name: 's5_vacina_difteria', target: 's5_vacina_difteria_data' }
+    ];
+
+    function updateConditionalRequired() {
+      conditionalGroups.forEach(({ name, target }) => {
+        const dateInput = document.getElementById(target);
+        const selectedValue = document.querySelector(`input[name="${name}"]:checked`);
+
+        if (!dateInput) return;
+
+        const shouldRequire = selectedValue && selectedValue.value === 'Sim';
+        dateInput.required = shouldRequire;
+
+        if (!shouldRequire) {
+          dateInput.value = '';
+        }
+      });
+
+      document.querySelectorAll('input[name="s5_tipo_sanguineo"]').forEach((input) => {
+        input.required = true;
+      });
+    }
+
+    conditionalGroups.forEach(({ name }) => {
+      document.querySelectorAll(`input[name="${name}"]`).forEach((input) => {
+        input.addEventListener('change', updateConditionalRequired);
+      });
+    });
+
+    const ninField = document.getElementById('s1_nin');
+    const nameField = document.getElementById('s1_nome');
+    const nameList = document.getElementById('s1_nome_list');
+
+    if (nameList) {
+      nameLookupEntries.forEach(([name]) => {
+        const option = document.createElement('option');
+        option.value = name;
+        nameList.appendChild(option);
+      });
+    }
+
+    if (ninField && nameField && window.NIN_LOOKUP) {
+      const lookupKey = (value) => value.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ');
+
+      const populateNin = () => {
+        const key = lookupKey(nameField.value);
+        if (!key) return;
+
+        const matchedNin = window.NIN_LOOKUP[key];
+        if (matchedNin) {
+          ninField.value = matchedNin;
+          return;
+        }
+
+        ninField.value = '';
+      };
+
+      nameField.addEventListener('focus', () => {
+        if (!nameField.value.trim()) {
+          nameField.click();
+        }
+      });
+      nameField.addEventListener('input', populateNin);
+      nameField.addEventListener('change', populateNin);
+      nameField.addEventListener('blur', populateNin);
+    }
+
+    updateConditionalRequired();
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeJamboreeForm);
+  } else {
+    initializeJamboreeForm();
+  }
+</script>
 </div>
 </div>

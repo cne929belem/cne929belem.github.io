@@ -1703,17 +1703,12 @@ input.trigger-outro:checked ~ .conditional-field-outro-only { display: block; }
 
     @media (max-width: 780px) {
         .hero-generico:not(.hero-jamboree) { position: relative; height: auto; min-height: 0; }
-        .hero-generico:not(.hero-jamboree) .pagina-cabecalho { height: auto; min-height: 0; padding: 72px 18px 24px; }
+        .hero-generico:not(.hero-jamboree) .pagina-cabecalho,
+        .hero-generico:not(.hero-jamboree) .acesso-cabecalho { height: auto; min-height: 0; padding: 72px 18px 24px; }
         .hero-generico:not(.hero-jamboree) + .espaco-hero-generico { display: none; height: 0; }
         .hero-generico.hero-alcateia, .hero-generico.hero-flotilha,
         .hero-generico.hero-frota, .hero-generico.hero-comunidade {
             height: 20vh; min-height: 112px;
-        }
-        .hero-generico.hero-alcateia + .espaco-hero-generico,
-        .hero-generico.hero-flotilha + .espaco-hero-generico,
-        .hero-generico.hero-frota + .espaco-hero-generico,
-        .hero-generico.hero-comunidade + .espaco-hero-generico {
-            display: block; height: 20vh; min-height: 112px;
         }
         .hero-generico:not(.hero-jamboree) .pagina-cabecalho h1 {
             max-width: 100%; margin-bottom: 8px; font-size: 25px; line-height: 1.15;

@@ -11,7 +11,7 @@ seccao_cor_texto: '#17202A'
 <section class="hero-generico hero-seccao hero-alcateia" id="hero" aria-hidden="true"></section>
 <div class="espaco-hero-generico" aria-hidden="true"></div>
 <div class="comunidade-pagina pagina-seccao">
-	<header class="seccao-cabecalho"><h1>Programa</h1><p>O programa da Alcateia está a ganhar forma.</p></header>
+	<header class="seccao-cabecalho"><h1>Programa</h1><p>Calendário de atividades da Alcateia.</p></header>
 	{% include seccao-nav.html %}
-	<section class="card seccao-construcao"><span class="seccao-construcao-icone" aria-hidden="true">🐺🧭</span><h2>Em construção</h2><p>Em breve poderás consultar o programa e as próximas atividades da Alcateia.</p></section>
+	{% include programa-calendarios.html %}
 </div>
