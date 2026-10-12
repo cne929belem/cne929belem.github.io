@@ -288,7 +288,6 @@ seccao_cor: '#39374C'
                     <p class="vivencia-texto">Estamos a preparar mais conteúdo para a Frota 98. Em breve vais encontrar aqui:</p>
                     <ul class="vivencia-texto">
                         <li>o Sistema de Progresso do Marinheiro;</li>
-                        <li>a Oração do Marinheiro;</li>
                         <li>os guiões das Celebrações e Cerimoniais da Frota.</li>
                     </ul>
                 </div>

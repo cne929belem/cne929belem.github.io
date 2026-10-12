@@ -60,13 +60,8 @@ sitemap: false
   .progresso-grelha { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
   .progresso-seccao { display: grid; justify-items: center; gap: 10px; min-width: 0; text-align: center; }
   .progresso-seccao h3 { margin: 0; color: var(--azul-marinho); font-size: 14px; }
-  .etapas-circulo { position: relative; display: grid; place-items: center; width: 112px; aspect-ratio: 1; border-radius: 50%; background: conic-gradient(from -45deg, var(--etapa-cor) 0 86deg, #fff 86deg 90deg, var(--etapa-cor) 90deg 176deg, #fff 176deg 180deg, var(--etapa-cor) 180deg 266deg, #fff 266deg 270deg, var(--etapa-cor) 270deg 356deg, #fff 356deg 360deg); }
-  .etapas-circulo img { width: 48px; height: 48px; object-fit: contain; padding: 5px; border-radius: 50%; background: #fff; }
-  .etapa-numero { position: absolute; color: #fff; font-size: 12px; font-weight: 800; }
-  .etapa-numero:nth-child(1) { top: 18px; right: 22px; }
-  .etapa-numero:nth-child(2) { right: 18px; bottom: 20px; }
-  .etapa-numero:nth-child(3) { bottom: 18px; left: 22px; }
-  .etapa-numero:nth-child(4) { top: 18px; left: 18px; }
+  .etapas-circulo { position: relative; width: 112px; aspect-ratio: 1; }
+  .etapa-peca { position: absolute; inset: 0; background-position: center; background-repeat: no-repeat; background-size: contain; }
   .etapas-legenda { display: grid; gap: 3px; margin: 0; padding: 0; color: #657781; font-size: 11px; list-style: none; }
   .condecoracoes-percurso { padding-top: 4px; }
   .condecoracoes-percurso h2 { margin: 0 0 12px; color: var(--azul-marinho); font-size: 20px; }
@@ -163,33 +158,41 @@ sitemap: false
         <div class="progresso-grelha">
           <article class="progresso-seccao" style="--etapa-cor: #d8a900;">
             <h3>I · Alcateia</h3>
-            <div class="etapas-circulo" role="img" aria-label="Alcateia, quatro etapas">
-              <span class="etapa-numero">1</span><span class="etapa-numero">2</span><span class="etapa-numero">3</span><span class="etapa-numero">4</span>
-              <img src="{{ '/assets/img/seccoes/1_lobitos.png' | relative_url }}" alt="">
+            <div class="etapas-circulo" role="img" aria-label="Progresso da Alcateia, centro e três partes">
+              <span class="etapa-peca" aria-hidden="true" style="background-image: url('{{ '/assets/img/progresso/alcateia/centro.png' | relative_url }}')"></span>
+              <span class="etapa-peca" aria-hidden="true" style="background-image: url('{{ '/assets/img/progresso/alcateia/parte-1.png' | relative_url }}')"></span>
+              <span class="etapa-peca" aria-hidden="true" style="background-image: url('{{ '/assets/img/progresso/alcateia/parte-2.png' | relative_url }}')"></span>
+              <span class="etapa-peca" aria-hidden="true" style="background-image: url('{{ '/assets/img/progresso/alcateia/parte-3.png' | relative_url }}')"></span>
             </div>
             <ol class="etapas-legenda"><li data-etapa="1">Etapa 1</li><li data-etapa="2">Etapa 2</li><li data-etapa="3">Etapa 3</li><li data-etapa="4">Etapa 4</li></ol>
           </article>
           <article class="progresso-seccao" style="--etapa-cor: #238b57;">
             <h3>II · Flotilha</h3>
-            <div class="etapas-circulo" role="img" aria-label="Flotilha, quatro etapas">
-              <span class="etapa-numero">1</span><span class="etapa-numero">2</span><span class="etapa-numero">3</span><span class="etapa-numero">4</span>
-              <img src="{{ '/assets/img/seccoes/2_mocos.png' | relative_url }}" alt="">
+            <div class="etapas-circulo" role="img" aria-label="Progresso da Flotilha, centro e três partes">
+              <span class="etapa-peca" aria-hidden="true" style="background-image: url('{{ '/assets/img/progresso/flotilha/centro.png' | relative_url }}')"></span>
+              <span class="etapa-peca" aria-hidden="true" style="background-image: url('{{ '/assets/img/progresso/flotilha/parte-1.png' | relative_url }}')"></span>
+              <span class="etapa-peca" aria-hidden="true" style="background-image: url('{{ '/assets/img/progresso/flotilha/parte-2.png' | relative_url }}')"></span>
+              <span class="etapa-peca" aria-hidden="true" style="background-image: url('{{ '/assets/img/progresso/flotilha/parte-3.png' | relative_url }}')"></span>
             </div>
             <ol class="etapas-legenda"><li data-etapa="1">Etapa 1</li><li data-etapa="2">Etapa 2</li><li data-etapa="3">Etapa 3</li><li data-etapa="4">Etapa 4</li></ol>
           </article>
           <article class="progresso-seccao" style="--etapa-cor: #315c8b;">
             <h3>III · Frota 98</h3>
-            <div class="etapas-circulo" role="img" aria-label="Frota 98, quatro etapas">
-              <span class="etapa-numero">1</span><span class="etapa-numero">2</span><span class="etapa-numero">3</span><span class="etapa-numero">4</span>
-              <img src="{{ '/assets/img/seccoes/3_marinheiros.png' | relative_url }}" alt="">
+            <div class="etapas-circulo" role="img" aria-label="Progresso da Frota 98, centro e três partes">
+              <span class="etapa-peca" aria-hidden="true" style="background-image: url('{{ '/assets/img/progresso/frota/centro.png' | relative_url }}')"></span>
+              <span class="etapa-peca" aria-hidden="true" style="background-image: url('{{ '/assets/img/progresso/frota/parte-1.png' | relative_url }}')"></span>
+              <span class="etapa-peca" aria-hidden="true" style="background-image: url('{{ '/assets/img/progresso/frota/parte-2.png' | relative_url }}')"></span>
+              <span class="etapa-peca" aria-hidden="true" style="background-image: url('{{ '/assets/img/progresso/frota/parte-3.png' | relative_url }}')"></span>
             </div>
             <ol class="etapas-legenda"><li data-etapa="1">Etapa 1</li><li data-etapa="2">Etapa 2</li><li data-etapa="3">Etapa 3</li><li data-etapa="4">Etapa 4</li></ol>
           </article>
           <article class="progresso-seccao" style="--etapa-cor: #bd242c;">
             <h3>IV · Comunidade 88</h3>
-            <div class="etapas-circulo" role="img" aria-label="Comunidade 88, quatro etapas">
-              <span class="etapa-numero">1</span><span class="etapa-numero">2</span><span class="etapa-numero">3</span><span class="etapa-numero">4</span>
-              <img src="{{ '/assets/img/seccoes/4_companheiros.png' | relative_url }}" alt="">
+            <div class="etapas-circulo" role="img" aria-label="Progresso da Comunidade 88, centro e três partes">
+              <span class="etapa-peca" aria-hidden="true" style="background-image: url('{{ '/assets/img/progresso/comunidade/centro.png' | relative_url }}')"></span>
+              <span class="etapa-peca" aria-hidden="true" style="background-image: url('{{ '/assets/img/progresso/comunidade/parte-1.png' | relative_url }}')"></span>
+              <span class="etapa-peca" aria-hidden="true" style="background-image: url('{{ '/assets/img/progresso/comunidade/parte-2.png' | relative_url }}')"></span>
+              <span class="etapa-peca" aria-hidden="true" style="background-image: url('{{ '/assets/img/progresso/comunidade/parte-3.png' | relative_url }}')"></span>
             </div>
             <ol class="etapas-legenda"><li data-etapa="1">A Rota / O Caminho</li><li data-etapa="2">A Tripulação / A Comunidade</li><li data-etapa="3">O Serviço</li><li data-etapa="4">A Partida</li></ol>
           </article>
