@@ -13,23 +13,22 @@ ultima_atualizacao: 10/10/2026
 {% assign meses = "janeiro,fevereiro,março,abril,maio,junho,julho,agosto,setembro,outubro,novembro,dezembro" | split: "," %}
 {% assign total_noticias = site.noticias | size %}
 {% assign total_noticias_laterais = total_noticias | minus: 1 %}
+{% assign imagens_carrossel = site.static_files | where_exp: "ficheiro", "ficheiro.path contains '/assets/img/carrossel/'" | sort: "name" %}
 
 <h1 class="visualmente-oculto">929 - Belém, Corpo Nacional de Escutas</h1>
 
 <section class="hero" id="hero">
-  <div class="hero-slide ativo"></div>
-  <div class="hero-slide"></div>
-  <div class="hero-slide"></div>
-  <div class="hero-slide"></div>
+  {% for imagem in imagens_carrossel %}
+  <div class="hero-slide{% if forloop.first %} ativo{% endif %}" style="background-image: url('{{ imagem.path | relative_url }}')"></div>
+  {% endfor %}
 
   <button class="seta-carrossel seta-esquerda" aria-label="Imagem anterior" onclick="mudarSlide(-1)">‹</button>
   <button class="seta-carrossel seta-direita" aria-label="Imagem seguinte" onclick="mudarSlide(1)">›</button>
 
   <div class="pontos-carrossel">
-    <button class="ponto ativo" aria-label="Imagem 1" onclick="irParaSlide(0)"></button>
-    <button class="ponto" aria-label="Imagem 2" onclick="irParaSlide(1)"></button>
-    <button class="ponto" aria-label="Imagem 3" onclick="irParaSlide(2)"></button>
-    <button class="ponto" aria-label="Imagem 4" onclick="irParaSlide(3)"></button>
+    {% for imagem in imagens_carrossel %}
+    <button class="ponto{% if forloop.first %} ativo{% endif %}" aria-label="Imagem {{ forloop.index }}" onclick="irParaSlide({{ forloop.index0 }})"></button>
+    {% endfor %}
   </div>
 </section>
 
