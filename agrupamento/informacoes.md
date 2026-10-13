@@ -78,8 +78,6 @@ ultima_atualizacao: 10/10/2026
                 <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
                     <li>📩 <strong>Comunicações genéricas:</strong> <a href="mailto:geral.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">geral.929@escutismo.pt</a></li>
                     <li>⚜️ <strong>Chefe do Agrupamento:</strong> <a href="mailto:ca.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">ca.929@escutismo.pt</a></li>
-                    <li>📄 <strong>Secretaria e Tesouraria:</strong> <a href="mailto:secretaria929.grupo@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">secretaria929.grupo@escutismo.pt</a></li>
-                    <li>🏕️ <strong>Paiol do Agrupamento:</strong> <a href="mailto:paiol.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">paiol.929@escutismo.pt</a></li>
                     <li style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ddd;">🐺 <strong>I - Lobitos:</strong> <a href="mailto:lobitos.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">lobitos.929@escutismo.pt</a></li>
                     <li>⛵ <strong>II - Moços:</strong> <a href="mailto:mocos.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">mocos.929@escutismo.pt</a></li>
                     <li>⚓ <strong>III - Marinheiros:</strong> <a href="mailto:marinheiros.929@escutismo.pt" style="color: var(--azul-claro); text-decoration: none; font-weight: bold;">marinheiros.929@escutismo.pt</a></li>
@@ -141,7 +139,7 @@ ultima_atualizacao: 10/10/2026
                             <p>Começa às 10h, na Base.</p>
                         </div>
                     </div>
-                    <a class="btn" href="mailto:secretaria929.grupo@escutismo.pt?subject=pagamento%20de%20quotas&amp;body=Nome%3A%20%0ANIN%3A%20%0AData%20nascimento%3A%20%0A%0A%5Bn%C3%A3o%20se%20esque%C3%A7a%20de%20anexar%20o%20comprovativo%20de%20transfer%C3%AAncia%5D">Já paguei</a>
+                    <a class="btn" href="mailto:geral.929@escutismo.pt?subject=pagamento%20de%20quotas&amp;body=Nome%3A%20%0ANIN%3A%20%0AData%20nascimento%3A%20%0A%0A%5Bn%C3%A3o%20se%20esque%C3%A7a%20de%20anexar%20o%20comprovativo%20de%20transfer%C3%AAncia%5D">Já paguei</a>
                 </div>
             </div>
 

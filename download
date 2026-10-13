@@ -1,0 +1,6 @@
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+# Chave de respostas do Teste das Promessas e outros ficheiros privados: nunca no repositório público
+*PRIVADO*

@@ -14,6 +14,7 @@ seccao_cor: '#6678A6'
   do Regulamento Geral do CNE (designações marítimas), sempre reescrito.
 
   VALIDAR ANTES DE PUBLICAR:
+  - Teste das Promessas: perguntas e chaves aprovadas pela Equipa de Animação na Sheet (ver apps-script/teste-promessas/LEIA-ME.md).
   - Tema «Progresso» (13/10/2026): ver as notas no topo de _data/progresso.yml.
   - Elementos por Tripulação: 5 a 8 no Rumos, 4 a 8 no quadro comparativo.
   - Nomes dos conselhos: o Rumos descreve-os sem os nomear; "Conselho de
@@ -279,9 +280,15 @@ seccao_cor: '#6678A6'
 
                     <div id="estudo-fim">
                         <h2>Muitos Parabéns! 🎉</h2>
-                        <p>Concluíste a revisão desta secção de perguntas.</p>
-                        <a href="{{ '/em-construcao.html' | relative_url }}" class="btn" style="margin-top: 15px; background-color: var(--azul-marinho); display: inline-block;">Faz o Teste 📝</a>
+                        <p>Concluíste a revisão desta secção de perguntas. Podes agora abrir o separador «Teste das Promessas».</p>
                     </div>
+                </div>
+            </details>
+
+            <details class="acordeao">
+                <summary>📝 Teste das Promessas</summary>
+                <div class="acordeao-content">
+                    {% include teste-promessas.html %}
                 </div>
             </details>
 

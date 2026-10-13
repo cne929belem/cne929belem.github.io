@@ -7,6 +7,7 @@ import {
   signOut
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 import { doc, getDoc, getFirestore } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+import { carregarTestesPromessas, limparTestesPromessas } from "./area-pessoal-testes.js";
 
 const ENDPOINT_LINK_ACESSO = "https://script.google.com/macros/s/AKfycbx0MLn9Oz-_mU5N57n65u4WBHohVdplhjMWYk3z3nVUFx6J2t7hiQi-ReVe1gm0SLf8/exec";
 
@@ -284,6 +285,7 @@ if (estadoSessao) {
   }
 
   function limparPerfil() {
+    limparTestesPromessas();
     document.querySelectorAll("[data-dado], [data-campo-perfil]").forEach((elemento) => {
       elemento.textContent = "";
     });
@@ -382,6 +384,7 @@ if (estadoSessao) {
       preencherPerfil(perfilSnapshot.data());
       mensagemSessao.textContent = `Sessão iniciada como ${utilizador.email}.`;
       mostrarConteudoAutenticado(true);
+      carregarTestesPromessas(utilizador);
     } catch (erro) {
       console.error("Falha ao carregar o perfil:", erro?.code || "unknown");
       const codigo = codigoSuporte(erro, {

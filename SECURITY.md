@@ -10,6 +10,7 @@ O site do **Agrupamento 929 – Belém** inclui uma Área Pessoal com autentica�
 | Código deste repositório, incluindo `firestore.rules` e `assets/js/` | ✅ |
 | Área Pessoal (Firebase Authentication + Firestore) | ✅ |
 | Portal de Respostas do Jamboree (Google Apps Script, **fora** deste repositório) | ✅ — reporta na mesma; encaminhamos internamente |
+| Teste das Promessas (Google Apps Script em `apps-script/teste-promessas/`) | ✅ |
 | Ramos antigos ou de trabalho que não estejam publicados | ❌ |
 | Infraestrutura do GitHub, Google ou Firebase | ❌ — reporta diretamente a esses fornecedores |
 

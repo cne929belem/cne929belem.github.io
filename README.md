@@ -90,6 +90,7 @@ A publicação acontece quando as alterações chegam ao ramo configurado no Git
 ├── _data/                        # progresso.yml · adesao.yml
 ├── _noticias/  _documentos/  _inscricoes/   # Coleções
 ├── firestore.rules               # Regras-fonte do Firestore (não publicadas pelo Jekyll)
+├── apps-script/teste-promessas/  # Servidor do Teste das Promessas (Google Apps Script; não publicado)
 ├── Gemfile / Gemfile.lock        # Dependências Ruby
 │
 ├── assets/
@@ -125,6 +126,7 @@ Não existe painel de administração: edita-se diretamente nos ficheiros. Para 
 | Etapas do Progresso (I–III) | `_data/progresso.yml` | Etapas, leituras marítimas e «Competências a Bordo». O componente é `_includes/vivencia-progresso.html`. |
 | Perguntas da «Adesão ao Movimento» | `_data/adesao.yml` | Lista única usada pela Flotilha, Frota e Comunidade 88. |
 | Perguntas de cada secção | `*/vivencia.md` (no `<script>`) | Lista `perguntasSeccao` (ou `perguntasAlcateia`). |
+| Teste das Promessas | `_data/teste_promessas.yml` + aba «Chave» da Sheet privada | Perguntas e opções no repositório; resposta certa e aprovação só na Sheet. Ver `apps-script/teste-promessas/LEIA-ME.md`. |
 | Diário de Bordo | `*/diario.md` | Os IDs das pastas do Google Drive estão no front matter. |
 
 ### Publicar uma notícia

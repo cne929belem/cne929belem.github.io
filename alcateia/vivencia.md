@@ -16,6 +16,7 @@ seccao_cor_texto: '#17202A'
   64.º), sempre reescrito.
 
   VALIDAR ANTES DE PUBLICAR:
+  - Teste das Promessas: perguntas e chaves aprovadas pela Equipa de Animação na Sheet (ver apps-script/teste-promessas/LEIA-ME.md).
   - Tema «Progresso» (13/10/2026): ver as notas no topo de _data/progresso.yml.
   - Elementos por Bando: 4 a 7 no Regulamento Geral (art. 64.º, n.º 4, usado
     aqui), 6 a 8 no Rumos, 5 a 7 no quadro comparativo.
@@ -315,9 +316,15 @@ seccao_cor_texto: '#17202A'
 
                     <div id="estudo-fim">
                         <h2>Muitos Parabéns! 🎉</h2>
-                        <p>Concluíste a revisão desta secção de perguntas.</p>
-                        <a href="{{ '/em-construcao.html' | relative_url }}" class="btn" style="margin-top: 15px; display: inline-block;">Faz o Teste 📝</a>
+                        <p>Concluíste a revisão desta secção de perguntas. Podes agora abrir o separador «Teste das Promessas».</p>
                     </div>
+                </div>
+            </details>
+
+            <details class="acordeao">
+                <summary>📝 Teste das Promessas</summary>
+                <div class="acordeao-content">
+                    {% include teste-promessas.html %}
                 </div>
             </details>
 
