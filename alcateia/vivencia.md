@@ -2,7 +2,7 @@
 layout: default
 title: Vivência | I - Alcateia
 main_class: pagina-com-hero
-ultima_atualizacao: 12/10/2026
+ultima_atualizacao: 13/10/2026
 seccao_slug: alcateia
 seccao_nome: I - Alcateia
 seccao_cor: '#E9B708'
@@ -16,6 +16,7 @@ seccao_cor_texto: '#17202A'
   64.º), sempre reescrito.
 
   VALIDAR ANTES DE PUBLICAR:
+  - Tema «Progresso» (13/10/2026): ver as notas no topo de _data/progresso.yml.
   - Elementos por Bando: 4 a 7 no Regulamento Geral (art. 64.º, n.º 4, usado
     aqui), 6 a 8 no Rumos, 5 a 7 no quadro comparativo.
   - Divisa: os Lobitos têm divisa própria no Regulamento Geral ("Da melhor
@@ -265,6 +266,11 @@ seccao_cor_texto: '#17202A'
                 </div>
             </details>
 
+            <!-- TEMA 4B: PROGRESSO — componente partilhado (_includes/vivencia-progresso.html,
+                 dados em _data/progresso.yml), com a mesma estrutura do "Progresso e PPV"
+                 da Comunidade 88. -->
+            {% include vivencia-progresso.html %}
+
             <!-- TEMA 5: ORAÇÃO DO LOBITO -->
             <details class="acordeao verde">
                 <summary>🙏 Oração do Lobito</summary>
@@ -321,7 +327,6 @@ seccao_cor_texto: '#17202A'
                 <div class="acordeao-content">
                     <p class="vivencia-texto">Estamos a preparar mais conteúdo para a Alcateia. Em breve vais encontrar aqui:</p>
                     <ul class="vivencia-texto">
-                        <li>o Sistema de Progresso do Lobito;</li>
                         <li>a fórmula da Promessa e os guiões dos Cerimoniais da Alcateia.</li>
                     </ul>
                 </div>
@@ -357,7 +362,9 @@ seccao_cor_texto: '#17202A'
         { pergunta: "4. Quem dirige o Bando?", resposta: "O Guia de Bando, escolhido pelos elementos do Bando e ratificado pelo Chefe de Alcateia. O Sub-Guia auxilia-o e substitui-o na sua ausência." },
         { pergunta: "5. A bandeirola do Bando?", resposta: "É de tecido azul celeste, debruada a amarelo, com a cabeça de lobo desenhada na cor do Bando." },
         { pergunta: "6. O imaginário da Alcateia?", resposta: "O Livro da Selva e a história de Maugli. Na Alcateia marítima, o capítulo 'A Foca Branca' e o Cótique, que aprende a navegar, são um bom exemplo para os Lobitos." },
-        { pergunta: "7. Cor da secção, local de reunião e atividade típica?", resposta: "A cor da secção é o azul debruado a amarelo, a Alcateia reúne-se no Covil e a atividade típica é a Caçada: o projeto escolhido por toda a Alcateia." }
+        { pergunta: "7. Cor da secção, local de reunião e atividade típica?", resposta: "A cor da secção é o azul debruado a amarelo, a Alcateia reúne-se no Covil e a atividade típica é a Caçada: o projeto escolhido por toda a Alcateia." },
+        { pergunta: "8. Que cargos pode ter um Lobito no Bando?", resposta: "Além do Guia e do Sub-Guia: Escrivão (regista as atividades), Lobito de Detalhe (finanças), de Baú (material), de Paiol (material náutico), Animador, da Botica (farmácia e bem-estar) e da Taifa (refeições)." },
+        { pergunta: "9. Quais são as etapas do teu progresso?", resposta: "São quatro: Pata-Tenra, Lobo Valente, Lobo Cortês e Lobo Amigo. Consulta o tema «📖 Progresso» desta página para saberes o que se vive em cada uma, em terra e no mar." }
     ];
 
     let listaAtual = [];

@@ -19,3 +19,52 @@ collections:
     output: false              # os documentos não têm página própria — só aparecem listados em agrupamento/documentos.md
   inscricoes:
     output: false              # as inscrições não têm página própria — só aparecem listadas em atividades/inscricoes.md
+
+# =========================================================================
+# PLUGINS — jekyll-sitemap é suportado nativamente pelo GitHub Pages.
+# Gera /sitemap.xml e, como não existe robots.txt no repositório, também
+# /robots.txt a apontar para o sitemap. Páginas com `sitemap: false` ficam
+# de fora (ver "defaults" abaixo).
+# =========================================================================
+plugins:
+  - jekyll-sitemap
+
+# =========================================================================
+# EXCLUSÕES — ficheiros do repositório que NÃO devem ser publicados no site.
+# No GitHub Pages, os .md sem front matter também são convertidos em páginas
+# (plugin jekyll-optional-front-matter); sem esta lista, o README e os
+# ficheiros de governação apareciam como páginas públicas. A lista repete as
+# exclusões por omissão do Jekyll (Gemfile, vendor…) por segurança.
+# =========================================================================
+exclude:
+  - README.md
+  - CODE_OF_CONDUCT.md
+  - CONTRIBUTING.md
+  - SECURITY.md
+  - ACCESSIBILITY.md
+  - AUDITORIA.md
+  - LICENSE
+  - firestore.rules
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - node_modules/
+  - .github/
+  - .jekyll-cache/
+  - .sass-cache/
+
+# =========================================================================
+# PREDEFINIÇÕES — páginas que não devem entrar no sitemap. As páginas da
+# Área Pessoal já têm `robots: noindex` no front matter; isto só evita que o
+# sitemap as anuncie. NÃO é controlo de acesso. A pasta jamboree/ não é
+# configurada aqui de propósito (não se altera nada do Jamboree).
+# =========================================================================
+defaults:
+  - scope:
+      path: "escuteiro"
+    values:
+      sitemap: false
+  - scope:
+      path: "em-construcao.md"
+    values:
+      sitemap: false

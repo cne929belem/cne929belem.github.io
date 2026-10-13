@@ -1,0 +1,35 @@
+{%- comment -%}
+  Dados estruturados (schema.org) da organização — só na página inicial.
+  Ajudam os motores de busca a mostrar o nome, o logótipo, o contacto e as
+  redes sociais do Agrupamento. Incluído em _layouts/default.html, no <head>.
+  Manter alinhado com o rodapé (email, local e redes sociais).
+{%- endcomment -%}
+{%- if page.url == "/" or page.url == "/index.html" -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Agrupamento 929 - Belém",
+  "alternateName": "CNE 929 Belém — Escuteiros Marítimos",
+  "description": {{ site.description | jsonify }},
+  "url": {{ site.url | append: "/" | jsonify }},
+  "logo": {{ site.url | append: "/assets/img/marca/Logo929.jpg" | jsonify }},
+  "email": "geral.929@escutismo.pt",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Doca de Recreio de Belém",
+    "addressLocality": "Lisboa",
+    "addressCountry": "PT"
+  },
+  "sameAs": [
+    "https://www.facebook.com/929belem",
+    "https://www.instagram.com/929belem/"
+  ],
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "Corpo Nacional de Escutas — Escutismo Católico Português",
+    "url": "https://escutismo.pt/"
+  }
+}
+</script>
+{%- endif -%}

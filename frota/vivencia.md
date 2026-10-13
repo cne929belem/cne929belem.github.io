@@ -2,7 +2,7 @@
 layout: default
 title: Vivência | III - Frota 98
 main_class: pagina-com-hero
-ultima_atualizacao: 11/10/2026
+ultima_atualizacao: 13/10/2026
 seccao_slug: frota
 seccao_nome: III - Frota 98
 seccao_cor: '#39374C'
@@ -13,6 +13,8 @@ seccao_cor: '#39374C'
   Marítimo) e do quadro comparativo das secções marítimas, sempre reescrito.
 
   VALIDAR ANTES DE PUBLICAR:
+  - Tema «Progresso» (13/10/2026): ver as notas no topo de _data/progresso.yml.
+  - «Contramestre» passou a seguir a grafia do Regulamento Geral (art. 57.º).
   - Significado dos 4 símbolos: o Rumos só os enumera (Ícthus, Machada, Gota de
     Água, Rosa-dos-ventos); as frases dos cartões são interpretação a confirmar.
   - Idade: 14–17 anos no Rumos, 14–18 no quadro comparativo e no resto do site.
@@ -20,10 +22,12 @@ seccao_cor: '#39374C'
 -->
 
 <style>
-    /* Caixas expansíveis (acordeão) — iguais às da Vivência da Comunidade */
+    /* Caixas expansíveis (acordeão) — iguais às da Vivência da Comunidade.
+       A cor da secção vem do front matter (seccao_cor) via --cor-vivencia,
+       como na Alcateia e na Flotilha. */
     .acordeao {
         background: var(--cinza-fundo);
-        border-left: 5px solid #39374C;
+        border-left: 5px solid var(--cor-vivencia);
         border-radius: 6px;
         margin-bottom: 15px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -52,12 +56,12 @@ seccao_cor: '#39374C'
     /* Componentes desta página (em classes, não em estilos inline) */
     .vivencia-topo { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
     .vivencia-topo-icone { font-size: 2.5rem; }
-    .vivencia-topo h2 { margin: 0; color: #39374C; }
+    .vivencia-topo h2 { margin: 0; color: var(--cor-vivencia); }
     .vivencia-intro { line-height: 1.6; margin-bottom: 30px; }
     .vivencia-lista { margin-top: 40px; text-align: left; }
     .vivencia-texto { line-height: 1.6; }
     .vivencia-texto-fim { line-height: 1.6; margin-bottom: 0; }
-    .vivencia-link { color: #39374C; font-weight: bold; text-decoration: underline; }
+    .vivencia-link { color: var(--cor-vivencia); font-weight: bold; text-decoration: underline; }
 
     .simbolos-grelha { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 14px; margin-top: 15px; }
     .simbolo-card { background: var(--cinza-fundo); border: 1px solid #eee; border-radius: 6px; padding: 15px; text-align: center; }
@@ -66,9 +70,9 @@ seccao_cor: '#39374C'
 
     .abas-botoes { display: flex; gap: 15px; justify-content: center; margin-bottom: 25px; flex-wrap: wrap; }
     .aba-vida { text-align: left; }
-    .aba-vida h3 { color: #39374C; margin-bottom: 15px; text-align: center; }
+    .aba-vida h3 { color: var(--cor-vivencia); margin-bottom: 15px; text-align: center; }
     .passos-lista { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
-    .passo-card { background: var(--cinza-fundo); border: 1px solid #eee; border-left: 4px solid var(--passo-cor, #39374C); padding: 15px; border-radius: 6px; }
+    .passo-card { background: var(--cinza-fundo); border: 1px solid #eee; border-left: 4px solid var(--passo-cor, var(--cor-vivencia)); padding: 15px; border-radius: 6px; }
     .passo-card h4 { margin: 0 0 6px; color: var(--azul-marinho); }
     .passo-card p { font-size: 0.85rem; color: #555; margin: 0; }
     .passo-card ul { margin: 6px 0 0 18px; font-size: 0.85rem; color: #555; line-height: 1.6; }
@@ -95,7 +99,7 @@ seccao_cor: '#39374C'
         <p>A nossa mística, os nossos símbolos e o rumo da Frota 98.</p>
     </header>
     {% include seccao-nav.html %}
-    <section class="card">
+    <section class="card" style="--cor-vivencia: {{ page.seccao_cor }};">
         <div class="vivencia-topo">
             <span class="vivencia-topo-icone">📄</span>
             <h2>Vivência</h2>
@@ -158,7 +162,7 @@ seccao_cor: '#39374C'
                 <summary>⚓ A Frota, as Equipagens e o Cruzeiro</summary>
                 <div class="acordeao-content">
                     <div class="abas-botoes">
-                        <button onclick="mostrarVida('equipagem')" class="btn" style="background-color: #39374C;">Equipagem e Cargos</button>
+                        <button onclick="mostrarVida('equipagem')" class="btn" style="background-color: var(--cor-vivencia);">Equipagem e Cargos</button>
                         <button onclick="mostrarVida('cruzeiro')" class="btn" style="background-color: var(--azul-marinho);">O Cruzeiro</button>
                     </div>
 
@@ -168,24 +172,24 @@ seccao_cor: '#39374C'
                         <p class="vivencia-texto">A Frota reúne os Marinheiros e organiza-se em <strong>2 a 5 Equipagens</strong>. Cada Equipagem tem entre 5 e 7 elementos, pode ser mista, e é designada pelo nome de um navegador ou de uma personagem ligada ao mar — descobertas, pesca, investigação, aventuras e proezas náuticas.</p>
 
                         <div class="passos-lista">
-                            <div class="passo-card" style="--passo-cor: #39374C;">
+                            <div class="passo-card" style="--passo-cor: var(--cor-vivencia);">
                                 <h4>🏳️ A bandeirola e o distintivo</h4>
                                 <p>A bandeirola da Equipagem é azul-escura, debruada a branco, com a silhueta do navegador no centro. O distintivo é triangular, de fundo azul e letras brancas.</p>
                             </div>
                             <div class="passo-card" style="--passo-cor: var(--azul-claro);">
                                 <h4>🧭 Mestre de Equipagem</h4>
-                                <p>É escolhido pelos elementos da Equipagem e ratificado pelo Chefe de Frota. Dirige a Equipagem, coordena as atividades, orienta as reuniões, zela pela ordem e disciplina, representa a Equipagem nos conselhos e perante a Chefia, avalia o progresso dos elementos e nomeia o Contra-Mestre.</p>
+                                <p>É escolhido pelos elementos da Equipagem e ratificado pelo Chefe de Frota. Dirige a Equipagem, coordena as atividades, orienta as reuniões, zela pela ordem e disciplina, representa a Equipagem nos conselhos e perante a Chefia, avalia o progresso dos elementos e nomeia o Contramestre.</p>
                             </div>
                             <div class="passo-card" style="--passo-cor: #6f42c1;">
-                                <h4>⚓ Contra-Mestre</h4>
+                                <h4>⚓ Contramestre</h4>
                                 <p>Substitui o Mestre na sua ausência, e pode acumular outra responsabilidade.</p>
                             </div>
                         </div>
 
-                        <p class="vivencia-texto">Além do Mestre e do Contra-Mestre, cada Marinheiro assume um cargo na Equipagem:</p>
+                        <p class="vivencia-texto">Além do Mestre e do Contramestre, cada Marinheiro assume um cargo na Equipagem:</p>
                         <div class="simbolos-grelha">
-                            <div class="simbolo-card"><strong>Cronista</strong><p>Escreve o Diário de Bordo da Equipagem e o da embarcação.</p></div>
-                            <div class="simbolo-card"><strong>do Detalhe</strong><p>Cuida das finanças da Equipagem.</p></div>
+                            <div class="simbolo-card"><strong>Escrivã/o</strong><p>Escreve o Diário de Bordo da Equipagem e o da embarcação.</p></div>
+                            <div class="simbolo-card"><strong>Tesoureiro</strong><p>Cuida das finanças da Equipagem.</p></div>
                             <div class="simbolo-card"><strong>do Paiol</strong><p>Guarda o material náutico e da embarcação.</p></div>
                             <div class="simbolo-card"><strong>do Baú</strong><p>Responsável pelo material de campo.</p></div>
                             <div class="simbolo-card"><strong>da Taifa</strong><p>Responsável pela cozinha.</p></div>
@@ -193,7 +197,7 @@ seccao_cor: '#39374C'
                             <div class="simbolo-card"><strong>Animador</strong><p>Anima a Equipagem: o lado espiritual, o lúdico e tudo o que une.</p></div>
                         </div>
 
-                        <p class="vivencia-texto" style="margin-top: 20px;">A vida da Frota decide-se em conselhos. Um deles reúne a Equipa de Animação, os Mestres e Contra-Mestres e o Assistente, e trata da gestão, da disciplina, da formação e da organização dos Cruzeiros. Outro, com todos os Marinheiros e a Equipa de Animação, é onde se tomam as grandes decisões — como escolher o Cruzeiro — e onde se faz a avaliação.</p>
+                        <p class="vivencia-texto" style="margin-top: 20px;">A vida da Frota decide-se em conselhos. Um deles reúne a Equipa de Animação, os Mestres e Contramestres e o Assistente, e trata da gestão, da disciplina, da formação e da organização dos Cruzeiros. Outro, com todos os Marinheiros e a Equipa de Animação, é onde se tomam as grandes decisões — como escolher o Cruzeiro — e onde se faz a avaliação.</p>
                     </div>
 
                     <!-- O Cruzeiro -->
@@ -202,7 +206,7 @@ seccao_cor: '#39374C'
                         <p class="vivencia-texto">O Cruzeiro é o projeto dos Marinheiros: a grande aventura que a Frota escolhe, prepara, vive e avalia em conjunto. Reunidas todos os meses (ou sempre que for preciso), as Equipagens vão dando forma ao Cruzeiro escolhido.</p>
 
                         <div class="passos-lista">
-                            <div class="passo-card" style="--passo-cor: #39374C;">
+                            <div class="passo-card" style="--passo-cor: var(--cor-vivencia);">
                                 <h4>1. Escolher</h4>
                                 <p>A Frota reúne-se e cada Equipagem apresenta o seu anteprojeto, fazendo campanha pelo seu Cruzeiro — sem atacar os restantes. A Frota decide qual avança.</p>
                             </div>
@@ -232,6 +236,11 @@ seccao_cor: '#39374C'
                 </div>
             </details>
 
+            <!-- TEMA 4B: PROGRESSO — componente partilhado (_includes/vivencia-progresso.html,
+                 dados em _data/progresso.yml), com a mesma estrutura do "Progresso e PPV"
+                 da Comunidade 88. -->
+            {% include vivencia-progresso.html %}
+
             <!-- TEMA 5: ORAÇÃO DO ESCUTA -->
             <details class="acordeao verde">
                 <summary>🙏 Oração do Escuta</summary>
@@ -259,7 +268,7 @@ seccao_cor: '#39374C'
 
                     <div id="estudo-intro" class="treino-botoes">
                         <button onclick="iniciarEstudoPromessas('movimento')" class="btn" style="background-color: var(--azul-marinho);">Adesão ao Movimento</button>
-                        <button onclick="iniciarEstudoPromessas('seccao')" class="btn" style="background-color: #39374C;">Adesão à Secção</button>
+                        <button onclick="iniciarEstudoPromessas('seccao')" class="btn" style="background-color: var(--cor-vivencia);">Adesão à Secção</button>
                     </div>
 
                     <div id="estudo-flashcard">
@@ -287,7 +296,6 @@ seccao_cor: '#39374C'
                 <div class="acordeao-content">
                     <p class="vivencia-texto">Estamos a preparar mais conteúdo para a Frota 98. Em breve vais encontrar aqui:</p>
                     <ul class="vivencia-texto">
-                        <li>o Sistema de Progresso do Marinheiro;</li>
                         <li>os guiões das Celebrações e Cerimoniais da Frota.</li>
                     </ul>
                 </div>
@@ -304,62 +312,20 @@ seccao_cor: '#39374C'
         document.getElementById('vida-cruzeiro').style.display = (aba === 'cruzeiro') ? 'block' : 'none';
     }
 
-    // Base de dados das perguntas — "Adesão ao Movimento" é igual para todas as secções
-    const perguntasMovimento = [
-        {
-            pergunta: "1. Sabes quando e como surgiu o Escutismo e o CNE?",
-            resposta: "<strong>O nascimento do Escutismo:</strong> Em 1907, Robert Baden-Powell organizou o primeiro acampamento na ilha de Brownsea, Inglaterra. Em 1908 publicou 'Scouting for Boys', lançando o Movimento.<br><br><strong>A chegada a Portugal:</strong> O CNE (Corpo Nacional de Escutas) foi fundado a 27 de maio de 1923 por D. António Mendes Belo. É a maior associação juvenil portuguesa.<br><br><strong>Princípios fundamentais:</strong> Serviço ao próximo, vida ao ar livre, sistema de patrulhas e a Promessa."
-        },
-        {
-            pergunta: "2. Sabes como se organiza o teu Agrupamento? E o CNE?",
-            resposta: "<strong>No Agrupamento:</strong> É a unidade base, composta por 4 secções (Lobitos, Exploradores/Moços, Pioneiros/Marinheiros, Caminheiros/Companheiros). É gerido pela Direção de Agrupamento (Chefe, Adjunto, Secretário, Tesoureiro, Assistente).<br><br><strong>Nacionalmente:</strong> Juntas Regionais (distritos), Núcleos (zonas locais) e a Junta Central (órgão máximo)."
-        },
-        {
-            pergunta: "3. Conheces a vida de Baden-Powell?",
-            resposta: "Nasceu a 22 de fevereiro de 1857 em Londres. Teve uma carreira militar brilhante (ex: defesa de Mafeking). Em 1907 fundou o Escutismo. Casou com Olave Baden-Powell (Chefe-Guia Mundial). Faleceu a 8 de janeiro de 1941 no Quénia, deixando o sinal de 'Missão Cumprida' e a mensagem: 'Deixem o mundo um pouco melhor do que o encontraram'."
-        },
-        {
-            pergunta: "4. Conheces a Lei, os Princípios e a Promessa?",
-            resposta: "<strong>Os 3 Princípios:</strong> Dever para com Deus, para com os outros e para consigo próprio.<br><strong>A Promessa:</strong> O compromisso pessoal e voluntário.<br><strong>A Lei:</strong> 10 artigos (1. A honra inspira confiança; 2. É leal; 3. É útil e pratica a boa ação; 4. É amigo e irmão; 5. É cortês; 6. Protege plantas e animais; 7. É obediente; 8. Tem sempre boa disposição; 9. É económico e trabalhador; 10. É puro)."
-        },
-        {
-            pergunta: "5. Já sabes rezar a oração do Escuta?",
-            resposta: "Atribuída a Santo Inácio de Loyola, reflete o serviço desinteressado:<br><em>'Senhor, ensinai-me a ser generoso, a servir-Vos como mereceis, a dar sem conta, a combater sem medo de ser ferido, a trabalhar sem descanso e a não buscar outra recompensa senão a de saber que faço a Vossa santa vontade. Ámen.'</em>"
-        },
-        {
-            pergunta: "6. Conheces o livro 'Escutismo para Rapazes'?",
-            resposta: "Escrito por B.P. em 1908. É o guia fundador do Escutismo, baseado na prática, observação e vida na natureza. Lançou o método 'aprender fazendo'."
-        },
-        {
-            pergunta: "7. Conheces o uniforme e os distintivos de função dos dirigentes?",
-            resposta: "O uniforme promove igualdade e fraternidade. Os dirigentes usam triângulos nas mangas que os identificam: Verde com Flor de Lis (Chefe de Agrupamento), e triângulos nas cores das secções para os respetivos Chefes de Secção."
-        },
-        {
-            pergunta: "8. Conheces a saudação e sabes o que ela significa?",
-            resposta: "Mão direita à altura do ombro. Os 3 dedos estendidos lembram os três deveres da Promessa (Deus, Pátria/Outros, Próprio). O polegar sobre o mindinho significa que o mais forte protege o mais fraco. O aperto de mão é feito com a mão esquerda (mão do coração)."
-        },
-        {
-            pergunta: "9. Conheces a fórmula da Promessa e o que significa?",
-            resposta: "<em>'Prometo, pela minha honra e com a graça de Deus, fazer todo o possível por: cumprir os meus deveres para com Deus e para com a minha Pátria; auxiliar o meu próximo em todas as circunstâncias; obedecer à Lei do Escuta.'</em> É o momento mais importante e marca a adesão voluntária aos valores do movimento."
-        },
-        {
-            pergunta: "10. Conheces e sabes aplicar os nós e ligações base?",
-            resposta: "Essenciais para segurança e pioneirismo.<br><strong>Nós:</strong> Direito, Escota/Tecelão, Correr, Cabeça de Cotovia, Barqueiro e Pedreiro.<br><strong>Ligações (Amarrações):</strong> Botão em cruz (ângulo reto) e Botão em esquadria (ângulo oblíquo)."
-        },
-        {
-            pergunta: "11. Conheces as regras base de campismo, segurança e vivência em campo?",
-            resposta: "Saber montar e conservar uma tenda. Ter regras de segurança estritas com ferramentas de corte (machado, navalha). A prova final da Adesão é participar ativamente num acampamento de fim de semana, colaborando com a equipa em total espírito escutista."
-        }
-    ];
+    // Lista partilhada "Adesão ao Movimento": fonte única em _data/adesao.yml
+    // (corrigida em 13/10/2026 — ver AUDITORIA.md). Não voltar a copiá-la para aqui.
+    const perguntasMovimento = {{ site.data.adesao.movimento | jsonify }};
     const perguntasSeccao = [
         { pergunta: "1. Organização da III Secção?", resposta: "A III Secção do Agrupamento 929 é a Frota 98, composta por Marinheiros (14-18 anos) organizados em Equipagens. Uma Frota tem entre 2 e 5 Equipagens." },
         { pergunta: "2. Mística e Patrono da Secção?", resposta: "A Mística é 'A Igreja em construção'. O Patrono é São Pedro: a rocha sobre a qual a Igreja começou a erguer-se e, sobretudo, um construtor de comunidade." },
         { pergunta: "3. Os símbolos da Frota?", resposta: "São quatro: o Ícthus, a Machada, a Gota de Água e a Rosa-dos-ventos." },
-        { pergunta: "4. Como se organiza uma Equipagem?", resposta: "Tem entre 5 e 7 elementos, com um Mestre (escolhido pela Equipagem e ratificado pelo Chefe de Frota) e um Contra-Mestre, que o substitui. Cada Marinheiro assume um cargo: Cronista, do Detalhe, do Paiol, do Baú, da Taifa, da Botica ou Animador." },
+        { pergunta: "4. Como se organiza uma Equipagem?", resposta: "Tem entre 5 e 7 elementos, com um Mestre (escolhido pela Equipagem e ratificado pelo Chefe de Frota) e um Contramestre, que o substitui. Cada Marinheiro assume um cargo: Cronista, do Detalhe, do Paiol, do Baú, da Taifa, da Botica ou Animador." },
         { pergunta: "5. Atividade típica?", resposta: "O Cruzeiro: o projeto dos Marinheiros, escolhido pela Frota, preparado pelas Equipagens e sempre com uma componente de exploração ou de serviço, além da navegação." },
         { pergunta: "6. Cores e bandeirola?", resposta: "A cor da secção é o azul escuro debruado a branco — a cor do mar profundo. A bandeirola da Equipagem é azul-escura, debruada a branco, com a silhueta do navegador." },
         { pergunta: "7. Como se decide o Cruzeiro?", resposta: "A Frota reúne-se e cada Equipagem apresenta o seu anteprojeto, fazendo campanha pelo seu Cruzeiro sem atacar os restantes. A Frota decide qual avança, e avalia-o no fim." },
-        { pergunta: "8. Saudação e divisa marítimas?", resposta: "O escuteiro marítimo vai sempre 'mais além' e deseja 'boa pesca'." }
+        { pergunta: "8. Saudação e divisa marítimas?", resposta: "O escuteiro marítimo vai sempre 'mais além' e deseja 'boa pesca'." },
+        { pergunta: "9. Como se distinguem as Equipagens?", resposta: "Cada Equipagem tem um Patrono: um Santo da Igreja, um Benemérito da Humanidade ou um Herói Nacional, dando-se preferência a figuras ligadas ao mar." },
+        { pergunta: "10. Quais são as etapas do teu progresso?", resposta: "Desprendimento, Conhecimento, Vontade e Construção — o caminho de São Pedro, o pescador que deixou as redes e se tornou construtor de comunidade. O progresso é orientado no Conselho de Mestres. Vê o tema «📖 Progresso» desta página." }
     ];
 
     let listaAtual = [];

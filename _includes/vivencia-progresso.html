@@ -1,0 +1,130 @@
+{%- comment -%}
+  =========================================================================
+  COMPONENTE: Acordeão "📖 Progresso" das páginas Vivência (I, II e III Secções)
+  -------------------------------------------------------------------------
+  Reproduz o acordeão "📖 Progresso e PPV" da Comunidade 88
+  (comunidade/vivencia.md): mesmas classes (.acordeao.azul, .abas-botoes,
+  .progresso-*, .ppv-*), mesmas cores de etapa e o mesmo esquema de duas abas.
+  Na IV Secção a segunda aba é "Preparar o PPV"; nas I–III é
+  "Competências a Bordo", a especificidade marítima de cada secção.
+
+  Utilização (dentro de .vivencia-lista, numa página com seccao_slug):
+      {% include vivencia-progresso.html %}
+
+  Dados: _data/progresso.yml, chave = page.seccao_slug.
+  A cor da secção vem do front matter (seccao_cor e, na Alcateia,
+  seccao_cor_texto) e é aplicada no próprio acordeão — o componente não
+  depende do que cada página define no seu <style>.
+  =========================================================================
+{%- endcomment -%}
+{%- assign prog = site.data.progresso[page.seccao_slug] -%}
+{%- if prog -%}
+<style>
+    .progresso-conteudo { text-align: left; }
+    .progresso-conteudo[hidden] { display: none; }
+    .progresso-titulo { margin: 0 0 15px; color: var(--azul-marinho); text-align: center; }
+    .progresso-intro { margin-bottom: 20px; line-height: 1.6; }
+    .progresso-etapas-lista, .ppv-lista { display: grid; gap: 15px; }
+    .progresso-etapa, .ppv-passo { padding: 15px; border: 1px solid #eee; border-left: 4px solid var(--passo-cor); border-radius: 6px; background: var(--cinza-fundo); }
+    .progresso-etapa-cabecalho { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
+    .progresso-etapa-cabecalho img { width: 45px; height: 45px; object-fit: contain; }
+    .progresso-etapa-icone { display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px; flex: 0 0 45px; font-size: 1.8rem; line-height: 1; }
+    .progresso-etapa-cabecalho h4, .ppv-passo h4 { margin: 0; color: var(--azul-marinho); }
+    .progresso-etapa-leitura { display: block; margin-top: 2px; color: #666; font-size: 0.8rem; font-weight: 600; text-transform: none; letter-spacing: normal; }
+    .progresso-etapa p, .ppv-passo p { margin: 0; color: #555; font-size: 0.85rem; }
+    .progresso-objetivos { margin-top: 30px; padding-top: 20px; border-top: 2px solid #eee; text-align: center; }
+    .progresso-objetivos h4 { margin: 0 0 15px; }
+    .ppv-lista { gap: 12px; margin: 20px 0; }
+    .ppv-passo h4 { margin-bottom: 6px; }
+    .ppv-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 20px; }
+    .ppv-links .btn { flex: 1 1 220px; min-width: 0; text-align: center; }
+    .abas-botoes .btn.btn-seccao { background-color: var(--cor-vivencia, var(--azul-claro)); color: var(--cor-vivencia-texto, #fff) !important; }
+    .abas-botoes .btn.btn-seccao:hover { background-color: var(--azul-marinho); color: #fff !important; }
+    .abas-botoes .btn[aria-pressed="false"] { opacity: .75; }
+    .abas-botoes .btn:focus-visible, .ppv-links .btn:focus-visible { outline: 3px solid var(--azul-claro); outline-offset: 3px; }
+    @media (max-width: 600px) {
+        .ppv-links .btn { flex-basis: 100%; }
+    }
+</style>
+
+<!-- TEMA: PROGRESSO (componente _includes/vivencia-progresso.html) -->
+<details class="acordeao azul" style="--cor-vivencia: {{ page.seccao_cor }}; --cor-vivencia-texto: {{ page.seccao_cor_texto | default: '#fff' }};">
+    <summary>📖 Progresso</summary>
+    <div class="acordeao-content">
+        <div class="abas-botoes" role="group" aria-label="Escolher o conteúdo do Progresso">
+            <button type="button" class="btn btn-seccao" aria-controls="progresso-etapas" aria-pressed="true" onclick="alternarAbaProgresso('etapas')">Etapas e Objetivos</button>
+            <button type="button" class="btn" aria-controls="progresso-bordo" aria-pressed="false" onclick="alternarAbaProgresso('bordo')">{{ prog.bordo.botao }}</button>
+        </div>
+
+        <!-- Etapas e Objetivos -->
+        <div id="progresso-etapas" class="progresso-conteudo">
+            <h3 class="progresso-titulo">{{ prog.titulo }}</h3>
+            <p class="progresso-intro">{{ prog.intro }}</p>
+
+            <div class="progresso-etapas-lista">
+                {%- for etapa in prog.etapas %}
+                <div class="progresso-etapa" style="--passo-cor: {{ etapa.cor }};">
+                    <div class="progresso-etapa-cabecalho">
+                        {%- if etapa.imagem and etapa.imagem != "" %}
+                        <img src="{{ etapa.imagem | relative_url }}" alt="">
+                        {%- else %}
+                        <span class="progresso-etapa-icone" aria-hidden="true">{{ etapa.icone }}</span>
+                        {%- endif %}
+                        <h4>{{ forloop.index }}. {{ etapa.nome }}<span class="progresso-etapa-leitura">{{ etapa.leitura }}</span></h4>
+                    </div>
+                    <p>{{ etapa.texto }}</p>
+                </div>
+                {%- endfor %}
+            </div>
+
+            <div class="progresso-objetivos">
+                <h4>🎯 Objetivos Educativos</h4>
+                <p>{{ prog.objetivos }}</p>
+                {%- if prog.objetivos_documento and prog.objetivos_documento != "" %}
+                <a href="{{ prog.objetivos_documento | relative_url }}" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #28a745;">📥 Download: Guia de Objetivos Educativos</a>
+                {%- endif %}
+            </div>
+        </div>
+
+        <!-- Competências a Bordo -->
+        <div id="progresso-bordo" class="progresso-conteudo" hidden>
+            <h3 class="progresso-titulo">{{ prog.bordo.titulo }}</h3>
+            <p class="vivencia-texto">{{ prog.bordo.intro }}</p>
+
+            <div class="ppv-lista">
+                {%- for passo in prog.bordo.passos %}
+                <div class="ppv-passo" style="--passo-cor: {{ passo.cor }};">
+                    <h4>{{ passo.titulo }}</h4>
+                    <p>{{ passo.texto }}</p>
+                </div>
+                {%- endfor %}
+            </div>
+
+            {%- if prog.bordo.ligacoes %}
+            <div class="ppv-links">
+                {%- for ligacao in prog.bordo.ligacoes %}
+                <a href="{{ ligacao.url | relative_url }}" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: {{ ligacao.cor }};">{{ ligacao.rotulo }}</a>
+                {%- endfor %}
+            </div>
+            {%- endif %}
+        </div>
+    </div>
+</details>
+
+<script>
+    // Alternar as abas do Progresso (Etapas e Objetivos / Competências a Bordo).
+    // Nome próprio para não colidir com mostrarVida() nem com o script da página.
+    function alternarAbaProgresso(aba) {
+        ['etapas', 'bordo'].forEach(function (nome) {
+            var painel = document.getElementById('progresso-' + nome);
+            var botao = document.querySelector('[aria-controls="progresso-' + nome + '"]');
+            var ativo = (nome === aba);
+            if (painel) { painel.hidden = !ativo; }
+            if (botao) {
+                botao.setAttribute('aria-pressed', String(ativo));
+                botao.classList.toggle('btn-seccao', ativo);
+            }
+        });
+    }
+</script>
+{%- endif -%}

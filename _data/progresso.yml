@@ -1,0 +1,300 @@
+# =========================================================================
+# SISTEMA DE PROGRESSO — I, II e III Secções (Escutismo Marítimo)
+# -------------------------------------------------------------------------
+# Alimenta o componente _includes/vivencia-progresso.html, que reproduz o
+# acordeão "📖 Progresso e PPV" da Comunidade 88 (comunidade/vivencia.md):
+# mesmas classes, mesmas cores de etapa (cinzento → bronze → prata → ouro),
+# mesmas duas abas. A chave de cada bloco é o `seccao_slug` da página.
+#
+# Campos de cada etapa:
+#   nome      → nome oficial da etapa no Sistema de Progresso do CNE
+#   leitura   → leitura marítima (subtítulo), à semelhança de "A Rota / O Caminho"
+#   cor       → cor da barra lateral (igual à IV Secção)
+#   imagem    → caminho da insígnia em assets/img/seccoes/ (opcional; se vazio
+#               mostra o `icone`). As insígnias das etapas I–III ainda não
+#               existem no repositório.
+#   icone     → emoji de recurso enquanto não houver imagem
+#
+# VALIDAR ANTES DE PUBLICAR (Equipa de Animação de cada secção):
+#   - Nomes das etapas da I Secção (Pata-Tenra, Lobo Valente, Lobo Cortês,
+#     Lobo Amigo): confirmar com o manual de secção em vigor. Os documentos do
+#     projeto confirmam "pata-tenra" (Rumos) mas não listam as quatro etapas.
+#   - As "leituras marítimas" são uma proposta do Agrupamento, inspirada no
+#     Rumos (Cótique, Descobrimentos, São Pedro pescador) — não são texto
+#     oficial do CNE.
+#   - As "Competências a bordo" são uma proposta interna, NÃO requisitos
+#     oficiais de etapa. A Equipa de Animação adapta-as a cada elemento.
+# =========================================================================
+
+alcateia:
+  titulo: "O Sistema de Progresso"
+  intro: >-
+    Na Alcateia, o progresso vê-se nas pequenas conquistas de cada dia — no Bando,
+    nas Caçadas e no Covil. Tal como Cótique, a Foca Branca, que aprendeu a nadar e
+    a navegar até encontrar mares seguros, cada Lobito percorre <strong>4 etapas</strong>,
+    ao seu ritmo, acompanhado por Àquêlà e pela Equipa de Animação:
+  etapas:
+    - nome: "Pata-Tenra"
+      leitura: "Primeiras braçadas"
+      cor: "#aaa"
+      icone: "🐾"
+      imagem: ""
+      texto: >-
+        Acabaste de chegar ao Covil. É o tempo de conheceres o teu Bando, a Lei, as
+        Máximas e a Divisa do Lobito, e de dares as primeiras braçadas em segurança —
+        sempre com colete e perto de um adulto. Esta etapa termina quando estiveres
+        pronto para a tua Promessa.
+    - nome: "Lobo Valente"
+      leitura: "Largar do cais"
+      cor: "#cd7f32"
+      icone: "🐺"
+      imagem: ""
+      texto: >-
+        Já fizeste a Promessa e és Lobito de pleno direito. Ganhas coragem para
+        experimentar coisas novas: participas ativamente nas Caçadas, assumes um
+        cargo no Bando e ajudas a cuidar do material, em terra e a bordo.
+    - nome: "Lobo Cortês"
+      leitura: "Remar em conjunto"
+      cor: "#c0c0c0"
+      icone: "🤝"
+      imagem: ""
+      texto: >-
+        Aprendes a pensar primeiro no teu semelhante, como diz a primeira Máxima.
+        Ajudas os mais novos do Bando, respeitas as regras a bordo e descobres que o
+        mar, como toda a Natureza, é obra do Criador e merece o teu cuidado.
+    - nome: "Lobo Amigo"
+      leitura: "Rumo à Flotilha"
+      cor: "#ffd700"
+      icone: "⭐"
+      imagem: ""
+      texto: >-
+        És uma referência para o teu Bando: podes vir a ser Guia ou Sub-Guia e ajudar
+        Àquêlà a preparar as Caçadas. É também o tempo de te preparares para a
+        passagem à Flotilha, onde te espera a aventura dos Moços.
+  objetivos: >-
+    Os objetivos educativos organizam-se em 6 áreas — Física, Afetiva, Carácter,
+    Espiritual, Social e Intelectual. Os desafios de cada etapa são combinados com a
+    Equipa de Animação, e os progressos dos Lobitos ficam assinalados no Mastro de
+    Honra da Alcateia.
+  objetivos_documento: ""
+  bordo:
+    botao: "Competências a Bordo"
+    titulo: "Competências a Bordo"
+    intro: >-
+      No Escutismo Marítimo, o mar também faz parte do progresso. Estas competências
+      são uma proposta do Agrupamento para acompanhar as etapas — a Equipa de
+      Animação adapta-as a cada Lobito.
+    passos:
+      - titulo: "1. Segurança primeiro"
+        cor: "var(--azul-claro)"
+        texto: >-
+          Sabes vestir e apertar o colete sozinho e nunca entras na água nem numa
+          embarcação sem autorização de um dirigente.
+      - titulo: "2. À vontade na água"
+        cor: "#6f42c1"
+        texto: >-
+          Perdes o medo da água: flutuas, deslizas e nadas uma pequena distância,
+          sempre em piscina ou em zona vigiada.
+      - titulo: "3. Os primeiros nós"
+        cor: "#28a745"
+        texto: >-
+          Nó direito e nó de oito: os primeiros nós de um marinheiro, para arrumar
+          cabos e prender o material do Bando.
+      - titulo: "4. A bordo com o Bando"
+        cor: "var(--amarelo)"
+        texto: >-
+          Participas numa saída de barco com a Alcateia, conheces as partes da
+          embarcação (proa, popa, bombordo e estibordo) e ajudas a arrumar o
+          material no fim.
+      - titulo: "5. Guardião do mar"
+        cor: "var(--cor-vivencia)"
+        texto: >-
+          Como Cótique, aprendes a respeitar o mar: não deixas lixo na praia,
+          conheces algumas espécies da nossa costa e participas numa ação de limpeza.
+    ligacoes:
+      - rotulo: "👔 Uniforme de Lobitos"
+        url: "/assets/docs/uniforme-maritimo_v2024-1.pdf"
+        cor: "#28a745"
+      - rotulo: "⚓ Insígnias Marítimas"
+        url: "/assets/docs/insignia_maritimo-1.pdf"
+        cor: "#6f42c1"
+
+flotilha:
+  titulo: "O Sistema de Progresso"
+  intro: >-
+    Na Flotilha, cada Moço é um descobridor. A mística da <strong>Descoberta da Terra
+    Prometida</strong> dá sentido às 4 etapas — tal como os navegadores portugueses,
+    ouves o chamamento do mar, firmas um compromisso com a tua Tripulação, aprendes
+    a manter o rumo e chegas a novas terras:
+  etapas:
+    - nome: "Apelo"
+      leitura: "O chamamento do mar"
+      cor: "#aaa"
+      icone: "📯"
+      imagem: ""
+      texto: >-
+        Ouviste o chamamento e embarcaste na Flotilha. Conheces a tua Tripulação, o
+        seu Totem e o seu lema, a Lei e os Princípios do Escuta. Tal como quem se
+        alista numa caravela, é o tempo de conheceres o navio e a tripulação, e de
+        te preparares para a Promessa.
+    - nome: "Aliança"
+      leitura: "Assinar o rol de bordo"
+      cor: "#cd7f32"
+      icone: "🤝"
+      imagem: ""
+      texto: >-
+        Com a Promessa firmas uma aliança — com Deus, com a tua Tripulação e contigo
+        próprio. Assumes um cargo a bordo (Escrivão, do Detalhe, do Paiol, do Baú,
+        da Botica, da Taifa ou Animador) e cumpres a tua parte em cada Expedição.
+    - nome: "Rumo"
+      leitura: "Manter o rumo"
+      cor: "#c0c0c0"
+      icone: "🧭"
+      imagem: ""
+      texto: >-
+        Já sabes para onde vais. Aprofundas a arte de marinheiro, ajudas a preparar
+        as Expedições e fazes escolhas com mais autonomia, sem perder o rumo — como
+        São Tiago, guiado pela sua estrela.
+    - nome: "Descoberta"
+      leitura: "Terra à vista"
+      cor: "#ffd700"
+      icone: "🌍"
+      imagem: ""
+      texto: >-
+        Chegaste a novas terras: és uma referência na Tripulação, podes ser
+        Timoneiro ou Sota-Timoneiro e ajudas os Moços mais novos a progredir. É o
+        tempo de preparares a passagem à Frota.
+  objetivos: >-
+    Os objetivos educativos organizam-se em 6 áreas — Física, Afetiva, Carácter,
+    Espiritual, Social e Intelectual. O teu progresso é acompanhado pela Equipa de
+    Animação e orientado no Conselho de Timoneiros.
+  objetivos_documento: ""
+  bordo:
+    botao: "Competências a Bordo"
+    titulo: "Competências a Bordo"
+    intro: >-
+      Baden-Powell escreveu que ninguém deve ser admitido num barco sem saber nadar
+      bem. Estas competências são uma proposta do Agrupamento para acompanhar as
+      etapas — a Equipa de Animação adapta-as a cada Moço.
+    passos:
+      - titulo: "1. Natação e segurança"
+        cor: "var(--azul-claro)"
+        texto: >-
+          Nadas com à-vontade, usas sempre colete e sabes o que fazer se alguém cair
+          à água: dar o alarme («homem ao mar!»), apontar e nunca perder a pessoa de vista.
+      - titulo: "2. Arte de marinheiro"
+        cor: "#6f42c1"
+        texto: >-
+          Fazes e sabes quando usar os nós de bordo: lais de guia, nó de escota,
+          volta do fiel e nó direito. Aprendes a falcaçar e a colher um cabo.
+      - titulo: "3. Remo e vela"
+        cor: "#28a745"
+        texto: >-
+          Remas em equipa e dás os primeiros bordos à vela. Aprendes a ler o vento —
+          barlavento, sotavento, bolinar —, como faziam as caravelas com a vela latina.
+      - titulo: "4. Cuidar da embarcação"
+        cor: "var(--amarelo)"
+        texto: >-
+          Ajudas a conservar as embarcações, a palamenta e a aparelhagem: depois de
+          cada saída, lavas e secas velas, coletes e cabos e arrumas tudo no lugar.
+      - titulo: "5. Explorar o mar"
+        cor: "var(--cor-vivencia)"
+        texto: >-
+          Conheces os peixes e as conchas da nossa costa, pescas sem destruir e sabes
+          que tipos de poluição ameaçam a vida nos oceanos e nas marés.
+    ligacoes:
+      - rotulo: "👔 Uniforme de Moços"
+        url: "/assets/docs/uniforme-maritimo_v2024-2.pdf"
+        cor: "#28a745"
+      - rotulo: "⚓ Insígnias Marítimas"
+        url: "/assets/docs/insignia_maritimo-1.pdf"
+        cor: "#6f42c1"
+
+frota:
+  titulo: "O Sistema de Progresso"
+  intro: >-
+    Na Frota, o progresso do Marinheiro segue o exemplo de <strong>São Pedro</strong> — o
+    pescador do mar da Galileia que deixou as redes para seguir Jesus e se tornou
+    construtor de comunidade. As 4 etapas acompanham essa travessia:
+  etapas:
+    - nome: "Desprendimento"
+      leitura: "Largar as redes"
+      cor: "#aaa"
+      icone: "🎣"
+      imagem: ""
+      texto: >-
+        Como Pedro, que largou as redes e o barco, deixas para trás o que já não te
+        serve para embarcar numa etapa nova. Integras-te numa Equipagem, conheces o
+        seu Patrono e preparas a tua Promessa na Frota.
+    - nome: "Conhecimento"
+      leitura: "Ler o mar"
+      cor: "#cd7f32"
+      icone: "🧭"
+      imagem: ""
+      texto: >-
+        Conheces-te melhor a ti próprio, aos outros e a Deus. Aprofundas as técnicas
+        de navegação e assumes um cargo na Equipagem — Cronista, do Detalhe, do
+        Paiol, do Baú, da Taifa, da Botica ou Animador.
+    - nome: "Vontade"
+      leitura: "Aguentar o temporal"
+      cor: "#c0c0c0"
+      icone: "⚓"
+      imagem: ""
+      texto: >-
+        É a etapa da firmeza. Mesmo com ventos contrários, manténs os compromissos
+        que assumiste — como Pedro, que depois de falhar voltou a dizer «Senhor, Tu
+        sabes que Te amo». Ajudas a preparar e a liderar o Cruzeiro.
+    - nome: "Construção"
+      leitura: "Sobre a rocha"
+      cor: "#ffd700"
+      icone: "⛪"
+      imagem: ""
+      texto: >-
+        Sobre a rocha, constróis comunidade: és uma referência na Frota, podes ser
+        Mestre ou Contramestre e ajudas a erguer projetos com impacto. É o tempo de
+        preparares a passagem à Comunidade.
+  objetivos: >-
+    Os objetivos educativos organizam-se em 6 áreas — Física, Afetiva, Carácter,
+    Espiritual, Social e Intelectual. O teu progresso é acompanhado pela Equipa de
+    Animação e orientado no Conselho de Mestres.
+  objetivos_documento: ""
+  bordo:
+    botao: "Competências a Bordo"
+    titulo: "Competências a Bordo"
+    intro: >-
+      O Marinheiro já não é passageiro: prepara, manobra e responde pela segurança da
+      Equipagem. Estas competências são uma proposta do Agrupamento para acompanhar
+      as etapas — a Equipa de Animação adapta-as a cada Marinheiro.
+    passos:
+      - titulo: "1. Preparar a saída"
+        cor: "var(--azul-claro)"
+        texto: >-
+          Antes de largar, consultas a meteorologia, a escala de ventos e a tabela de
+          marés, e confirmas o material de segurança de cada embarcação.
+      - titulo: "2. Regras do mar"
+        cor: "#6f42c1"
+        texto: >-
+          Conheces as regras básicas do RIEAM (Regulamento Internacional para Evitar
+          Abalroamentos no Mar): prioridades de passagem, luzes e sinais sonoros.
+      - titulo: "3. Ler a carta"
+        cor: "#28a745"
+        texto: >-
+          Orientas-te numa carta náutica: rumos, distâncias, sondas e marcas de
+          balizagem, e acompanhas a posição da embarcação durante a navegação.
+      - titulo: "4. Manobrar e liderar"
+        cor: "var(--amarelo)"
+        texto: >-
+          No Cruzeiro, assumes funções a bordo — leme, proa, escotas — e aprendes a
+          coordenar a Equipagem numa manobra, com voz clara e calma.
+      - titulo: "5. Servir no mar"
+        cor: "var(--cor-vivencia)"
+        texto: >-
+          Participas numa ação de serviço ligada ao mar: limpeza costeira, apoio a
+          uma regata ou a uma atividade náutica das secções mais novas.
+    ligacoes:
+      - rotulo: "👔 Uniforme de Marinheiros"
+        url: "/assets/docs/uniforme-maritimo_v2024-3.pdf"
+        cor: "#28a745"
+      - rotulo: "⚓ Insígnias Marítimas"
+        url: "/assets/docs/insignia_maritimo-1.pdf"
+        cor: "#6f42c1"
