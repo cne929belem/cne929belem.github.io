@@ -1,0 +1,127 @@
+# =========================================================================
+# TREINO PARA AS PROMESSAS — "Adesão ao Movimento" (fonte única)
+# -------------------------------------------------------------------------
+# Lista partilhada pela Flotilha, Frota e Comunidade 88 (a Alcateia usa a
+# Lei, as Máximas e a Divisa do Lobito). Antes, a mesma lista estava copiada
+# em três páginas, com erros factuais. As páginas leem-na assim:
+#
+#     const perguntasMovimento = {{ site.data.adesao.movimento | jsonify }};
+#
+# Fontes: Regulamento Geral do CNE (art. 3.º, 4.º, 5.º, 56.º, 57.º e 60.º,
+# retificado a 01-10-2025), Regulamento de Uniformes, Distintivos e Bandeiras
+# (art. 10.º e Anexo 1) e Rumos (Escutismo Marítimo).
+#
+# Correções face à versão anterior (ver AUDITORIA.md, Parte 2):
+#   1 — fundação do CNE (Braga, D. Manuel Vieira de Matos, não D. António
+#       Mendes Belo); 2 — Regiões correspondem a dioceses, não a distritos;
+#   4 — Princípios e Lei com o texto oficial; 7 — dirigentes usam losangos,
+#   não triângulos; 9 — fórmula oficial da Promessa;
+#   10 e 11 — adaptação marítima (nós de bordo, natação e colete).
+# As respostas aceitam HTML simples (<strong>, <em>, <br>).
+# =========================================================================
+
+movimento:
+  - pergunta: "1. Sabes quando e como surgiu o Escutismo e o CNE?"
+    resposta: >-
+      <strong>O nascimento do Escutismo:</strong> em 1907, Robert Baden-Powell organizou o
+      primeiro acampamento na ilha de Brownsea, em Inglaterra. Em 1908 publicou
+      «Scouting for Boys» (Escutismo para Rapazes), que lançou o Movimento.<br><br>
+      <strong>O CNE:</strong> o Corpo Nacional de Escutas — Escutismo Católico Português
+      nasceu em Braga, a 27 de maio de 1923, por iniciativa do Arcebispo D. Manuel
+      Vieira de Matos e do Dr. Avelino Gonçalves.<br><br>
+      <strong>O Escutismo Marítimo:</strong> as atividades náuticas existem desde o início —
+      em 1908 foi criada a primeira especialidade, <em>Seamanship</em>, e em 1912 surgiu o
+      primeiro manual para escuteiros marítimos.
+
+  - pergunta: "2. Sabes como se organiza o teu Agrupamento? E o CNE?"
+    resposta: >-
+      <strong>No Agrupamento:</strong> é a unidade base, com quatro secções — no nosso
+      caso, Alcateia (Lobitos), Flotilha (Moços), Frota (Marinheiros) e Comunidade
+      (Companheiros). É dirigido pela Direção de Agrupamento: Chefe de Agrupamento,
+      Chefe de Agrupamento Adjunto, Assistente, Secretário, Tesoureiro e os Chefes de
+      cada Unidade.<br><br>
+      <strong>No CNE:</strong> os Agrupamentos juntam-se em Núcleos; os Núcleos formam as
+      Regiões, que correspondem, em princípio, às dioceses; e a nível nacional existe a
+      Junta Central.
+
+  - pergunta: "3. Conheces a vida de Baden-Powell?"
+    resposta: >-
+      Nasceu a 22 de fevereiro de 1857, em Londres. Teve uma longa carreira militar
+      (ficou célebre pela defesa de Mafeking) e, em 1907, fundou o Escutismo. Casou com
+      Olave Baden-Powell, que viria a ser Chefe-Guia Mundial. Morreu a 8 de janeiro de
+      1941, no Quénia. Na sua campa está o sinal de pista que significa «Fui para casa»,
+      e a sua última mensagem pede que deixemos o mundo um pouco melhor do que o
+      encontrámos.
+
+  - pergunta: "4. Conheces a Lei, os Princípios e a Promessa?"
+    resposta: >-
+      <strong>Os 3 Princípios:</strong> 1. O Escuta orgulha-se da sua Fé e por ela orienta
+      toda a sua vida; 2. O Escuta é filho de Portugal e bom cidadão; 3. O dever do
+      Escuta começa em casa.<br><br>
+      <strong>A Lei do Escuta:</strong> 1. A honra do Escuta inspira confiança; 2. O Escuta
+      é leal; 3. O Escuta é útil e pratica diariamente uma boa ação; 4. O Escuta é amigo
+      de todos e irmão de todos os outros Escutas; 5. O Escuta é delicado e respeitador;
+      6. O Escuta protege as plantas e os animais; 7. O Escuta é obediente; 8. O Escuta
+      tem sempre boa disposição de espírito; 9. O Escuta é sóbrio, económico e
+      respeitador do bem alheio; 10. O Escuta é puro nos pensamentos, nas palavras e nas
+      ações.<br><br>
+      <strong>A Promessa:</strong> o compromisso pessoal e livre de viver segundo a Lei.
+
+  - pergunta: "5. Já sabes rezar a oração do Escuta?"
+    resposta: >-
+      Atribuída a Santo Inácio de Loyola, reflete o serviço desinteressado:<br>
+      <em>«Senhor, ensinai-me a ser generoso, a servir-Vos como mereceis, a dar sem
+      conta, a combater sem medo de ser ferido, a trabalhar sem descanso e a não buscar
+      outra recompensa senão a de saber que faço a Vossa santa vontade. Ámen.»</em>
+
+  - pergunta: "6. Conheces o livro «Escutismo para Rapazes»?"
+    resposta: >-
+      Escrito por Baden-Powell em 1908, é o livro fundador do Escutismo: aprender
+      fazendo, observar, viver na natureza. Todos os Agrupamentos do CNE devem tê-lo
+      disponível para consulta. Numa das suas palestras, B.-P. conta um cruzeiro de
+      barco pelo Tamisa e lembra que ninguém deve entrar num barco sem saber nadar bem.
+
+  - pergunta: "7. Conheces o uniforme e os distintivos de função dos dirigentes?"
+    resposta: >-
+      O uniforme é sinal de igualdade e de pertença. Nos marítimos, a camisa é
+      azul-escura e o lenço muda de cor em cada secção.<br><br>
+      <strong>Os dirigentes</strong> usam na manga esquerda um <strong>losango com flor de lis
+      e uma cruz</strong>. A cor do losango indica o nível — verde (Unidade), vermelho
+      (Agrupamento), amarelo (Núcleo), roxo (Regional) e branco (Nacional) — e a cruz
+      indica a função: Cruz de Cristo para Chefes e Adjuntos, Cruz Flor de Lisada para
+      Assistentes e Cruz de Jerusalém para Instrutores, Secretário e Tesoureiro, entre
+      outros.
+
+  - pergunta: "8. Conheces a saudação e sabes o que ela significa?"
+    resposta: >-
+      Faz-se com a mão direita à altura do ombro e três dedos estendidos, que lembram os
+      três compromissos da Promessa. O polegar sobre o dedo mindinho recorda que o mais
+      forte protege o mais fraco. O aperto de mão escutista dá-se com a mão esquerda, a
+      do lado do coração.
+
+  - pergunta: "9. Conheces a fórmula da Promessa e o que significa?"
+    resposta: >-
+      <em>«Prometo, pela minha honra e com a graça de Deus, fazer todo o possível por:
+      cumprir os meus deveres para com Deus, a Igreja e a Pátria; auxiliar o meu
+      semelhante em todas as circunstâncias; obedecer à Lei do Escuta.»</em><br><br>
+      É um compromisso livre e o momento mais importante da tua vida escutista. Cada
+      secção tem o seu cerimonial próprio — pede-o à tua Equipa de Animação.
+
+  - pergunta: "10. Conheces e sabes aplicar os nós de bordo?"
+    resposta: >-
+      Num barco, um nó mal feito é um risco. Os essenciais:<br>
+      <strong>Nó direito</strong> (unir dois cabos iguais); <strong>nó de escota</strong> (unir cabos
+      de grossuras diferentes); <strong>lais de guia</strong> (uma alça que não corre — o rei dos
+      nós de marinheiro); <strong>volta do fiel</strong> (prender um cabo a um poste ou
+      varandim); <strong>nó de oito</strong> (impedir que um cabo saia de uma roldana).<br>
+      Em terra mantêm-se as ligações de pioneirismo: botão em cruz (ângulo reto) e
+      botão em esquadria (ângulo oblíquo).
+
+  - pergunta: "11. Conheces as regras base de segurança, em terra e na água?"
+    resposta: >-
+      <strong>Na água:</strong> colete sempre vestido e apertado, nunca embarcar sem
+      autorização de um dirigente e saber nadar com à-vontade.<br>
+      <strong>Em campo:</strong> montar e conservar uma tenda, usar ferramentas de corte
+      (machada, navalha) com regras estritas e manter o campo limpo.<br>
+      A melhor preparação é participar num acampamento ou numa saída náutica com a tua
+      unidade, colaborando com a tua Tripulação, Equipagem ou Companha.
