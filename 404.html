@@ -1,0 +1,55 @@
+---
+layout: default
+title: Página não encontrada | 929 - Belém
+main_class: pagina-com-hero
+permalink: /404.html
+sitemap: false
+robots: noindex
+---
+<!--
+  Página 404 — o GitHub Pages serve este ficheiro sempre que um endereço não
+  existe. Segue o padrão hero do site (ver README, "Padrão de página") e as
+  dimensões em clamp() sobre a base 1920×1080 (convenção do repositório).
+-->
+<style>
+  .pagina-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+  .pagina-cabecalho h1 { color: #fff; margin: 0 0 10px; }
+  .pagina-cabecalho p { color: #fff; font-family: 'Geologica', sans-serif; font-weight: 300; font-size: clamp(17px, 1.042vw, 20px); line-height: 1.5; margin: 0; }
+
+  .fora-de-rota {
+    position: relative; z-index: 5; background: #fff;
+    max-width: clamp(320px, 33.333vw, 640px); margin: 0 auto;
+    padding: clamp(28px, 2.083vw, 40px) clamp(18px, 1.458vw, 28px) clamp(60px, 4.688vw, 90px);
+    text-align: center;
+  }
+  .fora-de-rota .icone { font-size: clamp(40px, 2.708vw, 52px); display: block; margin-bottom: 18px; }
+  .fora-de-rota p { font-family: 'Geologica', sans-serif; font-weight: 300; font-size: clamp(17px, 1.042vw, 20px); line-height: 1.5; color: #444; margin: 0 0 22px; }
+  .fora-de-rota .rumos { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 10px; }
+  .fora-de-rota .rumos a {
+    display: inline-block; padding: 12px 22px; border-radius: 999px; font-weight: 700; font-size: 14px; text-decoration: none;
+    color: var(--azul-marinho); background: var(--cinza-fundo); border: 1px solid #d7e1ea;
+  }
+  .fora-de-rota .rumos a.principal { color: #fff; border-color: transparent; background: linear-gradient(160deg, var(--azul-claro) 0%, var(--azul-marinho) 100%); }
+  .fora-de-rota .rumos a:hover { opacity: .9; }
+  .fora-de-rota .rumos a:focus-visible { outline: 3px solid var(--azul-claro); outline-offset: 3px; }
+</style>
+
+<section class="hero-generico" id="hero">
+  <div class="pagina-cabecalho">
+    <h1>Fora de rota</h1>
+    <p>A página que procuras não existe ou mudou de endereço.</p>
+  </div>
+</section>
+<div class="espaco-hero-generico" aria-hidden="true"></div>
+
+<div class="fora-de-rota">
+  <span class="icone" aria-hidden="true">🧭</span>
+  <p>Verifica o endereço ou volta a traçar o rumo a partir de um destes portos:</p>
+  <nav class="rumos" aria-label="Páginas principais">
+    <a class="principal" href="{{ '/index.html' | relative_url }}">Página inicial</a>
+    <a href="{{ '/agrupamento/informacoes.html' | relative_url }}">Informações</a>
+    <a href="{{ '/atividades/geral.html' | relative_url }}">Atividades</a>
+    <a href="{{ '/agrupamento/documentos.html' | relative_url }}">Documentos</a>
+  </nav>
+  <p style="margin-top: 26px; font-size: 16px;">Chegaste aqui a partir de uma ligação do site? Avisa-nos para <a href="mailto:geral.929@escutismo.pt?subject=Liga%C3%A7%C3%A3o%20quebrada%20no%20site">geral.929@escutismo.pt</a>.</p>
+</div>

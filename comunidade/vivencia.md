@@ -2,7 +2,7 @@
 layout: default
 title: Vivência | IV - Comunidade 88
 main_class: pagina-com-hero
-ultima_atualizacao: 10/10/2026
+ultima_atualizacao: 13/10/2026
 seccao_slug: comunidade
 seccao_nome: IV - Comunidade 88
 seccao_cor: '#39374C'
@@ -310,9 +310,15 @@ seccao_cor: '#39374C'
 
                     <div id="estudo-fim">
                         <h2>Muitos Parabéns! 🎉</h2>
-                        <p>Concluíste a revisão desta secção de perguntas.</p>
-                        <a href="{{ '/em-construcao.html' | relative_url }}" class="btn" style="background-color: var(--azul-marinho);">Faz o Teste 📝</a>
+                        <p>Concluíste a revisão desta secção de perguntas. Podes agora abrir o separador «Teste das Promessas».</p>
                     </div>
+                </div>
+            </details>
+
+            <details class="acordeao">
+                <summary>📝 Teste das Promessas</summary>
+                <div class="acordeao-content">
+                    {% include teste-promessas.html %}
                 </div>
             </details>
 
@@ -364,53 +370,9 @@ seccao_cor: '#39374C'
         }
     }
 
-    // Base de dados das perguntas
-    const perguntasMovimento = [
-        { 
-            pergunta: "1. Sabes quando e como surgiu o Escutismo e o CNE?", 
-            resposta: "<strong>O nascimento do Escutismo:</strong> Em 1907, Robert Baden-Powell organizou o primeiro acampamento na ilha de Brownsea, Inglaterra. Em 1908 publicou 'Scouting for Boys', lançando o Movimento.<br><br><strong>A chegada a Portugal:</strong> O CNE (Corpo Nacional de Escutas) foi fundado a 27 de maio de 1923 por D. António Mendes Belo. É a maior associação juvenil portuguesa.<br><br><strong>Princípios fundamentais:</strong> Serviço ao próximo, vida ao ar livre, sistema de patrulhas e a Promessa." 
-        },
-        { 
-            pergunta: "2. Sabes como se organiza o teu Agrupamento? E o CNE?", 
-            resposta: "<strong>No Agrupamento:</strong> É a unidade base, composta por 4 secções (Lobitos, Exploradores/Moços, Pioneiros/Marinheiros, Caminheiros/Companheiros). É gerido pela Direção de Agrupamento (Chefe, Adjunto, Secretário, Tesoureiro, Assistente).<br><br><strong>Nacionalmente:</strong> Juntas Regionais (distritos), Núcleos (zonas locais) e a Junta Central (órgão máximo)." 
-        },
-        { 
-            pergunta: "3. Conheces a vida de Baden-Powell?", 
-            resposta: "Nasceu a 22 de fevereiro de 1857 em Londres. Teve uma carreira militar brilhante (ex: defesa de Mafeking). Em 1907 fundou o Escutismo. Casou com Olave Baden-Powell (Chefe-Guia Mundial). Faleceu a 8 de janeiro de 1941 no Quénia, deixando o sinal de 'Missão Cumprida' e a mensagem: 'Deixem o mundo um pouco melhor do que o encontraram'." 
-        },
-        { 
-            pergunta: "4. Conheces a Lei, os Princípios e a Promessa?", 
-            resposta: "<strong>Os 3 Princípios:</strong> Dever para com Deus, para com os outros e para consigo próprio.<br><strong>A Promessa:</strong> O compromisso pessoal e voluntário.<br><strong>A Lei:</strong> 10 artigos (1. A honra inspira confiança; 2. É leal; 3. É útil e pratica a boa ação; 4. É amigo e irmão; 5. É cortês; 6. Protege plantas e animais; 7. É obediente; 8. Tem sempre boa disposição; 9. É económico e trabalhador; 10. É puro)." 
-        },
-        { 
-            pergunta: "5. Já sabes rezar a oração do Escuta?", 
-            resposta: "Atribuída a Santo Inácio de Loyola, reflete o serviço desinteressado:<br><em>'Senhor, ensinai-me a ser generoso, a servir-Vos como mereceis, a dar sem conta, a combater sem medo de ser ferido, a trabalhar sem descanso e a não buscar outra recompensa senão a de saber que faço a Vossa santa vontade. Ámen.'</em>" 
-        },
-        { 
-            pergunta: "6. Conheces o livro 'Escutismo para Rapazes'?", 
-            resposta: "Escrito por B.P. em 1908. É o guia fundador do Escutismo, baseado na prática, observação e vida na natureza. Lançou o método 'aprender fazendo'." 
-        },
-        { 
-            pergunta: "7. Conheces o uniforme e os distintivos de função dos dirigentes?", 
-            resposta: "O uniforme promove igualdade e fraternidade. Os dirigentes usam triângulos nas mangas que os identificam: Verde com Flor de Lis (Chefe de Agrupamento), e triângulos nas cores das secções para os respetivos Chefes de Secção." 
-        },
-        { 
-            pergunta: "8. Conheces a saudação e sabes o que ela significa?", 
-            resposta: "Mão direita à altura do ombro. Os 3 dedos estendidos lembram os três deveres da Promessa (Deus, Pátria/Outros, Próprio). O polegar sobre o mindinho significa que o mais forte protege o mais fraco. O aperto de mão é feito com a mão esquerda (mão do coração)." 
-        },
-        { 
-            pergunta: "9. Conheces a fórmula da Promessa e o que significa?", 
-            resposta: "<em>'Prometo, pela minha honra e com a graça de Deus, fazer todo o possível por: cumprir os meus deveres para com Deus e para com a minha Pátria; auxiliar o meu próximo em todas as circunstâncias; obedecer à Lei do Escuta.'</em> É o momento mais importante e marca a adesão voluntária aos valores do movimento." 
-        },
-        { 
-            pergunta: "10. Conheces e sabes aplicar os nós e ligações base?", 
-            resposta: "Essenciais para segurança e pioneirismo.<br><strong>Nós:</strong> Direito, Escota/Tecelão, Correr, Cabeça de Cotovia, Barqueiro e Pedreiro.<br><strong>Ligações (Amarrações):</strong> Botão em cruz (ângulo reto) e Botão em esquadria (ângulo oblíquo)." 
-        },
-        { 
-            pergunta: "11. Conheces as regras base de campismo, segurança e vivência em campo?", 
-            resposta: "Saber montar e conservar uma tenda. Ter regras de segurança estritas com ferramentas de corte (machado, navalha). A prova final da Adesão é participar ativamente num acampamento de fim de semana, colaborando com a equipa em total espírito escutista." 
-        }
-    ];
+    // Lista partilhada "Adesão ao Movimento": fonte única em _data/adesao.yml
+    // (corrigida em 13/10/2026 — ver AUDITORIA.md). Não voltar a copiá-la para aqui.
+    const perguntasMovimento = {{ site.data.adesao.movimento | jsonify }};
 
     const perguntasSeccao = [
         { pergunta: "1. Organização da IV Secção?", resposta: "A IV Secção do Agrupamento 929 é a Comunidade 88, composta por Companheiros (18-22 anos). É o último passo formativo do CNE." },

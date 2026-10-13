@@ -78,7 +78,7 @@ seccao_cor: '#39374C'
                             </div>
                             <div class="seccao-elemento">
                                 <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
-                                <span class="seccao-elemento-nome">Socorrista</span>
+                                <span class="seccao-elemento-nome">Botica</span>
                                 <span class="seccao-elemento-totem">Palhaço</span>
                             </div>
                             <div class="seccao-elemento">
@@ -88,7 +88,7 @@ seccao_cor: '#39374C'
                             </div>
                             <div class="seccao-elemento">
                                 <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Espadinha VII.jpg' | relative_url }}" alt="Espadinha VII">
-                                <span class="seccao-elemento-nome">Guarda Paiol</span>
+                                <span class="seccao-elemento-nome">Guarda Paiol e Baú</span>
                                 <span class="seccao-elemento-totem">Espadinha VII</span>
                             </div>
                         </div>
@@ -123,7 +123,7 @@ seccao_cor: '#39374C'
                             </div>
                             <div class="seccao-elemento">
                                 <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Lanterna.jpg' | relative_url }}" alt="Lanterna">
-                                <span class="seccao-elemento-nome">Socorrista</span>
+                                <span class="seccao-elemento-nome">Botica</span>
                                 <span class="seccao-elemento-totem">Lanterna</span>
                             </div>
                             <div class="seccao-elemento">
@@ -133,7 +133,7 @@ seccao_cor: '#39374C'
                             </div>
                             <div class="seccao-elemento">
                                 <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Arqueiro.jpg' | relative_url }}" alt="Arqueiro">
-                                <span class="seccao-elemento-nome">Guarda Paiol</span>
+                                <span class="seccao-elemento-nome">Guarda Paiol e Baú</span>
                                 <span class="seccao-elemento-totem">Arqueiro</span>
                             </div>
                             <div class="seccao-elemento">

@@ -52,6 +52,9 @@ sitemap: false
   .percurso-atividade h3 { margin: 0 0 3px; color: var(--azul-marinho); font-size: 14px; text-transform: none; }
   .percurso-atividade p { margin: 0; color: #495861; font-size: 13px; line-height: 1.5; }
   .percurso-vazio { color: #657781; font-size: 14px; }
+  .testes-promessas-percurso h2 { margin: 0 0 6px; color: var(--azul-marinho); font-size: 20px; }
+  .testes-promessas-percurso .testes-nota { margin: 0 0 14px; color: #657781; font-size: 13px; line-height: 1.5; }
+  .testes-codigo { font-family: ui-monospace, Menlo, Consolas, monospace; white-space: nowrap; }
   .percurso-indicadores { display: grid; gap: 14px; }
   .percurso-indicador { padding: 16px; border: 1px solid #dce4e9; border-radius: 6px; background: #f6f8f9; }
   .percurso-indicador h3 { margin: 0 0 8px; color: var(--azul-marinho); font-size: 15px; }
@@ -204,6 +207,17 @@ sitemap: false
           <table class="condecoracoes-tabela">
             <thead><tr><th scope="col">Nome</th><th scope="col">OSA</th><th scope="col">Data</th></tr></thead>
             <tbody data-lista-condecoracoes><tr><td class="condecoracoes-vazio" colspan="3">As condecorações aparecerão depois do login.</td></tr></tbody>
+          </table>
+        </div>
+      </section>
+      <section class="testes-promessas-percurso" aria-labelledby="titulo-testes-promessas" data-testes-promessas data-endpoint="{{ site.teste_promessas.endpoint }}">
+        <h2 id="titulo-testes-promessas">Testes das Promessas</h2>
+        <p class="testes-nota">Teste teórico de preparação para as Promessas: 2 tentativas por secção e ano escutista. As provas técnicas são avaliadas em atividade pela Equipa de Animação.</p>
+        <p class="percurso-vazio" data-testes-estado>Os testes aparecerão depois do login.</p>
+        <div class="condecoracoes-tabela-wrapper">
+          <table class="condecoracoes-tabela" data-testes-tabela hidden>
+            <thead><tr><th scope="col">Secção · Totem</th><th scope="col">Ano escutista</th><th scope="col">Percurso</th><th scope="col">Tentativa</th><th scope="col">Data</th><th scope="col">Resultado</th><th scope="col">Código</th></tr></thead>
+            <tbody data-lista-testes></tbody>
           </table>
         </div>
       </section>
