@@ -1,0 +1,668 @@
+# =========================================================================
+# TESTE DAS PROMESSAS — perguntas e opções (SEM chave de respostas)
+# -------------------------------------------------------------------------
+# Fonte única das perguntas do teste teórico, usadas pelo componente
+# _includes/teste-promessas.html nas quatro páginas de Vivência.
+#
+# A CHAVE DE RESPOSTAS NÃO ESTÁ AQUI. Este repositório é público: a resposta
+# correta e a aprovação de cada pergunta vivem na Google Sheet privada do
+# Agrupamento (aba «Chave»). Só as perguntas com aprovada = TRUE nessa aba
+# entram no teste — o servidor (Apps Script) decide e corrige.
+#
+# Regras para quem edita:
+#   - Cada pergunta nasce de um cartão de estudo existente (campo `fonte`).
+#     Não acrescentar factos que não estejam no conteúdo de estudo.
+#   - Não mudar o `id` de uma pergunta nem das opções sem atualizar a aba
+#     «Chave» da Sheet (o servidor compara os ids).
+#   - `revisao: duvidosa` = a resposta certa não é inequívoca a partir do
+#     conteúdo atual. Fica fora do teste até a Equipa de Animação decidir.
+#   - Ver apps-script/teste-promessas/LEIA-ME.md (lista de revisão pedagógica).
+# =========================================================================
+
+aviso_teorico: >-
+  Este teste avalia apenas conhecimentos teóricos. As provas técnicas são avaliadas em
+  atividade em conjunto com a Equipa de Animação e não são avaliadas por este teste.
+
+percursos:
+  movimento: "Adesão ao Movimento"
+  seccao: "Adesão à Secção"
+
+# Títulos dos percursos por secção. `disponivel: false` mostra o percurso
+# desativado, com a nota, mesmo que haja perguntas aprovadas na Sheet.
+seccoes:
+  alcateia:
+    nome: "Alcateia"
+    elementos: "Lobitos"
+    movimento:
+      titulo: "A Lei e as Máximas do Lobito"
+      disponivel: false
+      nota: >-
+        A Alcateia não tem um conjunto «Adesão ao Movimento». Proposta: usar o conjunto
+        «A Lei e as Máximas» como percurso equivalente. A aguardar decisão da Equipa de
+        Animação da Alcateia.
+    seccao:
+      titulo: "A Alcateia"
+      disponivel: true
+  flotilha:
+    nome: "Flotilha"
+    elementos: "Moços"
+    movimento: { titulo: "Adesão ao Movimento", disponivel: true }
+    seccao: { titulo: "Adesão à Secção — A Flotilha", disponivel: true }
+  frota:
+    nome: "Frota 98"
+    elementos: "Marinheiros"
+    movimento: { titulo: "Adesão ao Movimento", disponivel: true }
+    seccao: { titulo: "Adesão à Secção — A Frota", disponivel: true }
+  comunidade:
+    nome: "Comunidade 88"
+    elementos: "Companheiros"
+    movimento: { titulo: "Adesão ao Movimento", disponivel: true }
+    seccao: { titulo: "Adesão à Secção — A Comunidade", disponivel: true }
+
+perguntas:
+  - id: mov-01
+    seccoes: [flotilha, frota, comunidade]
+    percurso: movimento
+    pergunta: "Onde e quando nasceu o Corpo Nacional de Escutas?"
+    opcoes:
+      - { id: a, texto: "Em Braga, a 27 de maio de 1923" }
+      - { id: b, texto: "Na ilha de Brownsea, em 1907" }
+      - { id: c, texto: "Em Lisboa, a 27 de maio de 1923" }
+      - { id: d, texto: "Em Braga, em 1907" }
+    fonte: "_data/adesao.yml, pergunta 1"
+    revisao: inequivoca
+  - id: mov-02
+    seccoes: [flotilha, frota, comunidade]
+    percurso: movimento
+    pergunta: "Quem faz parte da Direção de Agrupamento?"
+    opcoes:
+      - { id: a, texto: "Os Guias, Timoneiros, Mestres e Arrais" }
+      - { id: b, texto: "A Junta Central e as Regiões" }
+      - { id: c, texto: "Apenas o Chefe de Agrupamento e o Assistente" }
+      - { id: d, texto: "Chefe de Agrupamento, Adjunto, Assistente, Secretário, Tesoureiro e os Chefes de cada Unidade" }
+    fonte: "_data/adesao.yml, pergunta 2 (Regulamento Geral, art. 60.º)"
+    revisao: inequivoca
+  - id: mov-03
+    seccoes: [flotilha, frota, comunidade]
+    percurso: movimento
+    pergunta: "Onde e quando morreu Baden-Powell?"
+    opcoes:
+      - { id: a, texto: "No Quénia, em 1941" }
+      - { id: b, texto: "No Quénia, em 1907" }
+      - { id: c, texto: "Em Braga, em 1923" }
+      - { id: d, texto: "Em Londres, em 1941" }
+    fonte: "_data/adesao.yml, pergunta 3"
+    revisao: inequivoca
+  - id: mov-04
+    seccoes: [flotilha, frota, comunidade]
+    percurso: movimento
+    pergunta: "Qual é o 1.º Princípio do Escuta?"
+    opcoes:
+      - { id: a, texto: "A honra do Escuta inspira confiança" }
+      - { id: b, texto: "O Escuta é filho de Portugal e bom cidadão" }
+      - { id: c, texto: "O Escuta orgulha-se da sua Fé e por ela orienta toda a sua vida" }
+      - { id: d, texto: "O dever do Escuta começa em casa" }
+    fonte: "_data/adesao.yml, pergunta 4 (Regulamento Geral, art. 3.º)"
+    revisao: inequivoca
+  - id: mov-05
+    seccoes: [flotilha, frota, comunidade]
+    percurso: movimento
+    pergunta: "Completa o 9.º artigo da Lei: «O Escuta é sóbrio, económico e…»"
+    opcoes:
+      - { id: a, texto: "obediente" }
+      - { id: b, texto: "respeitador do bem alheio" }
+      - { id: c, texto: "trabalhador" }
+      - { id: d, texto: "delicado" }
+    fonte: "_data/adesao.yml, pergunta 4 (Regulamento Geral, art. 3.º)"
+    revisao: inequivoca
+  - id: mov-06
+    seccoes: [flotilha, frota, comunidade]
+    percurso: movimento
+    pergunta: "A quem é atribuída a oração do Escuta?"
+    opcoes:
+      - { id: a, texto: "Santo Inácio de Loyola" }
+      - { id: b, texto: "São Paulo" }
+      - { id: c, texto: "São Tiago" }
+      - { id: d, texto: "São Francisco de Assis" }
+    fonte: "_data/adesao.yml, pergunta 5"
+    revisao: inequivoca
+  - id: mov-07
+    seccoes: [flotilha, frota, comunidade]
+    percurso: movimento
+    pergunta: "Que livro, escrito por Baden-Powell em 1908, lançou o Escutismo?"
+    opcoes:
+      - { id: a, texto: "«Rumos»" }
+      - { id: b, texto: "«Escutismo para Rapazes»" }
+      - { id: c, texto: "«Regulamento Geral»" }
+      - { id: d, texto: "«O Livro da Selva»" }
+    fonte: "_data/adesao.yml, perguntas 1 e 6"
+    revisao: inequivoca
+  - id: mov-08
+    seccoes: [flotilha, frota, comunidade]
+    percurso: movimento
+    pergunta: "No losango que os dirigentes usam na manga esquerda, o que indica a cor?"
+    opcoes:
+      - { id: a, texto: "O nível: Unidade, Agrupamento, Núcleo, Regional ou Nacional" }
+      - { id: b, texto: "A função: Chefe, Assistente ou Instrutor" }
+      - { id: c, texto: "A secção a que o dirigente pertence" }
+      - { id: d, texto: "Os anos de serviço do dirigente" }
+    fonte: "_data/adesao.yml, pergunta 7 (Regulamento de Uniformes, Anexo 1)"
+    revisao: inequivoca
+  - id: mov-09
+    seccoes: [flotilha, frota, comunidade]
+    percurso: movimento
+    pergunta: "Na saudação escutista, o que recorda o polegar sobre o dedo mindinho?"
+    opcoes:
+      - { id: a, texto: "Que o mais forte protege o mais fraco" }
+      - { id: b, texto: "A obediência à Lei" }
+      - { id: c, texto: "Os três Princípios do Escuta" }
+      - { id: d, texto: "A amizade entre as quatro secções" }
+    fonte: "_data/adesao.yml, pergunta 8"
+    revisao: inequivoca
+  - id: mov-10
+    seccoes: [flotilha, frota, comunidade]
+    percurso: movimento
+    pergunta: "Na fórmula da Promessa, prometes cumprir os teus deveres para com…"
+    opcoes:
+      - { id: a, texto: "Deus e a minha Pátria" }
+      - { id: b, texto: "Deus, a Igreja e a Pátria" }
+      - { id: c, texto: "Deus, os outros e eu próprio" }
+      - { id: d, texto: "A Lei, a família e a Pátria" }
+    fonte: "_data/adesao.yml, pergunta 9 (Regulamento Geral, art. 3.º)"
+    revisao: inequivoca
+  - id: mov-11
+    seccoes: [flotilha, frota, comunidade]
+    percurso: movimento
+    pergunta: "Que nó de bordo faz uma alça que não corre?"
+    opcoes:
+      - { id: a, texto: "Lais de guia" }
+      - { id: b, texto: "Volta do fiel" }
+      - { id: c, texto: "Nó de escota" }
+      - { id: d, texto: "Nó direito" }
+    fonte: "_data/adesao.yml, pergunta 10"
+    revisao: inequivoca
+  - id: mov-12
+    seccoes: [flotilha, frota, comunidade]
+    percurso: movimento
+    pergunta: "Qual é a regra para entrar numa embarcação?"
+    opcoes:
+      - { id: a, texto: "Colete vestido e apertado, e só com autorização de um dirigente" }
+      - { id: b, texto: "Pedir autorização a outro escuteiro da tua unidade" }
+      - { id: c, texto: "Colete só se o mar estiver agitado" }
+      - { id: d, texto: "Basta saber nadar" }
+    fonte: "_data/adesao.yml, pergunta 11"
+    revisao: inequivoca
+  - id: ala-lei-01
+    seccoes: [alcateia]
+    percurso: movimento
+    pergunta: "Qual é a Lei do Lobito?"
+    opcoes:
+      - { id: a, texto: "Da melhor vontade" }
+      - { id: b, texto: "A honra do Escuta inspira confiança" }
+      - { id: c, texto: "O Lobito pensa primeiro no seu semelhante" }
+      - { id: d, texto: "O Lobito escuta Àquêlà; o Lobito não se escuta a si próprio" }
+    fonte: "alcateia/vivencia.md, perguntasLei 1"
+    revisao: inequivoca
+    nota_revisao: "Percurso a confirmar (ver nota da Alcateia)."
+  - id: ala-lei-02
+    seccoes: [alcateia]
+    percurso: movimento
+    pergunta: "Qual destas frases é uma Máxima do Lobito?"
+    opcoes:
+      - { id: a, texto: "Da melhor vontade" }
+      - { id: b, texto: "O Escuta é leal" }
+      - { id: c, texto: "O Lobito sabe ver e ouvir" }
+      - { id: d, texto: "O Lobito escuta Àquêlà" }
+    fonte: "alcateia/vivencia.md, perguntasLei 2"
+    revisao: inequivoca
+    nota_revisao: "Percurso a confirmar (ver nota da Alcateia)."
+  - id: ala-lei-03
+    seccoes: [alcateia]
+    percurso: movimento
+    pergunta: "Qual é a Divisa do Lobito?"
+    opcoes:
+      - { id: a, texto: "Mais além" }
+      - { id: b, texto: "Boa pesca" }
+      - { id: c, texto: "O Lobito é alegre" }
+      - { id: d, texto: "Da melhor vontade" }
+    fonte: "alcateia/vivencia.md, perguntasLei 3"
+    revisao: inequivoca
+    nota_revisao: "Percurso a confirmar (ver nota da Alcateia)."
+  - id: ala-lei-04
+    seccoes: [alcateia]
+    percurso: movimento
+    pergunta: "Quem é Àquêlà?"
+    opcoes:
+      - { id: a, texto: "O Lobito mais velho" }
+      - { id: b, texto: "O Assistente do Agrupamento" }
+      - { id: c, texto: "O Chefe de Alcateia" }
+      - { id: d, texto: "O Guia de Bando" }
+    fonte: "alcateia/vivencia.md, perguntasLei 4"
+    revisao: inequivoca
+    nota_revisao: "Percurso a confirmar (ver nota da Alcateia)."
+  - id: ala-lei-05
+    seccoes: [alcateia]
+    percurso: movimento
+    pergunta: "O que é o Grande Uivo?"
+    opcoes:
+      - { id: a, texto: "O sinal de alarme do Bando" }
+      - { id: b, texto: "A canção do fim da Caçada" }
+      - { id: c, texto: "A reunião dos Guias de Bando" }
+      - { id: d, texto: "A saudação coletiva dos Lobitos aos seus Chefes ou visitantes" }
+    fonte: "alcateia/vivencia.md, perguntasLei 5"
+    revisao: inequivoca
+    nota_revisao: "Percurso a confirmar (ver nota da Alcateia)."
+  - id: ala-lei-06
+    seccoes: [alcateia]
+    percurso: movimento
+    pergunta: "Quem é o patrono da Alcateia?"
+    opcoes:
+      - { id: a, texto: "São Paulo" }
+      - { id: b, texto: "São Francisco de Assis" }
+      - { id: c, texto: "São Tiago" }
+      - { id: d, texto: "São Pedro" }
+    fonte: "alcateia/vivencia.md, perguntasLei 6"
+    revisao: inequivoca
+    nota_revisao: "Percurso a confirmar (ver nota da Alcateia)."
+  - id: ala-sec-01
+    seccoes: [alcateia]
+    percurso: seccao
+    pergunta: "Quantos Bandos pode ter uma Alcateia?"
+    opcoes:
+      - { id: a, texto: "Entre 1 e 3" }
+      - { id: b, texto: "Entre 5 e 8" }
+      - { id: c, texto: "Sempre 4" }
+      - { id: d, texto: "Entre 2 e 5" }
+    fonte: "alcateia/vivencia.md, perguntasAlcateia 1"
+    revisao: inequivoca
+  - id: ala-sec-02
+    seccoes: [alcateia]
+    percurso: seccao
+    pergunta: "Qual é a Mística da Alcateia?"
+    opcoes:
+      - { id: a, texto: "A Igreja em construção" }
+      - { id: b, texto: "O Louvor ao Criador" }
+      - { id: c, texto: "O Homem Novo" }
+      - { id: d, texto: "A Descoberta da Terra Prometida" }
+    fonte: "alcateia/vivencia.md, perguntasAlcateia 2"
+    revisao: inequivoca
+  - id: ala-sec-03
+    seccoes: [alcateia]
+    percurso: seccao
+    pergunta: "Qual destas é uma das cores dos Bandos?"
+    opcoes:
+      - { id: a, texto: "Azul" }
+      - { id: b, texto: "Verde" }
+      - { id: c, texto: "Ruivo" }
+      - { id: d, texto: "Amarelo" }
+    fonte: "alcateia/vivencia.md, perguntasAlcateia 3"
+    revisao: inequivoca
+  - id: ala-sec-04
+    seccoes: [alcateia]
+    percurso: seccao
+    pergunta: "Quem dirige o Bando?"
+    opcoes:
+      - { id: a, texto: "Àquêlà" }
+      - { id: b, texto: "O Lobito mais novo" }
+      - { id: c, texto: "O Guia de Bando, ajudado pelo Sub-Guia" }
+      - { id: d, texto: "O Escrivão" }
+    fonte: "alcateia/vivencia.md, perguntasAlcateia 4"
+    revisao: inequivoca
+  - id: ala-sec-05
+    seccoes: [alcateia]
+    percurso: seccao
+    pergunta: "Como é a bandeirola do Bando?"
+    opcoes:
+      - { id: a, texto: "Branca, com uma flor-de-lis ao centro" }
+      - { id: b, texto: "Azul celeste, debruada a amarelo, com a cabeça de lobo na cor do Bando" }
+      - { id: c, texto: "Azul-escura, debruada a branco, com a silhueta de um navegador" }
+      - { id: d, texto: "Azul celeste, debruada a branco, com um animal marinho a preto" }
+    fonte: "alcateia/vivencia.md, perguntasAlcateia 5"
+    revisao: inequivoca
+  - id: ala-sec-06
+    seccoes: [alcateia]
+    percurso: seccao
+    pergunta: "Na Alcateia marítima, que personagem aprende a navegar e é um exemplo para os Lobitos?"
+    opcoes:
+      - { id: a, texto: "Maugli" }
+      - { id: b, texto: "Cótique, a Foca Branca" }
+      - { id: c, texto: "Àquêlà" }
+      - { id: d, texto: "São Francisco de Assis" }
+    fonte: "alcateia/vivencia.md, perguntasAlcateia 6"
+    revisao: inequivoca
+  - id: ala-sec-07
+    seccoes: [alcateia]
+    percurso: seccao
+    pergunta: "Onde se reúne a Alcateia e qual é a sua atividade típica?"
+    opcoes:
+      - { id: a, texto: "Na Base; a Caçada" }
+      - { id: b, texto: "No Covil; a Caçada" }
+      - { id: c, texto: "Na Base; a Expedição" }
+      - { id: d, texto: "No Covil; o Cruzeiro" }
+    fonte: "alcateia/vivencia.md, perguntasAlcateia 7"
+    revisao: inequivoca
+  - id: ala-sec-08
+    seccoes: [alcateia]
+    percurso: seccao
+    pergunta: "O que faz o Lobito de Paiol?"
+    opcoes:
+      - { id: a, texto: "Cuida das finanças" }
+      - { id: b, texto: "Cuida das refeições" }
+      - { id: c, texto: "Cuida do material náutico" }
+      - { id: d, texto: "Regista as atividades" }
+    fonte: "alcateia/vivencia.md, perguntasAlcateia 8"
+    revisao: inequivoca
+  - id: ala-sec-09
+    seccoes: [alcateia]
+    percurso: seccao
+    pergunta: "Qual é a primeira etapa do progresso do Lobito?"
+    opcoes:
+      - { id: a, texto: "Pata-Tenra" }
+      - { id: b, texto: "Apelo" }
+      - { id: c, texto: "Desprendimento" }
+      - { id: d, texto: "Caminho" }
+    fonte: "alcateia/vivencia.md, perguntasAlcateia 9; _data/progresso.yml"
+    revisao: duvidosa
+    nota_revisao: "Os nomes das etapas da I Secção ainda estão por confirmar no manual de secção (ver _data/progresso.yml)."
+  - id: flo-01
+    seccoes: [flotilha]
+    percurso: seccao
+    pergunta: "Que idades têm os Moços e como se organizam?"
+    opcoes:
+      - { id: a, texto: "6 a 10 anos, em Bandos" }
+      - { id: b, texto: "14 a 18 anos, em Equipagens" }
+      - { id: c, texto: "10 a 14 anos, em Tripulações" }
+      - { id: d, texto: "10 a 14 anos, em Equipagens" }
+    fonte: "flotilha/vivencia.md, perguntasSeccao 1"
+    revisao: inequivoca
+  - id: flo-02
+    seccoes: [flotilha]
+    percurso: seccao
+    pergunta: "Quem é o Patrono da Flotilha?"
+    opcoes:
+      - { id: a, texto: "São Paulo" }
+      - { id: b, texto: "São Tiago" }
+      - { id: c, texto: "São Francisco de Assis" }
+      - { id: d, texto: "São Pedro" }
+    fonte: "flotilha/vivencia.md, perguntasSeccao 2"
+    revisao: inequivoca
+  - id: flo-03
+    seccoes: [flotilha]
+    percurso: seccao
+    pergunta: "Qual destes é um símbolo da Flotilha?"
+    opcoes:
+      - { id: a, texto: "O Leme" }
+      - { id: b, texto: "O Ícthus" }
+      - { id: c, texto: "A Machada" }
+      - { id: d, texto: "A vela latina" }
+    fonte: "flotilha/vivencia.md, perguntasSeccao 3"
+    revisao: inequivoca
+  - id: flo-04
+    seccoes: [flotilha]
+    percurso: seccao
+    pergunta: "Quem substitui o Timoneiro quando ele falta?"
+    opcoes:
+      - { id: a, texto: "O Sub-Guia" }
+      - { id: b, texto: "O Escrivão" }
+      - { id: c, texto: "O Contramestre" }
+      - { id: d, texto: "O Sota-Timoneiro" }
+    fonte: "flotilha/vivencia.md, perguntasSeccao 4"
+    revisao: inequivoca
+  - id: flo-05
+    seccoes: [flotilha]
+    percurso: seccao
+    pergunta: "Como se chama o animal marinho que dá nome a cada Tripulação?"
+    opcoes:
+      - { id: a, texto: "A Mística" }
+      - { id: b, texto: "O Totem" }
+      - { id: c, texto: "O Patrono" }
+      - { id: d, texto: "A Divisa" }
+    fonte: "flotilha/vivencia.md, perguntasSeccao 5"
+    revisao: inequivoca
+  - id: flo-06
+    seccoes: [flotilha]
+    percurso: seccao
+    pergunta: "Qual é a atividade típica da Flotilha?"
+    opcoes:
+      - { id: a, texto: "A Expedição" }
+      - { id: b, texto: "A Caçada" }
+      - { id: c, texto: "O Cruzeiro" }
+      - { id: d, texto: "O Empreendimento" }
+    fonte: "flotilha/vivencia.md, perguntasSeccao 6"
+    revisao: inequivoca
+  - id: flo-07
+    seccoes: [flotilha]
+    percurso: seccao
+    pergunta: "Qual é a cor da Flotilha?"
+    opcoes:
+      - { id: a, texto: "Azul claro debruado a branco" }
+      - { id: b, texto: "Azul escuro debruado a branco" }
+      - { id: c, texto: "Azul debruado a amarelo" }
+      - { id: d, texto: "Branco debruado a azul escuro" }
+    fonte: "flotilha/vivencia.md, perguntasSeccao 7"
+    revisao: inequivoca
+  - id: flo-08
+    seccoes: [flotilha]
+    percurso: seccao
+    pergunta: "Segundo a tradição marítima, o escuteiro marítimo vai sempre…"
+    opcoes:
+      - { id: a, texto: "da melhor vontade" }
+      - { id: b, texto: "em frente" }
+      - { id: c, texto: "mais além" }
+      - { id: d, texto: "alerta" }
+    fonte: "flotilha/vivencia.md, perguntasSeccao 8"
+    revisao: duvidosa
+    nota_revisao: "O cartão de estudo junta «mais além» e «boa pesca» sem dizer qual é a saudação e qual é a divisa."
+  - id: flo-09
+    seccoes: [flotilha]
+    percurso: seccao
+    pergunta: "Qual é a ordem das etapas do progresso na Flotilha?"
+    opcoes:
+      - { id: a, texto: "Desprendimento, Conhecimento, Vontade, Construção" }
+      - { id: b, texto: "Apelo, Aliança, Rumo, Descoberta" }
+      - { id: c, texto: "Aliança, Apelo, Descoberta, Rumo" }
+      - { id: d, texto: "Rumo, Apelo, Aliança, Descoberta" }
+    fonte: "flotilha/vivencia.md, perguntasSeccao 9; _data/progresso.yml"
+    revisao: inequivoca
+  - id: fro-01
+    seccoes: [frota]
+    percurso: seccao
+    pergunta: "Que idades têm os Marinheiros e como se organizam?"
+    opcoes:
+      - { id: a, texto: "14 a 18 anos, em Equipagens" }
+      - { id: b, texto: "10 a 14 anos, em Tripulações" }
+      - { id: c, texto: "18 a 22 anos, em Companhas" }
+      - { id: d, texto: "14 a 18 anos, em Tripulações" }
+    fonte: "frota/vivencia.md, perguntasSeccao 1"
+    revisao: inequivoca
+  - id: fro-02
+    seccoes: [frota]
+    percurso: seccao
+    pergunta: "Qual é a Mística da Frota?"
+    opcoes:
+      - { id: a, texto: "A Descoberta da Terra Prometida" }
+      - { id: b, texto: "O Louvor ao Criador" }
+      - { id: c, texto: "A Igreja em construção" }
+      - { id: d, texto: "O Homem Novo" }
+    fonte: "frota/vivencia.md, perguntasSeccao 2"
+    revisao: inequivoca
+  - id: fro-03
+    seccoes: [frota]
+    percurso: seccao
+    pergunta: "Qual destes é um dos quatro símbolos da Frota?"
+    opcoes:
+      - { id: a, texto: "O Pão" }
+      - { id: b, texto: "A vela latina" }
+      - { id: c, texto: "A canoa" }
+      - { id: d, texto: "A Rosa-dos-ventos" }
+    fonte: "frota/vivencia.md, perguntasSeccao 3"
+    revisao: inequivoca
+  - id: fro-04
+    seccoes: [frota]
+    percurso: seccao
+    pergunta: "Quem substitui o Mestre quando ele falta?"
+    opcoes:
+      - { id: a, texto: "O 2.º Arrais" }
+      - { id: b, texto: "O Cronista" }
+      - { id: c, texto: "O Sota-Timoneiro" }
+      - { id: d, texto: "O Contramestre" }
+    fonte: "frota/vivencia.md, perguntasSeccao 4"
+    revisao: inequivoca
+  - id: fro-05
+    seccoes: [frota]
+    percurso: seccao
+    pergunta: "Qual é a atividade típica da Frota?"
+    opcoes:
+      - { id: a, texto: "A Caçada" }
+      - { id: b, texto: "O Empreendimento" }
+      - { id: c, texto: "A Expedição" }
+      - { id: d, texto: "O Cruzeiro" }
+    fonte: "frota/vivencia.md, perguntasSeccao 5"
+    revisao: inequivoca
+  - id: fro-06
+    seccoes: [frota]
+    percurso: seccao
+    pergunta: "Qual é a cor da Frota?"
+    opcoes:
+      - { id: a, texto: "Branco debruado a azul escuro" }
+      - { id: b, texto: "Azul claro debruado a branco" }
+      - { id: c, texto: "Azul escuro debruado a branco" }
+      - { id: d, texto: "Azul debruado a amarelo" }
+    fonte: "frota/vivencia.md, perguntasSeccao 6"
+    revisao: inequivoca
+  - id: fro-07
+    seccoes: [frota]
+    percurso: seccao
+    pergunta: "Como se decide o Cruzeiro?"
+    opcoes:
+      - { id: a, texto: "O Chefe de Frota escolhe sozinho" }
+      - { id: b, texto: "Faz-se um sorteio entre as Equipagens" }
+      - { id: c, texto: "Decide o Mestre mais velho" }
+      - { id: d, texto: "Cada Equipagem apresenta um anteprojeto e a Frota decide qual avança" }
+    fonte: "frota/vivencia.md, perguntasSeccao 7"
+    revisao: inequivoca
+  - id: fro-08
+    seccoes: [frota]
+    percurso: seccao
+    pergunta: "Segundo a tradição marítima, o escuteiro marítimo vai sempre…"
+    opcoes:
+      - { id: a, texto: "em frente" }
+      - { id: b, texto: "alerta" }
+      - { id: c, texto: "da melhor vontade" }
+      - { id: d, texto: "mais além" }
+    fonte: "frota/vivencia.md, perguntasSeccao 8"
+    revisao: duvidosa
+    nota_revisao: "O cartão de estudo junta «mais além» e «boa pesca» sem dizer qual é a saudação e qual é a divisa."
+  - id: fro-09
+    seccoes: [frota]
+    percurso: seccao
+    pergunta: "Como se distinguem as Equipagens?"
+    opcoes:
+      - { id: a, texto: "Pelo Totem, um animal marinho" }
+      - { id: b, texto: "Pelo seu Patrono: um Santo, um Benemérito da Humanidade ou um Herói Nacional" }
+      - { id: c, texto: "Por um número" }
+      - { id: d, texto: "Pela cor da bandeirola" }
+    fonte: "frota/vivencia.md, perguntasSeccao 9"
+    revisao: inequivoca
+  - id: fro-10
+    seccoes: [frota]
+    percurso: seccao
+    pergunta: "Qual é a ordem das etapas do progresso na Frota?"
+    opcoes:
+      - { id: a, texto: "Desprendimento, Conhecimento, Vontade, Construção" }
+      - { id: b, texto: "Apelo, Aliança, Rumo, Descoberta" }
+      - { id: c, texto: "Conhecimento, Desprendimento, Construção, Vontade" }
+      - { id: d, texto: "Vontade, Desprendimento, Conhecimento, Construção" }
+    fonte: "frota/vivencia.md, perguntasSeccao 10; _data/progresso.yml"
+    revisao: inequivoca
+  - id: com-01
+    seccoes: [comunidade]
+    percurso: seccao
+    pergunta: "Que idades têm os Companheiros?"
+    opcoes:
+      - { id: a, texto: "18 a 22 anos" }
+      - { id: b, texto: "18 a 25 anos" }
+      - { id: c, texto: "14 a 18 anos" }
+      - { id: d, texto: "16 a 20 anos" }
+    fonte: "comunidade/vivencia.md, perguntasSeccao 1"
+    revisao: inequivoca
+  - id: com-02
+    seccoes: [comunidade]
+    percurso: seccao
+    pergunta: "Qual é a Mística da Comunidade?"
+    opcoes:
+      - { id: a, texto: "O Louvor ao Criador" }
+      - { id: b, texto: "A Igreja em construção" }
+      - { id: c, texto: "A Descoberta da Terra Prometida" }
+      - { id: d, texto: "O Homem Novo" }
+    fonte: "comunidade/vivencia.md, perguntasSeccao 2"
+    revisao: inequivoca
+  - id: com-03
+    seccoes: [comunidade]
+    percurso: seccao
+    pergunta: "Antes da Promessa, há quanto tempo deve o Companheiro estar integrado na Comunidade 88?"
+    opcoes:
+      - { id: a, texto: "Pelo menos 1 mês" }
+      - { id: b, texto: "Pelo menos 3 meses" }
+      - { id: c, texto: "Pelo menos 1 ano" }
+      - { id: d, texto: "Não há tempo mínimo" }
+    fonte: "comunidade/vivencia.md, perguntasSeccao 3"
+    revisao: duvidosa
+    nota_revisao: "O cartão fala em «Tripulação» (termo da II Secção; na IV é Companha) e não indica se os 3 meses são regra do CNE ou do Agrupamento."
+  - id: com-04
+    seccoes: [comunidade]
+    percurso: seccao
+    pergunta: "Qual é a última etapa do progresso do Companheiro?"
+    opcoes:
+      - { id: a, texto: "O Serviço" }
+      - { id: b, texto: "A Partida" }
+      - { id: c, texto: "A Comunidade" }
+      - { id: d, texto: "O Caminho" }
+    fonte: "comunidade/vivencia.md, perguntasSeccao 4"
+    revisao: duvidosa
+    nota_revisao: "Nos marítimos, o Regulamento Geral (art. 57.º) chama-lhe «Largada». Decidir o termo antes de publicar."
+  - id: com-05
+    seccoes: [comunidade]
+    percurso: seccao
+    pergunta: "Qual é a atividade típica da Comunidade?"
+    opcoes:
+      - { id: a, texto: "O Cruzeiro" }
+      - { id: b, texto: "O Empreendimento" }
+      - { id: c, texto: "A Expedição" }
+      - { id: d, texto: "A Caçada" }
+    fonte: "comunidade/vivencia.md, perguntasSeccao 5"
+    revisao: inequivoca
+  - id: com-06
+    seccoes: [comunidade]
+    percurso: seccao
+    pergunta: "Quem é o Patrono da Comunidade e o que simboliza a sua conversão?"
+    opcoes:
+      - { id: a, texto: "São Francisco — o louvor ao Criador" }
+      - { id: b, texto: "São Pedro — a construção da Igreja" }
+      - { id: c, texto: "São Paulo — a mudança radical de vida ao serviço de um ideal" }
+      - { id: d, texto: "São Tiago — a partida à aventura guiada por uma estrela" }
+    fonte: "comunidade/vivencia.md, perguntasSeccao 6"
+    revisao: inequivoca
+  - id: com-07
+    seccoes: [comunidade]
+    percurso: seccao
+    pergunta: "Que oração é própria da IV Secção?"
+    opcoes:
+      - { id: a, texto: "A Oração do Lobito" }
+      - { id: b, texto: "A Oração do Companheiro" }
+      - { id: c, texto: "A Oração do Moço" }
+      - { id: d, texto: "A Oração do Marinheiro" }
+    fonte: "comunidade/vivencia.md, perguntasSeccao 7"
+    revisao: duvidosa
+    nota_revisao: "As opções erradas usam nomes de orações de outras secções que o site não documenta; confirmar se são adequadas como distratores."
+  - id: com-08
+    seccoes: [comunidade]
+    percurso: seccao
+    pergunta: "O que é o Projeto Pessoal de Vida (PPV)?"
+    opcoes:
+      - { id: a, texto: "O relatório final do Empreendimento" }
+      - { id: b, texto: "O registo das horas de mar" }
+      - { id: c, texto: "A «bússola» do Companheiro: objetivos para a vida profissional, familiar, social e espiritual" }
+      - { id: d, texto: "O plano anual de atividades da Comunidade" }
+    fonte: "comunidade/vivencia.md, perguntasSeccao 8"
+    revisao: inequivoca

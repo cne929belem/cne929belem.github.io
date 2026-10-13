@@ -1,0 +1,229 @@
+{%- comment -%}
+  =========================================================================
+  COMPONENTE: Teste das Promessas (teste teórico, validado no servidor)
+  -------------------------------------------------------------------------
+  Utilização (nas páginas de Vivência, com seccao_slug no front matter):
+      {% include teste-promessas.html %}
+  Qualquer botão com o atributo data-abrir-teste-promessas abre o teste
+  (ex.: «Faz o Teste 📝» no fim do Treino para as Promessas).
+
+  Dados: _data/teste_promessas.yml (perguntas e opções, SEM chave).
+  Servidor: _config.yml → teste_promessas.endpoint (Web App do Apps Script,
+  apps-script/teste-promessas/). Sem endpoint, o teste mostra «ainda não
+  disponível» e não recolhe dados.
+
+  O navegador não corrige nem conta nada: a chave, a correção, as tentativas e
+  o código de validação existem apenas no servidor.
+  =========================================================================
+{%- endcomment -%}
+{%- assign tp = site.data.teste_promessas -%}
+{%- assign tp_seccao = tp.seccoes[page.seccao_slug] -%}
+{%- if tp_seccao -%}
+{%- assign tp_perguntas = tp.perguntas | where_exp: "q", "q.seccoes contains page.seccao_slug" -%}
+<style>
+    .tp-chamada { margin: 0; padding: clamp(18px, 1.302vw, 25px); border: 1px solid #e3e9ef; border-left: 5px solid var(--tp-cor); border-radius: 8px; background: #fff; text-align: center; }
+    .tp-chamada p { margin: 0 auto 10px; max-width: 62ch; line-height: 1.55; }
+    .tp-aviso { padding: 10px 14px; border-radius: 6px; background: #fff8e5; border: 1px solid #f1d58a; color: #5c4600; font-size: 0.9rem; line-height: 1.5; text-align: left; }
+    .tp-chamada .tp-aviso { margin: 12px auto 16px; max-width: 62ch; }
+    .btn.tp-primario { background-color: var(--tp-cor); color: var(--tp-cor-texto) !important; }
+    .btn.tp-primario:hover { background-color: var(--azul-marinho); color: #fff !important; }
+    .btn.tp-secundario { background-color: #6c757d; }
+    .btn[disabled] { opacity: .55; cursor: not-allowed; }
+    .tp-chamada .btn:focus-visible, .tp-dialogo .btn:focus-visible, .tp-dialogo button:focus-visible,
+    .tp-dialogo input:focus-visible, .tp-dialogo select:focus-visible { outline: 3px solid var(--azul-claro); outline-offset: 3px; }
+
+    html.tp-aberto, html.tp-aberto body { overflow: hidden; }
+    .tp-dialogo { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: #fff; color: #1d2b33; }
+    .tp-dialogo::backdrop { background: #fff; }
+    .tp-estrutura { display: flex; flex-direction: column; height: 100%; }
+    .tp-cabecalho { flex: 0 0 auto; padding: calc(env(safe-area-inset-top, 0px) + 12px) clamp(16px, 2.083vw, 40px) 12px; border-bottom: 4px solid var(--tp-cor); background: #fff; }
+    .tp-cabecalho-linha { display: flex; align-items: center; justify-content: space-between; gap: 12px; max-width: 900px; margin: 0 auto; }
+    .tp-cabecalho h2 { margin: 0; color: var(--azul-marinho); font-size: clamp(19px, 1.25vw, 24px); }
+    .tp-fechar { flex: 0 0 auto; min-width: 44px; min-height: 44px; border: 1px solid #cfd8df; border-radius: 999px; background: #fff; color: var(--azul-marinho); font-size: 22px; line-height: 1; cursor: pointer; }
+    .tp-passos { max-width: 900px; margin: 8px auto 0; color: #52616a; font-size: 0.85rem; }
+    .tp-passos progress { display: block; width: 100%; height: 6px; margin-top: 6px; accent-color: var(--tp-cor); }
+    .tp-corpo { flex: 1 1 auto; overflow-y: auto; padding: clamp(18px, 1.563vw, 30px) clamp(16px, 2.083vw, 40px) calc(env(safe-area-inset-bottom, 0px) + 40px); }
+    .tp-painel { max-width: 900px; margin: 0 auto; }
+    .tp-painel[hidden] { display: none; }
+    .tp-painel h3 { margin: 0 0 14px; color: var(--azul-marinho); outline: none; }
+    .tp-painel p, .tp-painel li { line-height: 1.6; }
+    .tp-privacidade { margin: 16px 0; padding: 12px 14px; border-left: 4px solid var(--azul-claro); background: #eaf4fb; font-size: 0.9rem; line-height: 1.55; }
+    .tp-campo { display: grid; gap: 6px; margin: 0 0 16px; max-width: 480px; }
+    .tp-campo label { font-weight: 700; color: var(--azul-marinho); }
+    .tp-campo select, .tp-campo input { min-height: 46px; padding: 10px 12px; border: 1px solid #9fb0bd; border-radius: 6px; font: inherit; font-size: 16px; background: #fff; }
+    .tp-campo input[readonly] { background: #f2f5f7; color: #3a4a54; }
+    .tp-ajuda { color: #5b6b74; font-size: 0.85rem; }
+    .tp-mensagem { margin: 0 0 14px; padding: 10px 14px; border-radius: 6px; font-weight: 600; }
+    .tp-mensagem:empty { display: none; }
+    .tp-mensagem.erro { background: #fdecea; border: 1px solid #f5c2c0; color: #8a1c14; }
+    .tp-mensagem.info { background: #eaf4fb; border: 1px solid #b9d9ef; color: #0b3d63; }
+    .tp-acoes { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .tp-acoes .btn { margin: 0; }
+    .tp-percursos { display: grid; gap: 12px; margin: 0 0 14px; padding: 0; border: 0; }
+    .tp-percursos legend { margin-bottom: 8px; font-weight: 700; color: var(--azul-marinho); }
+    .tp-percurso { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border: 2px solid #d7e1ea; border-radius: 8px; cursor: pointer; }
+    .tp-percurso:has(input:checked) { border-color: var(--tp-cor); background: #f6f9fb; }
+    .tp-percurso:has(input:disabled) { cursor: not-allowed; opacity: .6; }
+    .tp-percurso input { width: 20px; height: 20px; margin-top: 3px; accent-color: var(--tp-cor); }
+    .tp-percurso strong { display: block; color: var(--azul-marinho); }
+    .tp-percurso small { display: block; color: #5b6b74; line-height: 1.45; }
+    .tp-progresso-teste { position: sticky; top: calc(-1 * clamp(18px, 1.563vw, 30px)); z-index: 2; margin: 0 0 16px; padding: 10px 0; background: #fff; border-bottom: 1px solid #e3e9ef; font-weight: 700; color: var(--azul-marinho); }
+    .tp-progresso-teste progress { display: block; width: 100%; height: 8px; margin-top: 6px; accent-color: var(--tp-cor); }
+    .tp-grelha { display: grid; gap: 14px; }
+    .tp-pergunta { margin: 0; padding: 14px 16px 10px; border: 1px solid #d7e1ea; border-left: 4px solid var(--tp-cor); border-radius: 8px; }
+    .tp-pergunta legend { padding: 0 4px; font-weight: 700; color: #1d2b33; line-height: 1.5; }
+    .tp-opcao { display: flex; gap: 10px; align-items: flex-start; margin: 6px 0; padding: 8px 10px; border-radius: 6px; cursor: pointer; line-height: 1.45; }
+    .tp-opcao:hover { background: #f2f6f9; }
+    .tp-opcao input { flex: 0 0 auto; width: 20px; height: 20px; margin-top: 1px; accent-color: var(--tp-cor); }
+    .tp-resultado { padding: 18px; border-radius: 10px; text-align: center; }
+    .tp-resultado.aprovado { background: #e8f6ee; border: 1px solid #a9d9bc; }
+    .tp-resultado.nao-aprovado { background: #fff4e5; border: 1px solid #f3cf93; }
+    .tp-resultado strong { display: block; font-size: 1.4rem; color: var(--azul-marinho); }
+    .tp-codigo { display: inline-block; margin-top: 8px; padding: 6px 12px; border-radius: 6px; background: #fff; border: 1px dashed #7a8b96; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 1.05rem; letter-spacing: .04em; }
+    @media (prefers-reduced-motion: reduce) { .tp-dialogo * { scroll-behavior: auto !important; } }
+</style>
+
+<!-- TEMA: TESTE DAS PROMESSAS (componente _includes/teste-promessas.html) -->
+<section class="tp-chamada" aria-label="Teste das Promessas" style="--tp-cor: {{ page.seccao_cor }}; --tp-cor-texto: {{ page.seccao_cor_texto | default: '#fff' }};">
+    <p>Quando te sentires preparado, faz o teste teórico. Tens <strong>2 tentativas por ano escutista</strong> e precisas de acertar em <strong>todas</strong> as perguntas.</p>
+    <p class="tp-aviso">{{ tp.aviso_teorico }}</p>
+    <button type="button" class="btn tp-primario" data-abrir-teste-promessas>Iniciar Teste</button>
+</section>
+
+<dialog id="tp-dialogo" class="tp-dialogo" aria-labelledby="tp-titulo"
+        data-endpoint="{{ site.teste_promessas.endpoint }}"
+        data-protecao-dados="{{ '/agrupamento/protecao-dados.html' | relative_url }}"
+        style="--tp-cor: {{ page.seccao_cor }}; --tp-cor-texto: {{ page.seccao_cor_texto | default: '#fff' }};">
+    <div class="tp-estrutura">
+        <header class="tp-cabecalho">
+            <div class="tp-cabecalho-linha">
+                <h2 id="tp-titulo">Teste das Promessas · {{ tp_seccao.nome }}</h2>
+                <button type="button" class="tp-fechar" data-tp-fechar aria-label="Fechar o teste">×</button>
+            </div>
+            <div class="tp-passos">
+                <span data-tp-passo-texto>Passo 1 de 5 · Antes de começar</span>
+                <progress max="5" value="1" data-tp-passo-barra aria-hidden="true"></progress>
+            </div>
+        </header>
+
+        <div class="tp-corpo">
+            <!-- 1. Antes de começar -->
+            <section class="tp-painel" data-tp-painel="inicio" aria-labelledby="tp-h-inicio">
+                <h3 id="tp-h-inicio" tabindex="-1">Antes de começar</h3>
+                <p class="tp-aviso">{{ tp.aviso_teorico }}</p>
+                <ul>
+                    <li>Identificas-te com o teu Totem e o email que o Agrupamento tem registado.</li>
+                    <li>Escolhes um percurso: <strong>{{ tp.percursos.movimento }}</strong> ou <strong>{{ tp.percursos.seccao }}</strong>.</li>
+                    <li>Respondes a todas as perguntas numa só página. Para seres aprovado, tens de acertar em <strong>todas</strong>.</li>
+                    <li>Tens <strong>2 tentativas por ano escutista</strong> (de 1 de outubro a 30 de setembro), sempre no mesmo percurso.</li>
+                    <li><strong>A tentativa conta a partir do momento em que carregas em «Começar o teste».</strong> Se fechares o teste ou saíres da página depois disso, a tentativa conta como não concluída.</li>
+                </ul>
+                <p class="tp-mensagem info" data-tp-indisponivel hidden>O teste ainda não está disponível. Continua a estudar com o Treino para as Promessas.</p>
+                <div class="tp-acoes">
+                    <button type="button" class="btn tp-primario" data-tp-ir="identificacao">Continuar</button>
+                    <button type="button" class="btn tp-secundario" data-tp-fechar>Agora não</button>
+                </div>
+            </section>
+
+            <!-- 2. Identificação -->
+            <section class="tp-painel" data-tp-painel="identificacao" aria-labelledby="tp-h-identificacao" hidden>
+                <h3 id="tp-h-identificacao" tabindex="-1">Quem és?</h3>
+                <form data-tp-form-identificacao novalidate>
+                    <div class="tp-mensagem" data-tp-mensagem-identificacao role="alert"></div>
+                    <div class="tp-campo">
+                        <label for="tp-totem">1. O teu Totem</label>
+                        <select id="tp-totem" name="totem" required>
+                            <option value="">A carregar…</option>
+                        </select>
+                    </div>
+                    <div class="tp-campo">
+                        <label for="tp-nin">2. NIN</label>
+                        <input id="tp-nin" name="nin" type="text" readonly aria-describedby="tp-nin-ajuda" value="">
+                        <span class="tp-ajuda" id="tp-nin-ajuda">Aparece sozinho quando escolhes o Totem. Só mostramos os últimos algarismos, para proteger os teus dados.</span>
+                    </div>
+                    <div class="tp-campo">
+                        <label for="tp-email">3. Email</label>
+                        <input id="tp-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="tp-email-ajuda">
+                        <span class="tp-ajuda" id="tp-email-ajuda">O email que o Agrupamento tem no teu registo (o teu ou o do teu encarregado de educação).</span>
+                    </div>
+                    <p class="tp-privacidade">
+                        <strong>Privacidade.</strong> Usamos o Totem, o NIN e o email só para confirmar que és tu e para registar o resultado.
+                        Guardamos um identificador cifrado do NIN, a secção, o Totem, o percurso, o número da tentativa, a data e hora, o resultado e o código de validação.
+                        As tuas respostas <strong>não</strong> são guardadas. O resultado é enviado à Equipa de Animação da tua secção e aparece na tua Área Pessoal.
+                        Se tens menos de 18 anos, faz o teste com conhecimento do teu encarregado de educação.
+                        <a href="{{ '/agrupamento/protecao-dados.html' | relative_url }}" target="_blank" rel="noopener">Proteção de dados</a>.
+                    </p>
+                    <div class="tp-acoes">
+                        <button type="submit" class="btn tp-primario">Confirmar identidade</button>
+                        <button type="button" class="btn tp-secundario" data-tp-ir="inicio">Voltar</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- 3. Percurso -->
+            <section class="tp-painel" data-tp-painel="percurso" aria-labelledby="tp-h-percurso" hidden>
+                <h3 id="tp-h-percurso" tabindex="-1">Escolhe o percurso</h3>
+                <div class="tp-mensagem" data-tp-mensagem-percurso role="alert"></div>
+                <p data-tp-info-tentativas></p>
+                <fieldset class="tp-percursos">
+                    <legend>Percurso</legend>
+                    {%- for p in tp.percursos %}
+                    {%- assign chave_percurso = p[0] %}
+                    {%- assign cfg_percurso = tp_seccao[chave_percurso] %}
+                    <label class="tp-percurso">
+                        <input type="radio" name="tp-percurso" value="{{ chave_percurso }}" data-disponivel="{{ cfg_percurso.disponivel }}">
+                        <span><strong>{{ cfg_percurso.titulo }}</strong><small data-tp-nota-percurso="{{ chave_percurso }}">{% if cfg_percurso.disponivel == false %}{{ cfg_percurso.nota }}{% endif %}</small></span>
+                    </label>
+                    {%- endfor %}
+                </fieldset>
+                <p class="tp-aviso"><strong>Atenção:</strong> ao carregares em «Começar o teste», a tentativa passa a contar. Tens {{ site.teste_promessas.duracao_minutos | default: 30 }} minutos para entregar.</p>
+                <div class="tp-acoes">
+                    <button type="button" class="btn tp-primario" data-tp-comecar disabled>Começar o teste</button>
+                    <button type="button" class="btn tp-secundario" data-tp-fechar>Sair</button>
+                </div>
+            </section>
+
+            <!-- 4. Teste -->
+            <section class="tp-painel" data-tp-painel="teste" aria-labelledby="tp-h-teste" hidden>
+                <h3 id="tp-h-teste" tabindex="-1" data-tp-titulo-teste>Teste</h3>
+                <p class="tp-ajuda" data-tp-prazo></p>
+                <form data-tp-form-teste novalidate>
+                    <div class="tp-progresso-teste">
+                        <span aria-live="polite" data-tp-contador>0 de 0 respondidas</span>
+                        <progress value="0" max="1" data-tp-barra-teste aria-hidden="true"></progress>
+                    </div>
+                    <div class="tp-mensagem" data-tp-mensagem-teste role="alert"></div>
+                    <div class="tp-grelha" data-tp-grelha></div>
+                    <div class="tp-acoes">
+                        <button type="submit" class="btn tp-primario" data-tp-entregar disabled>Entregar o teste</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- 5. Resultado -->
+            <section class="tp-painel" data-tp-painel="resultado" aria-labelledby="tp-h-resultado" hidden>
+                <h3 id="tp-h-resultado" tabindex="-1">Resultado</h3>
+                <div class="tp-resultado" data-tp-caixa-resultado>
+                    <strong data-tp-resultado-titulo></strong>
+                    <p data-tp-resultado-detalhe></p>
+                    <p>Código de validação:<br><span class="tp-codigo" data-tp-codigo></span></p>
+                </div>
+                <p data-tp-resultado-seguinte></p>
+                <p class="tp-aviso">{{ tp.aviso_teorico }}</p>
+                <div class="tp-acoes">
+                    <button type="button" class="btn tp-primario" data-tp-fechar>Fechar</button>
+                </div>
+            </section>
+        </div>
+    </div>
+</dialog>
+
+<script type="application/json" id="tp-dados">{
+    "seccao": {{ page.seccao_slug | jsonify }},
+    "seccaoNome": {{ tp_seccao.nome | jsonify }},
+    "percursos": {"movimento": {{ tp_seccao.movimento | jsonify }}, "seccao": {{ tp_seccao.seccao | jsonify }}},
+    "titulosPercursos": {{ tp.percursos | jsonify }},
+    "perguntas": {{ tp_perguntas | jsonify }}
+}</script>
+<script src="{{ '/assets/js/teste-promessas.js' | relative_url }}" defer></script>
+{%- endif -%}

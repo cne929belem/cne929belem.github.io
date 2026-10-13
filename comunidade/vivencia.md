@@ -310,9 +310,15 @@ seccao_cor: '#39374C'
 
                     <div id="estudo-fim">
                         <h2>Muitos Parabéns! 🎉</h2>
-                        <p>Concluíste a revisão desta secção de perguntas.</p>
-                        <a href="{{ '/em-construcao.html' | relative_url }}" class="btn" style="background-color: var(--azul-marinho);">Faz o Teste 📝</a>
+                        <p>Concluíste a revisão desta secção de perguntas. Podes agora abrir o separador «Teste das Promessas».</p>
                     </div>
+                </div>
+            </details>
+
+            <details class="acordeao">
+                <summary>📝 Teste das Promessas</summary>
+                <div class="acordeao-content">
+                    {% include teste-promessas.html %}
                 </div>
             </details>
 

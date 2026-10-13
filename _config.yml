@@ -52,6 +52,7 @@ exclude:
   - .github/
   - .jekyll-cache/
   - .sass-cache/
+  - apps-script/
 
 # =========================================================================
 # PREDEFINIÇÕES — páginas que não devem entrar no sitemap. As páginas da
@@ -68,3 +69,14 @@ defaults:
       path: "em-construcao.md"
     values:
       sitemap: false
+
+# =========================================================================
+# TESTE DAS PROMESSAS — endereço do Web App (Apps Script) que identifica,
+# corrige e regista os testes. O URL /exec é público por natureza (como o do
+# acesso à Área Pessoal); não é um segredo. Deixar vazio até o Apps Script
+# estar publicado e testado: o site mostra «teste ainda não disponível».
+# Ver apps-script/teste-promessas/LEIA-ME.md.
+# =========================================================================
+teste_promessas:
+  endpoint: ""
+  duracao_minutos: 30

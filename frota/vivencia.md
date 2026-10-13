@@ -13,6 +13,7 @@ seccao_cor: '#39374C'
   Marítimo) e do quadro comparativo das secções marítimas, sempre reescrito.
 
   VALIDAR ANTES DE PUBLICAR:
+  - Teste das Promessas: perguntas e chaves aprovadas pela Equipa de Animação na Sheet (ver apps-script/teste-promessas/LEIA-ME.md).
   - Tema «Progresso» (13/10/2026): ver as notas no topo de _data/progresso.yml.
   - «Contramestre» passou a seguir a grafia do Regulamento Geral (art. 57.º).
   - Significado dos 4 símbolos: o Rumos só os enumera (Ícthus, Machada, Gota de
@@ -284,9 +285,15 @@ seccao_cor: '#39374C'
 
                     <div id="estudo-fim">
                         <h2>Muitos Parabéns! 🎉</h2>
-                        <p>Concluíste a revisão desta secção de perguntas.</p>
-                        <a href="{{ '/em-construcao.html' | relative_url }}" class="btn" style="margin-top: 15px; background-color: var(--azul-marinho); display: inline-block;">Faz o Teste 📝</a>
+                        <p>Concluíste a revisão desta secção de perguntas. Podes agora abrir o separador «Teste das Promessas».</p>
                     </div>
+                </div>
+            </details>
+
+            <details class="acordeao">
+                <summary>📝 Teste das Promessas</summary>
+                <div class="acordeao-content">
+                    {% include teste-promessas.html %}
                 </div>
             </details>
 
