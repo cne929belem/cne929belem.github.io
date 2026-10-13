@@ -272,9 +272,12 @@ seccao_cor_texto: '#17202A'
                     <div style="max-width: 500px; margin: 0 auto; font-style: italic; color: #444; line-height: 1.8; font-size: 1.05rem;">
                         <p>Divino Menino Jesus,<br>
                         nós Vos oferecemos inteiramente o nosso coração.<br>
-                        Enchei-o das Vossas virtudes e ensinai-nos a imitar-Vos.<br>
-                        Nós queremos seguir o Vosso exemplo, com toda a nossa boa vontade,<br>
-                        para assim, com a ajuda de Maria, nossa doce Mãe,<br>
+                        Enchei-o das Vossas virtudes<br>
+                        e ensinai-nos a imitar-Vos.<br>
+                        Nós queremos seguir o Vosso exemplo,<br>
+                        com toda a nossa boa vontade,<br>
+                        para assim, com a ajuda de Maria,<br>
+                        nossa doce Mãe,<br>
                         crescermos em graça e em idade.</p>
 
                         <p><strong>Ámen.</strong></p>
