@@ -237,14 +237,14 @@ seccao_cor: '#39374C'
                 <summary>🙏 Oração do Escuta</summary>
                 <div class="acordeao-content" style="text-align: center;">
                     <div style="max-width: 500px; margin: 0 auto; font-style: italic; color: #444; line-height: 1.8; font-size: 1.05rem;">
-                        <p>Senhor,<br>
+                        <p>Senhor Jesus,<br>
                         Ensinai-me a ser generoso,<br>
                         A servir-Vos como mereceis,<br>
                         A dar sem conta,<br>
-                        A combater sem medo de ser ferido,<br>
-                        A trabalhar sem descanso,<br>
-                        E a não buscar outra recompensa<br>
-                        Senão a de saber que faço a Vossa santa vontade.</p>
+                        A combater sem cuidar das feridas,<br>
+                        A trabalhar sem procurar descanso,<br>
+                        A gastar-me sem esperar outra recompensa,<br>
+                        Senão saber que faço a Vossa vontade santa.</p>
 
                         <p><strong>Ámen.</strong></p>
                     </div>
