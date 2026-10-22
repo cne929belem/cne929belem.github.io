@@ -7,7 +7,8 @@
 #
 #     const perguntasMovimento = {{ site.data.adesao.movimento | jsonify }};
 #
-# Fontes: Regulamento Geral do CNE (art. 3.º, 4.º, 5.º, 56.º, 57.º e 60.º,
+# Fontes: Cadernos de Pista II–IV (listas de adesão, 2019/2020), Estatutos do CNE,
+# Regulamento Geral do CNE (art. 3.º, 4.º, 5.º, 56.º, 57.º e 60.º,
 # retificado a 01-10-2025), Regulamento de Uniformes, Distintivos e Bandeiras
 # (art. 10.º e Anexo 1) e Rumos (Escutismo Marítimo).
 #
@@ -107,7 +108,14 @@ movimento:
       É um compromisso livre e o momento mais importante da tua vida escutista. Cada
       secção tem o seu cerimonial próprio — pede-o à tua Equipa de Animação.
 
-  - pergunta: "10. Conheces e sabes aplicar os nós de bordo?"
+  - pergunta: "10. Reconheces que o Escutismo é uma fraternidade mundial?"
+    resposta: >-
+      O CNE integra-se na <strong>Organização Mundial do Movimento Escutista (OMME)</strong>,
+      aceitando expressamente a sua Constituição Mundial. Um dos fins do CNE é desenvolver o
+      espírito da fraternidade mundial do Escutismo — é o que diz o 4.º artigo da Lei: o Escuta é
+      amigo de todos e irmão de todos os outros Escutas.
+
+  - pergunta: "11. Conheces e sabes aplicar os nós de bordo?"
     resposta: >-
       Num barco, um nó mal feito é um risco. Os essenciais:<br>
       <strong>Nó direito</strong> (unir dois cabos iguais); <strong>nó de escota</strong> (unir cabos
@@ -117,11 +125,13 @@ movimento:
       Em terra mantêm-se as ligações de pioneirismo: botão em cruz (ângulo reto) e
       botão em esquadria (ângulo oblíquo).
 
-  - pergunta: "11. Conheces as regras base de segurança, em terra e na água?"
+  - pergunta: "12. Conheces as técnicas escutistas e as regras de segurança, em terra e na água?"
     resposta: >-
       <strong>Na água:</strong> colete sempre vestido e apertado, nunca embarcar sem
       autorização de um dirigente e saber nadar com à-vontade.<br>
       <strong>Em campo:</strong> montar e conservar uma tenda, usar ferramentas de corte
       (machada, navalha) com regras estritas e manter o campo limpo.<br>
+      <strong>Técnica escutista:</strong> o Caderno de Pista pede que já domines alguma técnica —
+      nós e amarrações, ferramentas de campo, cozinha em campo, códigos, cifras e sinais de pista.<br>
       A melhor preparação é participar num acampamento ou numa saída náutica com a tua
       unidade, colaborando com a tua Tripulação, Equipagem ou Companha.

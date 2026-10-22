@@ -61,6 +61,7 @@
             <h3 class="progresso-titulo">{{ prog.titulo }}</h3>
             <p class="progresso-intro">{{ prog.intro }}</p>
 
+            {% assign n_etapa = 0 %}
             <div class="progresso-etapas-lista">
                 {%- for etapa in prog.etapas %}
                 <div class="progresso-etapa" style="--passo-cor: {{ etapa.cor }};">
@@ -70,7 +71,7 @@
                         {%- else %}
                         <span class="progresso-etapa-icone" aria-hidden="true">{{ etapa.icone }}</span>
                         {%- endif %}
-                        <h4>{{ forloop.index }}. {{ etapa.nome }}<span class="progresso-etapa-leitura">{{ etapa.leitura }}</span></h4>
+                        <h4>{% if etapa.adesao %}Adesão · {{ etapa.nome }}{% else %}{% assign n_etapa = n_etapa | plus: 1 %}{{ n_etapa }}. {{ etapa.nome }}{% endif %}<span class="progresso-etapa-leitura">{{ etapa.leitura }}</span></h4>
                     </div>
                     <p>{{ etapa.texto }}</p>
                 </div>
@@ -80,6 +81,8 @@
             <div class="progresso-objetivos">
                 <h4>🎯 Objetivos Educativos</h4>
                 <p>{{ prog.objetivos }}</p>
+                <p class="dg-chamada">Não sabes que trilhos escolher? Faz o Diagnóstico de Pista: respondes num ecrã próprio e o resultado não fica guardado.</p>
+                <button type="button" class="btn dg-abrir" data-abrir-diagnostico>🧭 Diagnóstico de Pista</button>
                 {%- if prog.objetivos_documento and prog.objetivos_documento != "" %}
                 <a href="{{ prog.objetivos_documento | relative_url }}" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #28a745;">📥 Download: Guia de Objetivos Educativos</a>
                 {%- endif %}

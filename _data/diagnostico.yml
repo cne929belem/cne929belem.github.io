@@ -1,0 +1,166 @@
+# =========================================================================
+# DIAGNÓSTICO DE PISTA — «A minha bússola» (autoavaliação por trilho)
+# -------------------------------------------------------------------------
+# Usado por _includes/vivencia-diagnostico.html nas quatro páginas de Vivência: abre em
+# ecrã inteiro a partir do botão «🧭 Diagnóstico de Pista» do tema «📖 Progresso».
+# Corre só no navegador: nada é enviado nem guardado. O resultado aparece no
+# ecrã para o elemento copiar para a ficha que a Equipa de Animação lhe dá.
+#
+# Estrutura (igual em todas as secções, Manual do Dirigente — Progresso
+# Pessoal e Cadernos de Pista I–IV): 6 áreas de desenvolvimento × 3 trilhos.
+# Em cada etapa de progresso escolhe-se um trilho de cada área.
+#
+# As frases são um RESUMO de cada trilho (uma por trilho, decisão de
+# 14/10/2026), escritas a partir dos objetivos educativos do Caderno de Pista
+# de cada secção. A Equipa de Animação de cada secção deve validá-las.
+# =========================================================================
+
+areas:
+  - { id: fisico, nome: "Físico" }
+  - { id: afetivo, nome: "Afetivo" }
+  - { id: carater, nome: "Caráter" }
+  - { id: espiritual, nome: "Espiritual" }
+  - { id: intelectual, nome: "Intelectual" }
+  - { id: social, nome: "Social" }
+
+escalas:
+  tres:
+    - { valor: 1, rotulo: "Ainda não", icone: "🙁" }
+    - { valor: 2, rotulo: "Às vezes", icone: "😐" }
+    - { valor: 3, rotulo: "Sim!", icone: "😀" }
+  cinco:
+    - { valor: 1, rotulo: "Quase nunca" }
+    - { valor: 2, rotulo: "Poucas vezes" }
+    - { valor: 3, rotulo: "Às vezes" }
+    - { valor: 4, rotulo: "Muitas vezes" }
+    - { valor: 5, rotulo: "Quase sempre" }
+
+seccoes:
+  alcateia:
+    nome: "Alcateia 102"
+    escala: tres
+    instrucao: >-
+      Lê cada frase (ou pede a um irmão mais velho ou a um dirigente que ta leia) e escolhe a
+      cara que mais se parece contigo. Não há respostas certas nem erradas!
+    regra: >-
+      Em cada etapa — Lobo Valente, Lobo Cortês e Lobo Amigo — escolhes uma Aventura (trilho) com
+      cada animal da Selva. O Àquêlà ajuda-te a escolher e o Conselho de Guias, na Rocha do
+      Conselho, confirma o que aprendeste.
+    quem_ajuda: "o Àquêlà"
+    fonte: "Caderno de Pista I; Manual do Dirigente — Progresso Pessoal"
+    animais: { fisico: "Cá", afetivo: "Raxca", carater: "Balú", espiritual: "Hati", intelectual: "Bàguirà", social: "Àquêlà" }
+    trilhos:
+      - { id: f1, area: fisico, nome: "Desempenho", aventura: "Cá defende Máugli dos Bânderlougues", frase: "Faço atividades que me ajudam a ser mais ágil e habilidoso." }
+      - { id: f2, area: fisico, nome: "Autoconhecimento", aventura: "Cá muda de pele", frase: "Conheço o meu corpo e sei que cada pessoa é diferente." }
+      - { id: f3, area: fisico, nome: "Bem-estar físico", aventura: "Máugli brinca com Cá", frase: "Tenho cuidado com a minha higiene, como bem e descanso." }
+      - { id: a1, area: afetivo, nome: "Relacionamento e sensibilidade", aventura: "Raxca acolhe Máugli no Covil", frase: "Ajudo em casa e sou amigo dos Lobitos do meu Bando." }
+      - { id: a2, area: afetivo, nome: "Equilíbrio emocional", aventura: "Raxca defende Máugli de Xer Cane", frase: "Sou capaz de falar daquilo que sinto." }
+      - { id: a3, area: afetivo, nome: "Autoestima", aventura: "Raxca ama Máugli como ele é", frase: "Sei dizer em que sou bom e o que ainda tenho de melhorar." }
+      - { id: c1, area: carater, nome: "Autonomia", aventura: "Balú ensina a Lei da Selva", frase: "Sei fazer coisas sozinho, como arrumar a minha mochila." }
+      - { id: c2, area: carater, nome: "Responsabilidade", aventura: "Balú ajuda a cumprir a Lei", frase: "Cumpro até ao fim as tarefas do meu cargo no Bando." }
+      - { id: c3, area: carater, nome: "Coerência", aventura: "Balú orgulha-se de Máugli", frase: "Digo a verdade e cumpro a Lei e as Máximas do Lobito." }
+      - { id: e1, area: espiritual, nome: "Descoberta", aventura: "Hati conta a história da Criação de Tha", frase: "Gosto de ouvir histórias de Jesus e da Criação." }
+      - { id: e2, area: espiritual, nome: "Aprofundamento", aventura: "Hati guarda toda a sabedoria da Selva", frase: "Rezo e participo nas orações e celebrações da Alcateia." }
+      - { id: e3, area: espiritual, nome: "Serviço", aventura: "Máugli aprende com Hati a Sabedoria da Selva", frase: "Faço a minha Boa Ação e cuido da Natureza." }
+      - { id: i1, area: intelectual, nome: "Procura do conhecimento", aventura: "Máugli e Bàguirà caçam juntos", frase: "Gosto de descobrir coisas novas e de fazer perguntas." }
+      - { id: i2, area: intelectual, nome: "Resolução de problemas", aventura: "Bàguirà responsabiliza Máugli", frase: "Quando aparece um problema, tento encontrar uma solução." }
+      - { id: i3, area: intelectual, nome: "Criatividade e expressão", aventura: "Bàguirà defende Máugli na Rocha do Conselho", frase: "Gosto de desenhar, cantar e inventar, e de mostrar o que fiz." }
+      - { id: s1, area: social, nome: "Exercer ativamente cidadania", aventura: "Àquêlà orienta as reuniões na Rocha do Conselho", frase: "Dou a minha opinião na Rocha do Conselho e respeito o que se decide." }
+      - { id: s2, area: social, nome: "Solidariedade e tolerância", aventura: "Àquêlà ajuda Fao", frase: "Ajudo quem precisa e brinco com todos, mesmo com quem é diferente de mim." }
+      - { id: s3, area: social, nome: "Interação e cooperação", aventura: "Àquêlà ajuda Máugli a guiar os búfalos", frase: "Ajudo o meu Bando a trabalhar em conjunto." }
+
+  flotilha:
+    nome: "Flotilha 110"
+    escala: cinco
+    instrucao: >-
+      Lê cada frase e avalia-te de 1 a 5. Sê sincero: não há respostas certas nem erradas, e
+      ninguém vê as tuas respostas.
+    regra: >-
+      Em cada etapa — Aliança, Rumo e Descoberta — escolhes um trilho de cada área de
+      desenvolvimento. Fala com a tua Tripulação e com a Equipa de Animação antes de decidires; a
+      validação é feita no Conselho de Timoneiros.
+    quem_ajuda: "a tua Tripulação e a Equipa de Animação"
+    fonte: "Caderno de Pista II; Manual do Dirigente — Progresso Pessoal"
+    trilhos:
+      - { id: f1, area: fisico, nome: "Desempenho", frase: "Pratico desporto ou atividade física com regularidade." }
+      - { id: f2, area: fisico, nome: "Autoconhecimento", frase: "Conheço as mudanças do meu corpo e aceito-me como sou." }
+      - { id: f3, area: fisico, nome: "Bem-estar físico", frase: "Cuido da minha higiene, da alimentação e do descanso." }
+      - { id: a1, area: afetivo, nome: "Relacionamento e sensibilidade", frase: "Dou valor à minha família e aos meus amigos e ajudo-os." }
+      - { id: a2, area: afetivo, nome: "Equilíbrio emocional", frase: "Sei expressar o que sinto sem magoar os outros." }
+      - { id: a3, area: afetivo, nome: "Autoestima", frase: "Conheço as minhas qualidades e esforço-me por melhorar os meus defeitos." }
+      - { id: c1, area: carater, nome: "Autonomia", frase: "Tomo decisões por mim e assumo-as." }
+      - { id: c2, area: carater, nome: "Responsabilidade", frase: "Cumpro até ao fim as tarefas do meu cargo na Tripulação." }
+      - { id: c3, area: carater, nome: "Coerência", frase: "Faço aquilo que digo e vivo de acordo com a Lei do Escuta." }
+      - { id: e1, area: espiritual, nome: "Descoberta", frase: "Procuro conhecer melhor a vida de Jesus e a Bíblia." }
+      - { id: e2, area: espiritual, nome: "Aprofundamento", frase: "Rezo e participo nas celebrações da minha comunidade." }
+      - { id: e3, area: espiritual, nome: "Serviço", frase: "Ponho-me ao serviço dos outros e protejo a Natureza." }
+      - { id: i1, area: intelectual, nome: "Procura do conhecimento", frase: "Gosto de pesquisar e de aprender coisas novas." }
+      - { id: i2, area: intelectual, nome: "Resolução de problemas", frase: "Perante uma dificuldade, procuro soluções e escolho a melhor." }
+      - { id: i3, area: intelectual, nome: "Criatividade e expressão", frase: "Invento ideias novas e apresento-as de forma criativa." }
+      - { id: s1, area: social, nome: "Exercer ativamente cidadania", frase: "Participo nas decisões da Tripulação e da Flotilha e respeito o que se decide." }
+      - { id: s2, area: social, nome: "Solidariedade e tolerância", frase: "Respeito quem é diferente de mim e ajudo quem precisa." }
+      - { id: s3, area: social, nome: "Interação e cooperação", frase: "Trabalho bem em equipa e cumpro o meu papel na Tripulação." }
+
+  frota:
+    nome: "Frota 98"
+    escala: cinco
+    instrucao: >-
+      Lê cada afirmação e avalia-te de 1 a 5. Sê sincero: os pontos com nota mais baixa são os teus
+      maiores desafios. Ninguém vê as tuas respostas.
+    regra: >-
+      Em cada etapa — Conhecimento, Vontade e Construção — escolhes um trilho de cada área de
+      desenvolvimento; no fim da Construção terás feito os 18. A escolha é tua, com a ajuda da tua
+      Equipagem, do teu Mestre e da Equipa de Animação; a validação é feita no Conselho de Mestres.
+    quem_ajuda: "o teu Mestre e a Equipa de Animação"
+    fonte: "Caderno de Pista III (objetivos F1–S7); Manual do Dirigente — Progresso Pessoal"
+    trilhos:
+      - { id: f1, area: fisico, nome: "Desempenho", frase: "Pratico atividade física com regularidade e procuro superar os meus limites." }
+      - { id: f2, area: fisico, nome: "Autoconhecimento", frase: "Aceito-me como sou e respeito as diferenças físicas entre as pessoas." }
+      - { id: f3, area: fisico, nome: "Bem-estar físico", frase: "Tenho um estilo de vida saudável e evito comportamentos de risco." }
+      - { id: a1, area: afetivo, nome: "Relacionamento e sensibilidade", frase: "Cuido das minhas relações — família e amigos — e lido com os conflitos com maturidade." }
+      - { id: a2, area: afetivo, nome: "Equilíbrio emocional", frase: "Ajo de forma ponderada e respeito os sentimentos dos outros." }
+      - { id: a3, area: afetivo, nome: "Autoestima", frase: "Conheço a minha personalidade e trabalho para melhorar as minhas limitações." }
+      - { id: c1, area: carater, nome: "Autonomia", frase: "Faço escolhas de acordo com os meus valores e defino metas para mim." }
+      - { id: c2, area: carater, nome: "Responsabilidade", frase: "Levo as tarefas até ao fim, mesmo quando surgem dificuldades." }
+      - { id: c3, area: carater, nome: "Coerência", frase: "Defendo aquilo em que acredito com serenidade e ajo de acordo com isso." }
+      - { id: e1, area: espiritual, nome: "Descoberta", frase: "Procuro conhecer os profetas, a vida de Jesus e o meu lugar na Igreja." }
+      - { id: e2, area: espiritual, nome: "Aprofundamento", frase: "Rezo com regularidade e procuro aprofundar a minha fé." }
+      - { id: e3, area: espiritual, nome: "Serviço", frase: "Protejo a Natureza e ponho-me ao serviço dos outros." }
+      - { id: i1, area: intelectual, nome: "Procura do conhecimento", frase: "Procuro aumentar os meus conhecimentos e penso nas minhas opções de futuro." }
+      - { id: i2, area: intelectual, nome: "Resolução de problemas", frase: "Analiso os problemas, proponho soluções e escolho a mais adequada." }
+      - { id: i3, area: intelectual, nome: "Criatividade e expressão", frase: "Crio ideias e projetos novos e apresento-os de forma criativa." }
+      - { id: s1, area: social, nome: "Exercer ativamente cidadania", frase: "Participo ativamente na minha comunidade e respeito as decisões tomadas por votação." }
+      - { id: s2, area: social, nome: "Solidariedade e tolerância", frase: "Identifico situações em que posso ser útil e dialogo com respeito com quem pensa diferente." }
+      - { id: s3, area: social, nome: "Interação e cooperação", frase: "Trabalho bem em Equipagem e não imponho a minha vontade ao grupo." }
+
+  comunidade:
+    nome: "Comunidade 88"
+    escala: cinco
+    instrucao: >-
+      Lê cada afirmação e avalia-te de 1 a 5, com honestidade. O resultado ajuda-te a escolher os
+      trilhos da próxima etapa e a preparar o teu Projeto Pessoal de Vida (PPV). Ninguém vê as tuas
+      respostas.
+    regra: >-
+      Em cada etapa escolhes um trilho de cada área de desenvolvimento, em coerência com o teu PPV.
+      Fala com a Equipa de Animação antes de decidires; a validação é feita no Conselho de Arrais.
+    quem_ajuda: "a Equipa de Animação"
+    fonte: "Caderno de Pista IV; Manual do Dirigente — Progresso Pessoal"
+    trilhos:
+      - { id: f1, area: fisico, nome: "Desempenho", frase: "Faço exercício adequado à minha idade, capacidades e limitações." }
+      - { id: f2, area: fisico, nome: "Autoconhecimento", frase: "Conheço e aceito o meu corpo e as mudanças do meu amadurecimento." }
+      - { id: f3, area: fisico, nome: "Bem-estar físico", frase: "Mantenho hábitos saudáveis e evito comportamentos de risco." }
+      - { id: a1, area: afetivo, nome: "Relacionamento e sensibilidade", frase: "Vivo os meus afetos com respeito e maturidade." }
+      - { id: a2, area: afetivo, nome: "Equilíbrio emocional", frase: "Reconheço as minhas emoções e sei geri-las." }
+      - { id: a3, area: afetivo, nome: "Autoestima", frase: "Conheço a minha personalidade e tenho confiança em mim." }
+      - { id: c1, area: carater, nome: "Autonomia", frase: "Tomo decisões de acordo com os meus valores." }
+      - { id: c2, area: carater, nome: "Responsabilidade", frase: "Cumpro os meus compromissos e persisto até ao fim." }
+      - { id: c3, area: carater, nome: "Coerência", frase: "Ajo de forma consistente com aquilo em que acredito." }
+      - { id: e1, area: espiritual, nome: "Descoberta", frase: "Procuro conhecer melhor Jesus Cristo e a minha fé." }
+      - { id: e2, area: espiritual, nome: "Aprofundamento", frase: "Rezo, celebro a fé e procuro vivê-la no dia a dia." }
+      - { id: e3, area: espiritual, nome: "Serviço", frase: "Ponho os meus dons ao serviço dos outros e da comunidade." }
+      - { id: i1, area: intelectual, nome: "Procura do conhecimento", frase: "Procuro formar-me continuamente e aprofundar os meus conhecimentos." }
+      - { id: i2, area: intelectual, nome: "Resolução de problemas", frase: "Analiso os problemas e encontro soluções adequadas." }
+      - { id: i3, area: intelectual, nome: "Criatividade e expressão", frase: "Crio e comunico as minhas ideias de forma criativa." }
+      - { id: s1, area: social, nome: "Exercer ativamente cidadania", frase: "Participo de forma ativa e democrática na sociedade." }
+      - { id: s2, area: social, nome: "Solidariedade e tolerância", frase: "Sou tolerante e ponho-me ao serviço de quem mais precisa." }
+      - { id: s3, area: social, nome: "Interação e cooperação", frase: "Trabalho em equipa e assumo a liderança quando é preciso." }

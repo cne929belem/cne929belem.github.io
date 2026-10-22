@@ -15,10 +15,10 @@
 #               existem no repositório.
 #   icone     → emoji de recurso enquanto não houver imagem
 #
+# Etapas confirmadas no Manual do Dirigente — Progresso Pessoal e nos Cadernos
+# de Pista: 1 etapa de adesão (Pata-Tenra, Apelo, Desprendimento, Caminho)
+# + 3 etapas de progresso. `adesao: true` marca a etapa de adesão (sem número).
 # VALIDAR ANTES DE PUBLICAR (Equipa de Animação de cada secção):
-#   - Nomes das etapas da I Secção (Pata-Tenra, Lobo Valente, Lobo Cortês,
-#     Lobo Amigo): confirmar com o manual de secção em vigor. Os documentos do
-#     projeto confirmam "pata-tenra" (Rumos) mas não listam as quatro etapas.
 #   - As "leituras marítimas" são uma proposta do Agrupamento, inspirada no
 #     Rumos (Cótique, Descobrimentos, São Pedro pescador) — não são texto
 #     oficial do CNE.
@@ -31,10 +31,12 @@ alcateia:
   intro: >-
     Na Alcateia, o progresso vê-se nas pequenas conquistas de cada dia — no Bando,
     nas Caçadas e no Covil. Tal como Cótique, a Foca Branca, que aprendeu a nadar e
-    a navegar até encontrar mares seguros, cada Lobito percorre <strong>4 etapas</strong>,
+    a navegar até encontrar mares seguros, cada Lobito começa como
+    <strong>Pata-Tenra</strong> e, depois da Promessa, percorre <strong>3 etapas de progresso</strong>,
     ao seu ritmo, acompanhado por Àquêlà e pela Equipa de Animação:
   etapas:
     - nome: "Pata-Tenra"
+      adesao: true
       leitura: "Primeiras braçadas"
       cor: "#aaa"
       icone: "🐾"
@@ -42,8 +44,8 @@ alcateia:
       texto: >-
         Acabaste de chegar ao Covil. É o tempo de conheceres o teu Bando, a Lei, as
         Máximas e a Divisa do Lobito, e de dares as primeiras braçadas em segurança —
-        sempre com colete e perto de um adulto. Esta etapa termina quando estiveres
-        pronto para a tua Promessa.
+        sempre com colete e perto de um adulto. Esta etapa de adesão termina quando
+        estiveres pronto para a tua Promessa.
     - nome: "Lobo Valente"
       leitura: "Largar do cais"
       cor: "#cd7f32"
@@ -73,8 +75,8 @@ alcateia:
         passagem à Flotilha, onde te espera a aventura dos Moços.
   objetivos: >-
     Os objetivos educativos organizam-se em 6 áreas — Física, Afetiva, Carácter,
-    Espiritual, Social e Intelectual. Os desafios de cada etapa são combinados com a
-    Equipa de Animação, e os progressos dos Lobitos ficam assinalados no Mastro de
+    Espiritual, Social e Intelectual. Em cada etapa escolhes uma Aventura (trilho) com cada
+    animal da Selva — 18 ao todo — e os progressos dos Lobitos ficam assinalados no Mastro de
     Honra da Alcateia.
   objetivos_documento: ""
   bordo:
@@ -123,11 +125,12 @@ flotilha:
   titulo: "O Sistema de Progresso"
   intro: >-
     Na Flotilha, cada Moço é um descobridor. A mística da <strong>Descoberta da Terra
-    Prometida</strong> dá sentido às 4 etapas — tal como os navegadores portugueses,
+    Prometida</strong> dá sentido ao progresso: a etapa de adesão (Apelo) e 3 etapas de progresso — tal como os navegadores portugueses,
     ouves o chamamento do mar, firmas um compromisso com a tua Tripulação, aprendes
     a manter o rumo e chegas a novas terras:
   etapas:
     - nome: "Apelo"
+      adesao: true
       leitura: "O chamamento do mar"
       cor: "#aaa"
       icone: "📯"
@@ -135,8 +138,8 @@ flotilha:
       texto: >-
         Ouviste o chamamento e embarcaste na Flotilha. Conheces a tua Tripulação, o
         seu Totem e o seu lema, a Lei e os Princípios do Escuta. Tal como quem se
-        alista numa caravela, é o tempo de conheceres o navio e a tripulação, e de
-        te preparares para a Promessa.
+        alista numa caravela, é o tempo de conheceres o navio e a tripulação. Dura cerca
+        de 5 meses e termina com a Promessa.
     - nome: "Aliança"
       leitura: "Assinar o rol de bordo"
       cor: "#cd7f32"
@@ -166,8 +169,8 @@ flotilha:
         tempo de preparares a passagem à Frota.
   objetivos: >-
     Os objetivos educativos organizam-se em 6 áreas — Física, Afetiva, Carácter,
-    Espiritual, Social e Intelectual. O teu progresso é acompanhado pela Equipa de
-    Animação e orientado no Conselho de Timoneiros.
+    Espiritual, Social e Intelectual. Cada área tem 3 trilhos (18 ao todo) e, em cada etapa, escolhes um
+    trilho de cada área. O progresso é orientado no Conselho de Timoneiros.
   objetivos_documento: ""
   bordo:
     botao: "Competências a Bordo"
@@ -215,9 +218,10 @@ frota:
   intro: >-
     Na Frota, o progresso do Marinheiro segue o exemplo de <strong>São Pedro</strong> — o
     pescador do mar da Galileia que deixou as redes para seguir Jesus e se tornou
-    construtor de comunidade. As 4 etapas acompanham essa travessia:
+    construtor de comunidade. A etapa de adesão (Desprendimento) e as 3 etapas de progresso acompanham essa travessia:
   etapas:
     - nome: "Desprendimento"
+      adesao: true
       leitura: "Largar as redes"
       cor: "#aaa"
       icone: "🎣"
@@ -225,7 +229,7 @@ frota:
       texto: >-
         Como Pedro, que largou as redes e o barco, deixas para trás o que já não te
         serve para embarcar numa etapa nova. Integras-te numa Equipagem, conheces o
-        seu Patrono e preparas a tua Promessa na Frota.
+        seu Patrono e preparas a tua Promessa na Frota. Dura, no máximo, 7 meses.
     - nome: "Conhecimento"
       leitura: "Ler o mar"
       cor: "#cd7f32"
@@ -255,8 +259,8 @@ frota:
         preparares a passagem à Comunidade.
   objetivos: >-
     Os objetivos educativos organizam-se em 6 áreas — Física, Afetiva, Carácter,
-    Espiritual, Social e Intelectual. O teu progresso é acompanhado pela Equipa de
-    Animação e orientado no Conselho de Mestres.
+    Espiritual, Social e Intelectual. Cada área tem 3 trilhos (18 ao todo) e, em cada etapa, escolhes um
+    trilho de cada área. O progresso é orientado no Conselho de Mestres.
   objetivos_documento: ""
   bordo:
     botao: "Competências a Bordo"

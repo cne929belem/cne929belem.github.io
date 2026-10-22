@@ -2,7 +2,7 @@
 layout: default
 title: Vivência | IV - Comunidade 88
 main_class: pagina-com-hero
-ultima_atualizacao: 13/10/2026
+ultima_atualizacao: 22/10/2026
 seccao_slug: comunidade
 seccao_nome: IV - Comunidade 88
 seccao_cor: '#39374C'
@@ -219,6 +219,8 @@ seccao_cor: '#39374C'
                                     <h4>🎯 Objetivos Educativos</h4>
                                     <p>Os objetivos educativos da IV Secção organizam-se em 6 dimensões — Física, Afetiva, Carácter, Espiritual, Social e Intelectual. Consulta o guia detalhado para o teu percurso:</p>
                             <a href="{{ '/assets/docs/PostersFaceis_IV.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="btn" style="background-color: #28a745;">📥 Download: Guia de Objetivos Educativos</a>
+                            <p class="dg-chamada">Não sabes que trilhos escolher? Faz o Diagnóstico de Pista: respondes num ecrã próprio e o resultado não fica guardado.</p>
+                            <button type="button" class="btn dg-abrir" data-abrir-diagnostico style="--cor-vivencia: {{ page.seccao_cor }};">🧭 Diagnóstico de Pista</button>
                         </div>
                     </div>
 
@@ -257,6 +259,10 @@ seccao_cor: '#39374C'
                     </div>
                 </div>
             </details>
+
+            <!-- DIAGNÓSTICO DE PISTA — ecrã inteiro aberto pelo botão do tema «📖 Progresso»
+                 (_includes/vivencia-diagnostico.html, dados em _data/diagnostico.yml). Nada é guardado nem enviado. -->
+            {% include vivencia-diagnostico.html %}
 
             <!-- TEMA 5: ORAÇÃO -->
             <details class="acordeao verde">
@@ -382,7 +388,10 @@ seccao_cor: '#39374C'
         { pergunta: "5. Atividade típica?", resposta: "O Empreendimento: projeto idealizado, preparado e executado inteiramente pelos Companheiros." },
         { pergunta: "6. Conversão de São Paulo?", resposta: "O Patrono: Saulo tornou-se Paulo no caminho de Damasco. Simboliza a mudança radical de vida ao serviço de um ideal." },
         { pergunta: "7. Oração e Cerimonial?", resposta: "A Oração do Companheiro e o compromisso da Promessa são momentos de interioridade e entrega madura ao serviço." },
-        { pergunta: "8. Projeto Pessoal de Vida (PPV)?", resposta: "A 'Bússola' do Companheiro: definição de objetivos e metas para a vida profissional, familiar, social e espiritual." }
+        { pergunta: "8. Projeto Pessoal de Vida (PPV)?", resposta: "A 'Bússola' do Companheiro: definição de objetivos e metas para a vida profissional, familiar, social e espiritual." },
+        { pergunta: "9. Conheces a OMME e como o CNE se enquadra nela?", resposta: "A OMME é a Organização Mundial do Movimento Escutista. O CNE integra-se nela e aceita expressamente a sua Constituição Mundial; um dos fins do CNE é desenvolver o espírito da fraternidade mundial do Escutismo." },
+        { pergunta: "10. Conheces o livro «A Caminho do Triunfo»?", resposta: "É um livro de Baden-Powell que o Caderno de Pista da IV Secção te pede que conheças antes da Promessa." },
+        { pergunta: "11. Já conheces os objetivos educativos que te são propostos?", resposta: "Organizam-se em 6 áreas de desenvolvimento — Físico, Afetivo, Caráter, Espiritual, Intelectual e Social — com 3 trilhos cada. Em cada etapa escolhes um trilho de cada área, em coerência com o teu PPV. O «🧭 Diagnóstico de Pista», no tema «📖 Progresso», ajuda-te a escolher." }
     ];
 
     let listaAtual = [];

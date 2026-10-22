@@ -2,7 +2,7 @@
 layout: default
 title: Vivência | II - Flotilha 110
 main_class: pagina-com-hero
-ultima_atualizacao: 13/10/2026
+ultima_atualizacao: 22/10/2026
 seccao_slug: flotilha
 seccao_nome: II - Flotilha 110
 seccao_cor: '#6678A6'
@@ -237,6 +237,10 @@ seccao_cor: '#6678A6'
                  da Comunidade 88. -->
             {% include vivencia-progresso.html %}
 
+            <!-- DIAGNÓSTICO DE PISTA — ecrã inteiro aberto pelo botão do tema «📖 Progresso»
+                 (_includes/vivencia-diagnostico.html, dados em _data/diagnostico.yml). Nada é guardado nem enviado. -->
+            {% include vivencia-diagnostico.html %}
+
             <!-- TEMA 5: ORAÇÃO DO ESCUTA -->
             <details class="acordeao verde">
                 <summary>🙏 Oração do Escuta</summary>
@@ -326,7 +330,8 @@ seccao_cor: '#6678A6'
         { pergunta: "6. Atividade típica?", resposta: "A Expedição: o projeto escolhido pela Flotilha em Conselho de Flotilha, concretizado e avaliado em conjunto." },
         { pergunta: "7. Cor da secção e local de reunião?", resposta: "A cor da secção é o azul claro debruado a branco — a cor das águas transparentes. A Tripulação reúne-se na Base." },
         { pergunta: "8. Saudação e divisa marítimas?", resposta: "O escuteiro marítimo vai sempre 'mais além' e deseja 'boa pesca'." },
-        { pergunta: "9. Quais são as etapas do teu progresso?", resposta: "Apelo, Aliança, Rumo e Descoberta — a viagem de quem ouve o chamamento do mar até chegar a novas terras. O progresso é orientado no Conselho de Timoneiros. Vê o tema «📖 Progresso» desta página." }
+        { pergunta: "9. Quais são as etapas do teu progresso?", resposta: "Começas no Apelo, a etapa de adesão (cerca de 5 meses), que termina com a Promessa. Depois vêm 3 etapas de progresso: Aliança, Rumo e Descoberta. O progresso é orientado no Conselho de Timoneiros. Vê o tema «📖 Progresso» desta página." },
+        { pergunta: "10. Já conheces as áreas de desenvolvimento e os trilhos?", resposta: "São 6 áreas — Físico, Afetivo, Caráter, Espiritual, Intelectual e Social — com 3 trilhos cada, 18 ao todo. Em cada etapa escolhes um trilho de cada área. O «🧭 Diagnóstico de Pista», no tema «📖 Progresso», ajuda-te a escolher." }
     ];
 
     let listaAtual = [];

@@ -2,7 +2,7 @@
 layout: default
 title: Vivência | III - Frota 98
 main_class: pagina-com-hero
-ultima_atualizacao: 13/10/2026
+ultima_atualizacao: 22/10/2026
 seccao_slug: frota
 seccao_nome: III - Frota 98
 seccao_cor: '#39374C'
@@ -77,7 +77,6 @@ seccao_cor: '#39374C'
     .passo-card h4 { margin: 0 0 6px; color: var(--azul-marinho); }
     .passo-card p { font-size: 0.85rem; color: #555; margin: 0; }
     .passo-card ul { margin: 6px 0 0 18px; font-size: 0.85rem; color: #555; line-height: 1.6; }
-
     .treino-centro { text-align: center; }
     .treino-botoes { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
     .treino-botoes .btn { padding: 12px 25px; }
@@ -198,6 +197,9 @@ seccao_cor: '#39374C'
                             <div class="simbolo-card"><strong>Animador</strong><p>Anima a Equipagem: o lado espiritual, o lúdico e tudo o que une.</p></div>
                         </div>
 
+                        <h3 class="section-title" style="margin-top: 20px;">Mestres e Contramestres das Equipagens</h3>
+                        {% include frota-equipagens.html %}
+
                         <p class="vivencia-texto" style="margin-top: 20px;">A vida da Frota decide-se em conselhos. Um deles reúne a Equipa de Animação, os Mestres e Contramestres e o Assistente, e trata da gestão, da disciplina, da formação e da organização dos Cruzeiros. Outro, com todos os Marinheiros e a Equipa de Animação, é onde se tomam as grandes decisões — como escolher o Cruzeiro — e onde se faz a avaliação.</p>
                     </div>
 
@@ -241,6 +243,10 @@ seccao_cor: '#39374C'
                  dados em _data/progresso.yml), com a mesma estrutura do "Progresso e PPV"
                  da Comunidade 88. -->
             {% include vivencia-progresso.html %}
+
+            <!-- DIAGNÓSTICO DE PISTA — ecrã inteiro aberto pelo botão do tema «📖 Progresso»
+                 (_includes/vivencia-diagnostico.html, dados em _data/diagnostico.yml). Nada é guardado nem enviado. -->
+            {% include vivencia-diagnostico.html %}
 
             <!-- TEMA 5: ORAÇÃO DO ESCUTA -->
             <details class="acordeao verde">
@@ -332,7 +338,8 @@ seccao_cor: '#39374C'
         { pergunta: "7. Como se decide o Cruzeiro?", resposta: "A Frota reúne-se e cada Equipagem apresenta o seu anteprojeto, fazendo campanha pelo seu Cruzeiro sem atacar os restantes. A Frota decide qual avança, e avalia-o no fim." },
         { pergunta: "8. Saudação e divisa marítimas?", resposta: "O escuteiro marítimo vai sempre 'mais além' e deseja 'boa pesca'." },
         { pergunta: "9. Como se distinguem as Equipagens?", resposta: "Cada Equipagem tem um Patrono: um Santo da Igreja, um Benemérito da Humanidade ou um Herói Nacional, dando-se preferência a figuras ligadas ao mar." },
-        { pergunta: "10. Quais são as etapas do teu progresso?", resposta: "Desprendimento, Conhecimento, Vontade e Construção — o caminho de São Pedro, o pescador que deixou as redes e se tornou construtor de comunidade. O progresso é orientado no Conselho de Mestres. Vê o tema «📖 Progresso» desta página." }
+        { pergunta: "10. Quais são as etapas do teu progresso?", resposta: "Começas no Desprendimento, a etapa de adesão (no máximo 7 meses), que termina com a Promessa. Depois vêm 3 etapas de progresso: Conhecimento, Vontade e Construção — o caminho de São Pedro, o pescador que deixou as redes e se tornou construtor de comunidade. O progresso é orientado no Conselho de Mestres." },
+        { pergunta: "11. Já conheces as áreas de desenvolvimento e os trilhos?", resposta: "São 6 áreas — Físico, Afetivo, Caráter, Espiritual, Intelectual e Social — com 3 trilhos cada, 18 ao todo. Em cada etapa escolhes um trilho de cada área: no fim da Construção terás feito os 18. O «🧭 Diagnóstico de Pista», no tema «📖 Progresso», ajuda-te a escolher." }
     ];
 
     let listaAtual = [];

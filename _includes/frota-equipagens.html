@@ -1,0 +1,121 @@
+<style>
+    .frota-equipas-grelha { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 14px; margin-top: 8px; }
+    .frota-equipa { min-width: 0; padding: 14px; border: 1px solid rgba(0,0,0,.08); border-radius: 8px; background: rgba(255,255,255,.55); }
+    .frota-equipa h4 { margin: 0 0 10px; color: var(--azul-marinho); font-size: .95rem; }
+    .frota-equipa-cargos-grelha { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .frota-equipa-cargos-grelha .pessoa-seccao > img.pessoa-seccao-foto { width: 48px; height: 48px; object-fit: cover; border-radius: 50%; flex-shrink: 0; }
+</style>
+
+<div class="frota-equipas-grelha">
+    <a class="frota-equipa seccao-grupo-trigger" href="#modal-equipagem-luis-camoes" aria-haspopup="dialog" aria-label="Abrir elementos da Equipagem Luís de Camões">
+        <h4 id="equipagem-luis-camoes">Equipagem Luís de Camões</h4>
+        <div class="equipa-seccao-grelha frota-equipa-cargos-grelha">
+            <div class="pessoa-seccao"><img class="pessoa-seccao-foto" src="{{ '/assets/img/elementos/Petinga.jpg' | relative_url }}" alt="Petinga"><div><small>Mestre</small><strong>Petinga</strong></div></div>
+            <div class="pessoa-seccao"><img class="pessoa-seccao-foto" src="{{ '/assets/img/elementos/Albatroz.jpg' | relative_url }}" alt="Albatroz"><div><small>Contramestre</small><strong>Albatroz</strong></div></div>
+        </div>
+    </a>
+    <a class="frota-equipa seccao-grupo-trigger" href="#modal-equipagem-diogo-cao" aria-haspopup="dialog" aria-label="Abrir elementos da Equipagem Diogo Cão">
+        <h4 id="equipagem-diogo-cao">Equipagem Diogo Cão</h4>
+        <div class="equipa-seccao-grelha frota-equipa-cargos-grelha">
+            <div class="pessoa-seccao"><img class="pessoa-seccao-foto" src="{{ '/assets/img/elementos/Espadinha VI.jpg' | relative_url }}" alt="Espadinha VI"><div><small>Mestre</small><strong>Espadinha VI</strong></div></div>
+            <div class="pessoa-seccao"><img class="pessoa-seccao-foto" src="{{ '/assets/img/elementos/Lanterna.jpg' | relative_url }}" alt="Lanterna"><div><small>Contramestre</small><strong>Lanterna</strong></div></div>
+        </div>
+    </a>
+</div>
+
+<div id="modal-equipagem-luis-camoes" class="css-lightbox seccao-elementos-modal" style="--cor-seccao: {{ page.seccao_cor }};" role="dialog" aria-modal="true" aria-labelledby="modal-equipagem-luis-camoes-titulo">
+    <div class="css-lightbox-box">
+        <div class="css-lightbox-header" id="modal-equipagem-luis-camoes-titulo">Elementos da Equipagem Luís de Camões</div>
+        <div class="css-lightbox-body">
+            <div class="seccao-elementos-grelha">
+                <div class="seccao-elemento">
+                    <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Petinga.jpg' | relative_url }}" alt="Petinga">
+                    <span class="seccao-elemento-nome">Mestre</span>
+                    <span class="seccao-elemento-totem">Petinga</span>
+                </div>
+                <div class="seccao-elemento">
+                    <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Albatroz.jpg' | relative_url }}" alt="Albatroz">
+                    <span class="seccao-elemento-nome">Contramestre</span>
+                    <span class="seccao-elemento-totem">Albatroz</span>
+                </div>
+                <div class="seccao-elemento">
+                    <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                    <span class="seccao-elemento-nome">Escrivã</span>
+                    <span class="seccao-elemento-totem">Puffin</span>
+                </div>
+                <div class="seccao-elemento">
+                    <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Carpa.jpg' | relative_url }}" alt="Carpa">
+                    <span class="seccao-elemento-nome">Tesoureiro</span>
+                    <span class="seccao-elemento-totem">Carpa</span>
+                </div>
+                <div class="seccao-elemento">
+                    <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Arqueiro.jpg' | relative_url }}" alt="Palhaço">
+                    <span class="seccao-elemento-nome">Botica</span>
+                    <span class="seccao-elemento-totem">Palhaço</span>
+                </div>
+                <div class="seccao-elemento">
+                    <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Albatroz.jpg' | relative_url }}" alt="Albatroz">
+                    <span class="seccao-elemento-nome">Taifa</span>
+                    <span class="seccao-elemento-totem">Albatroz</span>
+                </div>
+                <div class="seccao-elemento">
+                    <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Espadinha VII.jpg' | relative_url }}" alt="Espadinha VII">
+                    <span class="seccao-elemento-nome">Guarda Paiol e Baú</span>
+                    <span class="seccao-elemento-totem">Espadinha VII</span>
+                </div>
+            </div>
+            <a href="#" class="btn css-lightbox-close">Fechar</a>
+        </div>
+    </div>
+</div>
+
+<div id="modal-equipagem-diogo-cao" class="css-lightbox seccao-elementos-modal" style="--cor-seccao: {{ page.seccao_cor }};" role="dialog" aria-modal="true" aria-labelledby="modal-equipagem-diogo-cao-titulo">
+    <div class="css-lightbox-box">
+        <div class="css-lightbox-header" id="modal-equipagem-diogo-cao-titulo">Elementos da Equipagem Diogo Cão</div>
+        <div class="css-lightbox-body">
+            <div class="seccao-elementos-grelha">
+                <div class="seccao-elemento">
+                    <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Espadinha VI.jpg' | relative_url }}" alt="Espadinha VI">
+                    <span class="seccao-elemento-nome">Mestre</span>
+                    <span class="seccao-elemento-totem">Espadinha VI</span>
+                </div>
+                <div class="seccao-elemento">
+                    <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Lanterna.jpg' | relative_url }}" alt="Lanterna">
+                    <span class="seccao-elemento-nome">Contramestre</span>
+                    <span class="seccao-elemento-totem">Lanterna</span>
+                </div>
+                <div class="seccao-elemento">
+                    <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Arqueiro.jpg' | relative_url }}" alt="Manatim">
+                    <span class="seccao-elemento-nome">Escrivão</span>
+                    <span class="seccao-elemento-totem">Manatim</span>
+                </div>
+                <div class="seccao-elemento">
+                    <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Arqueiro.jpg' | relative_url }}" alt="Manta">
+                    <span class="seccao-elemento-nome">Tesoureiro</span>
+                    <span class="seccao-elemento-totem">Manta</span>
+                </div>
+                <div class="seccao-elemento">
+                    <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Lanterna.jpg' | relative_url }}" alt="Lanterna">
+                    <span class="seccao-elemento-nome">Botica</span>
+                    <span class="seccao-elemento-totem">Lanterna</span>
+                </div>
+                <div class="seccao-elemento">
+                    <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Raia.jpg' | relative_url }}" alt="Raia">
+                    <span class="seccao-elemento-nome">Taifa</span>
+                    <span class="seccao-elemento-totem">Raia</span>
+                </div>
+                <div class="seccao-elemento">
+                    <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Arqueiro.jpg' | relative_url }}" alt="Arqueiro">
+                    <span class="seccao-elemento-nome">Guarda Paiol e Baú</span>
+                    <span class="seccao-elemento-totem">Arqueiro</span>
+                </div>
+                <div class="seccao-elemento">
+                    <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Arqueiro.jpg' | relative_url }}" alt="Polvo">
+                    <span class="seccao-elemento-nome">Animador</span>
+                    <span class="seccao-elemento-totem">Polvo</span>
+                </div>
+            </div>
+            <a href="#" class="btn css-lightbox-close">Fechar</a>
+        </div>
+    </div>
+</div>

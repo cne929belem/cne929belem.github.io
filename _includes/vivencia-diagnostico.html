@@ -1,0 +1,161 @@
+{%- comment -%}
+  =========================================================================
+  COMPONENTE: Diagnóstico de Pista — «A minha bússola» (autoavaliação)
+  -------------------------------------------------------------------------
+  Abre em ECRÃ INTEIRO a partir de qualquer botão com o atributo
+  data-abrir-diagnostico (está no tema «📖 Progresso» de cada Vivência).
+  Uma frase por trilho (18), escala 1–5 (Alcateia: 3 caras). O resultado
+  sugere, em cada área, o trilho com a nota mais baixa.
+  Corre só no navegador: NADA é enviado nem guardado (sem servidor, sem
+  localStorage). As respostas mantêm-se enquanto a página estiver aberta e
+  desaparecem ao recarregar. O elemento copia o resultado para a ficha que a
+  Equipa de Animação lhe entrega.
+
+  Utilização: {% include vivencia-diagnostico.html %}  (uma vez por página)
+  Dados: _data/diagnostico.yml · Lógica: assets/js/diagnostico.js
+  =========================================================================
+{%- endcomment -%}
+{%- assign dg = site.data.diagnostico -%}
+{%- assign dg_s = dg.seccoes[page.seccao_slug] -%}
+{%- if dg_s -%}
+{%- assign dg_escala = dg.escalas[dg_s.escala] -%}
+<style>
+    html.dg-aberto, html.dg-aberto body { overflow: hidden; }
+    .dg-abrir { display: inline-block; background-color: var(--cor-vivencia, var(--azul-claro)); color: var(--cor-vivencia-texto, #fff) !important; }
+    .dg-abrir:hover { background-color: var(--azul-marinho); color: #fff !important; }
+    .dg-abrir:focus-visible { outline: 3px solid var(--azul-claro); outline-offset: 3px; }
+    .dg-chamada { margin: 20px auto 0; max-width: 62ch; color: #555; font-size: 0.9rem; line-height: 1.5; }
+
+    .dg-dialogo { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: #fff; color: #1d2b33; }
+    .dg-dialogo::backdrop { background: #fff; }
+    .dg-estrutura { display: flex; flex-direction: column; height: 100%; }
+    .dg-cabecalho { flex: 0 0 auto; padding: calc(env(safe-area-inset-top, 0px) + 12px) clamp(16px, 2.083vw, 40px) 10px; border-bottom: 4px solid var(--dg-cor); background: #fff; }
+    .dg-cabecalho-linha { display: flex; align-items: center; justify-content: space-between; gap: 12px; max-width: 900px; margin: 0 auto; }
+    .dg-cabecalho h2 { margin: 0; color: var(--azul-marinho); font-size: clamp(19px, 1.25vw, 24px); }
+    .dg-fechar { flex: 0 0 auto; min-width: 44px; min-height: 44px; border: 1px solid #cfd8df; border-radius: 999px; background: #fff; color: var(--azul-marinho); font-size: 22px; line-height: 1; cursor: pointer; }
+    .dg-fechar:focus-visible { outline: 3px solid var(--azul-claro); outline-offset: 3px; }
+    .dg-subtitulo { max-width: 900px; margin: 6px auto 0; color: #52616a; font-size: 0.85rem; }
+    .dg-corpo { flex: 1 1 auto; overflow-y: auto; padding: clamp(16px, 1.302vw, 25px) clamp(16px, 2.083vw, 40px) 0; }
+    .dg { max-width: 900px; margin: 0 auto; text-align: left; }
+    .dg h3 { margin: 0 0 12px; color: var(--azul-marinho); outline: none; }
+    .dg p { line-height: 1.6; }
+    .dg-nota { margin: 12px 0; padding: 10px 14px; border-left: 4px solid var(--azul-claro); background: #eaf4fb; font-size: 0.9rem; line-height: 1.5; }
+    .dg-area { margin: 22px 0 0; padding: 0; border: 0; }
+    .dg-area > legend { margin-bottom: 10px; color: var(--azul-marinho); font-size: 1.05rem; font-weight: 800; text-transform: uppercase; letter-spacing: .03em; }
+    .dg-trilho { margin: 0 0 12px; padding: 12px 14px; border: 1px solid #e3e9ef; border-left: 4px solid var(--dg-cor); border-radius: 6px; background: var(--cinza-fundo); }
+    .dg-trilho legend { float: left; width: 100%; padding: 0; line-height: 1.45; }
+    .dg-trilho legend + * { clear: both; }
+    .dg-trilho-nome { display: block; color: var(--azul-marinho); font-size: 0.85rem; font-weight: 800; }
+    .dg-trilho-aventura { display: block; color: #66747c; font-size: 0.8rem; font-style: italic; }
+    .dg-frase { display: block; margin-top: 4px; color: #1d2b33; font-size: 0.95rem; }
+    .dg-escala { display: grid; grid-template-columns: repeat(var(--dg-n), minmax(0, 1fr)); gap: 6px; margin: 10px 0 6px; }
+    .dg-opcao { position: relative; }
+    .dg-opcao input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .dg-opcao > span { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 48px; padding: 6px 2px; border: 1px solid #c9d4dc; border-radius: 6px; background: #fff; color: #33434c; font-size: 0.72rem; line-height: 1.2; text-align: center; cursor: pointer; }
+    .dg-opcao > span strong { font-size: 1rem; color: var(--azul-marinho); }
+    .dg-opcao > span .dg-icone { font-size: 1.4rem; }
+    .dg-opcao input:checked + span { border-color: var(--dg-cor); background: var(--dg-cor); color: var(--dg-cor-texto); }
+    .dg-opcao input:checked + span strong { color: var(--dg-cor-texto); }
+    .dg-opcao input:focus-visible + span { outline: 3px solid var(--azul-claro); outline-offset: 2px; }
+    .dg-opcao input:disabled + span { opacity: .35; cursor: not-allowed; }
+    .dg-feito { display: inline-flex; align-items: center; gap: 8px; color: #52616a; font-size: 0.82rem; cursor: pointer; }
+    .dg-feito input { width: 18px; height: 18px; accent-color: var(--dg-cor); }
+    .dg-barra { position: sticky; bottom: 0; z-index: 3; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-top: 18px; padding: 12px 0 calc(env(safe-area-inset-bottom, 0px) + 12px); background: #fff; border-top: 1px solid #e3e9ef; }
+    .dg-contador { font-weight: 700; color: var(--azul-marinho); }
+    .dg-barra .btn, .dg-acoes .btn { margin: 0; }
+    .dg-acoes { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 calc(env(safe-area-inset-bottom, 0px) + 30px); }
+    .btn.dg-primario { background-color: var(--dg-cor); color: var(--dg-cor-texto) !important; }
+    .btn.dg-primario:hover { background-color: var(--azul-marinho); color: #fff !important; }
+    .btn.dg-primario[disabled] { opacity: .5; cursor: not-allowed; }
+    .btn.dg-secundario { background-color: #6c757d; }
+    .dg-resultado[hidden], .dg-form[hidden] { display: none; }
+    .dg-caixa { padding: 16px; border: 2px solid var(--dg-cor); border-radius: 10px; background: #fff; }
+    .dg-tabela-wrapper { overflow-x: auto; }
+    .dg-tabela { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    .dg-tabela th, .dg-tabela td { padding: 8px 10px; border-bottom: 1px solid #e3e9ef; text-align: left; vertical-align: top; }
+    .dg-tabela thead th { color: var(--azul-marinho); font-size: 0.8rem; text-transform: uppercase; }
+    .dg-tabela td small { display: block; color: #66747c; }
+    @media (max-width: 600px) {
+        .dg-tabela thead { display: none; }
+        .dg-tabela tr { display: block; padding: 10px 0; border-bottom: 1px solid #e3e9ef; }
+        .dg-tabela th, .dg-tabela td { display: block; padding: 2px 0; border: 0; }
+        .dg-tabela td:nth-child(2) { font-weight: 700; color: var(--azul-marinho); }
+        .dg-tabela td:nth-child(3)::before { content: "Outros: "; color: #66747c; }
+    }
+</style>
+
+<!-- DIAGNÓSTICO DE PISTA — ecrã inteiro (_includes/vivencia-diagnostico.html). Abre a partir do tema «📖 Progresso». -->
+<dialog id="dg-dialogo" class="dg-dialogo" aria-labelledby="dg-titulo" style="--dg-cor: {{ page.seccao_cor }}; --dg-cor-texto: {{ page.seccao_cor_texto | default: '#fff' }};">
+    <div class="dg-estrutura">
+        <header class="dg-cabecalho">
+            <div class="dg-cabecalho-linha">
+                <h2 id="dg-titulo">🧭 Diagnóstico de Pista · {{ dg_s.nome }}</h2>
+                <button type="button" class="dg-fechar" data-dg-fechar aria-label="Fechar o diagnóstico">×</button>
+            </div>
+            <p class="dg-subtitulo" data-dg-subtitulo>A minha bússola · responde às 18 frases</p>
+        </header>
+
+        <div class="dg-corpo">
+            <div class="dg" data-diagnostico data-escala-max="{{ dg_escala.size }}" data-quem-ajuda="{{ dg_s.quem_ajuda | escape }}">
+                <form class="dg-form" data-dg-form novalidate>
+                    <h3 tabindex="-1" data-dg-titulo-form>A minha bússola</h3>
+                    <p>{{ dg_s.instrucao }}</p>
+                    <p>{{ dg_s.regra }}</p>
+                    <p class="dg-nota">🔒 <strong>Nada é guardado nem enviado.</strong> As respostas ficam só neste ecrã e desaparecem quando recarregas a página. Copia o resultado para a ficha que a Equipa de Animação te entregou.</p>
+
+                    {%- for area in dg.areas %}
+                    <fieldset class="dg-area">
+                        <legend>{{ area.nome }}{% if dg_s.animais %} · {{ dg_s.animais[area.id] }}{% endif %}</legend>
+                        {%- for t in dg_s.trilhos %}{% if t.area == area.id %}
+                        <fieldset class="dg-trilho" data-dg-trilho="{{ t.id }}" data-area="{{ area.nome }}" data-nome="{{ t.nome }}">
+                            <legend>
+                                <span class="dg-trilho-nome">{{ t.nome }}</span>
+                                {%- if t.aventura %}<span class="dg-trilho-aventura">{{ t.aventura }}</span>{% endif %}
+                                <span class="dg-frase">{{ t.frase }}</span>
+                            </legend>
+                            <div class="dg-escala" style="--dg-n: {{ dg_escala.size }};">
+                                {%- for o in dg_escala %}
+                                <label class="dg-opcao">
+                                    <input type="radio" name="dg-{{ t.id }}" value="{{ o.valor }}" aria-label="{{ o.valor }} — {{ o.rotulo }}">
+                                    <span>{% if o.icone %}<span class="dg-icone" aria-hidden="true">{{ o.icone }}</span>{% else %}<strong>{{ o.valor }}</strong>{% endif %}{{ o.rotulo }}</span>
+                                </label>
+                                {%- endfor %}
+                            </div>
+                            <label class="dg-feito"><input type="checkbox" data-dg-feito> Já completei este trilho</label>
+                        </fieldset>
+                        {%- endif %}{% endfor %}
+                    </fieldset>
+                    {%- endfor %}
+
+                    <div class="dg-barra">
+                        <span class="dg-contador" data-dg-contador aria-live="polite">0 de 18 respondidos</span>
+                        <span>
+                            <button type="reset" class="btn dg-secundario">Recomeçar</button>
+                            <button type="submit" class="btn dg-primario" data-dg-ver disabled>Ver o meu resultado</button>
+                        </span>
+                    </div>
+                </form>
+
+                <section class="dg-resultado" data-dg-resultado aria-labelledby="dg-resultado-titulo" hidden>
+                    <h3 id="dg-resultado-titulo" tabindex="-1">O meu resultado</h3>
+                    <div class="dg-caixa">
+                        <p data-dg-resumo></p>
+                        <div class="dg-tabela-wrapper">
+                            <table class="dg-tabela">
+                                <thead><tr><th scope="col">Área</th><th scope="col">Trilho sugerido</th><th scope="col">Os outros trilhos</th></tr></thead>
+                                <tbody data-dg-linhas></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p class="dg-nota">É uma sugestão, não uma obrigação: a escolha é tua, com {{ dg_s.quem_ajuda }}. Copia-a agora para a tua ficha — o resultado não fica guardado. Fonte: {{ dg_s.fonte }}.</p>
+                    <div class="dg-acoes">
+                        <button type="button" class="btn dg-secundario" data-dg-voltar>Rever as respostas</button>
+                        <button type="button" class="btn dg-primario" data-dg-fechar>Fechar</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</dialog>
+<script src="{{ '/assets/js/diagnostico.js' | relative_url }}" defer></script>
+{%- endif -%}

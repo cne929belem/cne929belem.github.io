@@ -10,7 +10,6 @@ seccao_cor_texto: '#17202A'
 ---
 <style>
     .alcateia-equipa-bloco .seccao-geral-intro { margin-bottom: 16px; }
-    .alcateia-equipa-bloco .alcateia-cargos-grelha { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 8px; }
     .alcateia-equipa-contactos { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; margin: 16px 0 8px; }
     .alcateia-equipa-contactos a { color: var(--azul-claro); font-size: 0.85rem; font-weight: 800; }
 </style>
@@ -24,19 +23,12 @@ seccao_cor_texto: '#17202A'
     <section class="seccao-geral-conteudo" style="--cor-seccao: {{ page.seccao_cor }};">
         <div class="seccao-equipa-bloco alcateia-equipa-bloco">
             <h2 class="section-title">🐺 A equipa da Alcateia 102</h2>
-            <p class="seccao-geral-intro">A Equipa de Animação acompanha os Lobitos na descoberta, no jogo e na vida em bando; o Guia e o Sub-Guia, escolhidos pelos Lobitos, ajudam a organizar o seu bando.</p>
+            <p class="seccao-geral-intro">A Equipa de Animação acompanha os Lobitos na descoberta, no jogo e na vida na Alcateia.</p>
             <h3 class="section-title" style="color: var(--cor-seccao);">Equipa de Animação</h3>
             <div class="equipa-seccao-grelha">
             <div class="pessoa-seccao"><img src="{{ '/assets/img/equipa/chefe_unidade.png' | relative_url }}" alt="Insígnia de Chefe de Unidade"><img src="{{ '/assets/img/equipa/paulo-duarte_equipa.jpg' | relative_url }}" alt="Paulo Duarte"><div><small>Chefe de Unidade</small><strong>Paulo Duarte (Roaz Criativo)</strong></div></div>
             <div class="pessoa-seccao"><img src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="Insígnia de Candidato a Dirigente"><img src="{{ '/assets/img/equipa/madalena-catita_equipa.jpg' | relative_url }}" alt="Madalena Catita"><div><small>Aspirante a Dirigente</small><strong>Madalena Catita (Raposa Exigente)</strong></div></div>
             </div>
-            <h3 class="section-title" style="color: var(--cor-seccao); margin-top: 18px;">Guia e Sub-Guia de Bando</h3>
-            <div class="equipa-seccao-grelha alcateia-cargos-grelha">
-                <div class="pessoa-seccao"><span class="pessoa-seccao-foto cargo-foto-placeholder" aria-hidden="true">👤</span><div><small>Guia de Bando</small><strong>A eleger</strong></div></div>
-                <div class="pessoa-seccao"><span class="pessoa-seccao-foto cargo-foto-placeholder" aria-hidden="true">👤</span><div><small>Sub-Guia de Bando</small><strong>A eleger</strong></div></div>
-            </div>
-            <a class="btn seccao-grupo-trigger" href="#modal-elementos-alcateia" aria-haspopup="dialog">🐺 Ver elementos do Bando</a>
-            {% include seccao-elementos-modal.html id="modal-elementos-alcateia" nome="Elementos do Bando" %}
             <div class="alcateia-equipa-contactos">
                 <a href="{{ '/agrupamento/equipa.html' | relative_url }}">Ver as equipas do Agrupamento</a>
                 <a href="mailto:lobitos.929@escutismo.pt">✉️ Enviar email à Alcateia 102</a>

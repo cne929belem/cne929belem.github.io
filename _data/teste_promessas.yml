@@ -34,14 +34,13 @@ seccoes:
     nome: "Alcateia 102"
     elementos: "Lobitos"
     movimento:
-      titulo: "A Lei e as Máximas do Lobito"
+      titulo: "Adesão ao Movimento"
       disponivel: false
       nota: >-
-        A Alcateia não tem um conjunto «Adesão ao Movimento». Proposta: usar o conjunto
-        «A Lei e as Máximas» como percurso equivalente. A aguardar decisão da Equipa de
-        Animação da Alcateia.
+        Na Alcateia há um só percurso: o Caderno de Pista I junta numa lista única o que o
+        Pata-Tenra deve saber (Lei, Máximas, Divisa, oração, Bando, Caçada…). Escolhe «Adesão à Alcateia 102».
     seccao:
-      titulo: "A Alcateia 102"
+      titulo: "Adesão à Alcateia 102"
       disponivel: true
   flotilha:
     nome: "Flotilha 110"
@@ -194,7 +193,7 @@ perguntas:
     revisao: inequivoca
   - id: ala-lei-01
     seccoes: [alcateia]
-    percurso: movimento
+    percurso: seccao
     pergunta: "Qual é a Lei do Lobito?"
     opcoes:
       - { id: a, texto: "Da melhor vontade" }
@@ -203,10 +202,9 @@ perguntas:
       - { id: d, texto: "O Lobito escuta Àquêlà; o Lobito não se escuta a si próprio" }
     fonte: "alcateia/vivencia.md, perguntasLei 1"
     revisao: inequivoca
-    nota_revisao: "Percurso a confirmar (ver nota da Alcateia)."
   - id: ala-lei-02
     seccoes: [alcateia]
-    percurso: movimento
+    percurso: seccao
     pergunta: "Qual destas frases é uma Máxima do Lobito?"
     opcoes:
       - { id: a, texto: "Da melhor vontade" }
@@ -215,10 +213,9 @@ perguntas:
       - { id: d, texto: "O Lobito escuta Àquêlà" }
     fonte: "alcateia/vivencia.md, perguntasLei 2"
     revisao: inequivoca
-    nota_revisao: "Percurso a confirmar (ver nota da Alcateia)."
   - id: ala-lei-03
     seccoes: [alcateia]
-    percurso: movimento
+    percurso: seccao
     pergunta: "Qual é a Divisa do Lobito?"
     opcoes:
       - { id: a, texto: "Mais além" }
@@ -227,10 +224,9 @@ perguntas:
       - { id: d, texto: "Da melhor vontade" }
     fonte: "alcateia/vivencia.md, perguntasLei 3"
     revisao: inequivoca
-    nota_revisao: "Percurso a confirmar (ver nota da Alcateia)."
   - id: ala-lei-04
     seccoes: [alcateia]
-    percurso: movimento
+    percurso: seccao
     pergunta: "Quem é Àquêlà?"
     opcoes:
       - { id: a, texto: "O Lobito mais velho" }
@@ -239,10 +235,9 @@ perguntas:
       - { id: d, texto: "O Guia de Bando" }
     fonte: "alcateia/vivencia.md, perguntasLei 4"
     revisao: inequivoca
-    nota_revisao: "Percurso a confirmar (ver nota da Alcateia)."
   - id: ala-lei-05
     seccoes: [alcateia]
-    percurso: movimento
+    percurso: seccao
     pergunta: "O que é o Grande Uivo?"
     opcoes:
       - { id: a, texto: "O sinal de alarme do Bando" }
@@ -251,10 +246,9 @@ perguntas:
       - { id: d, texto: "A saudação coletiva dos Lobitos aos seus Chefes ou visitantes" }
     fonte: "alcateia/vivencia.md, perguntasLei 5"
     revisao: inequivoca
-    nota_revisao: "Percurso a confirmar (ver nota da Alcateia)."
   - id: ala-lei-06
     seccoes: [alcateia]
-    percurso: movimento
+    percurso: seccao
     pergunta: "Quem é o patrono da Alcateia?"
     opcoes:
       - { id: a, texto: "São Paulo" }
@@ -263,7 +257,6 @@ perguntas:
       - { id: d, texto: "São Pedro" }
     fonte: "alcateia/vivencia.md, perguntasLei 6"
     revisao: inequivoca
-    nota_revisao: "Percurso a confirmar (ver nota da Alcateia)."
   - id: ala-sec-01
     seccoes: [alcateia]
     percurso: seccao
@@ -352,18 +345,6 @@ perguntas:
       - { id: d, texto: "Regista as atividades" }
     fonte: "alcateia/vivencia.md, perguntasAlcateia 8"
     revisao: inequivoca
-  - id: ala-sec-09
-    seccoes: [alcateia]
-    percurso: seccao
-    pergunta: "Qual é a primeira etapa do progresso do Lobito?"
-    opcoes:
-      - { id: a, texto: "Pata-Tenra" }
-      - { id: b, texto: "Apelo" }
-      - { id: c, texto: "Desprendimento" }
-      - { id: d, texto: "Caminho" }
-    fonte: "alcateia/vivencia.md, perguntasAlcateia 9; _data/progresso.yml"
-    revisao: duvidosa
-    nota_revisao: "Os nomes das etapas da I Secção ainda estão por confirmar no manual de secção (ver _data/progresso.yml)."
   - id: flo-01
     seccoes: [flotilha]
     percurso: seccao
@@ -453,17 +434,6 @@ perguntas:
     fonte: "flotilha/vivencia.md, perguntasSeccao 8"
     revisao: duvidosa
     nota_revisao: "O cartão de estudo junta «mais além» e «boa pesca» sem dizer qual é a saudação e qual é a divisa."
-  - id: flo-09
-    seccoes: [flotilha]
-    percurso: seccao
-    pergunta: "Qual é a ordem das etapas do progresso na Flotilha?"
-    opcoes:
-      - { id: a, texto: "Desprendimento, Conhecimento, Vontade, Construção" }
-      - { id: b, texto: "Apelo, Aliança, Rumo, Descoberta" }
-      - { id: c, texto: "Aliança, Apelo, Descoberta, Rumo" }
-      - { id: d, texto: "Rumo, Apelo, Aliança, Descoberta" }
-    fonte: "flotilha/vivencia.md, perguntasSeccao 9; _data/progresso.yml"
-    revisao: inequivoca
   - id: fro-01
     seccoes: [frota]
     percurso: seccao
@@ -564,17 +534,6 @@ perguntas:
       - { id: d, texto: "Pela cor da bandeirola" }
     fonte: "frota/vivencia.md, perguntasSeccao 9"
     revisao: inequivoca
-  - id: fro-10
-    seccoes: [frota]
-    percurso: seccao
-    pergunta: "Qual é a ordem das etapas do progresso na Frota?"
-    opcoes:
-      - { id: a, texto: "Desprendimento, Conhecimento, Vontade, Construção" }
-      - { id: b, texto: "Apelo, Aliança, Rumo, Descoberta" }
-      - { id: c, texto: "Conhecimento, Desprendimento, Construção, Vontade" }
-      - { id: d, texto: "Vontade, Desprendimento, Conhecimento, Construção" }
-    fonte: "frota/vivencia.md, perguntasSeccao 10; _data/progresso.yml"
-    revisao: inequivoca
   - id: com-01
     seccoes: [comunidade]
     percurso: seccao
@@ -665,4 +624,125 @@ perguntas:
       - { id: c, texto: "A «bússola» do Companheiro: objetivos para a vida profissional, familiar, social e espiritual" }
       - { id: d, texto: "O plano anual de atividades da Comunidade" }
     fonte: "comunidade/vivencia.md, perguntasSeccao 8"
+    revisao: inequivoca
+  - id: mov-13
+    seccoes: [flotilha, frota, comunidade]
+    percurso: movimento
+    pergunta: "A que organização mundial pertence o CNE?"
+    opcoes:
+      - { id: a, texto: "Organização Mundial do Movimento Escutista (OMME)" }
+      - { id: b, texto: "Cruz Vermelha Internacional" }
+      - { id: c, texto: "Organização das Nações Unidas (ONU)" }
+      - { id: d, texto: "Comité Olímpico Internacional" }
+    fonte: "_data/adesao.yml, pergunta 10 (Estatutos do CNE; Cadernos de Pista II–IV)"
+    revisao: inequivoca
+  - id: ala-sec-10
+    seccoes: [alcateia]
+    percurso: seccao
+    pergunta: "Como se chama a etapa de adesão do Lobito, antes da Promessa?"
+    opcoes:
+      - { id: a, texto: "Lobo Valente" }
+      - { id: b, texto: "Apelo" }
+      - { id: c, texto: "Pata-Tenra" }
+      - { id: d, texto: "Desprendimento" }
+    fonte: "alcateia/vivencia.md, perguntasAlcateia 9; Manual do Dirigente — Progresso Pessoal"
+    revisao: inequivoca
+  - id: ala-sec-11
+    seccoes: [alcateia]
+    percurso: seccao
+    pergunta: "Quais são as 3 etapas de progresso do Lobito, por ordem?"
+    opcoes:
+      - { id: a, texto: "Lobo Cortês, Lobo Amigo, Lobo Valente" }
+      - { id: b, texto: "Lobo Valente, Lobo Cortês, Lobo Amigo" }
+      - { id: c, texto: "Aliança, Rumo, Descoberta" }
+      - { id: d, texto: "Lobo Amigo, Lobo Valente, Lobo Cortês" }
+    fonte: "alcateia/vivencia.md, perguntasAlcateia 9; Manual do Dirigente — Progresso Pessoal"
+    revisao: inequivoca
+  - id: flo-10
+    seccoes: [flotilha]
+    percurso: seccao
+    pergunta: "Como se chama a etapa de adesão da Flotilha, antes da Promessa?"
+    opcoes:
+      - { id: a, texto: "Pata-Tenra" }
+      - { id: b, texto: "Apelo" }
+      - { id: c, texto: "Aliança" }
+      - { id: d, texto: "Desprendimento" }
+    fonte: "flotilha/vivencia.md, perguntasSeccao 9; Caderno de Pista II"
+    revisao: inequivoca
+  - id: flo-11
+    seccoes: [flotilha]
+    percurso: seccao
+    pergunta: "Depois da Promessa, quais são as 3 etapas de progresso, por ordem?"
+    opcoes:
+      - { id: a, texto: "Rumo, Aliança, Descoberta" }
+      - { id: b, texto: "Descoberta, Rumo, Aliança" }
+      - { id: c, texto: "Aliança, Rumo, Descoberta" }
+      - { id: d, texto: "Conhecimento, Vontade, Construção" }
+    fonte: "flotilha/vivencia.md, perguntasSeccao 9; Manual do Dirigente — Progresso Pessoal"
+    revisao: inequivoca
+  - id: flo-12
+    seccoes: [flotilha]
+    percurso: seccao
+    pergunta: "Em cada etapa de progresso, que trilhos escolhes?"
+    opcoes:
+      - { id: a, texto: "Os trilhos que a Equipa de Animação decidir, sem escolha" }
+      - { id: b, texto: "Os 18 trilhos de uma vez" }
+      - { id: c, texto: "Só os trilhos da área Físico" }
+      - { id: d, texto: "Um trilho de cada uma das 6 áreas de desenvolvimento" }
+    fonte: "flotilha/vivencia.md, perguntasSeccao 10; Caderno de Pista II"
+    revisao: inequivoca
+  - id: fro-11
+    seccoes: [frota]
+    percurso: seccao
+    pergunta: "Como se chama a etapa de adesão da Frota, antes da Promessa?"
+    opcoes:
+      - { id: a, texto: "Apelo" }
+      - { id: b, texto: "Caminho" }
+      - { id: c, texto: "Desprendimento" }
+      - { id: d, texto: "Conhecimento" }
+    fonte: "frota/vivencia.md, perguntasSeccao 10; Caderno de Pista III"
+    revisao: inequivoca
+  - id: fro-12
+    seccoes: [frota]
+    percurso: seccao
+    pergunta: "Depois da Promessa, quais são as 3 etapas de progresso, por ordem?"
+    opcoes:
+      - { id: a, texto: "Aliança, Rumo, Descoberta" }
+      - { id: b, texto: "Conhecimento, Vontade, Construção" }
+      - { id: c, texto: "Vontade, Conhecimento, Construção" }
+      - { id: d, texto: "Construção, Vontade, Conhecimento" }
+    fonte: "frota/vivencia.md, perguntasSeccao 10; Manual do Dirigente — Progresso Pessoal"
+    revisao: inequivoca
+  - id: fro-13
+    seccoes: [frota]
+    percurso: seccao
+    pergunta: "Em cada etapa de progresso, que trilhos escolhes?"
+    opcoes:
+      - { id: a, texto: "Os trilhos que a Equipa de Animação decidir, sem escolha" }
+      - { id: b, texto: "Um trilho de cada uma das 6 áreas de desenvolvimento" }
+      - { id: c, texto: "Os 18 trilhos de uma vez" }
+      - { id: d, texto: "Só os trilhos da área Físico" }
+    fonte: "frota/vivencia.md, perguntasSeccao 11; Caderno de Pista III"
+    revisao: inequivoca
+  - id: fro-14
+    seccoes: [frota]
+    percurso: seccao
+    pergunta: "Quanto tempo pode durar, no máximo, o Desprendimento?"
+    opcoes:
+      - { id: a, texto: "Sete meses" }
+      - { id: b, texto: "Um ano" }
+      - { id: c, texto: "Não tem limite" }
+      - { id: d, texto: "Três meses" }
+    fonte: "frota/vivencia.md, perguntasSeccao 10; Caderno de Pista III"
+    revisao: inequivoca
+  - id: com-09
+    seccoes: [comunidade]
+    percurso: seccao
+    pergunta: "Quem escreveu o livro «A Caminho do Triunfo»?"
+    opcoes:
+      - { id: a, texto: "São Paulo" }
+      - { id: b, texto: "Baden-Powell" }
+      - { id: c, texto: "D. Manuel Vieira de Matos" }
+      - { id: d, texto: "Santo Inácio de Loyola" }
+    fonte: "comunidade/vivencia.md, perguntasSeccao 10; Caderno de Pista IV"
     revisao: inequivoca

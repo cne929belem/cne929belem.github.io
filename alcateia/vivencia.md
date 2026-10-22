@@ -2,7 +2,7 @@
 layout: default
 title: Vivência | I - Alcateia 102
 main_class: pagina-com-hero
-ultima_atualizacao: 13/10/2026
+ultima_atualizacao: 22/10/2026
 seccao_slug: alcateia
 seccao_nome: I - Alcateia 102
 seccao_cor: '#E9B708'
@@ -272,6 +272,10 @@ seccao_cor_texto: '#17202A'
                  da Comunidade 88. -->
             {% include vivencia-progresso.html %}
 
+            <!-- DIAGNÓSTICO DE PISTA — ecrã inteiro aberto pelo botão do tema «📖 Progresso»
+                 (_includes/vivencia-diagnostico.html, dados em _data/diagnostico.yml). Nada é guardado nem enviado. -->
+            {% include vivencia-diagnostico.html %}
+
             <!-- TEMA 5: ORAÇÃO DO LOBITO -->
             <details class="acordeao verde">
                 <summary>🙏 Oração do Lobito</summary>
@@ -371,7 +375,8 @@ seccao_cor_texto: '#17202A'
         { pergunta: "6. O imaginário da Alcateia?", resposta: "O Livro da Selva e a história de Maugli. Na Alcateia marítima, o capítulo 'A Foca Branca' e o Cótique, que aprende a navegar, são um bom exemplo para os Lobitos." },
         { pergunta: "7. Cor da secção, local de reunião e atividade típica?", resposta: "A cor da secção é o azul debruado a amarelo, a Alcateia reúne-se no Covil e a atividade típica é a Caçada: o projeto escolhido por toda a Alcateia." },
         { pergunta: "8. Que cargos pode ter um Lobito no Bando?", resposta: "Além do Guia e do Sub-Guia: Escrivão (regista as atividades), Lobito de Detalhe (finanças), de Baú (material), de Paiol (material náutico), Animador, da Botica (farmácia e bem-estar) e da Taifa (refeições)." },
-        { pergunta: "9. Quais são as etapas do teu progresso?", resposta: "São quatro: Pata-Tenra, Lobo Valente, Lobo Cortês e Lobo Amigo. Consulta o tema «📖 Progresso» desta página para saberes o que se vive em cada uma, em terra e no mar." }
+        { pergunta: "9. Quais são as etapas do teu progresso?", resposta: "Começas como Pata-Tenra, a etapa de adesão, até fazeres a tua Promessa. Depois vêm 3 etapas de progresso: Lobo Valente, Lobo Cortês e Lobo Amigo. Em cada uma escolhes uma Aventura (trilho) com cada animal da Selva — o «🧭 Diagnóstico de Pista», no tema «📖 Progresso», ajuda-te a escolher." },
+        { pergunta: "10. Já sabes rezar a oração do Lobito?", resposta: "Começa por «Divino Menino Jesus». Está no tema «🙏 Oração do Lobito» desta página: aprende-a com o teu Bando." }
     ];
 
     let listaAtual = [];
