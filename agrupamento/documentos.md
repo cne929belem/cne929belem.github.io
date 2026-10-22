@@ -2,7 +2,7 @@
 title: Documentos | Agrupamento 929 - Belém
 main_class: pagina-com-hero
 layout: default
-ultima_atualizacao: 10/10/2026
+ultima_atualizacao: 22/10/2026
 pasta_anos_anteriores: "1vM1rY41dj4YzSqs93DNRp_qybFrHgjAz"
 ---
 {% comment %}
@@ -37,7 +37,7 @@ pasta_anos_anteriores: "1vM1rY41dj4YzSqs93DNRp_qybFrHgjAz"
     .documentos-marco h3 { margin: 4px 0 0; color: var(--azul-marinho); font-size: 1rem; }
     .documentos-bloco .jump-nav { margin: 0 0 18px; }
     .arquivo-drive { width: 100%; overflow: hidden; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-    .arquivo-drive iframe { display: block; width: 100%; height: 400px; border: 0; }
+    .arquivo-drive iframe { display: block; width: 100%; height: 120px; border: 0; }
     @media (max-width: 760px) {
         .documentos-pagina { grid-template-columns: 1fr; padding: 24px 20px 48px; }
         .documentos-bloco.restantes { grid-column: auto; }
@@ -47,7 +47,7 @@ pasta_anos_anteriores: "1vM1rY41dj4YzSqs93DNRp_qybFrHgjAz"
 <section class="hero-generico" id="hero">
     <div class="pagina-cabecalho">
         <h1>Documentos do Agrupamento</h1>
-        <p>Aqui podes consultar e descarregar a documentação importante do Agrupamento 929 - Belém.</p>
+        <p>Aqui podes consultar a documentação importante do Agrupamento 929 - Belém.</p>
     </div>
 </section>
 <div class="espaco-hero-generico" aria-hidden="true"></div>
@@ -75,7 +75,7 @@ pasta_anos_anteriores: "1vM1rY41dj4YzSqs93DNRp_qybFrHgjAz"
     </section>
 
     <section class="documentos-bloco restantes" id="anos-anteriores">
-        <h2 class="section-title"><span>🗄️</span> Anos escutistas anteriores</h2>
+        <h2 class="section-title"><span>🗄️</span> Outros documentos</h2>
         {% for grupo in docs_outros_anos %}
         <div style="margin-top: 24px; text-align: left; scroll-margin-top: 85px;" id="ano-{{ grupo.name }}">
             <h3 class="section-title"><span>🗓️</span> Ano Escutista {{ grupo.name }}</h3>
@@ -95,8 +95,12 @@ pasta_anos_anteriores: "1vM1rY41dj4YzSqs93DNRp_qybFrHgjAz"
         <h2 class="section-title"><span>📅</span> Datas</h2>
         <div class="documentos-linha-tempo">
             <div class="documentos-marco">
-                <time datetime="2026-10-23">23 de outubro de 2026</time>
+                <time datetime="2026-10-23">23 de setembro de 2026</time>
                 <h3>Conselho de Agrupamento</h3>
+            </div>
+            <div class="documentos-marco">
+                <time datetime="2026-10-24">24 de outubro de 2026</time>
+                <h3>Eleição do Chefe de Agrupamento</h3>
             </div>
         </div>
     </section>

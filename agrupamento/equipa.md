@@ -2,7 +2,7 @@
 layout: default
 title: Equipa | Agrupamento 929 - Belém
 main_class: pagina-com-hero
-ultima_atualizacao: 10/10/2026
+ultima_atualizacao: 22/10/2026
 ---
 <style>
   .pagina-cabecalho { position: relative; z-index: 2; max-width: 1200px; height: 100%; margin: 0 auto; padding: 78px 28px 22px; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
@@ -74,7 +74,7 @@ ultima_atualizacao: 10/10/2026
     background: color-mix(in srgb, var(--cor-seccao, var(--cne-verde)) 10%, white);
   }
   .grupo-seccao:not([open]) {
-    background-image: var(--imagem-seccao);
+    background-image: linear-gradient(180deg, rgba(7,27,48,.38) 0%, rgba(7,27,48,.2) 38%, rgba(7,27,48,0) 68%), var(--imagem-seccao);
     background-position: center;
     background-size: cover;
   }
@@ -271,6 +271,11 @@ ultima_atualizacao: 10/10/2026
         <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="">
         <img class="foto-pessoa" src="{{ '/assets/img/equipa/simao-pereira_equipa.jpg' | relative_url }}" alt="Simão Pereira">
         <div><p class="funcao">Noviço a Dirigente</p><p class="nome">Simão Pereira (Sapo)</p></div>
+      </div>
+      <div class="pessoa-cartao">
+        <img class="insignia-lado" src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="">
+        <img class="foto-pessoa" src="{{ '/assets/img/equipa/joana-silva.jpg' | relative_url }}" alt="Joana Silva">
+        <div><p class="funcao">Aspirante a Dirigente</p><p class="nome">Joana Silva (Leoa Irónica)</p></div>
       </div>
     </div>
   </details>

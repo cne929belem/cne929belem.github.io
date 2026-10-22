@@ -254,7 +254,7 @@ seccao_cor: '#39374C'
                         <p>Senhor Jesus,<br>
                         Ensinai-me a ser generoso,<br>
                         A servir-Vos como mereceis,<br>
-                        A dar sem conta,<br>
+                        A dar-me sem medida,<br>
                         A combater sem cuidar das feridas,<br>
                         A trabalhar sem procurar descanso,<br>
                         A gastar-me sem esperar outra recompensa,<br>
