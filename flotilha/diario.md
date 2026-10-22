@@ -1,23 +1,23 @@
 ---
 layout: default
-title: Diário de Bordo | II - Flotilha
+title: Diário de Bordo | II - Flotilha 110
 main_class: pagina-com-hero
 ultima_atualizacao: 10/10/2026
 seccao_slug: flotilha
-seccao_nome: II - Flotilha
+seccao_nome: II - Flotilha 110
 seccao_cor: '#6678A6'
 ---
 <section class="hero-generico hero-seccao hero-flotilha" id="hero" aria-hidden="true"></section>
 <div class="espaco-hero-generico" aria-hidden="true"></div>
 <div class="comunidade-pagina">
-	<header class="seccao-cabecalho"><h1>Diário de Bordo</h1><p>As memórias das navegações da Flotilha.</p></header>
+	<header class="seccao-cabecalho"><h1>Diário de Bordo</h1><p>As memórias das navegações da Flotilha 110.</p></header>
 	{% include seccao-nav.html %}
 	<section class="card">
 		<div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
 			<span style="font-size: 2.5rem;">📄</span>
 			<h2 style="margin: 0; color: var(--azul-marinho); border-left: 5px solid {{ page.seccao_cor }}; padding-left: 12px;">Diário de Bordo</h2>
 		</div>
-		<p style="line-height: 1.6; margin-bottom: 30px;">O arquivo vivo da nossa Flotilha, onde reunimos memórias, relatórios e imagens das atividades.</p>
+		<p style="line-height: 1.6; margin-bottom: 30px;">O arquivo vivo da nossa Flotilha 110, onde reunimos memórias, relatórios e imagens das atividades.</p>
 		<div style="margin-top: 40px; text-align: left;">
 			<div class="doc-link pendente">
 				<div>

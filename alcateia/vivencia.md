@@ -1,16 +1,16 @@
 ---
 layout: default
-title: Vivência | I - Alcateia
+title: Vivência | I - Alcateia 102
 main_class: pagina-com-hero
 ultima_atualizacao: 13/10/2026
 seccao_slug: alcateia
-seccao_nome: I - Alcateia
+seccao_nome: I - Alcateia 102
 seccao_cor: '#E9B708'
 seccao_cor_texto: '#17202A'
 ---
 <!--
-  Página "Vivência" da I Secção — Alcateia. Estrutura e componentes iguais à
-  Vivência da Comunidade 88, da Frota 98 e da Flotilha; conteúdo adaptado do
+  Página "Vivência" da I Secção — Alcateia 102. Estrutura e componentes iguais à
+  Vivência da Comunidade 88, da Frota 98 e da Flotilha 110; conteúdo adaptado do
   documento "Rumos" (Escutismo Marítimo), do quadro comparativo das secções
   marítimas e do Regulamento Geral do CNE (Lei, Máximas, Divisa, art. 4.º e
   64.º), sempre reescrito.
@@ -384,7 +384,7 @@ seccao_cor_texto: '#17202A'
             tituloAtual = "A Lei e as Máximas";
         } else {
             listaAtual = perguntasAlcateia;
-            tituloAtual = "A Alcateia";
+            tituloAtual = "A Alcateia 102";
         }
 
         indiceCard = 0;

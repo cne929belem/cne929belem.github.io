@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Vivência | II - Flotilha
+title: Vivência | II - Flotilha 110
 main_class: pagina-com-hero
 ultima_atualizacao: 13/10/2026
 seccao_slug: flotilha
-seccao_nome: II - Flotilha
+seccao_nome: II - Flotilha 110
 seccao_cor: '#6678A6'
 ---
 <!--

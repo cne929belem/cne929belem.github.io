@@ -1,10 +1,10 @@
 ---
 layout: default
-title: I - Alcateia | Agrupamento 929 - Belém
+title: I - Alcateia 102 | Agrupamento 929 - Belém
 main_class: pagina-com-hero
 ultima_atualizacao: 10/10/2026
 seccao_slug: alcateia
-seccao_nome: I - Alcateia
+seccao_nome: I - Alcateia 102
 seccao_cor: '#E9B708'
 seccao_cor_texto: '#17202A'
 ---
@@ -19,11 +19,11 @@ seccao_cor_texto: '#17202A'
 <div class="espaco-hero-generico" aria-hidden="true"></div>
 
 <div class="comunidade-pagina pagina-seccao">
-    <header class="seccao-cabecalho"><h1>I - Alcateia</h1><p>A secção dos Lobitos, dos 6 aos 10 anos.</p></header>
+    <header class="seccao-cabecalho"><h1>I - Alcateia 102</h1><p>A secção dos Lobitos, dos 6 aos 10 anos.</p></header>
     {% include seccao-nav.html %}
     <section class="seccao-geral-conteudo" style="--cor-seccao: {{ page.seccao_cor }};">
         <div class="seccao-equipa-bloco alcateia-equipa-bloco">
-            <h2 class="section-title">🐺 A equipa da Alcateia</h2>
+            <h2 class="section-title">🐺 A equipa da Alcateia 102</h2>
             <p class="seccao-geral-intro">A Equipa de Animação acompanha os Lobitos na descoberta, no jogo e na vida em bando; o Guia e o Sub-Guia, escolhidos pelos Lobitos, ajudam a organizar o seu bando.</p>
             <h3 class="section-title" style="color: var(--cor-seccao);">Equipa de Animação</h3>
             <div class="equipa-seccao-grelha">
@@ -39,11 +39,11 @@ seccao_cor_texto: '#17202A'
             {% include seccao-elementos-modal.html id="modal-elementos-alcateia" nome="Elementos do Bando" %}
             <div class="alcateia-equipa-contactos">
                 <a href="{{ '/agrupamento/equipa.html' | relative_url }}">Ver as equipas do Agrupamento</a>
-                <a href="mailto:lobitos.929@escutismo.pt">✉️ Enviar email à Alcateia</a>
+                <a href="mailto:lobitos.929@escutismo.pt">✉️ Enviar email à Alcateia 102</a>
             </div>
         </div>
         <div class="geral-grelha">
-            <div><h3 class="section-title" style="color: var(--cor-seccao);">🌐 A Alcateia no CNE</h3><p class="seccao-geral-texto">Para além do que partilhamos aqui sobre a nossa Alcateia marítima, o Corpo Nacional de Escutas tem informação nacional dedicada à I Secção (Lobitos), com mais informação sobre o método, o percurso e o Sistema de Progresso.</p><a href="https://escutismo.pt/lobitos-6-aos-10-anos/" target="_blank" rel="noopener noreferrer" class="quick-link-card"><span class="quick-link-icon">🧭</span><h3>Página Oficial da Alcateia — CNE</h3><span class="seccao-link-legenda">escutismo.pt ↗</span></a></div>
+            <div><h3 class="section-title" style="color: var(--cor-seccao);">🌐 A Alcateia no CNE</h3><p class="seccao-geral-texto">Para além do que partilhamos aqui sobre a nossa Alcateia 102 marítima, o Corpo Nacional de Escutas tem informação nacional dedicada à I Secção (Lobitos), com mais informação sobre o método, o percurso e o Sistema de Progresso.</p><a href="https://escutismo.pt/lobitos-6-aos-10-anos/" target="_blank" rel="noopener noreferrer" class="quick-link-card"><span class="quick-link-icon">🧭</span><h3>Página Oficial da Alcateia — CNE</h3><span class="seccao-link-legenda">escutismo.pt ↗</span></a></div>
             <div><h3 class="section-title" style="color: var(--cor-seccao);">👕 O nosso Uniforme e Insígnias</h3><p class="seccao-geral-texto">Clica nos cartões abaixo para consultares os documentos oficiais e recursos detalhados da secção.</p><div class="quick-links-grid"><a href="{{ '/assets/docs/uniforme-maritimo_v2024-1.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="quick-link-card"><span class="quick-link-icon">👔</span><h3>Uniforme de Lobitos</h3><span class="seccao-link-legenda">Abrir PDF 📄</span></a><a href="{{ '/assets/docs/insignia_maritimo-1.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer" class="quick-link-card"><span class="quick-link-icon">⚓</span><h3>Insígnias da Alcateia</h3><span class="seccao-link-legenda">Abrir PDF 📄</span></a></div></div>
         </div>
     </section>

@@ -31,7 +31,7 @@ percursos:
 # desativado, com a nota, mesmo que haja perguntas aprovadas na Sheet.
 seccoes:
   alcateia:
-    nome: "Alcateia"
+    nome: "Alcateia 102"
     elementos: "Lobitos"
     movimento:
       titulo: "A Lei e as Máximas do Lobito"
@@ -41,13 +41,13 @@ seccoes:
         «A Lei e as Máximas» como percurso equivalente. A aguardar decisão da Equipa de
         Animação da Alcateia.
     seccao:
-      titulo: "A Alcateia"
+      titulo: "A Alcateia 102"
       disponivel: true
   flotilha:
-    nome: "Flotilha"
+    nome: "Flotilha 110"
     elementos: "Moços"
     movimento: { titulo: "Adesão ao Movimento", disponivel: true }
-    seccao: { titulo: "Adesão à Secção — A Flotilha", disponivel: true }
+    seccao: { titulo: "Adesão à Secção — A Flotilha 110", disponivel: true }
   frota:
     nome: "Frota 98"
     elementos: "Marinheiros"

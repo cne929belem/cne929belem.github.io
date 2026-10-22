@@ -77,7 +77,7 @@ seccao_cor: '#39374C'
                                 <span class="seccao-elemento-totem">Carpa</span>
                             </div>
                             <div class="seccao-elemento">
-                                <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                                <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Arqueiro.jpg' | relative_url }}" alt="Palhaço">
                                 <span class="seccao-elemento-nome">Botica</span>
                                 <span class="seccao-elemento-totem">Palhaço</span>
                             </div>
@@ -112,12 +112,12 @@ seccao_cor: '#39374C'
                                 <span class="seccao-elemento-totem">Lanterna</span>
                             </div>
                             <div class="seccao-elemento">
-                                <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                                <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Arqueiro.jpg' | relative_url }}" alt="Manatim">
                                 <span class="seccao-elemento-nome">Escrivão</span>
                                 <span class="seccao-elemento-totem">Manatim</span>
                             </div>
                             <div class="seccao-elemento">
-                                <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                                <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Arqueiro.jpg' | relative_url }}" alt="Manta">
                                 <span class="seccao-elemento-nome">Tesoureiro</span>
                                 <span class="seccao-elemento-totem">Manta</span>
                             </div>
@@ -137,7 +137,7 @@ seccao_cor: '#39374C'
                                 <span class="seccao-elemento-totem">Arqueiro</span>
                             </div>
                             <div class="seccao-elemento">
-                                <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                                <img class="seccao-elemento-foto" src="{{ '/assets/img/elementos/Arqueiro.jpg' | relative_url }}" alt="Polvo">
                                 <span class="seccao-elemento-nome">Animador</span>
                                 <span class="seccao-elemento-totem">Polvo</span>
                             </div>
