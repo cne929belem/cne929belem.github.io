@@ -33,14 +33,14 @@
     mostrarFormulario(false);
   }
 
-  function fechar(viaHistorico) {
+  let fechar = function (viaHistorico) {
     aFechar = true;
     dialogo.close();
     document.documentElement.classList.remove('dg-aberto');
     if (!viaHistorico && window.history.state && window.history.state.diagnosticoPista) window.history.back();
     if (ultimoFoco && ultimoFoco.focus) ultimoFoco.focus();
     window.setTimeout(() => { aFechar = false; }, 0);
-  }
+  };
 
   document.querySelectorAll('[data-abrir-diagnostico]').forEach((b) => b.addEventListener('click', abrir));
   dialogo.querySelectorAll('[data-dg-fechar]').forEach((b) => b.addEventListener('click', () => fechar(false)));
@@ -78,6 +78,17 @@
   }
 
   /* -------------------------------- Resultado -------------------------------- */
+  // A tabela tem a MESMA estrutura da parte 1 da Ficha de Pista (PDF):
+  // áreas pela mesma ordem, 3 trilhos cada, nota, completado e sugerido.
+
+  const rotulos = (() => { try { return JSON.parse(raiz.dataset.rotulos || '[]'); } catch (e) { return []; } })();
+  const animais = (() => { try { return JSON.parse(raiz.dataset.animais || '{}'); } catch (e) { return {}; } })();
+  let resultadoVisto = false;
+
+  function textoNota(nota) {
+    if (nota === null) return '—';
+    return maximo === 3 ? (rotulos[nota - 1] || String(nota)) : String(nota);
+  }
 
   function celula(texto, pequeno) {
     const td = document.createElement('td');
@@ -91,46 +102,74 @@
   }
 
   function mostrarResultado() {
-    const porArea = new Map();
-    trilhos.map(estadoTrilho).forEach((e) => {
-      if (!porArea.has(e.area)) porArea.set(e.area, []);
-      porArea.get(e.area).push(e);
-    });
     linhas.replaceChildren();
     const sugeridos = [];
-    porArea.forEach((lista, area) => {
-      const tr = document.createElement('tr');
-      const th = document.createElement('th');
-      th.scope = 'row';
-      th.textContent = area;
-      tr.append(th);
+    raiz.querySelectorAll('[data-dg-area]').forEach((fieldsetArea) => {
+      const lista = Array.from(fieldsetArea.querySelectorAll('[data-dg-trilho]')).map(estadoTrilho);
       const abertos = lista.filter((e) => !e.feito);
-      if (!abertos.length) {
-        tr.append(celula('Área concluída ✔'), celula('—'));
-      } else {
-        const menor = Math.min.apply(null, abertos.map((e) => e.nota));
-        const empatados = abertos.filter((e) => e.nota === menor);
-        const nomes = empatados.map((e) => e.nome).join(' ou ');
-        sugeridos.push(nomes);
-        tr.append(celula(nomes + ' (' + menor + '/' + maximo + ')', empatados.length > 1 ? 'Empate: escolhe um deles com quem te acompanha.' : ''));
-        const outros = lista.filter((e) => empatados.indexOf(e) === -1)
-          .map((e) => e.nome + (e.feito ? ' — completado' : ' — ' + e.nota + '/' + maximo));
-        tr.append(celula(outros.length ? outros.join('; ') : '—'));
-      }
-      linhas.append(tr);
+      const menor = abertos.length ? Math.min.apply(null, abertos.map((e) => e.nota)) : null;
+      const empate = abertos.filter((e) => e.nota === menor).length > 1;
+
+      const grupo = document.createElement('tr');
+      grupo.className = 'dg-grupo';
+      const th = document.createElement('th');
+      th.colSpan = 4;
+      th.scope = 'rowgroup';
+      const animal = animais[fieldsetArea.dataset.dgAreaId];
+      th.textContent = (animal ? animal + ' · ' : '') + fieldsetArea.dataset.dgArea + (abertos.length ? '' : ' — área concluída ✔');
+      grupo.append(th);
+      linhas.append(grupo);
+
+      lista.forEach((e) => {
+        const sugerido = !e.feito && e.nota === menor;
+        if (sugerido) sugeridos.push(e.nome);
+        const tr = document.createElement('tr');
+        if (sugerido) tr.className = 'dg-sugerido';
+        tr.append(
+          celula(e.nome),
+          celula(e.feito ? '—' : textoNota(e.nota)),
+          celula(e.feito ? '✓' : '—'),
+          celula(sugerido ? '★' : '—', sugerido && empate ? 'empate' : '')
+        );
+        linhas.append(tr);
+      });
     });
     resumo.textContent = sugeridos.length
-      ? 'Os trilhos com nota mais baixa são os teus maiores desafios. Sugestão para a próxima etapa: ' + sugeridos.join(' · ') + '.'
+      ? 'Os trilhos com nota mais baixa são os teus maiores desafios. Sugestão (★): ' + sugeridos.join(' · ') + '. Num empate, escolhe um deles com quem te acompanha.'
       : 'Já completaste todos os trilhos. Parabéns! Fala com ' + raiz.dataset.quemAjuda + '.';
     form.hidden = true;
     caixa.hidden = false;
-    subtitulo.textContent = 'O meu resultado · copia-o para a tua ficha';
+    resultadoVisto = true;
+    subtitulo.textContent = 'O meu resultado · passa-o para a tua Ficha de Pista';
     corpo.scrollTop = 0;
     caixa.querySelector('h3').focus({ preventScroll: true });
   }
 
+  function haRespostas() {
+    return trilhos.some((t) => t.querySelector('input:checked'));
+  }
+
+  // Ao fechar depois de ver o resultado: lembrar de o passar para a ficha.
+  const fecharOriginal = fechar;
+  fechar = function (viaHistorico) {
+    if (resultadoVisto && !caixa.hidden &&
+        !window.confirm('Já passaste o resultado para a tua Ficha de Pista? Enquanto não recarregares a página, podes voltar a abri-lo.')) {
+      if (viaHistorico) window.history.pushState({ diagnosticoPista: true }, '');
+      return;
+    }
+    fecharOriginal(viaHistorico);
+  };
+
+  // Recarregar ou sair da página apaga as respostas: avisar.
+  window.addEventListener('beforeunload', (evento) => {
+    if (haRespostas()) {
+      evento.preventDefault();
+      evento.returnValue = '';
+    }
+  });
+
   form.addEventListener('change', atualizar);
-  form.addEventListener('reset', () => window.setTimeout(() => { atualizar(); corpo.scrollTop = 0; }, 0));
+  form.addEventListener('reset', () => window.setTimeout(() => { atualizar(); resultadoVisto = false; corpo.scrollTop = 0; }, 0));
   form.addEventListener('submit', (evento) => {
     evento.preventDefault();
     if (!botaoVer.disabled) mostrarResultado();

@@ -77,6 +77,7 @@ seccao_cor: '#39374C'
     .passo-card h4 { margin: 0 0 6px; color: var(--azul-marinho); }
     .passo-card p { font-size: 0.85rem; color: #555; margin: 0; }
     .passo-card ul { margin: 6px 0 0 18px; font-size: 0.85rem; color: #555; line-height: 1.6; }
+
     .treino-centro { text-align: center; }
     .treino-botoes { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
     .treino-botoes .btn { padding: 12px 25px; }
@@ -196,9 +197,6 @@ seccao_cor: '#39374C'
                             <div class="simbolo-card"><strong>da Botica</strong><p>Cuida do material de socorrismo e de segurança.</p></div>
                             <div class="simbolo-card"><strong>Animador</strong><p>Anima a Equipagem: o lado espiritual, o lúdico e tudo o que une.</p></div>
                         </div>
-
-                        <h3 class="section-title" style="margin-top: 20px;">Mestres e Contramestres das Equipagens</h3>
-                        {% include frota-equipagens.html %}
 
                         <p class="vivencia-texto" style="margin-top: 20px;">A vida da Frota decide-se em conselhos. Um deles reúne a Equipa de Animação, os Mestres e Contramestres e o Assistente, e trata da gestão, da disciplina, da formação e da organização dos Cruzeiros. Outro, com todos os Marinheiros e a Equipa de Animação, é onde se tomam as grandes decisões — como escolher o Cruzeiro — e onde se faz a avaliação.</p>
                     </div>

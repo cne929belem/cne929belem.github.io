@@ -3,6 +3,8 @@
 # -------------------------------------------------------------------------
 # Usado por _includes/vivencia-diagnostico.html nas quatro páginas de Vivência: abre em
 # ecrã inteiro a partir do botão «🧭 Diagnóstico de Pista» do tema «📖 Progresso».
+# O ecrã «O meu resultado» tem a MESMA estrutura da parte 1 da Ficha de Pista em PDF
+# (ficha_pdf): áreas pela mesma ordem, 3 trilhos cada, nota, completado e sugerido.
 # Corre só no navegador: nada é enviado nem guardado. O resultado aparece no
 # ecrã para o elemento copiar para a ficha que a Equipa de Animação lhe dá.
 #
@@ -38,6 +40,7 @@ escalas:
 seccoes:
   alcateia:
     nome: "Alcateia 102"
+    ficha_pdf: "/assets/docs/Ficha-de-Pista-Alcateia-102.pdf"
     escala: tres
     instrucao: >-
       Lê cada frase (ou pede a um irmão mais velho ou a um dirigente que ta leia) e escolhe a
@@ -71,6 +74,7 @@ seccoes:
 
   flotilha:
     nome: "Flotilha 110"
+    ficha_pdf: "/assets/docs/Ficha-de-Pista-Flotilha-110.pdf"
     escala: cinco
     instrucao: >-
       Lê cada frase e avalia-te de 1 a 5. Sê sincero: não há respostas certas nem erradas, e
@@ -103,6 +107,7 @@ seccoes:
 
   frota:
     nome: "Frota 98"
+    ficha_pdf: "/assets/docs/Ficha-de-Pista-Frota-98.pdf"
     escala: cinco
     instrucao: >-
       Lê cada afirmação e avalia-te de 1 a 5. Sê sincero: os pontos com nota mais baixa são os teus
@@ -135,6 +140,7 @@ seccoes:
 
   comunidade:
     nome: "Comunidade 88"
+    ficha_pdf: "/assets/docs/Ficha-de-Pista-Comunidade-88.pdf"
     escala: cinco
     instrucao: >-
       Lê cada afirmação e avalia-te de 1 a 5, com honestidade. O resultado ajuda-te a escolher os

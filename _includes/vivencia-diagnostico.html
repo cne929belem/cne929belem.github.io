@@ -71,16 +71,18 @@
     .dg-resultado[hidden], .dg-form[hidden] { display: none; }
     .dg-caixa { padding: 16px; border: 2px solid var(--dg-cor); border-radius: 10px; background: #fff; }
     .dg-tabela-wrapper { overflow-x: auto; }
-    .dg-tabela { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
-    .dg-tabela th, .dg-tabela td { padding: 8px 10px; border-bottom: 1px solid #e3e9ef; text-align: left; vertical-align: top; }
-    .dg-tabela thead th { color: var(--azul-marinho); font-size: 0.8rem; text-transform: uppercase; }
-    .dg-tabela td small { display: block; color: #66747c; }
+    .dg-tabela { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    .dg-tabela th, .dg-tabela td { padding: 7px 8px; border-bottom: 1px solid #e3e9ef; text-align: left; vertical-align: middle; }
+    .dg-tabela thead th { color: var(--azul-marinho); font-size: 0.75rem; text-transform: uppercase; }
+    .dg-tabela thead th:not(:first-child), .dg-tabela td:not(:first-child) { text-align: center; white-space: nowrap; }
+    .dg-tabela .dg-grupo th { padding-top: 12px; background: var(--cinza-fundo); color: var(--azul-marinho); font-weight: 800; text-transform: uppercase; letter-spacing: .03em; font-size: 0.8rem; }
+    .dg-tabela tr.dg-sugerido td { background: #fff8e5; font-weight: 700; }
+    .dg-tabela td small { display: block; color: #66747c; font-weight: 400; font-size: 0.75rem; white-space: normal; }
+    .dg-passar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 14px; padding: 12px 14px; border-radius: 8px; background: #fff8e5; border: 1px solid #f1d58a; color: #5c4600; font-size: 0.9rem; line-height: 1.5; }
+    .dg-passar .btn { margin: 0; }
     @media (max-width: 600px) {
-        .dg-tabela thead { display: none; }
-        .dg-tabela tr { display: block; padding: 10px 0; border-bottom: 1px solid #e3e9ef; }
-        .dg-tabela th, .dg-tabela td { display: block; padding: 2px 0; border: 0; }
-        .dg-tabela td:nth-child(2) { font-weight: 700; color: var(--azul-marinho); }
-        .dg-tabela td:nth-child(3)::before { content: "Outros: "; color: #66747c; }
+        .dg-tabela { font-size: 0.85rem; }
+        .dg-tabela th, .dg-tabela td { padding: 6px 4px; }
     }
 </style>
 
@@ -96,7 +98,7 @@
         </header>
 
         <div class="dg-corpo">
-            <div class="dg" data-diagnostico data-escala-max="{{ dg_escala.size }}" data-quem-ajuda="{{ dg_s.quem_ajuda | escape }}">
+            <div class="dg" data-diagnostico data-escala-max="{{ dg_escala.size }}" data-quem-ajuda="{{ dg_s.quem_ajuda | escape }}" data-rotulos="{{ dg_escala | map: 'rotulo' | jsonify | escape }}" data-animais="{% if dg_s.animais %}{{ dg_s.animais | jsonify | escape }}{% endif %}">
                 <form class="dg-form" data-dg-form novalidate>
                     <h3 tabindex="-1" data-dg-titulo-form>A minha bússola</h3>
                     <p>{{ dg_s.instrucao }}</p>
@@ -104,7 +106,7 @@
                     <p class="dg-nota">🔒 <strong>Nada é guardado nem enviado.</strong> As respostas ficam só neste ecrã e desaparecem quando recarregas a página. Copia o resultado para a ficha que a Equipa de Animação te entregou.</p>
 
                     {%- for area in dg.areas %}
-                    <fieldset class="dg-area">
+                    <fieldset class="dg-area" data-dg-area="{{ area.nome }}" data-dg-area-id="{{ area.id }}">
                         <legend>{{ area.nome }}{% if dg_s.animais %} · {{ dg_s.animais[area.id] }}{% endif %}</legend>
                         {%- for t in dg_s.trilhos %}{% if t.area == area.id %}
                         <fieldset class="dg-trilho" data-dg-trilho="{{ t.id }}" data-area="{{ area.nome }}" data-nome="{{ t.nome }}">
@@ -138,16 +140,22 @@
 
                 <section class="dg-resultado" data-dg-resultado aria-labelledby="dg-resultado-titulo" hidden>
                     <h3 id="dg-resultado-titulo" tabindex="-1">O meu resultado</h3>
+                    <p class="dg-passar">✍️ <span><strong>Passa este resultado para a parte 1 da tua Ficha de Pista</strong> — está pela mesma ordem, linha a linha. Não tens a ficha? Pede-a à Equipa de Animação ou descarrega-a.</span>
+                        <a class="btn dg-secundario" href="{{ dg_s.ficha_pdf | relative_url }}" target="_blank" rel="noopener">📄 Ficha de Pista (PDF)</a></p>
                     <div class="dg-caixa">
                         <p data-dg-resumo></p>
                         <div class="dg-tabela-wrapper">
                             <table class="dg-tabela">
-                                <thead><tr><th scope="col">Área</th><th scope="col">Trilho sugerido</th><th scope="col">Os outros trilhos</th></tr></thead>
+                                {%- if dg_s.escala == 'tres' -%}
+                                <thead><tr><th scope="col">Aventura</th><th scope="col">Como estou</th><th scope="col">Completada</th><th scope="col">Sugerida</th></tr></thead>
+                                {%- else -%}
+                                <thead><tr><th scope="col">Trilho</th><th scope="col">Nota</th><th scope="col">Completado</th><th scope="col">Sugerido</th></tr></thead>
+                                {%- endif %}
                                 <tbody data-dg-linhas></tbody>
                             </table>
                         </div>
                     </div>
-                    <p class="dg-nota">É uma sugestão, não uma obrigação: a escolha é tua, com {{ dg_s.quem_ajuda }}. Copia-a agora para a tua ficha — o resultado não fica guardado. Fonte: {{ dg_s.fonte }}.</p>
+                    <p class="dg-nota">É uma sugestão, não uma obrigação: a escolha é tua, com {{ dg_s.quem_ajuda }}. Passa-a agora para a ficha — o resultado não fica guardado. Fonte: {{ dg_s.fonte }}.</p>
                     <div class="dg-acoes">
                         <button type="button" class="btn dg-secundario" data-dg-voltar>Rever as respostas</button>
                         <button type="button" class="btn dg-primario" data-dg-fechar>Fechar</button>
