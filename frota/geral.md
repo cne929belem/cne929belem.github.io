@@ -32,7 +32,7 @@ seccao_cor: '#39374C'
             <div class="pessoa-seccao"><img src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="Insígnia de Noviço a Dirigente"><img src="{{ '/assets/img/equipa/simao-pereira_equipa.jpg' | relative_url }}" alt="Simão Pereira"><div><small>Noviço a Dirigente</small><strong>Simão Pereira (Sapo)</strong></div></div>
             <div class="pessoa-seccao"><img src="{{ '/assets/img/equipa/candidato_dirigente.png' | relative_url }}" alt="Insígnia de Aspirante a Dirigente"><img src="{{ '/assets/img/equipa/joana-silva.jpg' | relative_url }}" alt="Joana Silva"><div><small>Aspirante a Dirigente</small><strong>Joana Silva (Leoa Irónica)</strong></div></div>
             </div>
-            <h3 class="section-title" style="color: var(--cor-seccao); margin-top: 18px;">Mestres e Contramestres das Equipagens (eleição 10/10/2026)</h3>
+            <h3 class="section-title" style="color: var(--cor-seccao); margin-top: 18px;">As Equipagens</h3>
             {% include frota-equipagens.html %}
             <div class="frota-equipa-contactos">
                 <a href="{{ '/agrupamento/equipa.html' | relative_url }}">Ver as equipas do Agrupamento</a>

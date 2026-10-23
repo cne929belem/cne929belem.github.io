@@ -2,15 +2,34 @@
     <div class="css-lightbox-box">
         <div class="css-lightbox-header" id="{{ include.id }}-titulo">{{ include.nome }}</div>
         <div class="css-lightbox-body">
+            {% if include.elementos %}
+            <p class="seccao-elementos-intro">Guias e Sub-Guias deste Bando.</p>
+            {% elsif include.fotos == false %}
+            <p class="seccao-elementos-intro">Espaços reservados para o nome e o tótem dos elementos.</p>
+            {% else %}
             <p class="seccao-elementos-intro">Espaços reservados para a fotografia, o nome e o tótem dos elementos.</p>
+            {% endif %}
             <div class="seccao-elementos-grelha">
+                {% if include.elementos %}
+                {% assign elementos_bando = include.elementos | split: ";" %}
+                {% for elemento_bando in elementos_bando %}
+                {% assign dados_elemento = elemento_bando | split: "|" %}
+                <div class="seccao-elemento">
+                    <span class="seccao-elemento-nome">{{ dados_elemento[0] }}</span>
+                    <span class="seccao-elemento-totem">{{ dados_elemento[1] }}</span>
+                </div>
+                {% endfor %}
+                {% else %}
                 {% for elemento in (1..8) %}
                 <div class="seccao-elemento">
+                    {% unless include.fotos == false %}
                     <div class="seccao-elemento-foto" aria-label="Espaço para fotografia">📷</div>
+                    {% endunless %}
                     <span class="seccao-elemento-nome">Elemento {{ elemento }}</span>
                     <span class="seccao-elemento-totem">Nome · Totem</span>
                 </div>
                 {% endfor %}
+                {% endif %}
             </div>
             <a href="#" class="btn css-lightbox-close">Fechar</a>
         </div>
