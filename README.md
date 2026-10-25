@@ -82,7 +82,7 @@ A publicação acontece quando as alterações chegam ao ramo configurado no Git
 │   ├── geral.html                  # Datas, local, mapa, contador e acesso ao portal
 │   ├── informacoes.html            # Informações da Tropa e do Contingente
 │   ├── newsletter.html             # Boletins nacionais e internacionais
-│   └── inscricao.html              # Portal de Respostas — inscrição nominal
+│   └── inscricao.html              # Formulário arquivado, excluído da publicação
 │
 ├── _config.yml                   # Configuração, coleções, plugins, exclusões
 ├── _layouts/default.html         # Layout partilhado
@@ -153,7 +153,7 @@ O corpo Markdown de cada notícia aparece no arquivo. O campo `link` aponta para
 
 ### Jamboree 2027
 
-As páginas do Jamboree partilham uma navegação própria e um hero com a identidade oficial do evento e contador decrescente. O **Portal de Respostas** não aparece nessa navegação; o acesso é feito pela página Geral. A página tem `noindex` para reduzir indexação, mas continua pública: não estar no menu nem nos resultados de pesquisa não é controlo de acesso. A validação e as permissões dos dados submetidos têm de existir no Apps Script/Google Sheet.
+As páginas do Jamboree partilham uma navegação própria e um hero com a identidade oficial do evento e contador decrescente. O formulário de inscrição nominal encontra-se arquivado em `jamboree/inscricao.html` e está excluído da publicação pelo Jekyll.
 
 Na página Geral, as datas e os acessos principais ficam à esquerda e o local, com mapa da Ilha de Sobieszewo em Gdańsk, à direita. A página de Newsletters separa os boletins nacionais dos internacionais em duas colunas, adaptando-se a ecrãs pequenos.
 
@@ -199,7 +199,7 @@ Para criar uma página nova com este visual, o mais simples é copiar o topo de 
 
 O GitHub Pages publica HTML, CSS e JavaScript; não protege páginas. A área pessoal usa Firebase Authentication para confirmar o email e Firestore para carregar `perfis/{uid}`. As regras atuais só permitem a leitura do documento com o UID da sessão autenticada e bloqueiam listagem e escrita. Um perfil só fica disponível depois de o administrador criar o documento correspondente no Firebase. A configuração Web no JavaScript é pública; a segurança depende das regras Firestore, nunca de esconder essa configuração.
 
-As regras em `firestore.rules` são fonte de referência e não são publicadas automaticamente pelo Jekyll. Confirma que as mesmas regras estão publicadas no projeto Firebase. O formulário permite pedir links para qualquer email, mas uma conta sem documento de perfil não lê dados; antes de abrir a todos, testa a autorização com contas aprovadas. A página do Portal de Respostas também é pública, e o backend Apps Script não está versionado aqui, pelo que a validação e o controlo de acesso desse formulário não puderam ser auditados neste repositório.
+As regras em `firestore.rules` são fonte de referência e não são publicadas automaticamente pelo Jekyll. Confirma que as mesmas regras estão publicadas no projeto Firebase. O formulário permite pedir links para qualquer email, mas uma conta sem documento de perfil não lê dados; antes de abrir a todos, testa a autorização com contas aprovadas. O backend Apps Script usado pelo antigo formulário do Jamboree não está versionado neste repositório e não é afetado pela exclusão da página do site.
 
 Para comunicar uma falha de segurança, segue o [SECURITY.md](SECURITY.md) — nunca uma *issue* pública.
 

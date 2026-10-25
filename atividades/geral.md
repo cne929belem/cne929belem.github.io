@@ -30,12 +30,12 @@ ultima_atualizacao: 10/10/2026
   .linha-tempo-atividades h2 { margin: 0 0 26px; color: var(--azul-marinho); font-size: 1.35rem; }
   .linha-tempo-scroll { overflow-x: auto; padding: 8px 2px 18px; scrollbar-color: #9ab7c8 #eef3f6; }
   .linha-tempo {
-    position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 14px; min-width: 900px; margin: 0; padding: 0; list-style: none;
+    position: relative; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 14px; min-width: 1260px; margin: 0; padding: 0; list-style: none;
   }
   .linha-tempo::before {
     content: ""; position: absolute; top: 13px; left: 9%; right: 9%; height: 4px;
-    border-radius: 4px; background: linear-gradient(90deg, #8ca99c 0%, #8ca99c 54%, #78a9c2 54%, #78a9c2 100%);
+    border-radius: 4px; background: linear-gradient(90deg, #8ca99c 0%, #8ca99c 71%, #78a9c2 71%, #78a9c2 100%);
   }
   .linha-tempo-item { position: relative; min-width: 0; padding-top: 34px; }
   .linha-tempo-boia {
@@ -112,6 +112,22 @@ ultima_atualizacao: 10/10/2026
           <time datetime="2026-10-10">10 outubro 2026</time>
           <h3>Início do Ano Escutista</h3>
           <p>Às 10h, na Base. Lê a notícia da abertura.</p>
+        </a>
+      </li>
+      <li class="linha-tempo-item linha-tempo-passado">
+        <span class="linha-tempo-boia" aria-hidden="true"></span>
+        <a class="linha-tempo-cartao" href="{{ '/agrupamento/noticias.html#conselho-guias-investidura-guias' | relative_url }}">
+          <time datetime="2026-10-24">24 outubro 2026</time>
+          <h3>Conselho de Guias</h3>
+          <p>Encontro de participação, partilha e liderança.</p>
+        </a>
+      </li>
+      <li class="linha-tempo-item linha-tempo-passado">
+        <span class="linha-tempo-boia" aria-hidden="true"></span>
+        <a class="linha-tempo-cartao" href="{{ '/agrupamento/noticias.html#conselho-guias-investidura-guias' | relative_url }}">
+          <time datetime="2026-10-24">24 outubro 2026</time>
+          <h3>Investidura de Guias</h3>
+          <p>Compromisso de serviço e responsabilidade para com a patrulha.</p>
         </a>
       </li>
       <li class="linha-tempo-item linha-tempo-futuro">

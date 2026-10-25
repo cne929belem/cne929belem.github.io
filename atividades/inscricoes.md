@@ -50,6 +50,16 @@ ultima_atualizacao: 10/10/2026
                     <h3>Encontro APLs e Guias de Patrulha Jamboree</h3>
                     <p>Atividade exclusiva para participantes do Jamboree.</p>
                 </a>
+                <a class="timeline-item" href="{{ '/agrupamento/noticias.html#conselho-guias-investidura-guias' | relative_url }}">
+                    <time datetime="2026-10-24">24 out 2026</time>
+                    <h3>Conselho de Guias</h3>
+                    <p>Encontro de participação, partilha e liderança.</p>
+                </a>
+                <a class="timeline-item" href="{{ '/agrupamento/noticias.html#conselho-guias-investidura-guias' | relative_url }}">
+                    <time datetime="2026-10-24">24 out 2026</time>
+                    <h3>Investidura de Guias</h3>
+                    <p>Compromisso de serviço e responsabilidade para com a patrulha.</p>
+                </a>
                 <a class="timeline-item" href="{{ '/atividades/acagrup-2026.html' | relative_url }}">
                     <time datetime="2026-08-05">05 ago 2026</time>
                     <h3>ACAGRUP 2026 - Ilha dos Cavalos</h3>

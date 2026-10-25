@@ -1,7 +1,7 @@
 ---
 title: "Abertura do Ano Escutista"
 date: 2026-10-10
-prioridade: 1
+prioridade: 0
 ancora: inicio-ano-escutista
 autor: "Ricardo Isaías (Axolote)"
 funcao: "Tesoureiro"

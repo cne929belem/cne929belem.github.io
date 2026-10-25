@@ -1,3 +1,4 @@
+{% unless include.modais_only %}
 <style>
     .frota-equipas-grelha { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 14px; margin-top: 8px; }
     .frota-equipa { min-width: 0; padding: 14px; border: 1px solid rgba(0,0,0,.08); border-radius: 8px; background: rgba(255,255,255,.55); }
@@ -22,6 +23,7 @@
         </div>
     </a>
 </div>
+{% endunless %}
 
 <div id="modal-equipagem-luis-camoes" class="css-lightbox seccao-elementos-modal" style="--cor-seccao: {{ page.seccao_cor }};" role="dialog" aria-modal="true" aria-labelledby="modal-equipagem-luis-camoes-titulo">
     <div class="css-lightbox-box">
@@ -115,7 +117,10 @@
                     <span class="seccao-elemento-totem">Polvo</span>
                 </div>
             </div>
+
             <a href="#" class="btn css-lightbox-close">Fechar</a>
         </div>
     </div>
 </div>
+
+{% include seccao-elementos-modal.html id="modal-equipagem-bartolomeu-dias" nome="Elementos da Equipagem Bartolomeu Dias" fotos=false %}

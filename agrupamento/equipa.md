@@ -207,8 +207,8 @@ ultima_atualizacao: 22/10/2026
   <div class="aviso-mandato">
     <span aria-hidden="true">🗳️</span>
     <div>
-      <strong>Mandato em Exercício: 2023 — 2026</strong><br>
-      Aviso Eleitoral: Ocorrerão eleições para a nova Chefia de Agrupamento em 2026. <a href="{{ '/assets/docs/0929_AerturaProcessoEleitoral.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">Consultar Informação sobre eleições para Chefe de Agrupamento</a>.
+      <strong>Mandato em exercício: 2026 - 2029</strong><br>
+      A eleição para a Chefia de Agrupamento realizou-se a 24 de outubro de 2026, tendo sido eleita a candidata única. Mais informações em breve no <a href="{{ '/assets/docs/0929_AerturaProcessoEleitoral.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer">aqui</a>.
     </div>
   </div>
 </section>

@@ -31,7 +31,8 @@ pasta_anos_anteriores: "1vM1rY41dj4YzSqs93DNRp_qybFrHgjAz"
     .documentos-bloco.documentos-timeline { grid-column: 1 / -1; margin-top: 8px; }
     .documentos-linha-tempo { position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; padding-top: 28px; }
     .documentos-linha-tempo::before { content: ""; position: absolute; top: 8px; right: 0; left: 6px; height: 2px; background: #d9dfe4; }
-    .documentos-marco { position: relative; min-width: 0; }
+    .documentos-marco { position: relative; min-width: 0; display: block; color: inherit; text-decoration: none; }
+    .documentos-marco:hover h3 { text-decoration: underline; }
     .documentos-marco::before { content: ""; position: absolute; top: -26px; left: 0; width: 12px; height: 12px; border: 3px solid #fff; border-radius: 50%; background: var(--cne-verde); box-shadow: 0 0 0 2px var(--cne-verde); }
     .documentos-marco time { display: block; color: var(--cne-verde-escuro); font-size: 0.82rem; font-weight: 800; }
     .documentos-marco h3 { margin: 4px 0 0; color: var(--azul-marinho); font-size: 1rem; }
@@ -102,6 +103,14 @@ pasta_anos_anteriores: "1vM1rY41dj4YzSqs93DNRp_qybFrHgjAz"
                 <time datetime="2026-10-24">24 de outubro de 2026</time>
                 <h3>Eleição do Chefe de Agrupamento</h3>
             </div>
+            <a class="documentos-marco" href="{{ '/agrupamento/noticias.html#conselho-guias-investidura-guias' | relative_url }}">
+                <time datetime="2026-10-24">24 de outubro de 2026</time>
+                <h3>Conselho de Guias</h3>
+            </a>
+            <a class="documentos-marco" href="{{ '/agrupamento/noticias.html#conselho-guias-investidura-guias' | relative_url }}">
+                <time datetime="2026-10-24">24 de outubro de 2026</time>
+                <h3>Investidura de Guias</h3>
+            </a>
         </div>
     </section>
 </div>

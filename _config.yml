@@ -43,6 +43,7 @@ exclude:
   - SECURITY.md
   - ACCESSIBILITY.md
   - AUDITORIA.md
+  - jamboree/inscricao.html
   - LICENSE
   - firestore.rules
   - Gemfile
